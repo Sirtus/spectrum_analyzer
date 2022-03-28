@@ -16,6 +16,8 @@ blue[2] << plot_controller:plot.blue[2]
 blue[3] << plot_controller:plot.blue[3]
 h_sync << vga_controller:vga.h_sync
 v_sync << vga_controller:vga.v_sync
+mic_vcc << <VCC>
+mic_gnd << <GND>
 sel << <GND>
 lrcl << mic_rec:mic.ws
 din => mic_rec:mic.d_rx

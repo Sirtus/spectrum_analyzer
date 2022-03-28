@@ -10,6 +10,9 @@ entity spectrum_analyzer is
 
         red, green, blue: out std_logic_vector(3 downto 0);
         h_sync, v_sync: out std_logic;
+		  
+		  mic_vcc: out std_logic := '1';
+		  mic_gnd: out std_logic := '0';
 
         sel: out std_logic;
         lrcl: out std_logic;
