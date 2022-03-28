@@ -64,4 +64,42 @@ set_global_assignment -name QIP_FILE pll.qip
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_location_assignment PIN_P1 -to blue[0]
+set_location_assignment PIN_T1 -to blue[1]
+set_location_assignment PIN_P4 -to blue[2]
+set_location_assignment PIN_N2 -to blue[3]
+set_location_assignment PIN_W1 -to green[0]
+set_location_assignment PIN_T2 -to green[1]
+set_location_assignment PIN_R2 -to green[2]
+set_location_assignment PIN_R1 -to green[3]
+set_location_assignment PIN_AA1 -to red[0]
+set_location_assignment PIN_V1 -to red[1]
+set_location_assignment PIN_Y2 -to red[2]
+set_location_assignment PIN_Y1 -to red[3]
+set_location_assignment PIN_N3 -to h_sync
+set_location_assignment PIN_N1 -to v_sync
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to blue[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to blue[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to blue[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to blue[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to clk
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to din
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to green[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to green[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to green[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to green[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to h_sync
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to lrcl
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to red[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to red[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to red[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to red[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sclk
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sel
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to v_sync
+set_location_assignment PIN_AB3 -to sclk
+set_location_assignment PIN_AA2 -to sel
+set_location_assignment PIN_Y3 -to din
+set_location_assignment PIN_AB2 -to lrcl
+set_location_assignment PIN_P11 -to clk
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

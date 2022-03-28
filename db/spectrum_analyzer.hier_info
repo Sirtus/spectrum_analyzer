@@ -2,24 +2,24 @@
 clk => pll:pll.inclk0
 clk => vga_controller:vga.clk
 clk => plot_controller:plot.clk
-red[0] <= plot_controller:plot.red[0]
-red[1] <= plot_controller:plot.red[1]
-red[2] <= plot_controller:plot.red[2]
-red[3] <= plot_controller:plot.red[3]
-green[0] <= plot_controller:plot.green[0]
-green[1] <= plot_controller:plot.green[1]
-green[2] <= plot_controller:plot.green[2]
-green[3] <= plot_controller:plot.green[3]
-blue[0] <= plot_controller:plot.blue[0]
-blue[1] <= plot_controller:plot.blue[1]
-blue[2] <= plot_controller:plot.blue[2]
-blue[3] <= plot_controller:plot.blue[3]
-h_sync <= vga_controller:vga.h_sync
-v_sync <= vga_controller:vga.v_sync
-sel <= <GND>
-lrcl <= mic_rec:mic.ws
+red[0] << plot_controller:plot.red[0]
+red[1] << plot_controller:plot.red[1]
+red[2] << plot_controller:plot.red[2]
+red[3] << plot_controller:plot.red[3]
+green[0] << plot_controller:plot.green[0]
+green[1] << plot_controller:plot.green[1]
+green[2] << plot_controller:plot.green[2]
+green[3] << plot_controller:plot.green[3]
+blue[0] << plot_controller:plot.blue[0]
+blue[1] << plot_controller:plot.blue[1]
+blue[2] << plot_controller:plot.blue[2]
+blue[3] << plot_controller:plot.blue[3]
+h_sync << vga_controller:vga.h_sync
+v_sync << vga_controller:vga.v_sync
+sel << <GND>
+lrcl << mic_rec:mic.ws
 din => mic_rec:mic.d_rx
-sclk <= mic_rec:mic.sclk
+sclk << mic_rec:mic.sclk
 
 
 |spectrum_analyzer|pll:pll
