@@ -49,28 +49,7 @@ architecture arch of spectrum_analyzer is
 
     fifo: entity work.queue
     port map(clk => mclk, data_in => l_data, data_out => do, wr_en => wr_en);
-
-
-    -- process(mclk)
-    --     variable coun: unsigned(23 downto 0);
-    --     variable ctr: integer range 0 to 200000;
-    -- begin
-    --     if rising_edge(mclk) then
-    --         if ctr = 2000 then
-    --             coun := coun + 1;
-    --             -- coun := coun mod 600;--8388600;
-    --             if coun = 838860 then
-    --                 coun := (others => '0');
-    --             end if;
-    --             ctr := 0;
-    --             wr_en <= '1';
-    --         else
-    --             dd <= std_logic_vector(coun);
-    --             ctr := ctr + 1;
-    --             wr_en <= '0'; 
-    --         end if;
-    --     end if;
-    -- end process;
+    
     sel <= '0';
 
 end arch;

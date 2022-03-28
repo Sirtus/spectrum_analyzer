@@ -35,12 +35,6 @@ begin
     red <= "0000" when video_on = '1' and pixel_y = que(pixel_x) else "0000";
     blue <= "0000" when video_on = '1' and pixel_y = que(pixel_x) else "0000";
     green <= "1111" when video_on = '1' and pixel_y = que(pixel_x) else "0000";
-    
-    -- red <= "0111" when video_on = '1' and pixel_x > point_x-2 and pixel_x < point_x + 2 
-    --                                   and pixel_y > point_y-2 and pixel_y < point_y+2 else "0000";
-    -- blue <= "1100" when video_on = '1'  and pixel_x > point_x-2 and pixel_x < point_x + 2 
-    --                                     and pixel_y > point_y-2 and pixel_y < point_y+2 else "0000";
-    -- green <= "0010" when video_on = '1' and pixel_x > point_x-2 and pixel_x < point_x + 2 
-    --                                     and pixel_y > point_y-2 and pixel_y < point_y+2 else "0000";
+
     
 end architecture arch;
