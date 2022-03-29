@@ -1,6 +1,6 @@
 package sin_cos is
     
-    type sin_cos_arr_t is array(0 to 63) of integer range -100 to 100;
+    type sin_cos_arr_t is array(0 to 62) of integer range -100 to 100;
 
     constant sin_arr: sin_cos_arr_t := 
     (
@@ -34,12 +34,12 @@ package body sin_cos is
     
     function sin(x: integer) return integer is
         begin
-            return sin_arr((x mod 63));
+            return sin_arr((x mod 62));
     end function;
 
     function cos(x: integer) return integer is
         begin
-            return cos_arr((x mod 63));
+            return cos_arr((x mod 62));
     end function;
 
 

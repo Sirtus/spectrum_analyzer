@@ -30,6 +30,9 @@ architecture arch of spectrum_analyzer is
     signal do: queue_t := (others => 0);
     signal wr_en: std_logic := '0';
 
+    signal is_computed_dft: std_logic := '0';
+    signal dft_res: queue_t;
+
     begin 
 
     pll: entity work.pll
@@ -41,7 +44,7 @@ architecture arch of spectrum_analyzer is
 
     plot: entity work.plot_controller
     port map(clk => clk, video_on => video_on, pixel_x => pixel_x, pixel_y => pixel_y, 
-             red => red, green => green, blue => blue, l_data => l_data, r_data => r_data, do => do);
+             red => red, green => green, blue => blue, l_data => l_data, r_data => r_data, do => dft_res);
 
     mic: entity work.mic_rec
     port map(mclk => mclk, sclk => sclk, ws => lrcl, d_rx => din, l_data => l_data, r_data => r_data, 
@@ -49,6 +52,9 @@ architecture arch of spectrum_analyzer is
 
     fifo: entity work.queue
     port map(clk => mclk, data_in => l_data, data_out => do, wr_en => wr_en);
+
+    dft: entity work.dft
+    port map(clk => clk, data => do, read_en => wr_en, result => dft_res, is_computed => is_computed_dft);
     
     sel <= '0';
 
