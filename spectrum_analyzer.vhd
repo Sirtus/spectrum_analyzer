@@ -49,6 +49,9 @@ architecture arch of spectrum_analyzer is
 
 --    fifo: entity work.queue
 --    port map(clk => mclk, data_in => l_data, data_out => do, wr_en => wr_en);
+
+    sin_test: entity work.sin_test
+        port map(res => do);
     
     sel <= '0';
 

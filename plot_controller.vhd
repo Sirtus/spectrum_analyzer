@@ -33,7 +33,7 @@ begin
     end process;
 
     red <= "0000" when video_on = '1' and pixel_y = que(pixel_x) else "0000";
-    blue <= "0000" when video_on = '1' and pixel_y = que(pixel_x) else "0000";
+    blue <= "1111" when video_on = '1' and pixel_y = 300 else "0000";
     green <= "1111" when video_on = '1' and pixel_y = que(pixel_x) else "0000";
 
     
