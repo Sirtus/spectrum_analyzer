@@ -28,19 +28,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "lrcl",
-					"strict" : false
-				},
-				{
-					"name" : "sclk",
-					"strict" : false
-				},
-				{
 					"name" : "clk",
-					"strict" : false
-				},
-				{
-					"name" : "din",
 					"strict" : false
 				}
 			]

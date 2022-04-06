@@ -43,12 +43,12 @@ architecture arch of spectrum_analyzer is
     port map(clk => clk, video_on => video_on, pixel_x => pixel_x, pixel_y => pixel_y, 
              red => red, green => green, blue => blue, l_data => l_data, r_data => r_data, do => do);
 
-    mic: entity work.mic_rec
-    port map(mclk => mclk, sclk => sclk, ws => lrcl, d_rx => din, l_data => l_data, r_data => r_data, 
-            read_en => wr_en);
+--    mic: entity work.mic_rec
+--    port map(mclk => mclk, sclk => sclk, ws => lrcl, d_rx => din, l_data => l_data, r_data => r_data, 
+--            read_en => wr_en);
 
-    fifo: entity work.queue
-    port map(clk => mclk, data_in => l_data, data_out => do, wr_en => wr_en);
+--    fifo: entity work.queue
+--    port map(clk => mclk, data_in => l_data, data_out => do, wr_en => wr_en);
     
     sel <= '0';
 

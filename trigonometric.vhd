@@ -1,11 +1,11 @@
 package trigonometric is
 
-    function apprrox_sin(x: integer) return integer;
+    function app_sin(x: integer) return integer;
     
 end package trigonometric ;
 
 package body trigonometric is
-    function apprrox_sin(x: integer) return integer is
+    function app_sin(x: integer) return integer is
         variable y, tmp: integer := 0;
         variable div, x01, x100000: integer := 0;
         begin
@@ -26,5 +26,5 @@ package body trigonometric is
                 y := y * (-1);
             end if;
             return y;
-        end function
+        end function;
 end package body;
