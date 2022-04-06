@@ -27,7 +27,7 @@ architecture arch of spectrum_analyzer is
     signal pixel_x, pixel_y: integer := 0;
     signal mclk: std_logic := '0';
     signal dd, l_data, r_data : std_logic_vector(23 downto 0);
-    signal do: queue_t := (others => 0);
+    signal do, do_cos: queue_t := (others => 0);
     signal wr_en: std_logic := '0';
 
     begin 
@@ -41,7 +41,7 @@ architecture arch of spectrum_analyzer is
 
     plot: entity work.plot_controller
     port map(clk => clk, video_on => video_on, pixel_x => pixel_x, pixel_y => pixel_y, 
-             red => red, green => green, blue => blue, l_data => l_data, r_data => r_data, do => do);
+             red => red, green => green, blue => blue, l_data => l_data, r_data => r_data, do => do, do_cos => do_cos);
 
 --    mic: entity work.mic_rec
 --    port map(mclk => mclk, sclk => sclk, ws => lrcl, d_rx => din, l_data => l_data, r_data => r_data, 
@@ -52,6 +52,9 @@ architecture arch of spectrum_analyzer is
 
     sin_test: entity work.sin_test
         port map(res => do);
+
+    cos_test: entity work.cos_test
+        port map(res => do_cos);
     
     sel <= '0';
 

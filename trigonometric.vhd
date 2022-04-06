@@ -6,6 +6,8 @@ package trigonometric is
 end package trigonometric ;
 
 package body trigonometric is
+
+    -- approximated sin function: app_sin(x) = 100 * sin(0.1 * x)
     function app_sin(x: integer) return integer is
         variable y, tmp: integer := 0;
         variable div, x01, x100000: integer := 0;
@@ -27,6 +29,7 @@ package body trigonometric is
             return y;
         end function;
 
+        -- approximated cos function: app_cos(x) = 100 * cos(0.1 * x)
         function app_cos(x: integer) return integer is
             variable y, tmp: integer := 0;
             variable div, x01, x100000: integer := 0;
