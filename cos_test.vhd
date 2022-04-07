@@ -5,17 +5,17 @@ library work;
 use work.trigonometric.all;
 use work.common.all;
 
-entity sin_test is
+entity cos_test is
     port (
         res: out queue_t := (others => 0)
     );
-end sin_test;
+end cos_test;
 
-architecture rtl of sin_test is
+architecture rtl of cos_test is
     signal res_out: queue_t := (others => 0);
 begin
 
-    g : for i in 0 to 799 generate
+    cos_proc : for i in 0 to 799 generate
         res_out(i) <= 300 - app_cos(i);
     end generate;
     
