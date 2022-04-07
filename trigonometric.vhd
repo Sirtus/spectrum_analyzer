@@ -2,6 +2,7 @@ package trigonometric is
 
     function app_sin(x: integer) return integer;
     function app_cos(x: integer) return integer;
+
     
 end package trigonometric ;
 
@@ -28,6 +29,14 @@ package body trigonometric is
             end if;
             return y;
         end function;
+
+        -- function app_sin(x: integer) return integer is
+        --     -- variable y, tmp: integer := 0;
+        --     -- variable div, x01, x100000: integer := 0;
+        --     begin
+                
+        --         return c(x mod 628);
+        --     end function;
 
         -- approximated cos function: app_cos(x) = 100 * cos(0.1 * x)
         function app_cos(x: integer) return integer is
