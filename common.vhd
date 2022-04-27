@@ -2,8 +2,8 @@ library IEEE;
 use ieee.math_real.all;
 package common is
     
-    type queue_t is array(0 to 7) of integer range -30000 to 60000;
-    type cplx is array(0 to 1) of integer;-- range -1000 to 1000;
+    type queue_t is array(0 to 7) of integer range -500 to 1000;
+    type cplx is array(0 to 1) of integer range -10000 to 10000;
     
 
     constant N: integer := queue_t'high + 1;

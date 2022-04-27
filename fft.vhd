@@ -9,7 +9,7 @@ use work.trigonometric.all;
 entity fft is
     port (
         clk: in std_logic;
-        data: in queue_t;
+        data_i: in queue_t;
         do_fft: in std_logic;
         done: out std_logic;
         res: out queue_t
@@ -24,10 +24,11 @@ architecture rtl of fft is
     signal dataAi, dataBi, dataAo, dataBo, Sa, Sb: cplx := (others => 0);
     signal addrAi, addrBi, addrAo, addrBo: integer range 0 to N*2;
     signal counter_n: unsigned(LOG_N downto 0):= (others => '0');
-    signal pairs_number, pairs_amount, pair_counter: natural range 0 to N := 0;
+    signal pairs_number, pair_counter: natural range 0 to N := 0;
     signal counter_m, counter_divider: integer range 0 to N := 0; 
     signal alpha: integer := 0;
     signal x,y: cplx := (others => 0);
+    signal data: queue_t := (others => 0);
 
     signal wr, rd: std_logic := '0';
     type ram_type is array(0 to N) of cplx;
@@ -56,7 +57,7 @@ begin
     );
     
     process(clk)
-    variable alpha_counter: natural range 0 to N/2+1;
+
     variable counter_n_ninv: unsigned(LOG_N downto 0) := (others => '0');
     variable adA, adB: integer := 0;
     variable dA, dB: cplx := (others => 0);
@@ -70,9 +71,9 @@ begin
                         state_m <= write_to_ram;
                         counter_m <= 1;
                         counter_n <= (others => '0');
-                        alpha_counter := 0;
                         counter_divider <= N;
                         pair_counter <= 0;
+                        data <= data_i;
                     end if;
 
                 when write_to_ram =>
@@ -96,10 +97,10 @@ begin
                     end if;
 
                 when transform =>
-                    report "!!!!!!!!!!!!counter_n" & integer'image(to_integer(counter_n));
-                    for i in 0 to 7 loop
-                        report "Mess:" & integer'image(ram_arr(i)(0))& " res: " & integer'image(ram_arr(i)(1));
-                    end loop;
+                    -- report "!!!!!!!!!!!!counter_n" & integer'image(to_integer(counter_n));
+                    -- for i in 0 to 7 loop
+                    --     report "Mess:" & integer'image(ram_arr(i)(0))& " res: " & integer'image(ram_arr(i)(1));
+                    -- end loop;
                     if counter_n > queue_t'high-1 then
                         if counter_m = LOG_N then
                             state_m <= transform_end;
@@ -110,48 +111,21 @@ begin
                         else
                             counter_m <= counter_m + 1;
                             counter_n <= (others => '0');
-                            alpha_counter := 0;
                             counter_n_ninv := (others => '0');
                             counter_divider <= counter_divider / 2;
-                            pairs_amount <= 2*N/counter_divider;
                             pair_counter <= 0;
                         end if;
                     else
-                    -- counter_n_ninv := to_unsigned(to_integer(counter_n) * 2**counter_m, LOG_N+1);
-                    -- counter_n_ninv := to_unsigned(to_integer(counter_n_ninv) / 2**counter_m, LOG_N+1);
-                    -- report "asdf " & integer'image(counter_m);
-                        -- if counter_m = 1 then
-                        --     counter_n_ninv := counter_n;
-                        --     for i in 0 to LOG_N -1 loop
-                        --         counter_n_inversed1(i) := counter_n_ninv(LOG_N-1 - i);
-                        --         counter_n_inversed2(i) := counter_n_ninv(LOG_N-1 - i);
-                        --     end loop;
-                        --     counter_n_inversed1(LOG_N-1) := '0';
-                        --     counter_n_inversed2(LOG_N-1) := '1'; 
-                        --     adA := to_integer(counter_n_inversed1);
-                        --     adB := to_integer(counter_n_inversed2);
-                        --     -- report "adA: " & integer'image(adA);
-                        --     -- report "adB: " & integer'image(adB);
-                        --     x <= ram_arr(adA);
-                        --     y <= ram_arr(adB);
-                        --     state_m <= butterfly_step;
-                        -- else
-                            if (pair_counter mod (2**(counter_m))) < 2**(counter_m-1) then
-                                adA := pair_counter;
-                                adB := pair_counter + 2**(counter_m-1);
-                                -- report "counter_divider: " & integer'image(counter_divider);
-                                -- report "pairs amount: " & integer'image(pairs_amount);
-                                -- report "**********88pair counter: " & integer'image(pair_counter);
-                                -- report "adA: " & integer'image(adA);
-                                -- report "adB: " & integer'image(adB);
-                                x <= ram_arr(adA);
-                                y <= ram_arr(adB);
-                                state_m <= butterfly_step;
-                            else
-                                pair_counter <= pair_counter + 1;
-                                -- counter_n <= counter_n + 1;
-                            end if;
-                        -- end if;
+
+                        if (pair_counter mod (2**(counter_m))) < 2**(counter_m-1) then
+                            adA := pair_counter;
+                            adB := pair_counter + 2**(counter_m-1);
+                            x <= ram_arr(adA);
+                            y <= ram_arr(adB);
+                            state_m <= butterfly_step;
+                        else
+                            pair_counter <= pair_counter + 1;
+                        end if;
  
                     end if;
 
@@ -181,7 +155,6 @@ begin
                     -- report "2 wynik: " & integer'image(Sb(0)) & " " & integer'image(Sa(1));
                     
                     counter_n <= counter_n + 2;
-                    alpha_counter := alpha_counter + 1;
                     pair_counter <= pair_counter + 1;
                     state_m <= transform;
                     counter_n_inversed1 := (others => '0');
@@ -197,8 +170,8 @@ begin
                         adA := to_integer(counter_n);
                         adB := to_integer(counter_n + 1);
                         counter_n <= counter_n + 2;
-                        res(adA) <= (ram_arr(adA)(0)*ram_arr(adA)(0))/1000  + (ram_arr(adA)(1)*ram_arr(adA)(1))/1000;
-                        res(adB) <= (ram_arr(adB)(0)*ram_arr(adB)(0))/1000  + (ram_arr(adB)(1)*ram_arr(adB)(1))/1000; -- + ram_arr(adB)(1);
+                        res(adA) <= (ram_arr(adA)(0)*ram_arr(adA)(0))/4000  + (ram_arr(adA)(1)*ram_arr(adA)(1))/4000;
+                        res(adB) <= (ram_arr(adB)(0)*ram_arr(adB)(0))/4000  + (ram_arr(adB)(1)*ram_arr(adB)(1))/4000; -- + ram_arr(adB)(1);
                     end if;
                 
                 when clean =>

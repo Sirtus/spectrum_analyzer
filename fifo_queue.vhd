@@ -15,9 +15,7 @@ entity queue is
 end queue;
 
 architecture arch of queue is
-    signal data: queue_t := (others => 600);
-    constant c: integer := 200;
-    constant r: real := 0.000035763;
+    signal data: queue_t := (others => 0);
 begin
     
     process(clk)
@@ -25,7 +23,7 @@ begin
     begin
         if rising_edge(clk) then
             if wr_en = '1' then
-                temp := to_integer(unsigned(data_in(20 downto 12)));
+                temp := to_integer(unsigned(data_in(20 downto 13))) - 128;
                 data <= temp & data(0 to queue_t'high-1);
             end if;
         end if;
