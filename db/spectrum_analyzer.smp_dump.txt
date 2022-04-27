@@ -1,0 +1,11 @@
+
+State Machine - |spectrum_analyzer|fft:fft|state_m
+Name state_m.transform_end state_m.butterfly_step state_m.read_data state_m.write_data state_m.clean state_m.transform state_m.write_to_ram state_m.idle 
+state_m.idle 0 0 0 0 0 0 0 0 
+state_m.write_to_ram 0 0 0 0 0 0 1 1 
+state_m.transform 0 0 0 0 0 1 0 1 
+state_m.clean 0 0 0 0 1 0 0 1 
+state_m.write_data 0 0 0 1 0 0 0 1 
+state_m.read_data 0 0 1 0 0 0 0 1 
+state_m.butterfly_step 0 1 0 0 0 0 0 1 
+state_m.transform_end 1 0 0 0 0 0 0 1 
