@@ -25,7 +25,9 @@ architecture sim of fft_tb is
     -- );
     signal data: queue_t := 
     (
-        35, 35, 64, 106, 35, -106, -135,-35 
+        -- 35, 35, 64, 106, 35, -106, -135,-35 
+        255,12, -12, -255, -12, 12, 255, 12
+        -- 0, 1, 2, 3, 4, 5, 6, 7
     );
     signal do_fft: std_logic := '1';
     signal done: std_logic := '0';
