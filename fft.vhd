@@ -21,9 +21,10 @@ architecture rtl of fft is
     
     type state_t is (idle, write_to_ram, transform, clean, write_data, read_data, butterfly_step, transform_end);
     signal state_m: state_t := idle;
-    signal dataAi, dataBi, dataAo, dataBo, Sa, Sb: cplx := (others => 0);
-    signal addrAi, addrBi, addrAo, addrBo: integer range 0 to N*2;
-    signal counter_n: unsigned(LOG_N downto 0):= (others => '0');
+    signal dataAi, dataBi, dataAo, dataBo: std_logic_vector(23 downto 0) := (others => '0');
+    signal Sa, Sb: cplx := (others => 0);
+    signal addrA, addrB: std_logic_vector(4 downto 0);
+    signal counter_n: unsigned(4 downto 0):= (others => '0');
     signal pairs_number, pair_counter: natural range 0 to N := 0;
     signal counter_m, counter_divider: integer range 0 to N := 0; 
     signal alpha: integer := 0;
@@ -31,23 +32,32 @@ architecture rtl of fft is
     signal data: queue_t := (others => 0);
 
     signal wr, rd: std_logic := '0';
-    type ram_type is array(0 to N) of cplx;
-    signal ram_arr : ram_type := (others => (others => 0));   
+    -- type ram_type is array(0 to N) of cplx;
+    -- signal ram_arr : ram_type := (others => (others => 0));   
     
 begin
 
-    -- ram: entity work.ram
-    -- port map(
-    --     addrAo => addrAo, 
-    --     addrBo => addrBo,
-    --     addrAi => addrAi,
-    --     addrBi => addrBi,
-    --     dataAi => dataAi,
-    --     dataBi => dataBi,
-    --     dataAo => dataAo,
-    --     dataBo => dataBo,
-    --     wr => wr, rd => rd
-    -- );
+    ram: entity work.ram_ip
+    port map(
+        -- addrAo => addrAo, 
+        -- addrBo => addrBo,
+        -- addrAi => addrAi,
+        -- addrBi => addrBi,
+        -- dataAi => dataAi,
+        -- dataBi => dataBi,
+        -- dataAo => dataAo,
+        -- dataBo => dataBo,
+        -- wr => wr, rd => rd
+        address_a => addrA,
+        address_b => addrB,
+        clock => clk,
+        data_a => dataAi,
+        data_b => dataBi,
+        wren_a => wr,
+        wren_b => wr,
+        q_a => dataAo,
+        q_b => dataBo
+    );
 
     butterfly: entity work.butterfly
     port map(
@@ -89,10 +99,15 @@ begin
                         end loop;
                         counter_n_inversed1(LOG_N-1) := '0';
                         counter_n_inversed2(LOG_N-1) := '1'; 
+                        addrA <= std_logic_vector(counter_n);
+                        addrB <= std_logic_vector(counter_n + 1);
                         adA := to_integer(counter_n_inversed1);
                         adB := to_integer(counter_n_inversed2);
-                        ram_arr(to_integer(counter_n)) <= (data(adA), 0);
-                        ram_arr(to_integer(counter_n) + 1) <= (data(adB), 0);
+                        dataAi <= std_logic_vector(to_unsigned(data(adA), 12)) & "000000000000";
+                        dataBi <= std_logic_vector(to_unsigned(data(adB), 12)) & "000000000000";
+
+                        -- ram_arr(to_integer(counter_n)) <= (data(adA), 0);
+                        -- ram_arr(to_integer(counter_n) + 1) <= (data(adB), 0);
                         counter_n <= counter_n + 2;
                     end if;
 
@@ -101,11 +116,12 @@ begin
                     -- for i in 0 to 7 loop
                     --     report "Mess:" & integer'image(ram_arr(i)(0))& " res: " & integer'image(ram_arr(i)(1));
                     -- end loop;
+                    wr <= '0';
                     if counter_n > queue_t'high-1 then
                         if counter_m = LOG_N then
                             state_m <= transform_end;
-                            addrAo <= 0;
-                            addrBo <= 0;
+--                            addrAo <= 0;
+--                            addrBo <= 0;
                             counter_n <= (others => '0');
                             done <= '1';    
                         else
@@ -120,18 +136,26 @@ begin
                         if (pair_counter mod (2**(counter_m))) < 2**(counter_m-1) then
                             adA := pair_counter;
                             adB := pair_counter + 2**(counter_m-1);
-                            x <= ram_arr(adA);
-                            y <= ram_arr(adB);
-                            state_m <= butterfly_step;
+                            -- x <= ram_arr(adA);
+                            -- y <= ram_arr(adB);
+                            addrA <= std_logic_vector(to_unsigned(adA, addrA'length));
+                            addrB <= std_logic_vector(to_unsigned(adB, addrB'length));
+                            
+                            state_m <= read_data;
                         else
                             pair_counter <= pair_counter + 1;
                         end if;
  
                     end if;
 
+                when read_data =>
+                    x <= (to_integer(unsigned(dataAo)), 1);
+                    y <= (to_integer(unsigned(dataBo)), 3);
+                    state_m <= butterfly_step;
+
 
                 when butterfly_step =>
-                    alpha <= 64*(pair_counter mod (2**(counter_m-1))* counter_divider/2)/N ; --((alpha_counter mod 2**counter_m) * counter_divider/2);
+                    alpha <= (pair_counter mod (2**(counter_m-1)))* counter_divider/2 ; --((alpha_counter mod 2**counter_m) * counter_divider/2);
                     -- alpha <= 628 * (alpha_counter mod 2**counter_m) ;
                     state_m <= write_data;
 
@@ -142,8 +166,11 @@ begin
                     --     adB := adA + 1;       
                     --     -- report "@@@ args: " & integer'image(adA) & " " & integer'image(adB);    
                     -- end if;
-                    ram_arr(adA) <= Sa;
-                    ram_arr(adB) <= Sb;
+                    wr <= '1';
+                    dataAi <= std_logic_vector(to_unsigned(Sa(0), dataAi'length));
+                    dataBi <= std_logic_vector(to_unsigned(Sb(0), dataBi'length));
+                    -- ram_arr(adA) <= Sa;
+                    -- ram_arr(adB) <= Sb;
                     -- report "alpha: " & integer'image(alpha);
                     -- report "alpha counter: " & integer'image(alpha_counter);
                     -- report "counter_m: " & integer'image(counter_m);
@@ -169,9 +196,13 @@ begin
                     else
                         adA := to_integer(counter_n);
                         adB := to_integer(counter_n + 1);
+                        dA := (to_integer(unsigned(dataAo)), 0);
+                        dB := (to_integer(unsigned(dataBo)), 0);
                         counter_n <= counter_n + 2;
-                        res(adA) <= (ram_arr(adA)(0)*ram_arr(adA)(0))/4000  + (ram_arr(adA)(1)*ram_arr(adA)(1))/4000;
-                        res(adB) <= (ram_arr(adB)(0)*ram_arr(adB)(0))/4000  + (ram_arr(adB)(1)*ram_arr(adB)(1))/4000; -- + ram_arr(adB)(1);
+                        res(adA) <= dA(0);
+                        res(adB) <= dB(0);
+                        -- res(adA) <= (ram_arr(adA)(0)*ram_arr(adA)(0))/4000  + (ram_arr(adA)(1)*ram_arr(adA)(1))/4000;
+                        -- res(adB) <= (ram_arr(adB)(0)*ram_arr(adB)(0))/4000  + (ram_arr(adB)(1)*ram_arr(adB)(1))/4000; -- + ram_arr(adB)(1);
                     end if;
                 
                 when clean =>
