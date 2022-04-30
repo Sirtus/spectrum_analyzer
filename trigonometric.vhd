@@ -8,14 +8,14 @@ package trigonometric is
     function sin_from_table(x: integer range 0 to N/2-1) return integer;-- range -100 to 100;
     function cos_from_table(x: integer range 0 to N/2-1) return integer;-- range -100 to 100;
 
-    type trig_arr is array(0 to N/2 -1 ) of integer range -100 to 100;
+    type trig_arr is array(0 to N/2 -1 ) of integer range -128 to 128;
 
     constant sin_arr: trig_arr := (
-        0, -70, -100, -70
+        0, -90, -128, -90
     );
 
     constant cos_arr: trig_arr := (
-        100, 70, 0, -70
+        128, 90, 0, -90
     );
 
 end package trigonometric ;

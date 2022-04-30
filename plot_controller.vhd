@@ -31,9 +31,9 @@ begin
         end if;
     end process;
 
-    red <= "1111" when video_on = '1' and pixel_y >= (600 - que_cos(pixel_x/100)) else "0000";
+    red <= "0000" when video_on = '1'  else "0000";
     blue <= "1111" when video_on = '1' and pixel_y = 300 else "0000";
-    green <= "1111" when video_on = '1' and pixel_y >= (600 - que_cos(pixel_x/100)) else "0000";
-
+    green <= "1111" when video_on = '1' and pixel_y <= que_cos(1) else "0000";
+--pixel_y >= (600 - que_cos(pixel_x/100))
     
 end architecture arch;
