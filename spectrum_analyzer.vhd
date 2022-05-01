@@ -28,19 +28,19 @@ architecture arch of spectrum_analyzer is
     signal mclk: std_logic := '0';
     signal dd, l_data, r_data : std_logic_vector(23 downto 0);
     signal do, do_cos, do_next: queue_t := (others => 0);
-    signal wr_en: std_logic := '1';
-    signal simple_data: queue_t := 
-    (
-        35, 35, 64, 106, 35, -106, -135,-35 
-        -- 255,12, 123, 255, 3, 12, 255, 12
-        -- 0, 1, 2, 3, 4, 5, 6, 7
-    );
+    signal wr_en: std_logic := '0';
+    -- signal simple_data: queue_t := 
+    -- (
+    --     35, 35, 64, 106, 35, -106, -135,-35 , others => 0
+    --     -- 255,12, 123, 255, 3, 12, 255, 12
+    --     -- 0, 1, 2, 3, 4, 5, 6, 7
+    -- );
 
     signal done_f: std_logic := '0';
     begin 
 
-    -- pll: entity work.pll
-    -- port map( inclk0 => clk, c0 => mclk);
+    pll: entity work.pll
+    port map( inclk0 => clk, c0 => mclk);
 
     vga: entity work.vga_controller
     port map( clk => clk, video_on => video_on, pixel_x => pixel_x, pixel_y => pixel_y,
@@ -48,17 +48,17 @@ architecture arch of spectrum_analyzer is
 
     plot: entity work.plot_controller
     port map(clk => clk, video_on => video_on, pixel_x => pixel_x, pixel_y => pixel_y, 
-             red => red, green => green, blue => blue, do => do_next);
+             red => red, green => green, blue => blue, do => do);
 
---    mic: entity work.mic_rec
---    port map(mclk => mclk, sclk => sclk, ws => lrcl, d_rx => din, l_data => l_data, r_data => r_data, 
---            read_en => wr_en);
+   mic: entity work.mic_rec
+   port map(mclk => mclk, sclk => sclk, ws => lrcl, d_rx => din, l_data => l_data, r_data => r_data, 
+           read_en => wr_en);
 
---    fifo: entity work.queue
---    port map(clk => mclk, data_in => l_data, data_out => do, wr_en => wr_en);
+   fifo: entity work.queue
+   port map(clk => mclk, data_in => l_data, data_out => do, wr_en => wr_en);
 
-    fft: entity work.fft
-    port map(clk => clk, data_i => simple_data, do_fft => wr_en, done => done_f, res => do_cos );
+    -- fft: entity work.fft
+    -- port map(clk => clk, data_i => do, do_fft => wr_en, done => done_f, res => do_cos );
 
     process(done_f)
     begin

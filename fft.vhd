@@ -270,7 +270,7 @@ begin
                 when clean =>
                     done <= '0';
                     
-                    state_m <= clean;
+                    state_m <= idle;
             
                 when others =>
                     state_m <= idle;
