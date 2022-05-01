@@ -30,6 +30,7 @@ architecture rtl of fft is
     signal alpha: integer := 0;
     signal x,y: cplx := (others => 0);
     signal data: queue_t := (others => 0);
+    signal new_data: queue_t := (others => 0);
 
     signal wr: std_logic := '0';
     signal rd: std_logic := '1';  
@@ -62,7 +63,7 @@ begin
     variable adA, adB: integer := 0;
     variable dA, dB: cplx := (others => 0);
     variable counter_n_inversed1, counter_n_inversed2: unsigned(LOG_N downto 0):= (others => '0');
-    variable wait_counter: integer range 0 to 3 := 0;
+    variable wait_counter: integer range 0 to 7 := 0;
     
     begin
         if rising_edge(clk) then
@@ -197,7 +198,7 @@ begin
 
                 when wait_for_ram =>
 
-                    if wait_counter = 2 then
+                    if wait_counter = 6 then
                         state_m <= next_state;
                         wait_counter := 0;
                    else
@@ -243,20 +244,23 @@ begin
                     if counter_n >= N -1 then
                         counter_n <= (others => '0');
                         state_m <= clean;
-                        done <= '1';  
+                        res <= new_data;
+                        done <= '1';
                     else
                         adA := to_integer(counter_n );
                         adB := to_integer(counter_n + 1);
                         if counter_n < N-3 then
 
+                            -- addrA <= std_logic_vector(to_unsigned(1, addrA'length));--
+                            -- addrB <= std_logic_vector(to_unsigned(0, addrA'length));--
                             addrA <= std_logic_vector(counter_n + 2);
                             addrB <= std_logic_vector(counter_n + 3);
                         end if;
                         dA := (to_integer(signed(dataAo(23 downto 12))), to_integer(signed(dataAo(11 downto 0))));
                         dB := (to_integer(signed(dataBo(23 downto 12))), to_integer(signed(dataBo(11 downto 0))));
                         counter_n <= counter_n + 2;
-                        res(adA) <= (dA(0) * dA(0))/512 + (dA(1) * dA(1))/512;
-                        res(adB) <= (dB(0) * dB(0))/512 + (dB(1) * dB(1))/512;
+                        new_data(adA) <= (dA(0) * dA(0))/1024 + (dA(1) * dA(1))/1024;
+                        new_data(adB) <= (dB(0) * dB(0))/1024 + (dB(1) * dB(1))/1024;
                         state_m <= wait_for_ram;
                         next_state <= transform_end;
                         -- res(adA) <= (ram_arr(adA)(0)*ram_arr(adA)(0))/4000  + (ram_arr(adA)(1)*ram_arr(adA)(1))/4000;
@@ -264,7 +268,9 @@ begin
                     end if;
                 
                 when clean =>
-                    state_m <= idle;
+                    done <= '0';
+                    
+                    state_m <= clean;
             
                 when others =>
                     state_m <= idle;

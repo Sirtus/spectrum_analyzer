@@ -29,7 +29,7 @@ architecture arch of spectrum_analyzer is
     signal dd, l_data, r_data : std_logic_vector(23 downto 0);
     signal do, do_cos, do_next: queue_t := (others => 0);
     signal wr_en: std_logic := '1';
-    constant simple_data: queue_t := 
+    signal simple_data: queue_t := 
     (
         35, 35, 64, 106, 35, -106, -135,-35 
         -- 255,12, 123, 255, 3, 12, 255, 12
@@ -39,8 +39,8 @@ architecture arch of spectrum_analyzer is
     signal done_f: std_logic := '0';
     begin 
 
-    pll: entity work.pll
-    port map( inclk0 => clk, c0 => mclk);
+    -- pll: entity work.pll
+    -- port map( inclk0 => clk, c0 => mclk);
 
     vga: entity work.vga_controller
     port map( clk => clk, video_on => video_on, pixel_x => pixel_x, pixel_y => pixel_y,

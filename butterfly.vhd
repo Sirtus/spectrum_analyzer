@@ -26,7 +26,7 @@ begin
         -- report "y: " & integer'image(y(0)) & " " & integer'image(y(1)) ;
         w_r := cos_from_table(alpha);
         w_i := sin_from_table(alpha);
-        Sb_r := ((w_r * y(0)) + (w_i * y(1)))/128;
+        Sb_r := ((w_r * y(0)) - (w_i * y(1)))/128;
         Sb_i := ((w_i * y(0)) + (w_r * y(1)))/128;
         Sa(0) <= x(0) + Sb_r;
         Sa(1) <= x(1) + Sb_i;
