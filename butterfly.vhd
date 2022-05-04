@@ -8,7 +8,7 @@ use work.trigonometric.all;
 entity butterfly is
     port (
         x, y: in cplx;
-        alpha: in integer range 0 to 100; 
+        alpha: in integer range 0 to N/2; 
         Sa, Sb : out cplx
     );
 end entity butterfly;
@@ -18,20 +18,20 @@ architecture rtl of butterfly is
 begin
     
     process(x, y, alpha)
-    variable w_r: integer range -128 to 128;
-    variable w_i: integer range -128 to 128;
-    variable Sb_r, Sb_i: integer range -10000 to 10000 := 0;
+    variable w_r: integer range -512 to 512;
+    variable w_i: integer range -512 to 512;
+    variable Sb_r, Sb_i: integer range -20000 to 20000 := 0;
     begin
         -- report "x: " & integer'image(x(0)) & " " & integer'image(x(1)) ;
         -- report "y: " & integer'image(y(0)) & " " & integer'image(y(1)) ;
         w_r := cos_from_table(alpha);
         w_i := sin_from_table(alpha);
-        Sb_r := ((w_r * y(0)) - (w_i * y(1)))/128;
-        Sb_i := ((w_i * y(0)) + (w_r * y(1)))/128;
-        Sa(0) <= x(0) + Sb_r;
-        Sa(1) <= x(1) + Sb_i;
-        Sb(0) <= x(0) - Sb_r;
-        Sb(1) <= x(1) - Sb_i;
+        Sb_r := ((w_r * y(0)) - (w_i * y(1)))/512;
+        Sb_i := ((w_i * y(0)) + (w_r * y(1)))/512;
+        Sa(0) <= (x(0) + Sb_r);
+        Sa(1) <= (x(1) + Sb_i);
+        Sb(0) <= (x(0) - Sb_r);
+        Sb(1) <= (x(1) - Sb_i);
         -- report "alpha: " & integer'image(alpha);
         -- report "w_r: " & integer'image(w_r);
         -- report "w_i: " & integer'image(w_i);

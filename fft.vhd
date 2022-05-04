@@ -21,10 +21,10 @@ architecture rtl of fft is
     
     type state_t is (idle, write_to_ram, transform, clean, save_data, wait_for_ram, butterfly_step, transform_end, test);
     signal state_m, next_state: state_t := idle;
-    signal dataAi, dataBi, dataAo, dataBo: std_logic_vector(23 downto 0) := (others => '0');
+    signal dataAi, dataBi, dataAo, dataBo: std_logic_vector(31 downto 0) := (others => '0');
     signal Sa, Sb: cplx := (others => 0);
-    signal addrA, addrB: std_logic_vector(4 downto 0) := (others => '0');
-    signal counter_n: unsigned(4 downto 0):= (others => '0');
+    signal addrA, addrB: std_logic_vector(WORD_LEN-1 downto 0) := (others => '0');
+    signal counter_n: unsigned(WORD_LEN-1 downto 0):= (others => '0');
     signal pairs_number, pair_counter: natural range 0 to N := 0;
     signal counter_m, counter_divider: integer range 0 to N := 0; 
     signal alpha: integer := 0;
@@ -101,8 +101,8 @@ begin
                         adA := to_integer(counter_n_inversed1);
                         adB := to_integer(counter_n_inversed2);
                       
-                        dataAi <= std_logic_vector(to_signed(data(adA), 12)) & "000000000000";
-                        dataBi <= std_logic_vector(to_signed(data(adB), 12)) & "000000000000";
+                        dataAi <= std_logic_vector(to_signed(data(adA), 16)) & "0000000000000000";
+                        dataBi <= std_logic_vector(to_signed(data(adB), 16)) & "0000000000000000";
 
                         report "adrA: " & integer'image(adA) & " data: " & integer'image(data(adA)) & " addr " & integer'image(to_integer(unsigned(addrA)));
                         report "adrB: " & integer'image(adB) & " data: " & integer'image(data(adB)) & " addr " & integer'image(to_integer(unsigned(addrB)));
@@ -111,52 +111,6 @@ begin
                         wait_counter := 0;
                         state_m <= wait_for_ram;
                     end if;
-
-                -- when test =>
-                --     wr<= '0';
-                --     if counter_n > N-1 then
-                --         counter_n <= (others => '0');
-                        
-                --         addrA <= (others => '0');
-                --         addrB <= (others => '0');
-                --         state_m <= transform;
-                --     else
-
-                --         -- addrA <= std_logic_vector(counter_n);
-                --         -- addrB <= std_logic_vector(counter_n + 1);
-
-                --         if counter_n = 0 then
-                --             addrA <= "00000";
-                --             addrB <= "00001";
-                --         end if;
-                --         if counter_n = 2 then
-                --             addrA <= "00010";
-                --             addrB <= "00011";
-                --         end if;
-                --         if counter_n = 4 then
-                --             addrA <= "00100";
-                --             addrB <= "00101";
-                --         end if;
-                --         if counter_n = 6 then
-                --             addrA <= "00110";
-                --             addrB <= "00111";
-                --         end if;
-                --         if counter_n = 8 then
-                --             addrA <= "01000";
-                --             addrB <= "01001";
-                --         end if;
-
-                --         -- report "^^^ data: " & integer'image(to_integer(signed(dataAo(23 downto 12)))) & " addr " & integer'image(to_integer(unsigned(addrA)));
-                --         -- report "^^^ data: " & integer'image(to_integer(signed(dataBo(23 downto 12)))) & " addr " & integer'image(to_integer(unsigned(addrB)));
-                        
-
-                --         -- report "%^^^ data: " & integer'image(to_integer(signed(dataAo(23 downto 12)))) & " addr " & integer'image(to_integer(unsigned(addrA)));
-                --         -- report "%^^ data: " & integer'image(to_integer(signed(dataBo(23 downto 12)))) & " addr " & integer'image(to_integer(unsigned(addrB)));
-                --         counter_n <= counter_n + 2;
-                --         next_state <= test;
-                --         state_m <= wait_for_ram;
-                --     end if;
-
 
                 when transform =>
                     report "!!!!!!!!!!!!counter_n" & integer'image(to_integer(counter_n));
@@ -208,8 +162,8 @@ begin
                     
 
                 when butterfly_step =>
-                    x <= (to_integer(signed(dataAo(23 downto 12))), to_integer(signed(dataAo(11 downto 0))));
-                    y <= (to_integer(signed(dataBo(23 downto 12))), to_integer(signed(dataBo(11 downto 0))));
+                    x <= (to_integer(signed(dataAo(31 downto 16))), to_integer(signed(dataAo(15 downto 0))));
+                    y <= (to_integer(signed(dataBo(31 downto 16))), to_integer(signed(dataBo(15 downto 0))));
                     alpha <= (pair_counter mod (2**(counter_m-1)))* counter_divider/2 ; --((alpha_counter mod 2**counter_m) * counter_divider/2);
                     -- alpha <= 628 * (alpha_counter mod 2**counter_m) ;
                     state_m <= save_data;
@@ -256,11 +210,11 @@ begin
                             addrA <= std_logic_vector(counter_n + 2);
                             addrB <= std_logic_vector(counter_n + 3);
                         end if;
-                        dA := (to_integer(signed(dataAo(23 downto 12))), to_integer(signed(dataAo(11 downto 0))));
-                        dB := (to_integer(signed(dataBo(23 downto 12))), to_integer(signed(dataBo(11 downto 0))));
+                        dA := (to_integer(signed(dataAo(31 downto 16))), to_integer(signed(dataAo(15 downto 0))));
+                        dB := (to_integer(signed(dataBo(31 downto 16))), to_integer(signed(dataBo(15 downto 0))));
                         counter_n <= counter_n + 2;
-                        new_data(adA) <= (dA(0) * dA(0))/1024 + (dA(1) * dA(1))/1024;
-                        new_data(adB) <= (dB(0) * dB(0))/1024 + (dB(1) * dB(1))/1024;
+                        new_data(adA) <= (dA(0)/8 * dA(0)/8) + (dA(1)/8 * dA(1)/8);
+                        new_data(adB) <= (dB(0)/8 * dB(0)/8) + (dB(1)/8 * dB(1)/8);
                         state_m <= wait_for_ram;
                         next_state <= transform_end;
                         -- res(adA) <= (ram_arr(adA)(0)*ram_arr(adA)(0))/4000  + (ram_arr(adA)(1)*ram_arr(adA)(1))/4000;
@@ -268,7 +222,7 @@ begin
                     end if;
                 
                 when clean =>
-                    done <= '0';
+                    -- done <= '1';
                     
                     state_m <= idle;
             

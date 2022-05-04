@@ -23,7 +23,7 @@ begin
     begin
         if rising_edge(clk) then
             if wr_en = '1' then
-                temp := to_integer(unsigned(data_in(18 downto 10))) - 128;
+                temp := to_integer(signed(data_in(18 downto 10))) - 84;
                 data <= temp & data(0 to queue_t'high-1);
             end if;
         end if;
