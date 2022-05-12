@@ -34,7 +34,7 @@ begin
         variable sclk_cnt: integer := 0;
         variable ws_cnt: integer := 0;
     begin
-        if rising_edge(mclk) then
+        if falling_edge(mclk) then
             read_en <= '0';
             if sclk_cnt < mclk_sclk_ratio/2 - 1  then
                 sclk_cnt := sclk_cnt + 1;

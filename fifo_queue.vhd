@@ -16,8 +16,6 @@ end queue;
 
 architecture arch of queue is
     signal data: queue_t := (others => 600);
-    constant c: integer := 200;
-    constant r: real := 0.000035763;
 begin
     
     process(clk)
