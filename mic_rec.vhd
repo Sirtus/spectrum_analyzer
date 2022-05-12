@@ -4,7 +4,7 @@ use IEEE.numeric_std.all;
 
 entity mic_rec is
     generic(
-        mclk_sclk_ratio: integer := 4;
+        mclk_sclk_ratio: integer := 8;
         sclk_ws_ratio: integer := 64;
         d_width: integer := 24
     );
