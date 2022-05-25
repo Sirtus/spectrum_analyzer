@@ -33,8 +33,8 @@ begin
     end process;
 
     red <= "0000" ;
-    blue <= "1111" when video_on = '1' and pixel_y = 242 else "0000";
-    green <= "1111" when video_on = '1' and pixel_x < 400 and pixel_y = que(pixel_x) + 242 else "0000";
+    blue <= "0000";
+    green <= "1111" when video_on = '1' and pixel_y = que(pixel_x) + 700 else "0000";
 
     
 end architecture arch;
