@@ -1,5 +1,5 @@
 Analysis & Synthesis report for spectrum_analyzer
-Tue May 31 12:56:59 2022
+Tue May 31 14:02:47 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -15,16 +15,17 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis IP Cores Summary
   9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Inverted Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: bclk:bclk|altpll:altpll_component
- 14. Parameter Settings for User Entity Instance: vga_controller:vga
- 15. Parameter Settings for User Entity Instance: i2s_receiver:i2s
- 16. altpll Parameter Settings by Entity Instance
- 17. Post-Synthesis Netlist Statistics for Top Partition
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: bclk:bclk|altpll:altpll_component
+ 15. Parameter Settings for User Entity Instance: vga_controller:vga
+ 16. Parameter Settings for User Entity Instance: i2s_receiver:i2s
+ 17. altpll Parameter Settings by Entity Instance
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
 
 
 
@@ -51,15 +52,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue May 31 12:56:59 2022       ;
+; Analysis & Synthesis Status        ; Successful - Tue May 31 14:02:47 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; spectrum_analyzer                           ;
 ; Top-level Entity Name              ; spectrum_analyzer                           ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 23,800                                      ;
-;     Total combinational functions  ; 9,328                                       ;
-;     Dedicated logic registers      ; 17,815                                      ;
-; Total registers                    ; 17815                                       ;
+; Total logic elements               ; 23,778                                      ;
+;     Total combinational functions  ; 9,316                                       ;
+;     Dedicated logic registers      ; 17,794                                      ;
+; Total registers                    ; 17794                                       ;
 ; Total pins                         ; 21                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -169,7 +170,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.3%      ;
+;     Processor 2            ;   0.2%      ;
 +----------------------------+-------------+
 
 
@@ -199,20 +200,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 23,800    ;
+; Estimated Total logic elements              ; 23,778    ;
 ;                                             ;           ;
-; Total combinational functions               ; 9328      ;
+; Total combinational functions               ; 9316      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 5973      ;
-;     -- 3 input functions                    ; 24        ;
-;     -- <=2 input functions                  ; 3331      ;
+;     -- 4 input functions                    ; 5976      ;
+;     -- 3 input functions                    ; 10        ;
+;     -- <=2 input functions                  ; 3330      ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 9218      ;
+;     -- normal mode                          ; 9206      ;
 ;     -- arithmetic mode                      ; 110       ;
 ;                                             ;           ;
-; Total registers                             ; 17815     ;
-;     -- Dedicated logic registers            ; 17815     ;
+; Total registers                             ; 17794     ;
+;     -- Dedicated logic registers            ; 17794     ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 21        ;
@@ -224,7 +225,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 8929      ;
-; Total fan-out                               ; 80766     ;
+; Total fan-out                               ; 80671     ;
 ; Average fan-out                             ; 2.97      ;
 +---------------------------------------------+-----------+
 
@@ -234,11 +235,11 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                             ; Entity Name       ; Library Name ;
 +---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------+-------------------+--------------+
-; |spectrum_analyzer                    ; 9328 (0)            ; 17815 (0)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 21   ; 0            ; 0          ; |spectrum_analyzer                                                              ; spectrum_analyzer ; work         ;
+; |spectrum_analyzer                    ; 9316 (0)            ; 17794 (0)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 21   ; 0            ; 0          ; |spectrum_analyzer                                                              ; spectrum_analyzer ; work         ;
 ;    |bclk:bclk|                        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|bclk:bclk                                                    ; bclk              ; work         ;
 ;       |altpll:altpll_component|       ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|bclk:bclk|altpll:altpll_component                            ; altpll            ; work         ;
 ;          |bclk_altpll:auto_generated| ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|bclk:bclk|altpll:altpll_component|bclk_altpll:auto_generated ; bclk_altpll       ; work         ;
-;    |i2s_receiver:i2s|                 ; 80 (80)             ; 87 (87)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|i2s_receiver:i2s                                             ; i2s_receiver      ; work         ;
+;    |i2s_receiver:i2s|                 ; 68 (68)             ; 66 (66)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|i2s_receiver:i2s                                             ; i2s_receiver      ; work         ;
 ;    |plot_controller:plot|             ; 9118 (9118)         ; 8800 (8800)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot                                         ; plot_controller   ; work         ;
 ;    |queue:fifo|                       ; 14 (14)             ; 8800 (8800)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|queue:fifo                                                   ; queue             ; work         ;
 ;    |vga_controller:vga|               ; 116 (116)           ; 128 (128)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|vga_controller:vga                                           ; vga_controller    ; work         ;
@@ -260,11 +261,21 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------+--------------------+
 ; Register name                         ; Reason for Removal ;
 +---------------------------------------+--------------------+
-; i2s_receiver:i2s|r_data_int[21..23]   ; Lost fanout        ;
-; i2s_receiver:i2s|l_data_int[21..23]   ; Lost fanout        ;
 ; i2s_receiver:i2s|l_data[21..23]       ; Lost fanout        ;
-; Total Number of Removed Registers = 9 ;                    ;
+; i2s_receiver:i2s|l_data_int[21..23]   ; Lost fanout        ;
+; Total Number of Removed Registers = 6 ;                    ;
 +---------------------------------------+--------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                               ;
++-----------------------------+--------------------+----------------------------------------+
+; Register name               ; Reason for Removal ; Registers Removed due to This Register ;
++-----------------------------+--------------------+----------------------------------------+
+; i2s_receiver:i2s|l_data[21] ; Lost Fanouts       ; i2s_receiver:i2s|l_data_int[21]        ;
+; i2s_receiver:i2s|l_data[22] ; Lost Fanouts       ; i2s_receiver:i2s|l_data_int[22]        ;
+; i2s_receiver:i2s|l_data[23] ; Lost Fanouts       ; i2s_receiver:i2s|l_data_int[23]        ;
++-----------------------------+--------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -272,12 +283,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 17815 ;
+; Total registers                              ; 17794 ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 17686 ;
+; Number of registers using Clock Enable       ; 17664 ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -397,7 +408,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |spectrum_analyzer|i2s_receiver:i2s|l_data[11]     ;
 ; 3:1                ; 21 bits   ; 42 LEs        ; 21 LEs               ; 21 LEs                 ; Yes        ; |spectrum_analyzer|i2s_receiver:i2s|l_data_int[19] ;
 ; 800:1              ; 11 bits   ; 5863 LEs      ; 5863 LEs             ; 0 LEs                  ; No         ; |spectrum_analyzer|plot_controller:plot|Mux8       ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
@@ -830,18 +840,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 21                          ;
-; cycloneiii_ff         ; 17815                       ;
-;     ENA               ; 17686                       ;
-;     plain             ; 129                         ;
-; cycloneiii_lcell_comb ; 9332                        ;
+; cycloneiii_ff         ; 17794                       ;
+;     ENA               ; 17664                       ;
+;     plain             ; 130                         ;
+; cycloneiii_lcell_comb ; 9320                        ;
 ;     arith             ; 110                         ;
 ;         2 data inputs ; 110                         ;
-;     normal            ; 9222                        ;
+;     normal            ; 9210                        ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 3217                        ;
+;         1 data inputs ; 3216                        ;
 ;         2 data inputs ; 6                           ;
-;         3 data inputs ; 24                          ;
-;         4 data inputs ; 5973                        ;
+;         3 data inputs ; 10                          ;
+;         4 data inputs ; 5976                        ;
 ; cycloneiii_pll        ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 16.90                       ;
@@ -854,7 +864,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:31     ;
+; Top            ; 00:00:36     ;
 +----------------+--------------+
 
 
@@ -864,7 +874,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Tue May 31 12:56:12 2022
+    Info: Processing started: Tue May 31 14:01:51 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off spectrum_analyzer -c spectrum_analyzer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -883,7 +893,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file vga_con
     Info (12022): Found design unit 1: vga_controller-arch File: /home/tomek/vhdl/spectrum_analyzer/vga_controller.vhd Line: 27
     Info (12023): Found entity 1: vga_controller File: /home/tomek/vhdl/spectrum_analyzer/vga_controller.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file i2s_receiver.vhd
-    Info (12022): Found design unit 1: i2s_receiver-rtl File: /home/tomek/vhdl/spectrum_analyzer/i2s_receiver.vhd Line: 22
+    Info (12022): Found design unit 1: i2s_receiver-rtl File: /home/tomek/vhdl/spectrum_analyzer/i2s_receiver.vhd Line: 23
     Info (12023): Found entity 1: i2s_receiver File: /home/tomek/vhdl/spectrum_analyzer/i2s_receiver.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file bclk.vhd
     Info (12022): Found design unit 1: bclk-SYN File: /home/tomek/vhdl/spectrum_analyzer/bclk.vhd Line: 52
@@ -891,7 +901,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file bclk.vh
 Info (12127): Elaborating entity "spectrum_analyzer" for the top level hierarchy
 Warning (10540): VHDL Signal Declaration warning at spectrum_analyzer.vhd(14): used explicit default value for signal "mic_vcc" because signal was never assigned a value File: /home/tomek/vhdl/spectrum_analyzer/spectrum_analyzer.vhd Line: 14
 Warning (10540): VHDL Signal Declaration warning at spectrum_analyzer.vhd(15): used explicit default value for signal "mic_gnd" because signal was never assigned a value File: /home/tomek/vhdl/spectrum_analyzer/spectrum_analyzer.vhd Line: 15
-Info (12128): Elaborating entity "bclk" for hierarchy "bclk:bclk" File: /home/tomek/vhdl/spectrum_analyzer/spectrum_analyzer.vhd Line: 35
+Info (12128): Elaborating entity "bclk" for hierarchy "bclk:bclk" File: /home/tomek/vhdl/spectrum_analyzer/spectrum_analyzer.vhd Line: 36
 Info (12128): Elaborating entity "altpll" for hierarchy "bclk:bclk|altpll:altpll_component" File: /home/tomek/vhdl/spectrum_analyzer/bclk.vhd Line: 134
 Info (12130): Elaborated megafunction instantiation "bclk:bclk|altpll:altpll_component" File: /home/tomek/vhdl/spectrum_analyzer/bclk.vhd Line: 134
 Info (12133): Instantiated megafunction "bclk:bclk|altpll:altpll_component" with the following parameter: File: /home/tomek/vhdl/spectrum_analyzer/bclk.vhd Line: 134
@@ -952,28 +962,27 @@ Info (12133): Instantiated megafunction "bclk:bclk|altpll:altpll_component" with
 Info (12021): Found 1 design units, including 1 entities, in source file db/bclk_altpll.v
     Info (12023): Found entity 1: bclk_altpll File: /home/tomek/vhdl/spectrum_analyzer/db/bclk_altpll.v Line: 30
 Info (12128): Elaborating entity "bclk_altpll" for hierarchy "bclk:bclk|altpll:altpll_component|bclk_altpll:auto_generated" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altpll.tdf Line: 898
-Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:vga" File: /home/tomek/vhdl/spectrum_analyzer/spectrum_analyzer.vhd Line: 38
-Info (12128): Elaborating entity "plot_controller" for hierarchy "plot_controller:plot" File: /home/tomek/vhdl/spectrum_analyzer/spectrum_analyzer.vhd Line: 42
-Info (12128): Elaborating entity "i2s_receiver" for hierarchy "i2s_receiver:i2s" File: /home/tomek/vhdl/spectrum_analyzer/spectrum_analyzer.vhd Line: 47
-Warning (10541): VHDL Signal Declaration warning at i2s_receiver.vhd(16): used implicit default value for signal "r_data" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/tomek/vhdl/spectrum_analyzer/i2s_receiver.vhd Line: 16
-Info (12128): Elaborating entity "queue" for hierarchy "queue:fifo" File: /home/tomek/vhdl/spectrum_analyzer/spectrum_analyzer.vhd Line: 51
+Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:vga" File: /home/tomek/vhdl/spectrum_analyzer/spectrum_analyzer.vhd Line: 39
+Info (12128): Elaborating entity "plot_controller" for hierarchy "plot_controller:plot" File: /home/tomek/vhdl/spectrum_analyzer/spectrum_analyzer.vhd Line: 43
+Info (12128): Elaborating entity "i2s_receiver" for hierarchy "i2s_receiver:i2s" File: /home/tomek/vhdl/spectrum_analyzer/spectrum_analyzer.vhd Line: 48
+Info (12128): Elaborating entity "queue" for hierarchy "queue:fifo" File: /home/tomek/vhdl/spectrum_analyzer/spectrum_analyzer.vhd Line: 52
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "mic_vcc" is stuck at VCC File: /home/tomek/vhdl/spectrum_analyzer/spectrum_analyzer.vhd Line: 14
     Warning (13410): Pin "mic_gnd" is stuck at GND File: /home/tomek/vhdl/spectrum_analyzer/spectrum_analyzer.vhd Line: 15
     Warning (13410): Pin "sel" is stuck at GND File: /home/tomek/vhdl/spectrum_analyzer/spectrum_analyzer.vhd Line: 17
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 9 registers lost all their fanouts during netlist optimizations.
+Info (17049): 6 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 23823 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 23801 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 19 output pins
-    Info (21061): Implemented 23801 logic cells
+    Info (21061): Implemented 23779 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 8 warnings
-    Info: Peak virtual memory: 565 megabytes
-    Info: Processing ended: Tue May 31 12:56:59 2022
-    Info: Elapsed time: 00:00:47
-    Info: Total CPU time (on all processors): 00:01:00
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
+    Info: Peak virtual memory: 563 megabytes
+    Info: Processing ended: Tue May 31 14:02:47 2022
+    Info: Elapsed time: 00:00:56
+    Info: Total CPU time (on all processors): 00:01:11
 
 

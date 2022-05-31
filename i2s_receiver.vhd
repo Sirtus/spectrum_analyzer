@@ -10,6 +10,7 @@ entity i2s_receiver is
     port (
         sclk: in std_logic;
         ws: out std_logic;
+        sel: out std_logic;
         d_rx: in std_logic;
 
         l_data: out std_logic_vector(d_width-1 downto 0);
@@ -23,6 +24,7 @@ architecture rtl of i2s_receiver is
     signal ws_int: std_logic := '0';
     signal l_data_int: std_logic_vector(d_width-1 downto 0) := (others => '0');
     signal r_data_int: std_logic_vector(d_width-1 downto 0) := (others => '0');
+    signal sel_int : std_logic := '0';
 begin
     
     process(sclk)
@@ -47,8 +49,9 @@ begin
                 if  ws_counter = sclk_ws_ratio-1 then
                     ws_counter := 0;
                     ws_int <= '0';
-                    read_en <= '1';
-                    l_data <= r_data_int;
+                    sel_int <= not sel_int;
+                    read_en <= '0';
+                    r_data <= r_data_int;
                 else
                     if ws_counter >= 0 and  ws_counter < d_width then
                         r_data_int <= r_data_int(d_width-2 downto 0) & d_rx;
@@ -60,5 +63,6 @@ begin
     end process;
     
     ws <= ws_int;
+    sel <= '0';
 
 end architecture rtl;
