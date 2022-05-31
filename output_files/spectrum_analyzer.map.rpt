@@ -1,5 +1,5 @@
 Analysis & Synthesis report for spectrum_analyzer
-Tue May 31 15:44:29 2022
+Tue May 31 17:03:30 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -52,7 +52,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue May 31 15:44:29 2022       ;
+; Analysis & Synthesis Status        ; Successful - Tue May 31 17:03:29 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; spectrum_analyzer                           ;
 ; Top-level Entity Name              ; spectrum_analyzer                           ;
@@ -864,7 +864,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:37     ;
+; Top            ; 00:00:39     ;
 +----------------+--------------+
 
 
@@ -874,7 +874,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Tue May 31 15:43:27 2022
+    Info: Processing started: Tue May 31 17:02:31 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off spectrum_analyzer -c spectrum_analyzer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -984,9 +984,9 @@ Info (21057): Implemented 23801 device resources after synthesis - the final res
     Info (21061): Implemented 23779 logic cells
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
-    Info: Peak virtual memory: 571 megabytes
-    Info: Processing ended: Tue May 31 15:44:29 2022
-    Info: Elapsed time: 00:01:02
-    Info: Total CPU time (on all processors): 00:01:14
+    Info: Peak virtual memory: 566 megabytes
+    Info: Processing ended: Tue May 31 17:03:30 2022
+    Info: Elapsed time: 00:00:59
+    Info: Total CPU time (on all processors): 00:01:10
 
 
