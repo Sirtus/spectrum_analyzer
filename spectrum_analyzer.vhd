@@ -14,7 +14,7 @@ entity spectrum_analyzer is
 		  mic_vcc: out std_logic := '1';
 		  mic_gnd: out std_logic := '0';
 
-        sel: out std_logic;
+        sel: out std_logic := '0';
         lrcl: out std_logic;
         din: in std_logic;
         sclk: out std_logic
@@ -27,6 +27,7 @@ architecture arch of spectrum_analyzer is
     signal pixel_x, pixel_y: integer := 0;
     signal mclk: std_logic := '0';
     signal dd, l_data, r_data : std_logic_vector(23 downto 0);
+<<<<<<< HEAD
     signal do, do_cos, do_next: queue_t := (others => 0);
     signal wr_en: std_logic := '1';
     -- signal simple_data: queue_t := 
@@ -75,9 +76,15 @@ architecture arch of spectrum_analyzer is
     --     1, 123, 192, -7, 0, 198, 168, -166, -181, -166, 168, 198, 1, -7, 192, 123
     -- );
     signal done_f: std_logic := '0';
+=======
+    signal do: queue_t := (others => 0);
+    signal wr_en: std_logic := '0';
+    signal ws: std_logic := '0';
+
+>>>>>>> main
     begin 
 
-    pll: entity work.pll
+    bclk: entity work.bclk
     port map( inclk0 => clk, c0 => mclk);
 
     vga: entity work.vga_controller
@@ -98,6 +105,7 @@ architecture arch of spectrum_analyzer is
     fft: entity work.fft
     port map(clk => clk, data_i => do, do_fft => wr_en, done => done_f, res => do_cos );
 
+<<<<<<< HEAD
     process(clk)
     begin
         if rising_edge(clk) then
@@ -105,10 +113,17 @@ architecture arch of spectrum_analyzer is
                 do_next <= do_cos;
             end if;
         end if;
+=======
+
+    i2s: entity work.i2s_receiver
+    port map(sclk => mclk, ws => ws, d_rx => din, l_data => l_data, r_data => r_data, sel => sel,
+    read_en => wr_en);
+>>>>>>> main
 
     end process;
     
-    sel <= '0';
+    lrcl <= ws;
+    sclk <= mclk;
 
 end arch;
 
