@@ -4,7 +4,7 @@ use IEEE.numeric_std.all;
 
 entity i2s_receiver is
     generic(
-        sclk_ws_ratio: integer := 64;
+        sclk_ws_ratio: integer := 32;
         d_width: integer := 24
     );
     port (
@@ -36,8 +36,9 @@ begin
                     ws_int <= '1';
                     read_en <= '1';
                     l_data <= l_data_int;
+                    l_data_int <= (others => '0');
                 else
-                    if ws_counter > 0 and ws_counter < d_width + 1 then
+                    if ws_counter >= 0 and ws_counter < d_width  then
                         l_data_int <= l_data_int(d_width-2 downto 0) & d_rx;
                     end if;
                     ws_counter := ws_counter + 1;
@@ -47,9 +48,9 @@ begin
                     ws_counter := 0;
                     ws_int <= '0';
                     read_en <= '1';
-                    r_data <= r_data_int;
+                    l_data <= r_data_int;
                 else
-                    if ws_counter > 0 and  ws_counter < d_width + 1 then
+                    if ws_counter >= 0 and  ws_counter < d_width then
                         r_data_int <= r_data_int(d_width-2 downto 0) & d_rx;
                     end if;
                     ws_counter := ws_counter + 1;
