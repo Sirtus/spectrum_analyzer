@@ -14,7 +14,7 @@ entity spectrum_analyzer is
 		  mic_vcc: out std_logic := '1';
 		  mic_gnd: out std_logic := '0';
 
-        sel: out std_logic;
+        sel: out std_logic := '0';
         lrcl: out std_logic;
         din: in std_logic;
         sclk: out std_logic
@@ -29,6 +29,7 @@ architecture arch of spectrum_analyzer is
     signal dd, l_data, r_data : std_logic_vector(23 downto 0);
     signal do: queue_t := (others => 0);
     signal wr_en: std_logic := '0';
+    signal ws: std_logic := '0';
 
     begin 
 
@@ -45,13 +46,13 @@ architecture arch of spectrum_analyzer is
 
 
     i2s: entity work.i2s_receiver
-    port map(sclk => mclk, ws => lrcl, d_rx => din, l_data => l_data, r_data => r_data, 
+    port map(sclk => mclk, ws => ws, d_rx => din, l_data => l_data, r_data => r_data, sel => sel,
     read_en => wr_en);
 
     fifo: entity work.queue
     port map(clk => mclk, data_in => l_data, data_out => do, wr_en => wr_en);
     
-    sel <= '0';
+    lrcl <= ws;
     sclk <= mclk;
 
 end arch;
