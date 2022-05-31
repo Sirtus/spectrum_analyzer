@@ -16,17 +16,22 @@ end queue;
 
 architecture arch of queue is
     signal data: queue_t := (others => 600);
-    constant c: integer := 200;
-    constant r: real := 0.000035763;
 begin
     
     process(clk)
-        variable temp: integer;
+        variable temp: integer range -600 to 600 := 0;
     begin
         if rising_edge(clk) then
             if wr_en = '1' then
-                temp := to_integer(unsigned(data_in(20 downto 12)));
-                data <= temp & data(0 to 798);
+                -- temp :=(to_integer(unsigned(data_in(23 downto 16)))-242) ;
+                temp :=(to_integer(signed(data_in(23 downto 10)))) + 428 ;
+                -- if data_in(23) = '1' then
+                --     temp := -100;
+                -- else
+                --     temp := 100;
+                -- end if;
+                
+                data <= temp & data(0 to data'high-1);
             end if;
         end if;
     end process;
