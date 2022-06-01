@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Wed Jun  1 14:03:15 2022
+Analysis & Synthesis Status : Successful - Wed Jun  1 18:03:34 2022
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : spectrum_analyzer
 Top-level Entity Name : spectrum_analyzer
 Family : MAX 10
-Total logic elements : 10,584
-    Total combinational functions : 5,404
+Total logic elements : 13,388
+    Total combinational functions : 8,208
     Dedicated logic registers : 5,778
 Total registers : 5778
 Total pins : 21

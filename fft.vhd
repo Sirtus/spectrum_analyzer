@@ -213,8 +213,8 @@ begin
                         dA := (to_integer(signed(dataAo(31 downto 16))), to_integer(signed(dataAo(15 downto 0))));
                         dB := (to_integer(signed(dataBo(31 downto 16))), to_integer(signed(dataBo(15 downto 0))));
                         counter_n <= counter_n + 2;
-                        new_data(adA) <= (dA(0)/16 * dA(0)/16) + (dA(1)/16 * dA(1)/16);
-                        new_data(adB) <= (dB(0)/16 * dB(0)/16) + (dB(1)/16 * dB(1)/16);
+                        new_data(adA) <= (dA(0)/12 * dA(0)/12) + (dA(1)/12 * dA(1)/12);
+                        new_data(adB) <= (dB(0)/12 * dB(0)/12) + (dB(1)/12 * dB(1)/12);
                         state_m <= wait_for_ram;
                         next_state <= transform_end;
                         -- res(adA) <= (ram_arr(adA)(0)*ram_arr(adA)(0))/4000  + (ram_arr(adA)(1)*ram_arr(adA)(1))/4000;
