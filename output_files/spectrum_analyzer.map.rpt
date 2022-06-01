@@ -1,5 +1,5 @@
 Analysis & Synthesis report for spectrum_analyzer
-Wed Jun  1 11:33:23 2022
+Wed Jun  1 14:03:15 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -13,20 +13,41 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Analysis & Synthesis IP Cores Summary
-  9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
- 11. General Register Statistics
- 12. Inverted Register Statistics
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Parameter Settings for User Entity Instance: bclk:bclk|altpll:altpll_component
- 15. Parameter Settings for User Entity Instance: vga_controller:vga
- 16. Parameter Settings for User Entity Instance: i2s_receiver:i2s
- 17. altpll Parameter Settings by Entity Instance
- 18. Port Connectivity Checks: "i2s_receiver:i2s"
- 19. Post-Synthesis Netlist Statistics for Top Partition
- 20. Elapsed Time Per Partition
- 21. Analysis & Synthesis Messages
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis DSP Block Usage Summary
+ 10. Analysis & Synthesis IP Cores Summary
+ 11. State Machine - |spectrum_analyzer|fft:fft|next_state
+ 12. State Machine - |spectrum_analyzer|fft:fft|state_m
+ 13. Registers Removed During Synthesis
+ 14. Removed Registers Triggering Further Register Optimizations
+ 15. General Register Statistics
+ 16. Inverted Register Statistics
+ 17. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 18. Source assignments for fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated
+ 19. Parameter Settings for User Entity Instance: bclk:bclk|altpll:altpll_component
+ 20. Parameter Settings for User Entity Instance: vga_controller:vga
+ 21. Parameter Settings for User Entity Instance: fft:fft|ram_ip:ram|altsyncram:altsyncram_component
+ 22. Parameter Settings for User Entity Instance: i2s_receiver:i2s
+ 23. Parameter Settings for Inferred Entity Instance: plot_controller:plot|lpm_divide:Div0
+ 24. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult2
+ 25. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult1
+ 26. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult4
+ 27. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult3
+ 28. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Mod0
+ 29. Parameter Settings for Inferred Entity Instance: fft:fft|butterfly:butterfly|lpm_mult:Mult2
+ 30. Parameter Settings for Inferred Entity Instance: fft:fft|butterfly:butterfly|lpm_mult:Mult3
+ 31. Parameter Settings for Inferred Entity Instance: fft:fft|butterfly:butterfly|lpm_mult:Mult0
+ 32. Parameter Settings for Inferred Entity Instance: fft:fft|butterfly:butterfly|lpm_mult:Mult1
+ 33. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Mod1
+ 34. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult0
+ 35. altpll Parameter Settings by Entity Instance
+ 36. altsyncram Parameter Settings by Entity Instance
+ 37. lpm_mult Parameter Settings by Entity Instance
+ 38. Port Connectivity Checks: "i2s_receiver:i2s"
+ 39. Port Connectivity Checks: "fft:fft|butterfly:butterfly"
+ 40. Post-Synthesis Netlist Statistics for Top Partition
+ 41. Elapsed Time Per Partition
+ 42. Analysis & Synthesis Messages
 
 
 
@@ -53,19 +74,19 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jun  1 11:33:23 2022       ;
+; Analysis & Synthesis Status        ; Successful - Wed Jun  1 14:03:15 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; spectrum_analyzer                           ;
 ; Top-level Entity Name              ; spectrum_analyzer                           ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 1,240                                       ;
-;     Total combinational functions  ; 476                                         ;
-;     Dedicated logic registers      ; 898                                         ;
-; Total registers                    ; 898                                         ;
+; Total logic elements               ; 10,584                                      ;
+;     Total combinational functions  ; 5,404                                       ;
+;     Dedicated logic registers      ; 5,778                                       ;
+; Total registers                    ; 5778                                        ;
 ; Total pins                         ; 21                                          ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0                                           ;
-; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total memory bits                  ; 16,384                                      ;
+; Embedded Multiplier 9-bit elements ; 17                                          ;
 ; Total PLLs                         ; 1                                           ;
 ; UFM blocks                         ; 0                                           ;
 ; ADC blocks                         ; 0                                           ;
@@ -171,29 +192,64 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
+;     Processor 2            ;   0.3%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                          ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                      ; Library ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------+---------+
-; spectrum_analyzer.vhd            ; yes             ; User VHDL File               ; /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd                    ;         ;
-; common.vhd                       ; yes             ; User VHDL File               ; /home/tomek/vhdl/spctr/spectrum_analyzer/common.vhd                               ;         ;
-; fifo_queue.vhd                   ; yes             ; User VHDL File               ; /home/tomek/vhdl/spctr/spectrum_analyzer/fifo_queue.vhd                           ;         ;
-; plot_controller.vhd              ; yes             ; User VHDL File               ; /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd                      ;         ;
-; vga_controller.vhd               ; yes             ; User VHDL File               ; /home/tomek/vhdl/spctr/spectrum_analyzer/vga_controller.vhd                       ;         ;
-; i2s_receiver.vhd                 ; yes             ; User VHDL File               ; /home/tomek/vhdl/spctr/spectrum_analyzer/i2s_receiver.vhd                         ;         ;
-; bclk.vhd                         ; yes             ; User Wizard-Generated File   ; /home/tomek/vhdl/spctr/spectrum_analyzer/bclk.vhd                                 ;         ;
-; altpll.tdf                       ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altpll.tdf        ;         ;
-; aglobal201.inc                   ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc    ;         ;
-; stratix_pll.inc                  ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/stratix_pll.inc   ;         ;
-; stratixii_pll.inc                ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/stratixii_pll.inc ;         ;
-; cycloneii_pll.inc                ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/cycloneii_pll.inc ;         ;
-; db/bclk_altpll.v                 ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/bclk_altpll.v                         ;         ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                              ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                          ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------+---------+
+; spectrum_analyzer.vhd            ; yes             ; User VHDL File               ; /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd                        ;         ;
+; common.vhd                       ; yes             ; User VHDL File               ; /home/tomek/vhdl/spctr/spectrum_analyzer/common.vhd                                   ;         ;
+; fifo_queue.vhd                   ; yes             ; User VHDL File               ; /home/tomek/vhdl/spctr/spectrum_analyzer/fifo_queue.vhd                               ;         ;
+; plot_controller.vhd              ; yes             ; User VHDL File               ; /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd                          ;         ;
+; vga_controller.vhd               ; yes             ; User VHDL File               ; /home/tomek/vhdl/spctr/spectrum_analyzer/vga_controller.vhd                           ;         ;
+; trigonometric.vhd                ; yes             ; User VHDL File               ; /home/tomek/vhdl/spctr/spectrum_analyzer/trigonometric.vhd                            ;         ;
+; fft.vhd                          ; yes             ; User VHDL File               ; /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd                                      ;         ;
+; butterfly.vhd                    ; yes             ; User VHDL File               ; /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd                                ;         ;
+; i2s_receiver.vhd                 ; yes             ; User VHDL File               ; /home/tomek/vhdl/spctr/spectrum_analyzer/i2s_receiver.vhd                             ;         ;
+; ram_ip.vhd                       ; yes             ; User Wizard-Generated File   ; /home/tomek/vhdl/spctr/spectrum_analyzer/ram_ip.vhd                                   ;         ;
+; bclk.vhd                         ; yes             ; User Wizard-Generated File   ; /home/tomek/vhdl/spctr/spectrum_analyzer/bclk.vhd                                     ;         ;
+; altpll.tdf                       ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altpll.tdf            ;         ;
+; aglobal201.inc                   ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc        ;         ;
+; stratix_pll.inc                  ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/stratix_pll.inc       ;         ;
+; stratixii_pll.inc                ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/stratixii_pll.inc     ;         ;
+; cycloneii_pll.inc                ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/cycloneii_pll.inc     ;         ;
+; db/bclk_altpll.v                 ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/bclk_altpll.v                             ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_8mo3.tdf           ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/altsyncram_8mo3.tdf                       ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_divide.tdf        ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/abs_divider.inc       ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/sign_div_unsign.inc   ;         ;
+; db/lpm_divide_jbo.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/lpm_divide_jbo.tdf                        ;         ;
+; db/abs_divider_obg.tdf           ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/abs_divider_obg.tdf                       ;         ;
+; db/alt_u_div_the.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/alt_u_div_the.tdf                         ;         ;
+; db/add_sub_t3c.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/add_sub_t3c.tdf                           ;         ;
+; db/add_sub_u3c.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/add_sub_u3c.tdf                           ;         ;
+; db/lpm_abs_o99.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/lpm_abs_o99.tdf                           ;         ;
+; db/lpm_abs_8b9.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/lpm_abs_8b9.tdf                           ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_mult.tdf          ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_add_sub.inc       ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/multcore.inc          ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/bypassff.inc          ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altshift.inc          ;         ;
+; db/mult_sgs.tdf                  ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/mult_sgs.tdf                              ;         ;
+; db/lpm_divide_tll.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/lpm_divide_tll.tdf                        ;         ;
+; db/sign_div_unsign_9nh.tdf       ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/sign_div_unsign_9nh.tdf                   ;         ;
+; db/alt_u_div_ske.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/alt_u_div_ske.tdf                         ;         ;
+; db/mult_mgs.tdf                  ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/mult_mgs.tdf                              ;         ;
+; db/mult_ogs.tdf                  ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/mult_ogs.tdf                              ;         ;
+; db/mult_sks.tdf                  ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/mult_sks.tdf                              ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -201,82 +257,194 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 1,240     ;
+; Estimated Total logic elements              ; 10,584    ;
 ;                                             ;           ;
-; Total combinational functions               ; 476       ;
+; Total combinational functions               ; 5404      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 332       ;
-;     -- 3 input functions                    ; 15        ;
-;     -- <=2 input functions                  ; 129       ;
+;     -- 4 input functions                    ; 2865      ;
+;     -- 3 input functions                    ; 1838      ;
+;     -- <=2 input functions                  ; 701       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 364       ;
-;     -- arithmetic mode                      ; 112       ;
+;     -- normal mode                          ; 3770      ;
+;     -- arithmetic mode                      ; 1634      ;
 ;                                             ;           ;
-; Total registers                             ; 898       ;
-;     -- Dedicated logic registers            ; 898       ;
+; Total registers                             ; 5778      ;
+;     -- Dedicated logic registers            ; 5778      ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 21        ;
+; Total memory bits                           ; 16384     ;
 ;                                             ;           ;
-; Embedded Multiplier 9-bit elements          ; 0         ;
+; Embedded Multiplier 9-bit elements          ; 17        ;
 ;                                             ;           ;
 ; Total PLLs                                  ; 1         ;
 ;     -- PLLs                                 ; 1         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 481       ;
-; Total fan-out                               ; 4220      ;
-; Average fan-out                             ; 2.98      ;
+; Maximum fan-out                             ; 4331      ;
+; Total fan-out                               ; 36448     ;
+; Average fan-out                             ; 3.23      ;
 +---------------------------------------------+-----------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                             ;
-+---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------+-------------------+--------------+
-; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                             ; Entity Name       ; Library Name ;
-+---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------+-------------------+--------------+
-; |spectrum_analyzer                    ; 476 (0)             ; 898 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 21   ; 0            ; 0          ; |spectrum_analyzer                                                              ; spectrum_analyzer ; work         ;
-;    |bclk:bclk|                        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|bclk:bclk                                                    ; bclk              ; work         ;
-;       |altpll:altpll_component|       ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|bclk:bclk|altpll:altpll_component                            ; altpll            ; work         ;
-;          |bclk_altpll:auto_generated| ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|bclk:bclk|altpll:altpll_component|bclk_altpll:auto_generated ; bclk_altpll       ; work         ;
-;    |i2s_receiver:i2s|                 ; 68 (68)             ; 66 (66)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|i2s_receiver:i2s                                             ; i2s_receiver      ; work         ;
-;    |plot_controller:plot|             ; 284 (284)           ; 352 (352)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot                                         ; plot_controller   ; work         ;
-;    |queue:fifo|                       ; 12 (12)             ; 352 (352)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|queue:fifo                                                   ; queue             ; work         ;
-;    |vga_controller:vga|               ; 112 (112)           ; 128 (128)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|vga_controller:vga                                           ; vga_controller    ; work         ;
-+---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------+-------------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                           ;
++----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                  ; Entity Name         ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |spectrum_analyzer                           ; 5404 (1)            ; 5778 (640)                ; 16384       ; 0          ; 17           ; 1       ; 8         ; 21   ; 0            ; 0          ; |spectrum_analyzer                                                                                                                   ; spectrum_analyzer   ; work         ;
+;    |bclk:bclk|                               ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|bclk:bclk                                                                                                         ; bclk                ; work         ;
+;       |altpll:altpll_component|              ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|bclk:bclk|altpll:altpll_component                                                                                 ; altpll              ; work         ;
+;          |bclk_altpll:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|bclk:bclk|altpll:altpll_component|bclk_altpll:auto_generated                                                      ; bclk_altpll         ; work         ;
+;    |fft:fft|                                 ; 4221 (1838)         ; 2890 (2890)               ; 16384       ; 0          ; 17           ; 1       ; 8         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft                                                                                                           ; fft                 ; work         ;
+;       |butterfly:butterfly|                  ; 198 (198)           ; 0 (0)                     ; 0           ; 0          ; 8            ; 0       ; 4         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly                                                                                       ; butterfly           ; work         ;
+;          |lpm_mult:Mult0|                    ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult0                                                                        ; lpm_mult            ; work         ;
+;             |mult_ogs:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult0|mult_ogs:auto_generated                                                ; mult_ogs            ; work         ;
+;          |lpm_mult:Mult1|                    ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult1                                                                        ; lpm_mult            ; work         ;
+;             |mult_mgs:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult1|mult_mgs:auto_generated                                                ; mult_mgs            ; work         ;
+;          |lpm_mult:Mult2|                    ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult2                                                                        ; lpm_mult            ; work         ;
+;             |mult_mgs:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult2|mult_mgs:auto_generated                                                ; mult_mgs            ; work         ;
+;          |lpm_mult:Mult3|                    ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult3                                                                        ; lpm_mult            ; work         ;
+;             |mult_ogs:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult3|mult_ogs:auto_generated                                                ; mult_ogs            ; work         ;
+;       |lpm_divide:Mod0|                      ; 1105 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod0                                                                                           ; lpm_divide          ; work         ;
+;          |lpm_divide_tll:auto_generated|     ; 1105 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod0|lpm_divide_tll:auto_generated                                                             ; lpm_divide_tll      ; work         ;
+;             |sign_div_unsign_9nh:divider|    ; 1105 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod0|lpm_divide_tll:auto_generated|sign_div_unsign_9nh:divider                                 ; sign_div_unsign_9nh ; work         ;
+;                |alt_u_div_ske:divider|       ; 1105 (1105)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod0|lpm_divide_tll:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider           ; alt_u_div_ske       ; work         ;
+;       |lpm_divide:Mod1|                      ; 1080 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod1                                                                                           ; lpm_divide          ; work         ;
+;          |lpm_divide_tll:auto_generated|     ; 1080 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod1|lpm_divide_tll:auto_generated                                                             ; lpm_divide_tll      ; work         ;
+;             |sign_div_unsign_9nh:divider|    ; 1080 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod1|lpm_divide_tll:auto_generated|sign_div_unsign_9nh:divider                                 ; sign_div_unsign_9nh ; work         ;
+;                |alt_u_div_ske:divider|       ; 1080 (1080)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod1|lpm_divide_tll:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider           ; alt_u_div_ske       ; work         ;
+;       |lpm_mult:Mult0|                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult0                                                                                            ; lpm_mult            ; work         ;
+;          |mult_sks:auto_generated|           ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult0|mult_sks:auto_generated                                                                    ; mult_sks            ; work         ;
+;       |lpm_mult:Mult1|                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult1                                                                                            ; lpm_mult            ; work         ;
+;          |mult_sgs:auto_generated|           ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult1|mult_sgs:auto_generated                                                                    ; mult_sgs            ; work         ;
+;       |lpm_mult:Mult2|                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult2                                                                                            ; lpm_mult            ; work         ;
+;          |mult_sgs:auto_generated|           ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult2|mult_sgs:auto_generated                                                                    ; mult_sgs            ; work         ;
+;       |lpm_mult:Mult3|                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult3                                                                                            ; lpm_mult            ; work         ;
+;          |mult_sgs:auto_generated|           ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult3|mult_sgs:auto_generated                                                                    ; mult_sgs            ; work         ;
+;       |lpm_mult:Mult4|                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult4                                                                                            ; lpm_mult            ; work         ;
+;          |mult_sgs:auto_generated|           ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult4|mult_sgs:auto_generated                                                                    ; mult_sgs            ; work         ;
+;       |ram_ip:ram|                           ; 0 (0)               ; 0 (0)                     ; 16384       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|ram_ip:ram                                                                                                ; ram_ip              ; work         ;
+;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 16384       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|ram_ip:ram|altsyncram:altsyncram_component                                                                ; altsyncram          ; work         ;
+;             |altsyncram_8mo3:auto_generated| ; 0 (0)               ; 0 (0)                     ; 16384       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated                                 ; altsyncram_8mo3     ; work         ;
+;    |i2s_receiver:i2s|                        ; 71 (71)             ; 72 (72)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|i2s_receiver:i2s                                                                                                  ; i2s_receiver        ; work         ;
+;    |plot_controller:plot|                    ; 972 (485)           ; 640 (640)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot                                                                                              ; plot_controller     ; work         ;
+;       |lpm_divide:Div0|                      ; 487 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot|lpm_divide:Div0                                                                              ; lpm_divide          ; work         ;
+;          |lpm_divide_jbo:auto_generated|     ; 487 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot|lpm_divide:Div0|lpm_divide_jbo:auto_generated                                                ; lpm_divide_jbo      ; work         ;
+;             |abs_divider_obg:divider|        ; 487 (12)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot|lpm_divide:Div0|lpm_divide_jbo:auto_generated|abs_divider_obg:divider                        ; abs_divider_obg     ; work         ;
+;                |alt_u_div_the:divider|       ; 445 (445)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot|lpm_divide:Div0|lpm_divide_jbo:auto_generated|abs_divider_obg:divider|alt_u_div_the:divider  ; alt_u_div_the       ; work         ;
+;                |lpm_abs_8b9:my_abs_num|      ; 30 (30)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot|lpm_divide:Div0|lpm_divide_jbo:auto_generated|abs_divider_obg:divider|lpm_abs_8b9:my_abs_num ; lpm_abs_8b9         ; work         ;
+;    |queue:fifo|                              ; 28 (28)             ; 1408 (1408)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|queue:fifo                                                                                                        ; queue               ; work         ;
+;    |vga_controller:vga|                      ; 111 (111)           ; 128 (128)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|vga_controller:vga                                                                                                ; vga_controller      ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+----------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis IP Cores Summary                                                                          ;
-+--------+--------------+---------+--------------+--------------+------------------------------+-----------------+
-; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance              ; IP Include File ;
-+--------+--------------+---------+--------------+--------------+------------------------------+-----------------+
-; Altera ; ALTPLL       ; 20.1    ; N/A          ; N/A          ; |spectrum_analyzer|bclk:bclk ; bclk.vhd        ;
-+--------+--------------+---------+--------------+--------------+------------------------------+-----------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                ;
++----------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+-------+------+
+; Name                                                                                         ; Type ; Mode           ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF  ;
++----------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+-------+------+
+; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ALTSYNCRAM ; AUTO ; True Dual Port ; 512          ; 32           ; 512          ; 32           ; 16384 ; None ;
++----------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+-------+------+
 
 
-+------------------------------------------------------------+
-; Registers Removed During Synthesis                         ;
-+---------------------------------------+--------------------+
-; Register name                         ; Reason for Removal ;
-+---------------------------------------+--------------------+
-; i2s_receiver:i2s|l_data[21..23]       ; Lost fanout        ;
-; i2s_receiver:i2s|l_data_int[21..23]   ; Lost fanout        ;
-; Total Number of Removed Registers = 6 ;                    ;
-+---------------------------------------+--------------------+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 1           ;
+; Simple Multipliers (18-bit)           ; 8           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 17          ;
+; Signed Embedded Multipliers           ; 8           ;
+; Unsigned Embedded Multipliers         ; 1           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
 
 
-+-------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                               ;
-+-----------------------------+--------------------+----------------------------------------+
-; Register name               ; Reason for Removal ; Registers Removed due to This Register ;
-+-----------------------------+--------------------+----------------------------------------+
-; i2s_receiver:i2s|l_data[21] ; Lost Fanouts       ; i2s_receiver:i2s|l_data_int[21]        ;
-; i2s_receiver:i2s|l_data[22] ; Lost Fanouts       ; i2s_receiver:i2s|l_data_int[22]        ;
-; i2s_receiver:i2s|l_data[23] ; Lost Fanouts       ; i2s_receiver:i2s|l_data_int[23]        ;
-+-----------------------------+--------------------+----------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                   ;
++--------+--------------+---------+--------------+--------------+---------------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                       ; IP Include File ;
++--------+--------------+---------+--------------+--------------+---------------------------------------+-----------------+
+; Altera ; ALTPLL       ; 20.1    ; N/A          ; N/A          ; |spectrum_analyzer|bclk:bclk          ; bclk.vhd        ;
+; Altera ; RAM: 2-PORT  ; 20.1    ; N/A          ; N/A          ; |spectrum_analyzer|fft:fft|ram_ip:ram ; ram_ip.vhd      ;
++--------+--------------+---------+--------------+--------------+---------------------------------------+-----------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |spectrum_analyzer|fft:fft|next_state                                                                                                                                                                                     ;
++---------------------------+-----------------+--------------------------+---------------------------+-------------------------+----------------------+------------------+----------------------+-------------------------+-----------------+
+; Name                      ; next_state.test ; next_state.transform_end ; next_state.butterfly_step ; next_state.wait_for_ram ; next_state.save_data ; next_state.clean ; next_state.transform ; next_state.write_to_ram ; next_state.idle ;
++---------------------------+-----------------+--------------------------+---------------------------+-------------------------+----------------------+------------------+----------------------+-------------------------+-----------------+
+; next_state.idle           ; 0               ; 0                        ; 0                         ; 0                       ; 0                    ; 0                ; 0                    ; 0                       ; 0               ;
+; next_state.write_to_ram   ; 0               ; 0                        ; 0                         ; 0                       ; 0                    ; 0                ; 0                    ; 1                       ; 1               ;
+; next_state.transform      ; 0               ; 0                        ; 0                         ; 0                       ; 0                    ; 0                ; 1                    ; 0                       ; 1               ;
+; next_state.clean          ; 0               ; 0                        ; 0                         ; 0                       ; 0                    ; 1                ; 0                    ; 0                       ; 1               ;
+; next_state.save_data      ; 0               ; 0                        ; 0                         ; 0                       ; 1                    ; 0                ; 0                    ; 0                       ; 1               ;
+; next_state.wait_for_ram   ; 0               ; 0                        ; 0                         ; 1                       ; 0                    ; 0                ; 0                    ; 0                       ; 1               ;
+; next_state.butterfly_step ; 0               ; 0                        ; 1                         ; 0                       ; 0                    ; 0                ; 0                    ; 0                       ; 1               ;
+; next_state.transform_end  ; 0               ; 1                        ; 0                         ; 0                       ; 0                    ; 0                ; 0                    ; 0                       ; 1               ;
+; next_state.test           ; 1               ; 0                        ; 0                         ; 0                       ; 0                    ; 0                ; 0                    ; 0                       ; 1               ;
++---------------------------+-----------------+--------------------------+---------------------------+-------------------------+----------------------+------------------+----------------------+-------------------------+-----------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |spectrum_analyzer|fft:fft|state_m                                                                                                                                                          ;
++------------------------+--------------+-----------------------+------------------------+----------------------+-------------------+---------------+-------------------+----------------------+--------------+
+; Name                   ; state_m.test ; state_m.transform_end ; state_m.butterfly_step ; state_m.wait_for_ram ; state_m.save_data ; state_m.clean ; state_m.transform ; state_m.write_to_ram ; state_m.idle ;
++------------------------+--------------+-----------------------+------------------------+----------------------+-------------------+---------------+-------------------+----------------------+--------------+
+; state_m.idle           ; 0            ; 0                     ; 0                      ; 0                    ; 0                 ; 0             ; 0                 ; 0                    ; 0            ;
+; state_m.write_to_ram   ; 0            ; 0                     ; 0                      ; 0                    ; 0                 ; 0             ; 0                 ; 1                    ; 1            ;
+; state_m.transform      ; 0            ; 0                     ; 0                      ; 0                    ; 0                 ; 0             ; 1                 ; 0                    ; 1            ;
+; state_m.clean          ; 0            ; 0                     ; 0                      ; 0                    ; 0                 ; 1             ; 0                 ; 0                    ; 1            ;
+; state_m.save_data      ; 0            ; 0                     ; 0                      ; 0                    ; 1                 ; 0             ; 0                 ; 0                    ; 1            ;
+; state_m.wait_for_ram   ; 0            ; 0                     ; 0                      ; 1                    ; 0                 ; 0             ; 0                 ; 0                    ; 1            ;
+; state_m.butterfly_step ; 0            ; 0                     ; 1                      ; 0                    ; 0                 ; 0             ; 0                 ; 0                    ; 1            ;
+; state_m.transform_end  ; 0            ; 1                     ; 0                      ; 0                    ; 0                 ; 0             ; 0                 ; 0                    ; 1            ;
+; state_m.test           ; 1            ; 0                     ; 0                      ; 0                    ; 0                 ; 0             ; 0                 ; 0                    ; 1            ;
++------------------------+--------------+-----------------------+------------------------+----------------------+-------------------+---------------+-------------------+----------------------+--------------+
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; fft:fft|x[1][16]                       ; Lost fanout                            ;
+; fft:fft|x[1][17]                       ; Lost fanout                            ;
+; fft:fft|x[0][16]                       ; Lost fanout                            ;
+; fft:fft|x[0][17]                       ; Lost fanout                            ;
+; fft:fft|y[1][16]                       ; Merged with fft:fft|y[1][15]           ;
+; fft:fft|y[1][17]                       ; Merged with fft:fft|y[1][15]           ;
+; fft:fft|y[0][16]                       ; Merged with fft:fft|y[0][15]           ;
+; fft:fft|y[0][17]                       ; Merged with fft:fft|y[0][15]           ;
+; fft:fft|next_state.save_data           ; Merged with fft:fft|next_state.clean   ;
+; fft:fft|next_state.test                ; Merged with fft:fft|next_state.clean   ;
+; fft:fft|next_state.wait_for_ram        ; Merged with fft:fft|next_state.clean   ;
+; fft:fft|next_state.clean               ; Stuck at GND due to stuck port data_in ;
+; fft:fft|state_m.test                   ; Stuck at GND due to stuck port data_in ;
+; fft:fft|counter_n[0]                   ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 14 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                   ;
++--------------------------+---------------------------+----------------------------------------+
+; Register name            ; Reason for Removal        ; Registers Removed due to This Register ;
++--------------------------+---------------------------+----------------------------------------+
+; fft:fft|next_state.clean ; Stuck at GND              ; fft:fft|state_m.test                   ;
+;                          ; due to stuck port data_in ;                                        ;
++--------------------------+---------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -284,12 +452,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 898   ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Total registers                              ; 5778  ;
+; Number of registers using Synchronous Clear  ; 40    ;
+; Number of registers using Synchronous Load   ; 40    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 768   ;
+; Number of registers using Clock Enable       ; 5630  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -299,10 +467,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; vga_controller:vga|pixel_x[0]          ; 83      ;
-; vga_controller:vga|pixel_y[0]          ; 3       ;
+; vga_controller:vga|pixel_x[31]         ; 80      ;
+; vga_controller:vga|pixel_x[0]          ; 4       ;
 ; vga_controller:vga|pixel_y[31]         ; 3       ;
-; vga_controller:vga|pixel_x[31]         ; 1       ;
+; vga_controller:vga|pixel_y[0]          ; 2       ;
 ; Total number of inverted registers = 4 ;         ;
 +----------------------------------------+---------+
 
@@ -312,9 +480,99 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
-; 3:1                ; 21 bits   ; 42 LEs        ; 21 LEs               ; 21 LEs                 ; Yes        ; |spectrum_analyzer|i2s_receiver:i2s|l_data_int[19] ;
-; 32:1               ; 11 bits   ; 231 LEs       ; 231 LEs              ; 0 LEs                  ; No         ; |spectrum_analyzer|plot_controller:plot|Mux8       ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[63][1]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[62][5]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[61][5]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[60][5]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[59][9]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[58][6]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[57][9]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[56][7]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[55][2]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[54][7]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[53][4]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[52][2]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[51][8]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[50][7]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[49][1]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[48][5]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[47][5]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[46][2]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[45][9]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[44][3]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[43][6]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[42][6]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[41][8]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[40][4]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[39][9]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[38][4]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[37][2]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[36][5]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[35][3]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[34][8]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[33][7]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[32][8]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[31][7]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[30][3]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[29][1]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[28][8]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[27][4]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[26][6]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[25][3]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[24][0]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[23][2]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[22][4]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[21][5]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[20][5]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[19][2]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[18][8]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[17][7]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[16][2]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[15][5]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[14][2]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[13][4]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[12][6]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[11][8]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[10][2]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[9][7]          ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[8][3]          ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[7][2]          ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[6][6]          ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[5][6]          ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[4][0]          ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[3][4]          ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[2][8]          ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[1][3]          ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[0][7]          ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |spectrum_analyzer|i2s_receiver:i2s|l_data_int[13] ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|dataAi[0]               ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|dataBi[29]              ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |spectrum_analyzer|fft:fft|wait_counter[2]         ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|counter_m[7]            ;
+; 7:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|pair_counter[1]         ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 48 LEs               ; 32 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|addrB[8]                ;
+; 67:1               ; 20 bits   ; 880 LEs       ; 860 LEs              ; 20 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|dataAi[21]              ;
+; 10:1               ; 8 bits    ; 48 LEs        ; 8 LEs                ; 40 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|counter_n[1]            ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|counter_divider[0]      ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |spectrum_analyzer|fft:fft|ShiftLeft0              ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |spectrum_analyzer|fft:fft|ShiftLeft0              ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |spectrum_analyzer|fft:fft|alpha                   ;
+; 4:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; No         ; |spectrum_analyzer|fft:fft|alpha                   ;
+; 64:1               ; 10 bits   ; 420 LEs       ; 420 LEs              ; 0 LEs                  ; No         ; |spectrum_analyzer|plot_controller:plot|Mux8       ;
+; 64:1               ; 2 bits    ; 84 LEs        ; 84 LEs               ; 0 LEs                  ; No         ; |spectrum_analyzer|fft:fft|Mux11                   ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |spectrum_analyzer|fft:fft|Selector8               ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 21 LEs               ; 14 LEs                 ; No         ; |spectrum_analyzer|fft:fft|Selector134             ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |spectrum_analyzer|fft:fft|Selector133             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Source assignments for fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                         ;
++---------------------------------+--------------------+------+--------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                          ;
++---------------------------------+--------------------+------+--------------------------------------------+
 
 
 +--------------------------------------------------------------------------------+
@@ -359,7 +617,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; CLK3_MULTIPLY_BY              ; 1                      ; Untyped               ;
 ; CLK2_MULTIPLY_BY              ; 1                      ; Untyped               ;
 ; CLK1_MULTIPLY_BY              ; 1                      ; Untyped               ;
-; CLK0_MULTIPLY_BY              ; 2                      ; Signed Integer        ;
+; CLK0_MULTIPLY_BY              ; 3                      ; Signed Integer        ;
 ; CLK9_DIVIDE_BY                ; 0                      ; Untyped               ;
 ; CLK8_DIVIDE_BY                ; 0                      ; Untyped               ;
 ; CLK7_DIVIDE_BY                ; 0                      ; Untyped               ;
@@ -369,7 +627,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; CLK3_DIVIDE_BY                ; 1                      ; Untyped               ;
 ; CLK2_DIVIDE_BY                ; 1                      ; Untyped               ;
 ; CLK1_DIVIDE_BY                ; 1                      ; Untyped               ;
-; CLK0_DIVIDE_BY                ; 29                     ; Signed Integer        ;
+; CLK0_DIVIDE_BY                ; 53                     ; Signed Integer        ;
 ; CLK9_PHASE_SHIFT              ; 0                      ; Untyped               ;
 ; CLK8_PHASE_SHIFT              ; 0                      ; Untyped               ;
 ; CLK7_PHASE_SHIFT              ; 0                      ; Untyped               ;
@@ -710,6 +968,67 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fft:fft|ram_ip:ram|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-------------------------------------+
+; Parameter Name                     ; Value                ; Type                                ;
++------------------------------------+----------------------+-------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                             ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                      ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                             ;
+; OPERATION_MODE                     ; BIDIR_DUAL_PORT      ; Untyped                             ;
+; WIDTH_A                            ; 32                   ; Signed Integer                      ;
+; WIDTHAD_A                          ; 9                    ; Signed Integer                      ;
+; NUMWORDS_A                         ; 512                  ; Signed Integer                      ;
+; OUTDATA_REG_A                      ; CLOCK0               ; Untyped                             ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                             ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                             ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                             ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                             ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                             ;
+; WIDTH_B                            ; 32                   ; Signed Integer                      ;
+; WIDTHAD_B                          ; 9                    ; Signed Integer                      ;
+; NUMWORDS_B                         ; 512                  ; Signed Integer                      ;
+; INDATA_REG_B                       ; CLOCK0               ; Untyped                             ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK0               ; Untyped                             ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                             ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                             ;
+; OUTDATA_REG_B                      ; CLOCK0               ; Untyped                             ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                             ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                             ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                             ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                             ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                             ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                             ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                             ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                      ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Signed Integer                      ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                             ;
+; BYTE_SIZE                          ; 8                    ; Signed Integer                      ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped                             ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                             ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                             ;
+; INIT_FILE                          ; UNUSED               ; Untyped                             ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                             ;
+; MAXIMUM_DEPTH                      ; 0                    ; Signed Integer                      ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                             ;
+; CLOCK_ENABLE_INPUT_B               ; BYPASS               ; Untyped                             ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                             ;
+; CLOCK_ENABLE_OUTPUT_B              ; BYPASS               ; Untyped                             ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                             ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                             ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                             ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                             ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Signed Integer                      ;
+; DEVICE_FAMILY                      ; MAX 10               ; Untyped                             ;
+; CBXI_PARAMETER                     ; altsyncram_8mo3      ; Untyped                             ;
++------------------------------------+----------------------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +---------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: i2s_receiver:i2s ;
 +----------------+-------+--------------------------------------+
@@ -718,6 +1037,390 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; sclk_ws_ratio  ; 32    ; Signed Integer                       ;
 ; d_width        ; 24    ; Signed Integer                       ;
 +----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: plot_controller:plot|lpm_divide:Div0 ;
++------------------------+----------------+---------------------------------------------+
+; Parameter Name         ; Value          ; Type                                        ;
++------------------------+----------------+---------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                     ;
+; LPM_WIDTHD             ; 5              ; Untyped                                     ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                     ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                     ;
+; LPM_PIPELINE           ; 0              ; Untyped                                     ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                     ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                     ;
+; CBXI_PARAMETER         ; lpm_divide_jbo ; Untyped                                     ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                     ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                     ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                              ;
++------------------------+----------------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult2         ;
++------------------------------------------------+----------+---------------------+
+; Parameter Name                                 ; Value    ; Type                ;
++------------------------------------------------+----------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 13       ; Untyped             ;
+; LPM_WIDTHB                                     ; 16       ; Untyped             ;
+; LPM_WIDTHP                                     ; 29       ; Untyped             ;
+; LPM_WIDTHR                                     ; 29       ; Untyped             ;
+; LPM_WIDTHS                                     ; 1        ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped             ;
+; LPM_PIPELINE                                   ; 0        ; Untyped             ;
+; LATENCY                                        ; 0        ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped             ;
+; USE_EAB                                        ; OFF      ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped             ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_sgs ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped             ;
++------------------------------------------------+----------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult1         ;
++------------------------------------------------+----------+---------------------+
+; Parameter Name                                 ; Value    ; Type                ;
++------------------------------------------------+----------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 13       ; Untyped             ;
+; LPM_WIDTHB                                     ; 16       ; Untyped             ;
+; LPM_WIDTHP                                     ; 29       ; Untyped             ;
+; LPM_WIDTHR                                     ; 29       ; Untyped             ;
+; LPM_WIDTHS                                     ; 1        ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped             ;
+; LPM_PIPELINE                                   ; 0        ; Untyped             ;
+; LATENCY                                        ; 0        ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped             ;
+; USE_EAB                                        ; OFF      ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped             ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_sgs ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped             ;
++------------------------------------------------+----------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult4         ;
++------------------------------------------------+----------+---------------------+
+; Parameter Name                                 ; Value    ; Type                ;
++------------------------------------------------+----------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 13       ; Untyped             ;
+; LPM_WIDTHB                                     ; 16       ; Untyped             ;
+; LPM_WIDTHP                                     ; 29       ; Untyped             ;
+; LPM_WIDTHR                                     ; 29       ; Untyped             ;
+; LPM_WIDTHS                                     ; 1        ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped             ;
+; LPM_PIPELINE                                   ; 0        ; Untyped             ;
+; LATENCY                                        ; 0        ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped             ;
+; USE_EAB                                        ; OFF      ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped             ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_sgs ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped             ;
++------------------------------------------------+----------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult3         ;
++------------------------------------------------+----------+---------------------+
+; Parameter Name                                 ; Value    ; Type                ;
++------------------------------------------------+----------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 13       ; Untyped             ;
+; LPM_WIDTHB                                     ; 16       ; Untyped             ;
+; LPM_WIDTHP                                     ; 29       ; Untyped             ;
+; LPM_WIDTHR                                     ; 29       ; Untyped             ;
+; LPM_WIDTHS                                     ; 1        ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped             ;
+; LPM_PIPELINE                                   ; 0        ; Untyped             ;
+; LATENCY                                        ; 0        ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped             ;
+; USE_EAB                                        ; OFF      ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped             ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_sgs ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped             ;
++------------------------------------------------+----------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Mod0 ;
++------------------------+----------------+--------------------------------+
+; Parameter Name         ; Value          ; Type                           ;
++------------------------+----------------+--------------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                        ;
+; LPM_WIDTHD             ; 32             ; Untyped                        ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                        ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                        ;
+; LPM_PIPELINE           ; 0              ; Untyped                        ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                        ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                        ;
+; CBXI_PARAMETER         ; lpm_divide_tll ; Untyped                        ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                        ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                        ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                     ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                   ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                   ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                 ;
++------------------------+----------------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: fft:fft|butterfly:butterfly|lpm_mult:Mult2 ;
++------------------------------------------------+----------+---------------------------------+
+; Parameter Name                                 ; Value    ; Type                            ;
++------------------------------------------------+----------+---------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY                      ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY                    ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE                    ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE                  ;
+; LPM_WIDTHA                                     ; 10       ; Untyped                         ;
+; LPM_WIDTHB                                     ; 16       ; Untyped                         ;
+; LPM_WIDTHP                                     ; 26       ; Untyped                         ;
+; LPM_WIDTHR                                     ; 26       ; Untyped                         ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                         ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                         ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                         ;
+; LATENCY                                        ; 0        ; Untyped                         ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                         ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                         ;
+; USE_EAB                                        ; OFF      ; Untyped                         ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                         ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                         ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                         ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K             ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                         ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                         ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                         ;
+; CBXI_PARAMETER                                 ; mult_mgs ; Untyped                         ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                         ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                         ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                         ;
++------------------------------------------------+----------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: fft:fft|butterfly:butterfly|lpm_mult:Mult3 ;
++------------------------------------------------+----------+---------------------------------+
+; Parameter Name                                 ; Value    ; Type                            ;
++------------------------------------------------+----------+---------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY                      ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY                    ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE                    ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE                  ;
+; LPM_WIDTHA                                     ; 11       ; Untyped                         ;
+; LPM_WIDTHB                                     ; 16       ; Untyped                         ;
+; LPM_WIDTHP                                     ; 27       ; Untyped                         ;
+; LPM_WIDTHR                                     ; 27       ; Untyped                         ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                         ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                         ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                         ;
+; LATENCY                                        ; 0        ; Untyped                         ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                         ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                         ;
+; USE_EAB                                        ; OFF      ; Untyped                         ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                         ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                         ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                         ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K             ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                         ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                         ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                         ;
+; CBXI_PARAMETER                                 ; mult_ogs ; Untyped                         ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                         ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                         ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                         ;
++------------------------------------------------+----------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: fft:fft|butterfly:butterfly|lpm_mult:Mult0 ;
++------------------------------------------------+----------+---------------------------------+
+; Parameter Name                                 ; Value    ; Type                            ;
++------------------------------------------------+----------+---------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY                      ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY                    ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE                    ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE                  ;
+; LPM_WIDTHA                                     ; 11       ; Untyped                         ;
+; LPM_WIDTHB                                     ; 16       ; Untyped                         ;
+; LPM_WIDTHP                                     ; 27       ; Untyped                         ;
+; LPM_WIDTHR                                     ; 27       ; Untyped                         ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                         ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                         ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                         ;
+; LATENCY                                        ; 0        ; Untyped                         ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                         ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                         ;
+; USE_EAB                                        ; OFF      ; Untyped                         ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                         ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                         ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                         ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K             ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                         ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                         ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                         ;
+; CBXI_PARAMETER                                 ; mult_ogs ; Untyped                         ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                         ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                         ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                         ;
++------------------------------------------------+----------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: fft:fft|butterfly:butterfly|lpm_mult:Mult1 ;
++------------------------------------------------+----------+---------------------------------+
+; Parameter Name                                 ; Value    ; Type                            ;
++------------------------------------------------+----------+---------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY                      ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY                    ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE                    ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE                  ;
+; LPM_WIDTHA                                     ; 10       ; Untyped                         ;
+; LPM_WIDTHB                                     ; 16       ; Untyped                         ;
+; LPM_WIDTHP                                     ; 26       ; Untyped                         ;
+; LPM_WIDTHR                                     ; 26       ; Untyped                         ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                         ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                         ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                         ;
+; LATENCY                                        ; 0        ; Untyped                         ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                         ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                         ;
+; USE_EAB                                        ; OFF      ; Untyped                         ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                         ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                         ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                         ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K             ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                         ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                         ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                         ;
+; CBXI_PARAMETER                                 ; mult_mgs ; Untyped                         ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                         ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                         ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                         ;
++------------------------------------------------+----------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Mod1 ;
++------------------------+----------------+--------------------------------+
+; Parameter Name         ; Value          ; Type                           ;
++------------------------+----------------+--------------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                        ;
+; LPM_WIDTHD             ; 32             ; Untyped                        ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                        ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                        ;
+; LPM_PIPELINE           ; 0              ; Untyped                        ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                        ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                        ;
+; CBXI_PARAMETER         ; lpm_divide_tll ; Untyped                        ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                        ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                        ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                     ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                   ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                   ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                 ;
++------------------------+----------------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult0         ;
++------------------------------------------------+----------+---------------------+
+; Parameter Name                                 ; Value    ; Type                ;
++------------------------------------------------+----------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 7        ; Untyped             ;
+; LPM_WIDTHB                                     ; 7        ; Untyped             ;
+; LPM_WIDTHP                                     ; 14       ; Untyped             ;
+; LPM_WIDTHR                                     ; 14       ; Untyped             ;
+; LPM_WIDTHS                                     ; 1        ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED ; Untyped             ;
+; LPM_PIPELINE                                   ; 0        ; Untyped             ;
+; LATENCY                                        ; 0        ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped             ;
+; USE_EAB                                        ; OFF      ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped             ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_sks ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped             ;
++------------------------------------------------+----------+---------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -738,6 +1441,134 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+-----------------------------------+
 
 
++------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                               ;
++-------------------------------------------+----------------------------------------------------+
+; Name                                      ; Value                                              ;
++-------------------------------------------+----------------------------------------------------+
+; Number of entity instances                ; 1                                                  ;
+; Entity Instance                           ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; BIDIR_DUAL_PORT                                    ;
+;     -- WIDTH_A                            ; 32                                                 ;
+;     -- NUMWORDS_A                         ; 512                                                ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                             ;
+;     -- WIDTH_B                            ; 32                                                 ;
+;     -- NUMWORDS_B                         ; 512                                                ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                             ;
+;     -- OUTDATA_REG_B                      ; CLOCK0                                             ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                               ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                           ;
++-------------------------------------------+----------------------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                     ;
++---------------------------------------+--------------------------------------------+
+; Name                                  ; Value                                      ;
++---------------------------------------+--------------------------------------------+
+; Number of entity instances            ; 9                                          ;
+; Entity Instance                       ; fft:fft|lpm_mult:Mult2                     ;
+;     -- LPM_WIDTHA                     ; 13                                         ;
+;     -- LPM_WIDTHB                     ; 16                                         ;
+;     -- LPM_WIDTHP                     ; 29                                         ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                     ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                         ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                         ;
+;     -- USE_EAB                        ; OFF                                        ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                       ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                         ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                         ;
+; Entity Instance                       ; fft:fft|lpm_mult:Mult1                     ;
+;     -- LPM_WIDTHA                     ; 13                                         ;
+;     -- LPM_WIDTHB                     ; 16                                         ;
+;     -- LPM_WIDTHP                     ; 29                                         ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                     ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                         ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                         ;
+;     -- USE_EAB                        ; OFF                                        ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                       ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                         ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                         ;
+; Entity Instance                       ; fft:fft|lpm_mult:Mult4                     ;
+;     -- LPM_WIDTHA                     ; 13                                         ;
+;     -- LPM_WIDTHB                     ; 16                                         ;
+;     -- LPM_WIDTHP                     ; 29                                         ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                     ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                         ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                         ;
+;     -- USE_EAB                        ; OFF                                        ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                       ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                         ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                         ;
+; Entity Instance                       ; fft:fft|lpm_mult:Mult3                     ;
+;     -- LPM_WIDTHA                     ; 13                                         ;
+;     -- LPM_WIDTHB                     ; 16                                         ;
+;     -- LPM_WIDTHP                     ; 29                                         ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                     ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                         ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                         ;
+;     -- USE_EAB                        ; OFF                                        ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                       ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                         ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                         ;
+; Entity Instance                       ; fft:fft|butterfly:butterfly|lpm_mult:Mult2 ;
+;     -- LPM_WIDTHA                     ; 10                                         ;
+;     -- LPM_WIDTHB                     ; 16                                         ;
+;     -- LPM_WIDTHP                     ; 26                                         ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                     ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                         ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                         ;
+;     -- USE_EAB                        ; OFF                                        ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                       ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                         ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                         ;
+; Entity Instance                       ; fft:fft|butterfly:butterfly|lpm_mult:Mult3 ;
+;     -- LPM_WIDTHA                     ; 11                                         ;
+;     -- LPM_WIDTHB                     ; 16                                         ;
+;     -- LPM_WIDTHP                     ; 27                                         ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                     ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                         ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                         ;
+;     -- USE_EAB                        ; OFF                                        ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                       ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                         ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                         ;
+; Entity Instance                       ; fft:fft|butterfly:butterfly|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 11                                         ;
+;     -- LPM_WIDTHB                     ; 16                                         ;
+;     -- LPM_WIDTHP                     ; 27                                         ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                     ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                         ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                         ;
+;     -- USE_EAB                        ; OFF                                        ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                       ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                         ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                         ;
+; Entity Instance                       ; fft:fft|butterfly:butterfly|lpm_mult:Mult1 ;
+;     -- LPM_WIDTHA                     ; 10                                         ;
+;     -- LPM_WIDTHB                     ; 16                                         ;
+;     -- LPM_WIDTHP                     ; 26                                         ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                     ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                         ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                         ;
+;     -- USE_EAB                        ; OFF                                        ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                       ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                         ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                         ;
+; Entity Instance                       ; fft:fft|lpm_mult:Mult0                     ;
+;     -- LPM_WIDTHA                     ; 7                                          ;
+;     -- LPM_WIDTHB                     ; 7                                          ;
+;     -- LPM_WIDTHP                     ; 14                                         ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                   ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                         ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                         ;
+;     -- USE_EAB                        ; OFF                                        ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                       ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                         ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                         ;
++---------------------------------------+--------------------------------------------+
+
+
 +------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "i2s_receiver:i2s"                                                                     ;
 +--------+--------+----------+-------------------------------------------------------------------------------------+
@@ -747,28 +1578,46 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "fft:fft|butterfly:butterfly"                                                                 ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; sa[0][17..16] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; sa[1][17..16] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; sb[0][17..16] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; sb[1][17..16] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 21                          ;
-; cycloneiii_ff         ; 898                         ;
-;     ENA               ; 768                         ;
-;     plain             ; 130                         ;
-; cycloneiii_lcell_comb ; 480                         ;
-;     arith             ; 112                         ;
-;         2 data inputs ; 112                         ;
-;     normal            ; 368                         ;
-;         0 data inputs ; 2                           ;
-;         1 data inputs ; 12                          ;
-;         2 data inputs ; 7                           ;
-;         3 data inputs ; 15                          ;
-;         4 data inputs ; 332                         ;
+; cycloneiii_ff         ; 5778                        ;
+;     ENA               ; 5550                        ;
+;     ENA SCLR          ; 40                          ;
+;     ENA SLD           ; 40                          ;
+;     plain             ; 148                         ;
+; cycloneiii_lcell_comb ; 5415                        ;
+;     arith             ; 1634                        ;
+;         2 data inputs ; 293                         ;
+;         3 data inputs ; 1341                        ;
+;     normal            ; 3781                        ;
+;         0 data inputs ; 93                          ;
+;         1 data inputs ; 35                          ;
+;         2 data inputs ; 291                         ;
+;         3 data inputs ; 497                         ;
+;         4 data inputs ; 2865                        ;
+; cycloneiii_mac_mult   ; 9                           ;
+; cycloneiii_mac_out    ; 9                           ;
 ; cycloneiii_pll        ; 1                           ;
+; cycloneiii_ram_block  ; 32                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 10.50                       ;
-; Average LUT depth     ; 4.93                        ;
+; Max LUT depth         ; 122.30                      ;
+; Average LUT depth     ; 40.85                       ;
 +-----------------------+-----------------------------+
 
 
@@ -777,7 +1626,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:21     ;
 +----------------+--------------+
 
 
@@ -787,7 +1636,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Wed Jun  1 11:33:05 2022
+    Info: Processing started: Wed Jun  1 14:02:27 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off spectrum_analyzer -c spectrum_analyzer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -842,17 +1691,14 @@ Info (12127): Elaborating entity "spectrum_analyzer" for the top level hierarchy
 Warning (10540): VHDL Signal Declaration warning at spectrum_analyzer.vhd(14): used explicit default value for signal "mic_vcc" because signal was never assigned a value File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 14
 Warning (10540): VHDL Signal Declaration warning at spectrum_analyzer.vhd(15): used explicit default value for signal "mic_gnd" because signal was never assigned a value File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 15
 Warning (10036): Verilog HDL or VHDL warning at spectrum_analyzer.vhd(29): object "r_data" assigned a value but never read File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 29
-Warning (10540): VHDL Signal Declaration warning at spectrum_analyzer.vhd(30): used explicit default value for signal "do_cos" because signal was never assigned a value File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 30
-Warning (10036): Verilog HDL or VHDL warning at spectrum_analyzer.vhd(30): object "do_next" assigned a value but never read File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 30
-Warning (10540): VHDL Signal Declaration warning at spectrum_analyzer.vhd(77): used explicit default value for signal "done_f" because signal was never assigned a value File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 77
-Info (12128): Elaborating entity "bclk" for hierarchy "bclk:bclk" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 81
+Info (12128): Elaborating entity "bclk" for hierarchy "bclk:bclk" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 82
 Info (12128): Elaborating entity "altpll" for hierarchy "bclk:bclk|altpll:altpll_component" File: /home/tomek/vhdl/spctr/spectrum_analyzer/bclk.vhd Line: 134
 Info (12130): Elaborated megafunction instantiation "bclk:bclk|altpll:altpll_component" File: /home/tomek/vhdl/spctr/spectrum_analyzer/bclk.vhd Line: 134
 Info (12133): Instantiated megafunction "bclk:bclk|altpll:altpll_component" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/bclk.vhd Line: 134
     Info (12134): Parameter "bandwidth_type" = "AUTO"
-    Info (12134): Parameter "clk0_divide_by" = "29"
+    Info (12134): Parameter "clk0_divide_by" = "53"
     Info (12134): Parameter "clk0_duty_cycle" = "50"
-    Info (12134): Parameter "clk0_multiply_by" = "2"
+    Info (12134): Parameter "clk0_multiply_by" = "3"
     Info (12134): Parameter "clk0_phase_shift" = "0"
     Info (12134): Parameter "compensate_clock" = "CLK0"
     Info (12134): Parameter "inclk0_input_frequency" = "20000"
@@ -906,31 +1752,212 @@ Info (12133): Instantiated megafunction "bclk:bclk|altpll:altpll_component" with
 Info (12021): Found 1 design units, including 1 entities, in source file db/bclk_altpll.v
     Info (12023): Found entity 1: bclk_altpll File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/bclk_altpll.v Line: 30
 Info (12128): Elaborating entity "bclk_altpll" for hierarchy "bclk:bclk|altpll:altpll_component|bclk_altpll:auto_generated" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altpll.tdf Line: 898
-Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:vga" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 84
-Info (12128): Elaborating entity "plot_controller" for hierarchy "plot_controller:plot" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 88
-Info (12128): Elaborating entity "queue" for hierarchy "queue:fifo" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 96
-Info (12128): Elaborating entity "i2s_receiver" for hierarchy "i2s_receiver:i2s" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 113
+Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:vga" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 85
+Info (12128): Elaborating entity "plot_controller" for hierarchy "plot_controller:plot" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 89
+Info (12128): Elaborating entity "queue" for hierarchy "queue:fifo" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 97
+Info (12128): Elaborating entity "fft" for hierarchy "fft:fft" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 100
+Warning (10036): Verilog HDL or VHDL warning at fft.vhd(37): object "rdwr_wait" assigned a value but never read File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 37
+Info (12128): Elaborating entity "ram_ip" for hierarchy "fft:fft|ram_ip:ram" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 41
+Info (12128): Elaborating entity "altsyncram" for hierarchy "fft:fft|ram_ip:ram|altsyncram:altsyncram_component" File: /home/tomek/vhdl/spctr/spectrum_analyzer/ram_ip.vhd Line: 68
+Info (12130): Elaborated megafunction instantiation "fft:fft|ram_ip:ram|altsyncram:altsyncram_component" File: /home/tomek/vhdl/spctr/spectrum_analyzer/ram_ip.vhd Line: 68
+Info (12133): Instantiated megafunction "fft:fft|ram_ip:ram|altsyncram:altsyncram_component" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/ram_ip.vhd Line: 68
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK0"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "intended_device_family" = "MAX 10"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK0"
+    Info (12134): Parameter "init_file" = "UNUSED"
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "512"
+    Info (12134): Parameter "numwords_b" = "512"
+    Info (12134): Parameter "operation_mode" = "BIDIR_DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "outdata_reg_b" = "CLOCK0"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "OLD_DATA"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_b" = "32"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "9"
+    Info (12134): Parameter "widthad_b" = "9"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK0"
+    Info (12134): Parameter "lpm_hint" = "UNUSED"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8mo3.tdf
+    Info (12023): Found entity 1: altsyncram_8mo3 File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/altsyncram_8mo3.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_8mo3" for hierarchy "fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "butterfly" for hierarchy "fft:fft|butterfly:butterfly" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 54
+Info (12128): Elaborating entity "i2s_receiver" for hierarchy "i2s_receiver:i2s" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 114
+Info (278001): Inferred 12 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "plot_controller:plot|Div0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 37
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|Mult2" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 216
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|Mult1" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 216
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|Mult4" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 217
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|Mult3" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 217
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fft:fft|Mod0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 136
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|butterfly:butterfly|Mult2" File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 30
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|butterfly:butterfly|Mult3" File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 30
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|butterfly:butterfly|Mult0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 29
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|butterfly:butterfly|Mult1" File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 29
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fft:fft|Mod1" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 167
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|Mult0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 167
+Info (12130): Elaborated megafunction instantiation "plot_controller:plot|lpm_divide:Div0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 37
+Info (12133): Instantiated megafunction "plot_controller:plot|lpm_divide:Div0" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 37
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_jbo.tdf
+    Info (12023): Found entity 1: lpm_divide_jbo File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/lpm_divide_jbo.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_obg.tdf
+    Info (12023): Found entity 1: abs_divider_obg File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/abs_divider_obg.tdf Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_the.tdf
+    Info (12023): Found entity 1: alt_u_div_the File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/alt_u_div_the.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_t3c.tdf
+    Info (12023): Found entity 1: add_sub_t3c File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/add_sub_t3c.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
+    Info (12023): Found entity 1: add_sub_u3c File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/add_sub_u3c.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_o99.tdf
+    Info (12023): Found entity 1: lpm_abs_o99 File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/lpm_abs_o99.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_8b9.tdf
+    Info (12023): Found entity 1: lpm_abs_8b9 File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/lpm_abs_8b9.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "fft:fft|lpm_mult:Mult2" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 216
+Info (12133): Instantiated megafunction "fft:fft|lpm_mult:Mult2" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 216
+    Info (12134): Parameter "LPM_WIDTHA" = "13"
+    Info (12134): Parameter "LPM_WIDTHB" = "16"
+    Info (12134): Parameter "LPM_WIDTHP" = "29"
+    Info (12134): Parameter "LPM_WIDTHR" = "29"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_sgs.tdf
+    Info (12023): Found entity 1: mult_sgs File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/mult_sgs.tdf Line: 29
+Info (12130): Elaborated megafunction instantiation "fft:fft|lpm_divide:Mod0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 136
+Info (12133): Instantiated megafunction "fft:fft|lpm_divide:Mod0" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 136
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "32"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_tll.tdf
+    Info (12023): Found entity 1: lpm_divide_tll File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/lpm_divide_tll.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9nh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_9nh File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/sign_div_unsign_9nh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ske.tdf
+    Info (12023): Found entity 1: alt_u_div_ske File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/alt_u_div_ske.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "fft:fft|butterfly:butterfly|lpm_mult:Mult2" File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 30
+Info (12133): Instantiated megafunction "fft:fft|butterfly:butterfly|lpm_mult:Mult2" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 30
+    Info (12134): Parameter "LPM_WIDTHA" = "10"
+    Info (12134): Parameter "LPM_WIDTHB" = "16"
+    Info (12134): Parameter "LPM_WIDTHP" = "26"
+    Info (12134): Parameter "LPM_WIDTHR" = "26"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_mgs.tdf
+    Info (12023): Found entity 1: mult_mgs File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/mult_mgs.tdf Line: 29
+Info (12130): Elaborated megafunction instantiation "fft:fft|butterfly:butterfly|lpm_mult:Mult3" File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 30
+Info (12133): Instantiated megafunction "fft:fft|butterfly:butterfly|lpm_mult:Mult3" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 30
+    Info (12134): Parameter "LPM_WIDTHA" = "11"
+    Info (12134): Parameter "LPM_WIDTHB" = "16"
+    Info (12134): Parameter "LPM_WIDTHP" = "27"
+    Info (12134): Parameter "LPM_WIDTHR" = "27"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_ogs.tdf
+    Info (12023): Found entity 1: mult_ogs File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/mult_ogs.tdf Line: 29
+Info (12130): Elaborated megafunction instantiation "fft:fft|lpm_divide:Mod1" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 167
+Info (12133): Instantiated megafunction "fft:fft|lpm_divide:Mod1" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 167
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "32"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12130): Elaborated megafunction instantiation "fft:fft|lpm_mult:Mult0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 167
+Info (12133): Instantiated megafunction "fft:fft|lpm_mult:Mult0" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 167
+    Info (12134): Parameter "LPM_WIDTHA" = "7"
+    Info (12134): Parameter "LPM_WIDTHB" = "7"
+    Info (12134): Parameter "LPM_WIDTHP" = "14"
+    Info (12134): Parameter "LPM_WIDTHR" = "14"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_sks.tdf
+    Info (12023): Found entity 1: mult_sks File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/mult_sks.tdf Line: 29
+Info (13014): Ignored 31 buffer(s)
+    Info (13016): Ignored 31 CARRY_SUM buffer(s)
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "red[0]" is stuck at GND File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 11
     Warning (13410): Pin "red[1]" is stuck at GND File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 11
     Warning (13410): Pin "red[2]" is stuck at GND File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 11
     Warning (13410): Pin "red[3]" is stuck at GND File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 11
+    Warning (13410): Pin "blue[0]" is stuck at GND File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 11
+    Warning (13410): Pin "blue[1]" is stuck at GND File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 11
+    Warning (13410): Pin "blue[2]" is stuck at GND File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 11
+    Warning (13410): Pin "blue[3]" is stuck at GND File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 11
     Warning (13410): Pin "mic_vcc" is stuck at VCC File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 14
     Warning (13410): Pin "mic_gnd" is stuck at GND File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 15
     Warning (13410): Pin "sel" is stuck at GND File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 17
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 6 registers lost all their fanouts during netlist optimizations.
+Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (17016): Found the following redundant logic cells in design
+    Info (17048): Logic cell "fft:fft|Add6~0" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 1244
+    Info (17048): Logic cell "fft:fft|Add6~2" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 1244
+    Info (17048): Logic cell "fft:fft|Add6~4" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 1244
+    Info (17048): Logic cell "fft:fft|Add6~6" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 1244
+    Info (17048): Logic cell "fft:fft|Add6~8" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 1244
+    Info (17048): Logic cell "fft:fft|Add6~10" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 1244
+    Info (17048): Logic cell "fft:fft|Add6~12" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 1244
+    Info (17048): Logic cell "fft:fft|Add6~14" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 1244
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1263 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 10675 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 19 output pins
-    Info (21061): Implemented 1241 logic cells
+    Info (21061): Implemented 10604 logic cells
+    Info (21064): Implemented 32 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 15 warnings
-    Info: Peak virtual memory: 466 megabytes
-    Info: Processing ended: Wed Jun  1 11:33:23 2022
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:37
+    Info (21062): Implemented 17 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 17 warnings
+    Info: Peak virtual memory: 546 megabytes
+    Info: Processing ended: Wed Jun  1 14:03:15 2022
+    Info: Elapsed time: 00:00:48
+    Info: Total CPU time (on all processors): 00:01:03
 
 

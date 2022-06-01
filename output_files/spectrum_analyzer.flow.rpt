@@ -1,5 +1,5 @@
 Flow report for spectrum_analyzer
-Wed Jun  1 11:34:02 2022
+Wed Jun  1 14:09:36 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,21 +41,21 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Wed Jun  1 11:34:02 2022       ;
+; Flow Status                        ; Successful - Wed Jun  1 14:09:36 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; spectrum_analyzer                           ;
 ; Top-level Entity Name              ; spectrum_analyzer                           ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 1,027 / 49,760 ( 2 % )                      ;
-;     Total combinational functions  ; 477 / 49,760 ( < 1 % )                      ;
-;     Dedicated logic registers      ; 898 / 49,760 ( 2 % )                        ;
-; Total registers                    ; 898                                         ;
+; Total logic elements               ; 9,455 / 49,760 ( 19 % )                     ;
+;     Total combinational functions  ; 5,404 / 49,760 ( 11 % )                     ;
+;     Dedicated logic registers      ; 5,740 / 49,760 ( 12 % )                     ;
+; Total registers                    ; 5740                                        ;
 ; Total pins                         ; 21 / 360 ( 6 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                       ;
-; Embedded Multiplier 9-bit elements ; 0 / 288 ( 0 % )                             ;
+; Total memory bits                  ; 16,384 / 1,677,312 ( < 1 % )                ;
+; Embedded Multiplier 9-bit elements ; 17 / 288 ( 6 % )                            ;
 ; Total PLLs                         ; 1 / 4 ( 25 % )                              ;
 ; UFM blocks                         ; 0 / 1 ( 0 % )                               ;
 ; ADC blocks                         ; 0 / 2 ( 0 % )                               ;
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/01/2022 11:33:05 ;
+; Start date & time ; 06/01/2022 14:02:28 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; spectrum_analyzer   ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+--------------------------------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value                        ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+--------------------------------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 167304649327723.165407598517320        ; --                                   ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 167304649327723.165408494800955        ; --                                   ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --                                   ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --                                   ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --                                   ; --          ; eda_board_design_signal_integrity ;
@@ -104,12 +104,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:18     ; 1.0                     ; 466 MB              ; 00:00:36                           ;
-; Fitter               ; 00:00:23     ; 1.2                     ; 861 MB              ; 00:00:31                           ;
-; Assembler            ; 00:00:04     ; 1.0                     ; 387 MB              ; 00:00:04                           ;
-; Timing Analyzer      ; 00:00:06     ; 1.4                     ; 506 MB              ; 00:00:08                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 633 MB              ; 00:00:01                           ;
-; Total                ; 00:00:52     ; --                      ; --                  ; 00:01:20                           ;
+; Analysis & Synthesis ; 00:00:46     ; 1.0                     ; 546 MB              ; 00:01:01                           ;
+; Fitter               ; 00:05:36     ; 1.1                     ; 957 MB              ; 00:06:55                           ;
+; Assembler            ; 00:00:05     ; 1.0                     ; 411 MB              ; 00:00:05                           ;
+; Timing Analyzer      ; 00:00:25     ; 1.7                     ; 584 MB              ; 00:00:40                           ;
+; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 685 MB              ; 00:00:03                           ;
+; Total                ; 00:06:55     ; --                      ; --                  ; 00:08:44                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

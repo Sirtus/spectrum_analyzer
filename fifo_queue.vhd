@@ -10,28 +10,32 @@ entity queue is
         clk: in std_logic;
         wr_en: in std_logic;
         data_in: in std_logic_vector(23 downto 0);
-        data_out: out queue_t
+        data_out: out isignal_t
     );
 end queue;
 
 architecture arch of queue is
-    signal data: queue_t := (others => 0);
+    signal data: isignal_t := (others => 0);
 begin
     
     process(clk)
         variable temp: integer range -600 to 600 := 0;
+        variable ctr: integer range 0 to 31;
     begin
         if rising_edge(clk) then
             if wr_en = '1' then
-                -- temp :=(to_integer(unsigned(data_in(23 downto 16)))-242) ;
-                -- temp :=(to_integer(signed(data_in(23 downto 15)))) ;
-                temp :=(to_integer(signed(data_in(23 downto 10))) + 427) ;
-                -- if data_in(23) = '1' then
-                --     temp := -100;
+                -- if ctr = 15 then
+                    temp :=(to_integer(signed(data_in(23 downto 10))) + 427)/4 ;
+                    -- if data_in(23) = '1' then
+                    --     temp := -100;
+                    -- else
+                    --     temp := 100;
+                    -- end if;
+                    data <= temp & data(0 to data'high-1);
+                    -- ctr := 0;
                 -- else
-                --     temp := 100;
+                    -- ctr := ctr + 1;        
                 -- end if;
-                data <= temp & data(0 to data'high-1);
             end if;
         end if;
     end process;

@@ -11,14 +11,14 @@ entity plot_controller is
         red, green, blue: out std_logic_vector(3 downto 0);
         video_on: in std_logic;
         pixel_x, pixel_y: in integer;
-        do: in queue_t
+        do: in osignal_t
     );
 end entity plot_controller;
 
 architecture arch of plot_controller is
     signal point_x: integer := 0;
     signal point_y: integer := 0;
-    signal que_sin, que_cos: queue_t := (others => 0);
+    signal que_sin, que_cos: osignal_t := (others => 0);
     
 begin
 
@@ -31,11 +31,11 @@ begin
         end if;
     end process;
 
-    red <= "0000" when video_on = '1' and pixel_y = que_cos(1)  else "0000";
-    blue <= "1111" when video_on = '1' and pixel_y = 300 else "0000";
+    red <= "0000";
+    blue <= "0000";-- when video_on = '1' and pixel_y = 300 else "0000";
     -- green <= "1111" when video_on = '1' and pixel_y <= que_cos(pixel_x/100) else "0000";
-        -- green <= "1111" when video_on = '1' and pixel_x <= 768 and pixel_y >= 600 - que_cos(pixel_x/25) else "0000";
-        green <= "1111" when video_on = '1'  and pixel_y = que_cos(pixel_x)+300 else "0000";
+        green <= "1111" when video_on = '1' and pixel_x <= 768 and pixel_y >= 600 - que_cos(pixel_x/12) else "0000";
+        -- green <= "1111" when video_on = '1' and pixel_x < 32 and pixel_y = que_cos(pixel_x)+300 else "0000";
 --pixel_y >= (600 - que_cos(pixel_x/100))
     
 end architecture arch;

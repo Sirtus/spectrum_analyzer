@@ -9,10 +9,10 @@ use work.trigonometric.all;
 entity fft is
     port (
         clk: in std_logic;
-        data_i: in queue_t;
+        data_i: in isignal_t;
         do_fft: in std_logic;
         done: out std_logic;
-        res: out queue_t
+        res: out osignal_t
     );
 end entity fft;
 
@@ -29,8 +29,8 @@ architecture rtl of fft is
     signal counter_m, counter_divider: integer range 0 to N := 0; 
     signal alpha: integer := 0;
     signal x,y: cplx := (others => 0);
-    signal data: queue_t := (others => 0);
-    signal new_data: queue_t := (others => 0);
+    signal data: isignal_t := (others => 0);
+    signal new_data: osignal_t := (others => 0);
 
     signal wr: std_logic := '0';
     signal rd: std_logic := '1';  
@@ -118,7 +118,7 @@ begin
                     --     report "Mess:" & integer'image(ram_arr(i)(0))& " res: " & integer'image(ram_arr(i)(1));
                     -- end loop;
                     wr <= '0';
-                    if counter_n > queue_t'high-1 then
+                    if counter_n > isignal_t'high-1 then
                         if counter_m = LOG_N then
                             state_m <= wait_for_ram;
                             next_state <= transform_end;
@@ -195,7 +195,7 @@ begin
 
                 when transform_end =>
 
-                    if counter_n >= N -1 then
+                    if counter_n >= osignal_t'length-1 then
                         counter_n <= (others => '0');
                         state_m <= clean;
                         res <= new_data;
@@ -203,7 +203,7 @@ begin
                     else
                         adA := to_integer(counter_n );
                         adB := to_integer(counter_n + 1);
-                        if counter_n < N-3 then
+                        if counter_n < osignal_t'length-3 then
 
                             -- addrA <= std_logic_vector(to_unsigned(1, addrA'length));--
                             -- addrB <= std_logic_vector(to_unsigned(0, addrA'length));--
@@ -213,8 +213,8 @@ begin
                         dA := (to_integer(signed(dataAo(31 downto 16))), to_integer(signed(dataAo(15 downto 0))));
                         dB := (to_integer(signed(dataBo(31 downto 16))), to_integer(signed(dataBo(15 downto 0))));
                         counter_n <= counter_n + 2;
-                        new_data(adA) <= (dA(0)/8 * dA(0)/8) + (dA(1)/8 * dA(1)/8);
-                        new_data(adB) <= (dB(0)/8 * dB(0)/8) + (dB(1)/8 * dB(1)/8);
+                        new_data(adA) <= (dA(0)/16 * dA(0)/16) + (dA(1)/16 * dA(1)/16);
+                        new_data(adB) <= (dB(0)/16 * dB(0)/16) + (dB(1)/16 * dB(1)/16);
                         state_m <= wait_for_ram;
                         next_state <= transform_end;
                         -- res(adA) <= (ram_arr(adA)(0)*ram_arr(adA)(0))/4000  + (ram_arr(adA)(1)*ram_arr(adA)(1))/4000;

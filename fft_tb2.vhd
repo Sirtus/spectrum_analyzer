@@ -15,7 +15,7 @@ architecture sim of fft_tb2 is
     signal clk : std_logic := '1';
     signal rst : std_logic := '1';
 
-    signal res: queue_t := (others => 0);
+    signal res: osignal_t := (others => 0);
     -- signal data: queue_t := 
     -- (
     --     0 , 9 , 19 , 29 , 38 , 47 , 56 , 64 , 71 , 78 , 
@@ -23,7 +23,7 @@ architecture sim of fft_tb2 is
     --     90 , 86 , 80 , 74 , 67 , 59 , 51 , 42 , 33 , 23 , 
     --     14 , 4 
     -- );
-    signal data: queue_t := 
+    signal data: isignal_t := 
     (
         35, 35, 64, 106, 35, -106, -135, others => -35
         -- 170, 170, 199, 241, 170, 29, 0, 100
