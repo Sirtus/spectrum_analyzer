@@ -36,7 +36,6 @@ begin
                 if ws_counter = sclk_ws_ratio-1 then
                     ws_counter := 0;
                     ws_int <= '1';
-                    read_en <= '1';
                     l_data <= l_data_int;
                     l_data_int <= (others => '0');
                 else
@@ -50,7 +49,7 @@ begin
                     ws_counter := 0;
                     ws_int <= '0';
                     sel_int <= not sel_int;
-                    read_en <= '0';
+                    read_en <= '1';
                     r_data <= r_data_int;
                 else
                     if ws_counter >= 0 and  ws_counter < d_width then
