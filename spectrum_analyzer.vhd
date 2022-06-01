@@ -27,7 +27,6 @@ architecture arch of spectrum_analyzer is
     signal pixel_x, pixel_y: integer := 0;
     signal mclk: std_logic := '0';
     signal dd, l_data, r_data : std_logic_vector(23 downto 0);
-<<<<<<< HEAD
     signal do, do_cos, do_next: queue_t := (others => 0);
     signal wr_en: std_logic := '1';
     -- signal simple_data: queue_t := 
@@ -76,12 +75,7 @@ architecture arch of spectrum_analyzer is
     --     1, 123, 192, -7, 0, 198, 168, -166, -181, -166, 168, 198, 1, -7, 192, 123
     -- );
     signal done_f: std_logic := '0';
-=======
-    signal do: queue_t := (others => 0);
-    signal wr_en: std_logic := '0';
     signal ws: std_logic := '0';
-
->>>>>>> main
     begin 
 
     bclk: entity work.bclk
@@ -93,19 +87,18 @@ architecture arch of spectrum_analyzer is
 
     plot: entity work.plot_controller
     port map(clk => clk, video_on => video_on, pixel_x => pixel_x, pixel_y => pixel_y, 
-             red => red, green => green, blue => blue, do => do_next);
+             red => red, green => green, blue => blue, do => do);
 
-   mic: entity work.mic_rec
-   port map(mclk => mclk, sclk => sclk, ws => lrcl, d_rx => din, l_data => l_data, r_data => r_data, 
-           read_en => wr_en);
+--    mic: entity work.mic_rec
+--    port map(mclk => mclk, sclk => sclk, ws => lrcl, d_rx => din, l_data => l_data, r_data => r_data, 
+--            read_en => wr_en);
 
    fifo: entity work.queue
    port map(clk => mclk, data_in => l_data, data_out => do, wr_en => wr_en);
 
-    fft: entity work.fft
-    port map(clk => clk, data_i => do, do_fft => wr_en, done => done_f, res => do_cos );
+    -- fft: entity work.fft
+    -- port map(clk => clk, data_i => do, do_fft => wr_en, done => done_f, res => do_cos );
 
-<<<<<<< HEAD
     process(clk)
     begin
         if rising_edge(clk) then
@@ -113,15 +106,13 @@ architecture arch of spectrum_analyzer is
                 do_next <= do_cos;
             end if;
         end if;
-=======
 
-    i2s: entity work.i2s_receiver
-    port map(sclk => mclk, ws => ws, d_rx => din, l_data => l_data, r_data => r_data, sel => sel,
-    read_en => wr_en);
->>>>>>> main
+
 
     end process;
-    
+        i2s: entity work.i2s_receiver
+    port map(sclk => mclk, ws => ws, d_rx => din, l_data => l_data, r_data => r_data, sel => sel,
+    read_en => wr_en);
     lrcl <= ws;
     sclk <= mclk;
 
