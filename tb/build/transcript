@@ -1,0 +1,44 @@
+# vsim -c -sv_lib /home/tomek/intelFPGA_lite/20.1/modelsim_ase/verilog_src/uvm-1.2/lib/uvm_dpi hello 
+# Start time: 01:09:08 on Sep 12,2022
+# Loading /tmp/tomek@tomslo_dpi_6680/linuxaloem_gcc-4.7.4/export_tramp.so
+# ** Note: (vsim-8785) UVM-aware debugging capabilities will be disabled since no compiled "questa_uvm_pkg" can be found.
+# This also means that later if you turn on UVM-aware debugging your debug simulations may have
+# different random seeds from your non-debug simulations.
+# Loading sv_std.std
+# Loading work.uvm_pkg
+# Loading work.hello_sv_unit
+# Loading work.hello
+# Compiling /tmp/tomek@tomslo_dpi_6680/linuxaloem_gcc-4.7.4/exportwrapper.c
+# Loading /tmp/tomek@tomslo_dpi_6680/linuxaloem_gcc-4.7.4/vsim_auto_compile.so
+# Loading /home/tomek/intelFPGA_lite/20.1/modelsim_ase/verilog_src/uvm-1.2/lib/uvm_dpi.so
+# ** Warning: Design size of 53240 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# UVM_INFO /home/tomek/intelFPGA_lite/20.1/modelsim_ase/verilog_src/uvm-1.2/src/base/uvm_root.svh(392) @ 0: reporter [UVM/RELNOTES] 
+# ----------------------------------------------------------------
+# UVM-1.2
+# (C) 2007-2014 Mentor Graphics Corporation
+# (C) 2007-2014 Cadence Design Systems, Inc.
+# (C) 2006-2014 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# (C) 2013-2014 NVIDIA Corporation
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO ../hello.sv(7) @ 0: reporter [ASD] 
+# 
+#  iAPOIJDPOSIJDPOSAIJ          55
+# 
+# 
+# End time: 01:09:13 on Sep 12,2022, Elapsed time: 0:00:05
+# Errors: 0, Warnings: 1

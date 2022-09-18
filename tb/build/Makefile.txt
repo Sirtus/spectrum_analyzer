@@ -1,0 +1,149 @@
+# Makefile for use in building all my UVM components
+# ----------------------------------------------------------------------------------
+# Requirements:
+#   QuestaSim - We use the vlog compiler packaged with QuestaSim.
+#     ModelSim also comes with vlog, but doesn't really support UVM.
+#   UVM_INCLUDE_DIR environment var - This should point to the UVM src directory.
+#     For me this is: C:\questasim_10.0b\verilog_src\uvm-1.0p1\src
+# ----------------------------------------------------------------------------------
+# Notes:
+#   The vlog compiler creates an output folder in the VLIB_DIR directors
+#   per package/module/interface with the same name as the entity
+#   Any capitals are replace with @ followed by the lower case letter
+#   IE. FooBar -> @foo@bar
+#   This makefile requires that:
+#     All interfaces end in _if
+#     All packages end in _pkg
+#     Each file can only contain a single interface, package or module
+#     No capitals in package/module/interface naems
+#     The package/module/interface has the same name as the file
+
+# some variabls to use later
+UVM_INCLUDE_DIR = $(UVM_HOME)/src
+VLIB_DIR    = ./work
+VLOG_FLAGS  = +incdir+$(UVM_INCLUDE_DIR)
+
+# src files - per directory for use with compile orders
+#             ie. transactions have to be compiled before drivers
+INTERFACE_SRCS      = $(wildcard src/interfaces/*)
+CONFIG_SRCS         = $(wildcard src/configs/*)
+TRANSACTION_SRCS    = $(wildcard src/transactions/*)
+SEQUENCE_SRCS       = $(wildcard src/sequences/*)
+DRIVER_SRCS         = $(wildcard src/drivers/*)
+MONITOR_SRCS        = $(wildcard src/monitors/*)
+AGENT_SRCS          = $(wildcard src/agents/*)
+SCOREBOARD_SRCS     = $(wildcard src/scoreboards/*)
+ENVIRONMENT_SRCS    = $(wildcard src/env/*)
+TEST_SRCS     			= $(wildcard src/test/*)
+
+# all source files - for use with creating makefile targets
+SRCS                = $(INTERFACE_SRCS) \
+											$(CONFIG_SRCS) \
+											$(TRANSACTION_SRCS) \
+											$(SEQUENCE_SRCS) \
+											$(DRIVER_SRCS) \
+											$(MONITOR_SRCS) \
+											$(AGENT_SRCS) \
+											$(SCOREBOARD_SRCS) \
+											$(ENVIRONMENT_SRCS) \
+											$(TEST_SRCS)
+# list of all the components
+COMPONENTS  = interfaces \
+							configs \
+							transactions \
+							sequences \
+							drivers \
+							monitors \
+							agents \
+							scoreboards
+
+# colours for use in echo commands for highlighting
+COLOUR_NONE     = \x1b[0m
+COLOUR_RED      = \x1b[31;01m
+COLOUR_BLUE     = \x1b[34;01m
+COLOUR_GREEN    = \x1b[32;01m
+
+# macros to turn a .sv file into the compiled file in the relevant VLIB_DIR subdirectory
+# src/abc/def.sv -> $(VLIB_DIR)/def/_primary.dat
+src2obj     = $(addsuffix /_primary.dat, $(addprefix $(VLIB_DIR)/, $(basename $(notdir $(1)))))
+
+# macro to create a target for a given source file
+# it takes two arguments:
+# 1) the path and name of the source file
+# 2) any dependencies
+# It then creates a traget on the relevant _primary.dat (questaSim created object)
+# with a dependency on the source file, and any other passed in dependencies
+define create_target_for
+
+$$(info $COLOUR_GREEN create_target_for called on $(1))
+$$(info creating target $(call src2obj, $(1)))
+$$(info with dependencies $(VLIB_DIR) $(1) $(2))
+$$(info )
+$(call src2obj, $(1)): $(1) $(2)
+    @echo -e "$(COLOUR_BLUE)compiling $(1) because of changes in: $$? $(COLOUR_NONE)\n"
+    vlog $(VLOG_FLAGS) $(1)
+
+endef
+
+# default rule is to create the library, compile the UVM pkg and all the components
+all: $(VLIB_DIR) UVM $(COMPONENTS)
+
+# create the questaSim library if it's not already there
+$(VLIB_DIR):
+	vlib $(VLIB_DIR)
+	@echo -e "$(COLOUR_GREEN)Created the $(VLIB_DIR) library$(COLOUR_NONE)\n"
+
+# compile the UVM library
+$(VLIB_DIR)/uvm_pkg/_primary.dat:
+	vlog +incdir+$(UVM_INCLUDE_DIR) $(UVM_INCLUDE_DIR)/uvm.sv
+	@echo -e "$(COLOUR_GREEN)Compiled the UVM package$(COLOUR_NONE)\n"
+
+# simple alias
+UVM: $(VLIB_DIR) $(VLIB_DIR)/uvm_pkg/_primary.dat
+
+# create targets for all our sources
+# note with this method we can't set dependencies within a single directory
+$(foreach src,$(SRCS),$(eval $(call create_target_for, $(src))))
+
+# define a phony target per directory so we can specify compile order
+#interfaces: $(VLIB_DIR) UVM \
+            #$(call src2obj, $(INTERFACE_SRCS))
+    #@echo -e "$(COLOUR_GREEN)Compiled all $@$(COLOUR_NONE)\n"
+
+#configs: $(VLIB_DIR) UVM \
+         #$(call src2obj, $(CONFIG_SRCS))
+    #@echo -e "$(COLOUR_GREEN)Compiled all $@$(COLOUR_NONE)\n"
+
+#transactions: $(VLIB_DIR) UVM \
+              #$(call src2obj, $(TRANSACTION_SRCS))
+    #@echo -e "$(COLOUR_GREEN)Compiled all $@$(COLOUR_NONE)\n"
+
+#sequences: $(VLIB_DIR) UVM \
+           #transactions \
+           #$(call src2obj, $(SEQUENCE_SRCS))
+    #@echo -e "$(COLOUR_GREEN)Compiled all $@$(COLOUR_NONE)\n"
+
+#drivers: $(VLIB_DIR) UVM \
+         #transactions interfaces \
+         #$(call src2obj, $(DRIVER_SRCS))
+    #@echo -e "$(COLOUR_GREEN)Compiled all $@$(COLOUR_NONE)\n"
+
+#monitors: $(VLIB_DIR) UVM \
+          #transactions interfaces \
+          #$(call src2obj, $(MONITOR_SRCS))
+    #@echo -e "$(COLOUR_GREEN)Compiled all $@$(COLOUR_NONE)\n"
+
+#agents: $(VLIB_DIR) UVM \
+        #drivers monitors transactions configs interfaces \
+        #$(call src2obj, $(AGENT_SRCS))
+    #@echo -e "$(COLOUR_GREEN)Compiled all $@$(COLOUR_NONE)\n"
+
+#scoreboards: $(call src2obj, $(SCOREBOARD_SRCS))
+    #@echo -e "$(COLOUR_GREEN)Compiled all $@$(COLOUR_NONE)\n"
+
+# delete the library and all compiled files
+clean:
+	if [ -d $(VLIB_DIR) ]; then vdel -lib $(VLIB_DIR) -all; fi;
+
+.PHONY: clean UVM $(COMPONENTS)
+
