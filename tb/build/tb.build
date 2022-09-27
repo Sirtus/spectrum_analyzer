@@ -1,0 +1,6 @@
+
+
+../src/configs/i2s_pkg.sv
+../src/top/i2s_top.sv
+../src/interfaces/i2s_dut_wrapper.sv
+../src/interfaces/i2s_itf.svh

@@ -18,8 +18,8 @@ UVM: $(VLIB_DIR) $(VLIB_DIR)/uvm_pkg/_primary.dat
 all2:
 	vlib $(VLIB_DIR)
 	vcom $(DUT_FILES)
-	vlog  -sv  $(UVM_INCLUDE_DIR)/uvm_pkg.sv -f test.f +incdir+$(UVM_INCLUDE_DIR)
-	vsim -c -sv_lib $(UVM_HOME)/lib/uvm_dpi top_tb -do "run; exit"
+	vlog  -sv  $(UVM_INCLUDE_DIR)/uvm_pkg.sv -f tb.build +incdir+$(UVM_INCLUDE_DIR)
+	vsim -c -sv_lib $(UVM_HOME)/lib/uvm_dpi top_tb -do "run -all; exit"
 
 all:  all2
 

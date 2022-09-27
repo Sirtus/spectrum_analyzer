@@ -1,0 +1,39 @@
+# Current time Sun Sep 25 21:27:39 2022
+# ModelSim - Intel FPGA Edition Stack Trace
+# Program = vsim
+# Id = "2020.1"
+# Version = "2020.02"
+# Date = "Feb 28 2020"
+# Platform = "linuxaloem"
+# Signature = fa4d3e95ccc4dcaa70644b276588aa2d
+# 0    0xf6bef8c5: '../src/agents/../out/i2s_out.svh:14'
+# 1    0xf6bf599b: '../src/agents/../transactions/i2s_sequencer.svh:47'
+# 2    0xf6be6471: '../src/tests/../sequences/i2s_sequence.svh:62'
+# 3    0xf6be4c3a: '../src/tests/../sequences/i2s_sequence.svh:19'
+# 4    0xf5bb5697: '/home/tomek/intelFPGA_lite/20.1/modelsim_ase/verilog_src/uvm-1.2/src/seq/uvm_sequence_base.svh:347'
+# 5    0x08dcf9a5: '<unknown (@0x8dcf9a5)>'
+# 6    0x0827fbc4: '<unknown (@0x827fbc4)>'
+# 7    0x08131bea: '<unknown (@0x8131bea)>'
+# 8    0x082b8656: '<unknown (@0x82b8656)>'
+# 9    0x087d108a: '<unknown (@0x87d108a)>'
+# 10   0x087d648c: '<unknown (@0x87d648c)>'
+# 11   0x087d80a7: '<unknown (@0x87d80a7)>'
+# 12   0x08a9a3b9: '<unknown (@0x8a9a3b9)>'
+# 13   0x092365cb: '<unknown (@0x92365cb)>'
+# 14   0x09235bba: '<unknown (@0x9235bba)>'
+# 15   0x0923b143: '<unknown (@0x923b143)>'
+# 16   0x0923b25a: '<unknown (@0x923b25a)>'
+# 17   0x0923c901: '<unknown (@0x923c901)>'
+# 18   0x0923cc76: '<unknown (@0x923cc76)>'
+# 19   0x08d20173: '<unknown (@0x8d20173)>'
+# 20   0x092e4977: '<unknown (@0x92e4977)>'
+# 21   0x0933ec3c: '<unknown (@0x933ec3c)>'
+# 22   0x09341a98: '<unknown (@0x9341a98)>'
+# 23   0x092fde68: '<unknown (@0x92fde68)>'
+# 24   0x092fe175: '<unknown (@0x92fe175)>'
+# 25   0x090ec6c0: '<unknown (@0x90ec6c0)>'
+# 26   0x0879fb79: '<unknown (@0x879fb79)>'
+# 27   0x0863aebb: '<unknown (@0x863aebb)>'
+# End of Stack Trace
+
+
