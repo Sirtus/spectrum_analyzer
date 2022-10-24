@@ -10,6 +10,7 @@ entity queue is
         clk: in std_logic;
         wr_en: in std_logic;
         data_in: in std_logic_vector(23 downto 0);
+        do_fft: in std_logic;
         data_out: out isignal_t
     );
 end queue;
@@ -23,7 +24,7 @@ begin
         variable ctr: integer range 0 to 31;
     begin
         if rising_edge(clk) then
-            if wr_en = '1' then
+            if wr_en = '1' and do_fft = '1' then
                 -- if ctr = 15 then
                     temp :=(to_integer(signed(data_in(23 downto 10))) + 427)/4 ;
                     -- if data_in(23) = '1' then

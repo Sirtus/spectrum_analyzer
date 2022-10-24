@@ -1,5 +1,5 @@
 Analysis & Synthesis report for spectrum_analyzer
-Wed Jun  1 18:03:34 2022
+Mon Oct 24 11:01:59 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -18,44 +18,45 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
  10. Analysis & Synthesis IP Cores Summary
  11. State Machine - |spectrum_analyzer|fft:fft|next_state
  12. State Machine - |spectrum_analyzer|fft:fft|state_m
- 13. Registers Removed During Synthesis
- 14. Removed Registers Triggering Further Register Optimizations
- 15. General Register Statistics
- 16. Inverted Register Statistics
- 17. Multiplexer Restructuring Statistics (Restructuring Performed)
- 18. Source assignments for fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated
- 19. Parameter Settings for User Entity Instance: bclk:bclk|altpll:altpll_component
- 20. Parameter Settings for User Entity Instance: vga_controller:vga
- 21. Parameter Settings for User Entity Instance: fft:fft|ram_ip:ram|altsyncram:altsyncram_component
- 22. Parameter Settings for User Entity Instance: i2s_receiver:i2s
- 23. Parameter Settings for Inferred Entity Instance: plot_controller:plot|lpm_divide:Div0
- 24. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Div2
- 25. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult2
- 26. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Div3
- 27. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Div0
- 28. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult1
- 29. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Div1
- 30. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Div6
- 31. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult4
- 32. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Div7
- 33. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Div4
- 34. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult3
- 35. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Div5
- 36. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Mod0
- 37. Parameter Settings for Inferred Entity Instance: fft:fft|butterfly:butterfly|lpm_mult:Mult2
- 38. Parameter Settings for Inferred Entity Instance: fft:fft|butterfly:butterfly|lpm_mult:Mult3
- 39. Parameter Settings for Inferred Entity Instance: fft:fft|butterfly:butterfly|lpm_mult:Mult0
- 40. Parameter Settings for Inferred Entity Instance: fft:fft|butterfly:butterfly|lpm_mult:Mult1
- 41. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Mod1
- 42. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult0
- 43. altpll Parameter Settings by Entity Instance
- 44. altsyncram Parameter Settings by Entity Instance
- 45. lpm_mult Parameter Settings by Entity Instance
- 46. Port Connectivity Checks: "i2s_receiver:i2s"
- 47. Port Connectivity Checks: "fft:fft|butterfly:butterfly"
- 48. Post-Synthesis Netlist Statistics for Top Partition
- 49. Elapsed Time Per Partition
- 50. Analysis & Synthesis Messages
+ 13. State Machine - |spectrum_analyzer|fft:fft|butterfly:butterfly|state
+ 14. Registers Removed During Synthesis
+ 15. Removed Registers Triggering Further Register Optimizations
+ 16. General Register Statistics
+ 17. Inverted Register Statistics
+ 18. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 19. Source assignments for fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated
+ 20. Parameter Settings for User Entity Instance: bclk:bclk|altpll:altpll_component
+ 21. Parameter Settings for User Entity Instance: vga_controller:vga
+ 22. Parameter Settings for User Entity Instance: fft:fft|ram_ip:ram|altsyncram:altsyncram_component
+ 23. Parameter Settings for User Entity Instance: i2s_receiver:i2s
+ 24. Parameter Settings for Inferred Entity Instance: plot_controller:plot|lpm_divide:Div0
+ 25. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Div2
+ 26. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult2
+ 27. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Div3
+ 28. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Div0
+ 29. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult1
+ 30. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Div1
+ 31. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Div6
+ 32. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult4
+ 33. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Div7
+ 34. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Div4
+ 35. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult3
+ 36. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Div5
+ 37. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Mod0
+ 38. Parameter Settings for Inferred Entity Instance: fft:fft|butterfly:butterfly|lpm_mult:Mult2
+ 39. Parameter Settings for Inferred Entity Instance: fft:fft|butterfly:butterfly|lpm_mult:Mult3
+ 40. Parameter Settings for Inferred Entity Instance: fft:fft|butterfly:butterfly|lpm_mult:Mult0
+ 41. Parameter Settings for Inferred Entity Instance: fft:fft|butterfly:butterfly|lpm_mult:Mult1
+ 42. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Mod1
+ 43. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult0
+ 44. altpll Parameter Settings by Entity Instance
+ 45. altsyncram Parameter Settings by Entity Instance
+ 46. lpm_mult Parameter Settings by Entity Instance
+ 47. Port Connectivity Checks: "i2s_receiver:i2s"
+ 48. Port Connectivity Checks: "fft:fft|butterfly:butterfly"
+ 49. Post-Synthesis Netlist Statistics for Top Partition
+ 50. Elapsed Time Per Partition
+ 51. Analysis & Synthesis Messages
 
 
 
@@ -82,15 +83,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jun  1 18:03:34 2022       ;
+; Analysis & Synthesis Status        ; Successful - Mon Oct 24 11:01:58 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; spectrum_analyzer                           ;
 ; Top-level Entity Name              ; spectrum_analyzer                           ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 13,388                                      ;
-;     Total combinational functions  ; 8,208                                       ;
-;     Dedicated logic registers      ; 5,778                                       ;
-; Total registers                    ; 5778                                        ;
+; Total logic elements               ; 14,593                                      ;
+;     Total combinational functions  ; 9,423                                       ;
+;     Dedicated logic registers      ; 5,935                                       ;
+; Total registers                    ; 5935                                        ;
 ; Total pins                         ; 21                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 16,384                                      ;
@@ -269,20 +270,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 13,388    ;
+; Estimated Total logic elements              ; 14,593    ;
 ;                                             ;           ;
-; Total combinational functions               ; 8208      ;
+; Total combinational functions               ; 9423      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 3725      ;
-;     -- 3 input functions                    ; 2551      ;
-;     -- <=2 input functions                  ; 1932      ;
+;     -- 4 input functions                    ; 4681      ;
+;     -- 3 input functions                    ; 2577      ;
+;     -- <=2 input functions                  ; 2165      ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 5926      ;
-;     -- arithmetic mode                      ; 2282      ;
+;     -- normal mode                          ; 7110      ;
+;     -- arithmetic mode                      ; 2313      ;
 ;                                             ;           ;
-; Total registers                             ; 5778      ;
-;     -- Dedicated logic registers            ; 5778      ;
+; Total registers                             ; 5935      ;
+;     -- Dedicated logic registers            ; 5935      ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 21        ;
@@ -294,9 +295,9 @@ https://fpgasoftware.intel.com/eula.
 ;     -- PLLs                                 ; 1         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 4331      ;
-; Total fan-out                               ; 43749     ;
-; Average fan-out                             ; 3.11      ;
+; Maximum fan-out                             ; 4488      ;
+; Total fan-out                               ; 48491     ;
+; Average fan-out                             ; 3.14      ;
 +---------------------------------------------+-----------+
 
 
@@ -305,12 +306,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                  ; Entity Name         ; Library Name ;
 +----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |spectrum_analyzer                           ; 8208 (1)            ; 5778 (640)                ; 16384       ; 0          ; 17           ; 1       ; 8         ; 21   ; 0            ; 0          ; |spectrum_analyzer                                                                                                                   ; spectrum_analyzer   ; work         ;
+; |spectrum_analyzer                           ; 9423 (1135)         ; 5935 (2082)               ; 16384       ; 0          ; 17           ; 1       ; 8         ; 21   ; 0            ; 0          ; |spectrum_analyzer                                                                                                                   ; spectrum_analyzer   ; work         ;
 ;    |bclk:bclk|                               ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|bclk:bclk                                                                                                         ; bclk                ; work         ;
 ;       |altpll:altpll_component|              ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|bclk:bclk|altpll:altpll_component                                                                                 ; altpll              ; work         ;
 ;          |bclk_altpll:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|bclk:bclk|altpll:altpll_component|bclk_altpll:auto_generated                                                      ; bclk_altpll         ; work         ;
-;    |fft:fft|                                 ; 7026 (1731)         ; 2890 (2890)               ; 16384       ; 0          ; 17           ; 1       ; 8         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft                                                                                                           ; fft                 ; work         ;
-;       |butterfly:butterfly|                  ; 198 (198)           ; 0 (0)                     ; 0           ; 0          ; 8            ; 0       ; 4         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly                                                                                       ; butterfly           ; work         ;
+;    |fft:fft|                                 ; 7106 (1710)         ; 1605 (1483)               ; 16384       ; 0          ; 17           ; 1       ; 8         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft                                                                                                           ; fft                 ; work         ;
+;       |butterfly:butterfly|                  ; 299 (299)           ; 122 (122)                 ; 0           ; 0          ; 8            ; 0       ; 4         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly                                                                                       ; butterfly           ; work         ;
 ;          |lpm_mult:Mult0|                    ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult0                                                                        ; lpm_mult            ; work         ;
 ;             |mult_ogs:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult0|mult_ogs:auto_generated                                                ; mult_ogs            ; work         ;
 ;          |lpm_mult:Mult1|                    ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult1                                                                        ; lpm_mult            ; work         ;
@@ -387,7 +388,7 @@ https://fpgasoftware.intel.com/eula.
 ;             |abs_divider_obg:divider|        ; 487 (12)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot|lpm_divide:Div0|lpm_divide_jbo:auto_generated|abs_divider_obg:divider                        ; abs_divider_obg     ; work         ;
 ;                |alt_u_div_the:divider|       ; 445 (445)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot|lpm_divide:Div0|lpm_divide_jbo:auto_generated|abs_divider_obg:divider|alt_u_div_the:divider  ; alt_u_div_the       ; work         ;
 ;                |lpm_abs_8b9:my_abs_num|      ; 30 (30)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot|lpm_divide:Div0|lpm_divide_jbo:auto_generated|abs_divider_obg:divider|lpm_abs_8b9:my_abs_num ; lpm_abs_8b9         ; work         ;
-;    |queue:fifo|                              ; 28 (28)             ; 1408 (1408)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|queue:fifo                                                                                                        ; queue               ; work         ;
+;    |queue:fifo|                              ; 29 (29)             ; 1408 (1408)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|queue:fifo                                                                                                        ; queue               ; work         ;
 ;    |vga_controller:vga|                      ; 111 (111)           ; 128 (128)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|vga_controller:vga                                                                                                ; vga_controller      ; work         ;
 +----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -466,27 +467,41 @@ Encoding Type:  One-Hot
 +------------------------+--------------+-----------------------+------------------------+----------------------+-------------------+---------------+-------------------+----------------------+--------------+
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; fft:fft|x[0][17]                       ; Lost fanout                            ;
-; fft:fft|x[0][16]                       ; Lost fanout                            ;
-; fft:fft|x[1][17]                       ; Lost fanout                            ;
-; fft:fft|x[1][16]                       ; Lost fanout                            ;
-; fft:fft|y[0][16]                       ; Merged with fft:fft|y[0][17]           ;
-; fft:fft|y[0][15]                       ; Merged with fft:fft|y[0][17]           ;
-; fft:fft|y[1][16]                       ; Merged with fft:fft|y[1][17]           ;
-; fft:fft|y[1][15]                       ; Merged with fft:fft|y[1][17]           ;
-; fft:fft|next_state.save_data           ; Merged with fft:fft|next_state.clean   ;
-; fft:fft|next_state.test                ; Merged with fft:fft|next_state.clean   ;
-; fft:fft|next_state.wait_for_ram        ; Merged with fft:fft|next_state.clean   ;
-; fft:fft|next_state.clean               ; Stuck at GND due to stuck port data_in ;
-; fft:fft|state_m.test                   ; Stuck at GND due to stuck port data_in ;
-; fft:fft|counter_n[0]                   ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 14 ;                                        ;
-+----------------------------------------+----------------------------------------+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------+
+; State Machine - |spectrum_analyzer|fft:fft|butterfly:butterfly|state               ;
++---------------------+-------------+-------------+---------------------+------------+
+; Name                ; state.trns2 ; state.trns1 ; state.read_from_rom ; state.idle ;
++---------------------+-------------+-------------+---------------------+------------+
+; state.idle          ; 0           ; 0           ; 0                   ; 0          ;
+; state.read_from_rom ; 0           ; 0           ; 1                   ; 1          ;
+; state.trns1         ; 0           ; 1           ; 0                   ; 1          ;
+; state.trns2         ; 1           ; 0           ; 0                   ; 1          ;
++---------------------+-------------+-------------+---------------------+------------+
+
+
++-----------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                      ;
++----------------------------------------+------------------------------------------------+
+; Register name                          ; Reason for Removal                             ;
++----------------------------------------+------------------------------------------------+
+; fft:fft|x[1][16]                       ; Lost fanout                                    ;
+; fft:fft|x[1][17]                       ; Lost fanout                                    ;
+; fft:fft|x[0][16]                       ; Lost fanout                                    ;
+; fft:fft|x[0][17]                       ; Lost fanout                                    ;
+; fft:fft|y[1][16]                       ; Merged with fft:fft|y[1][15]                   ;
+; fft:fft|y[1][17]                       ; Merged with fft:fft|y[1][15]                   ;
+; fft:fft|y[0][16]                       ; Merged with fft:fft|y[0][15]                   ;
+; fft:fft|y[0][17]                       ; Merged with fft:fft|y[0][15]                   ;
+; fft:fft|butterfly:butterfly|w_i[10]    ; Merged with fft:fft|butterfly:butterfly|w_i[9] ;
+; fft:fft|next_state.save_data           ; Merged with fft:fft|next_state.clean           ;
+; fft:fft|next_state.test                ; Merged with fft:fft|next_state.clean           ;
+; fft:fft|next_state.wait_for_ram        ; Merged with fft:fft|next_state.clean           ;
+; fft:fft|next_state.clean               ; Stuck at GND due to stuck port data_in         ;
+; fft:fft|state_m.test                   ; Stuck at GND due to stuck port data_in         ;
+; fft:fft|counter_n[0]                   ; Stuck at GND due to stuck port data_in         ;
+; Total Number of Removed Registers = 15 ;                                                ;
++----------------------------------------+------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------+
@@ -504,118 +519,151 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 5778  ;
-; Number of registers using Synchronous Clear  ; 40    ;
-; Number of registers using Synchronous Load   ; 40    ;
+; Total registers                              ; 5935  ;
+; Number of registers using Synchronous Clear  ; 8     ;
+; Number of registers using Synchronous Load   ; 29    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 5630  ;
+; Number of registers using Clock Enable       ; 5779  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; vga_controller:vga|pixel_x[31]         ; 80      ;
-; vga_controller:vga|pixel_x[0]          ; 4       ;
-; vga_controller:vga|pixel_y[31]         ; 3       ;
-; vga_controller:vga|pixel_y[0]          ; 2       ;
-; Total number of inverted registers = 4 ;         ;
-+----------------------------------------+---------+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; vga_controller:vga|pixel_x[31]          ; 80      ;
+; vga_controller:vga|pixel_x[0]           ; 4       ;
+; vga_controller:vga|pixel_y[31]          ; 3       ;
+; vga_controller:vga|pixel_y[0]           ; 2       ;
+; do_fft                                  ; 5       ;
+; fft:fft|butterfly:butterfly|Sa[1][5]    ; 1       ;
+; fft:fft|butterfly:butterfly|Sb[1][5]    ; 1       ;
+; fft:fft|butterfly:butterfly|Sa[1][6]    ; 1       ;
+; fft:fft|butterfly:butterfly|Sb[1][6]    ; 1       ;
+; fft:fft|butterfly:butterfly|Sa[1][8]    ; 1       ;
+; fft:fft|butterfly:butterfly|Sb[1][8]    ; 1       ;
+; fft:fft|butterfly:butterfly|Sa[1][11]   ; 1       ;
+; fft:fft|butterfly:butterfly|Sb[1][11]   ; 1       ;
+; fft:fft|butterfly:butterfly|Sa[1][12]   ; 1       ;
+; fft:fft|butterfly:butterfly|Sb[1][12]   ; 1       ;
+; fft:fft|butterfly:butterfly|Sa[1][13]   ; 1       ;
+; fft:fft|butterfly:butterfly|Sb[1][13]   ; 1       ;
+; fft:fft|butterfly:butterfly|Sa[1][14]   ; 1       ;
+; fft:fft|butterfly:butterfly|Sb[1][14]   ; 1       ;
+; fft:fft|butterfly:butterfly|Sa[0][5]    ; 1       ;
+; fft:fft|butterfly:butterfly|Sb[0][5]    ; 1       ;
+; fft:fft|butterfly:butterfly|Sa[0][6]    ; 1       ;
+; fft:fft|butterfly:butterfly|Sb[0][6]    ; 1       ;
+; fft:fft|butterfly:butterfly|Sa[0][8]    ; 1       ;
+; fft:fft|butterfly:butterfly|Sb[0][8]    ; 1       ;
+; fft:fft|butterfly:butterfly|Sa[0][11]   ; 1       ;
+; fft:fft|butterfly:butterfly|Sb[0][11]   ; 1       ;
+; fft:fft|butterfly:butterfly|Sa[0][12]   ; 1       ;
+; fft:fft|butterfly:butterfly|Sb[0][12]   ; 1       ;
+; fft:fft|butterfly:butterfly|Sa[0][13]   ; 1       ;
+; fft:fft|butterfly:butterfly|Sb[0][13]   ; 1       ;
+; fft:fft|butterfly:butterfly|Sa[0][14]   ; 1       ;
+; fft:fft|butterfly:butterfly|Sb[0][14]   ; 1       ;
+; fft:fft|butterfly:butterfly|w_i[9]      ; 2       ;
+; fft:fft|butterfly:butterfly|w_r[9]      ; 2       ;
+; fft:fft|butterfly:butterfly|w_r[10]     ; 2       ;
+; Total number of inverted registers = 36 ;         ;
++-----------------------------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[63][1]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[62][5]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[61][5]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[60][5]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[59][9]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[58][6]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[57][9]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[56][7]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[55][2]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[54][7]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[53][4]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[52][2]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[51][8]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[50][7]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[49][1]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[48][5]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[47][5]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[46][2]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[45][9]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[44][3]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[43][6]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[42][6]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[41][8]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[40][4]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[39][9]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[38][4]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[37][2]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[36][5]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[35][3]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[34][8]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[33][7]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[32][8]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[31][7]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[30][3]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[29][1]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[28][8]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[27][4]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[26][6]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[25][3]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[24][0]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[23][2]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[22][4]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[21][5]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[20][5]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[19][2]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[18][8]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[17][7]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[16][2]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[15][5]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[14][2]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[13][4]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[12][6]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[11][8]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[10][2]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[9][7]          ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[8][3]          ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[7][2]          ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[6][6]          ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[5][6]          ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[4][0]          ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[3][4]          ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[2][8]          ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[1][3]          ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[0][7]          ;
-; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |spectrum_analyzer|i2s_receiver:i2s|l_data_int[13] ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|dataAi[3]               ;
-; 4:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|dataBi[29]              ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |spectrum_analyzer|fft:fft|wait_counter[2]         ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|counter_m[7]            ;
-; 7:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|pair_counter[1]         ;
-; 8:1                ; 16 bits   ; 80 LEs        ; 48 LEs               ; 32 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|addrB[8]                ;
-; 67:1               ; 20 bits   ; 880 LEs       ; 860 LEs              ; 20 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|dataAi[21]              ;
-; 10:1               ; 8 bits    ; 48 LEs        ; 8 LEs                ; 40 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|counter_n[1]            ;
-; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|counter_divider[0]      ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |spectrum_analyzer|fft:fft|ShiftLeft0              ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |spectrum_analyzer|fft:fft|ShiftLeft0              ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |spectrum_analyzer|fft:fft|process_0               ;
-; 4:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; No         ; |spectrum_analyzer|fft:fft|process_0               ;
-; 64:1               ; 10 bits   ; 420 LEs       ; 420 LEs              ; 0 LEs                  ; No         ; |spectrum_analyzer|plot_controller:plot|Mux8       ;
-; 64:1               ; 2 bits    ; 84 LEs        ; 84 LEs               ; 0 LEs                  ; No         ; |spectrum_analyzer|fft:fft|Mux11                   ;
-; 7:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |spectrum_analyzer|fft:fft|Selector8               ;
-; 8:1                ; 7 bits    ; 35 LEs        ; 21 LEs               ; 14 LEs                 ; No         ; |spectrum_analyzer|fft:fft|Selector134             ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |spectrum_analyzer|fft:fft|Selector133             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[63][8]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[62][1]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[61][4]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[60][0]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[59][4]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[58][5]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[57][7]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[56][5]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[55][3]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[54][5]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[53][5]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[52][4]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[51][7]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[50][0]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[49][3]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[48][3]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[47][0]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[46][1]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[45][0]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[44][1]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[43][3]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[42][0]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[41][5]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[40][9]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[39][7]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[38][7]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[37][2]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[36][3]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[35][4]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[34][9]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[33][2]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[32][0]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[31][0]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[30][2]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[29][0]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[28][4]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[27][3]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[26][2]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[25][4]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[24][1]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[23][2]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[22][2]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[21][5]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[20][3]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[19][5]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[18][4]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[17][9]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[16][1]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[15][5]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[14][3]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[13][7]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[12][7]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[11][6]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[10][4]        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[9][7]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[8][5]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[7][2]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[6][7]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[5][8]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[4][8]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[3][2]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[2][0]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[1][6]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|new_data[0][9]         ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |spectrum_analyzer|i2s_receiver:i2s|l_data_int[5] ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|dataAi[11]             ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 12 LEs               ; 24 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|dataAi[31]             ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |spectrum_analyzer|fft:fft|wait_counter[2]        ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|counter_m[7]           ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 8 LEs                ; 32 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|pair_counter[4]        ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 48 LEs               ; 32 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|addrA[1]               ;
+; 68:1               ; 20 bits   ; 900 LEs       ; 860 LEs              ; 40 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|dataBi[20]             ;
+; 11:1               ; 8 bits    ; 56 LEs        ; 8 LEs                ; 48 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|counter_n[1]           ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|counter_divider[0]     ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |spectrum_analyzer|fft:fft|ShiftLeft0             ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |spectrum_analyzer|fft:fft|ShiftLeft0             ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |spectrum_analyzer|fft:fft|alpha                  ;
+; 4:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; No         ; |spectrum_analyzer|fft:fft|alpha                  ;
+; 64:1               ; 10 bits   ; 420 LEs       ; 420 LEs              ; 0 LEs                  ; No         ; |spectrum_analyzer|plot_controller:plot|Mux8      ;
+; 64:1               ; 2 bits    ; 84 LEs        ; 84 LEs               ; 0 LEs                  ; No         ; |spectrum_analyzer|fft:fft|Mux11                  ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |spectrum_analyzer|fft:fft|Selector9              ;
+; 128:1              ; 11 bits   ; 935 LEs       ; 935 LEs              ; 0 LEs                  ; No         ; |spectrum_analyzer|Mux9                           ;
+; 9:1                ; 7 bits    ; 42 LEs        ; 21 LEs               ; 21 LEs                 ; No         ; |spectrum_analyzer|fft:fft|Selector126            ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |spectrum_analyzer|fft:fft|Selector132            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------+
@@ -1832,29 +1880,30 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 21                          ;
-; cycloneiii_ff         ; 5778                        ;
-;     ENA               ; 5550                        ;
-;     ENA SCLR          ; 40                          ;
-;     ENA SLD           ; 40                          ;
-;     plain             ; 148                         ;
-; cycloneiii_lcell_comb ; 8219                        ;
-;     arith             ; 2282                        ;
+; cycloneiii_ff         ; 5935                        ;
+;     ENA               ; 5743                        ;
+;     ENA SCLR          ; 8                           ;
+;     ENA SLD           ; 28                          ;
+;     SLD               ; 1                           ;
+;     plain             ; 155                         ;
+; cycloneiii_lcell_comb ; 9434                        ;
+;     arith             ; 2313                        ;
 ;         1 data inputs ; 4                           ;
-;         2 data inputs ; 313                         ;
+;         2 data inputs ; 344                         ;
 ;         3 data inputs ; 1965                        ;
-;     normal            ; 5937                        ;
+;     normal            ; 7121                        ;
 ;         0 data inputs ; 265                         ;
-;         1 data inputs ; 31                          ;
-;         2 data inputs ; 1330                        ;
-;         3 data inputs ; 586                         ;
-;         4 data inputs ; 3725                        ;
+;         1 data inputs ; 66                          ;
+;         2 data inputs ; 1497                        ;
+;         3 data inputs ; 612                         ;
+;         4 data inputs ; 4681                        ;
 ; cycloneiii_mac_mult   ; 9                           ;
 ; cycloneiii_mac_out    ; 9                           ;
 ; cycloneiii_pll        ; 1                           ;
 ; cycloneiii_ram_block  ; 32                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 122.30                      ;
-; Average LUT depth     ; 50.20                       ;
+; Average LUT depth     ; 47.09                       ;
 +-----------------------+-----------------------------+
 
 
@@ -1863,7 +1912,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:28     ;
+; Top            ; 00:00:40     ;
 +----------------+--------------+
 
 
@@ -1873,7 +1922,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Wed Jun  1 18:02:50 2022
+    Info: Processing started: Mon Oct 24 11:00:55 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off spectrum_analyzer -c spectrum_analyzer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -1883,7 +1932,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file spectru
 Info (12021): Found 1 design units, including 0 entities, in source file common.vhd
     Info (12022): Found design unit 1: common File: /home/tomek/vhdl/spctr/spectrum_analyzer/common.vhd Line: 3
 Info (12021): Found 2 design units, including 1 entities, in source file fifo_queue.vhd
-    Info (12022): Found design unit 1: queue-arch File: /home/tomek/vhdl/spctr/spectrum_analyzer/fifo_queue.vhd Line: 17
+    Info (12022): Found design unit 1: queue-arch File: /home/tomek/vhdl/spctr/spectrum_analyzer/fifo_queue.vhd Line: 18
     Info (12023): Found entity 1: queue File: /home/tomek/vhdl/spctr/spectrum_analyzer/fifo_queue.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file plot_controller.vhd
     Info (12022): Found design unit 1: plot_controller-arch File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 18
@@ -1910,7 +1959,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file fft.vhd
     Info (12022): Found design unit 1: fft-rtl File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 19
     Info (12023): Found entity 1: fft File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 9
 Info (12021): Found 2 design units, including 1 entities, in source file butterfly.vhd
-    Info (12022): Found design unit 1: butterfly-rtl File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 16
+    Info (12022): Found design unit 1: butterfly-rtl File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 19
     Info (12023): Found entity 1: butterfly File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file i2s_receiver.vhd
     Info (12022): Found design unit 1: i2s_receiver-rtl File: /home/tomek/vhdl/spctr/spectrum_analyzer/i2s_receiver.vhd Line: 23
@@ -1928,7 +1977,7 @@ Info (12127): Elaborating entity "spectrum_analyzer" for the top level hierarchy
 Warning (10540): VHDL Signal Declaration warning at spectrum_analyzer.vhd(14): used explicit default value for signal "mic_vcc" because signal was never assigned a value File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 14
 Warning (10540): VHDL Signal Declaration warning at spectrum_analyzer.vhd(15): used explicit default value for signal "mic_gnd" because signal was never assigned a value File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 15
 Warning (10036): Verilog HDL or VHDL warning at spectrum_analyzer.vhd(29): object "r_data" assigned a value but never read File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 29
-Info (12128): Elaborating entity "bclk" for hierarchy "bclk:bclk" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 82
+Info (12128): Elaborating entity "bclk" for hierarchy "bclk:bclk" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 84
 Info (12128): Elaborating entity "altpll" for hierarchy "bclk:bclk|altpll:altpll_component" File: /home/tomek/vhdl/spctr/spectrum_analyzer/bclk.vhd Line: 134
 Info (12130): Elaborated megafunction instantiation "bclk:bclk|altpll:altpll_component" File: /home/tomek/vhdl/spctr/spectrum_analyzer/bclk.vhd Line: 134
 Info (12133): Instantiated megafunction "bclk:bclk|altpll:altpll_component" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/bclk.vhd Line: 134
@@ -1989,12 +2038,13 @@ Info (12133): Instantiated megafunction "bclk:bclk|altpll:altpll_component" with
 Info (12021): Found 1 design units, including 1 entities, in source file db/bclk_altpll.v
     Info (12023): Found entity 1: bclk_altpll File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/bclk_altpll.v Line: 30
 Info (12128): Elaborating entity "bclk_altpll" for hierarchy "bclk:bclk|altpll:altpll_component|bclk_altpll:auto_generated" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altpll.tdf Line: 898
-Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:vga" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 85
-Info (12128): Elaborating entity "plot_controller" for hierarchy "plot_controller:plot" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 89
-Info (12128): Elaborating entity "queue" for hierarchy "queue:fifo" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 97
-Info (12128): Elaborating entity "fft" for hierarchy "fft:fft" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 100
-Warning (10036): Verilog HDL or VHDL warning at fft.vhd(37): object "rdwr_wait" assigned a value but never read File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 37
-Info (12128): Elaborating entity "ram_ip" for hierarchy "fft:fft|ram_ip:ram" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 41
+Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:vga" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 87
+Info (12128): Elaborating entity "plot_controller" for hierarchy "plot_controller:plot" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 91
+Info (12128): Elaborating entity "queue" for hierarchy "queue:fifo" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 99
+Info (12128): Elaborating entity "fft" for hierarchy "fft:fft" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 102
+Warning (10540): VHDL Signal Declaration warning at fft.vhd(33): used explicit default value for signal "data" because signal was never assigned a value File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 33
+Warning (10036): Verilog HDL or VHDL warning at fft.vhd(38): object "rdwr_wait" assigned a value but never read File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 38
+Info (12128): Elaborating entity "ram_ip" for hierarchy "fft:fft|ram_ip:ram" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 44
 Info (12128): Elaborating entity "altsyncram" for hierarchy "fft:fft|ram_ip:ram|altsyncram:altsyncram_component" File: /home/tomek/vhdl/spctr/spectrum_analyzer/ram_ip.vhd Line: 68
 Info (12130): Elaborated megafunction instantiation "fft:fft|ram_ip:ram|altsyncram:altsyncram_component" File: /home/tomek/vhdl/spctr/spectrum_analyzer/ram_ip.vhd Line: 68
 Info (12133): Instantiated megafunction "fft:fft|ram_ip:ram|altsyncram:altsyncram_component" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/ram_ip.vhd Line: 68
@@ -2051,29 +2101,29 @@ Info (12133): Instantiated megafunction "fft:fft|ram_ip:ram|altsyncram:altsyncra
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8mo3.tdf
     Info (12023): Found entity 1: altsyncram_8mo3 File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/altsyncram_8mo3.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_8mo3" for hierarchy "fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "butterfly" for hierarchy "fft:fft|butterfly:butterfly" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 54
-Info (12128): Elaborating entity "i2s_receiver" for hierarchy "i2s_receiver:i2s" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 114
+Info (12128): Elaborating entity "butterfly" for hierarchy "fft:fft|butterfly:butterfly" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 57
+Info (12128): Elaborating entity "i2s_receiver" for hierarchy "i2s_receiver:i2s" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 146
 Info (278001): Inferred 20 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "plot_controller:plot|Div0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 37
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fft:fft|Div2" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 216
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|Mult2" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 216
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fft:fft|Div3" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 216
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fft:fft|Div0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 216
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|Mult1" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 216
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fft:fft|Div1" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 216
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fft:fft|Div6" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 217
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|Mult4" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 217
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fft:fft|Div7" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 217
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fft:fft|Div4" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 217
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|Mult3" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 217
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fft:fft|Div5" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 217
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fft:fft|Mod0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 136
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|butterfly:butterfly|Mult2" File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 30
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|butterfly:butterfly|Mult3" File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 30
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|butterfly:butterfly|Mult0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 29
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|butterfly:butterfly|Mult1" File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 29
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fft:fft|Mod1" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 167
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|Mult0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 167
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fft:fft|Div2" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 226
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|Mult2" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 226
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fft:fft|Div3" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 226
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fft:fft|Div0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 226
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|Mult1" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 226
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fft:fft|Div1" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 226
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fft:fft|Div6" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 227
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|Mult4" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 227
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fft:fft|Div7" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 227
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fft:fft|Div4" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 227
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|Mult3" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 227
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fft:fft|Div5" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 227
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fft:fft|Mod0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 142
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|butterfly:butterfly|Mult2" File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 45
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|butterfly:butterfly|Mult3" File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 45
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|butterfly:butterfly|Mult0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 44
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|butterfly:butterfly|Mult1" File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 44
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fft:fft|Mod1" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 173
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|Mult0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 173
 Info (12130): Elaborated megafunction instantiation "plot_controller:plot|lpm_divide:Div0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 37
 Info (12133): Instantiated megafunction "plot_controller:plot|lpm_divide:Div0" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 37
     Info (12134): Parameter "LPM_WIDTHN" = "32"
@@ -2095,8 +2145,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_
     Info (12023): Found entity 1: lpm_abs_o99 File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/lpm_abs_o99.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_8b9.tdf
     Info (12023): Found entity 1: lpm_abs_8b9 File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/lpm_abs_8b9.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "fft:fft|lpm_divide:Div2" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 216
-Info (12133): Instantiated megafunction "fft:fft|lpm_divide:Div2" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 216
+Info (12130): Elaborated megafunction instantiation "fft:fft|lpm_divide:Div2" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 226
+Info (12133): Instantiated megafunction "fft:fft|lpm_divide:Div2" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 226
     Info (12134): Parameter "LPM_WIDTHN" = "16"
     Info (12134): Parameter "LPM_WIDTHD" = "5"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -2110,8 +2160,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alt_
     Info (12023): Found entity 1: alt_u_div_1ie File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/alt_u_div_1ie.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_ab9.tdf
     Info (12023): Found entity 1: lpm_abs_ab9 File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/lpm_abs_ab9.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "fft:fft|lpm_mult:Mult2" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 216
-Info (12133): Instantiated megafunction "fft:fft|lpm_mult:Mult2" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 216
+Info (12130): Elaborated megafunction instantiation "fft:fft|lpm_mult:Mult2" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 226
+Info (12133): Instantiated megafunction "fft:fft|lpm_mult:Mult2" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 226
     Info (12134): Parameter "LPM_WIDTHA" = "16"
     Info (12134): Parameter "LPM_WIDTHB" = "16"
     Info (12134): Parameter "LPM_WIDTHP" = "32"
@@ -2123,15 +2173,15 @@ Info (12133): Instantiated megafunction "fft:fft|lpm_mult:Mult2" with the follow
     Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/mult_pgs.tdf
     Info (12023): Found entity 1: mult_pgs File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/mult_pgs.tdf Line: 29
-Info (12130): Elaborated megafunction instantiation "fft:fft|lpm_divide:Div3" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 216
-Info (12133): Instantiated megafunction "fft:fft|lpm_divide:Div3" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 216
+Info (12130): Elaborated megafunction instantiation "fft:fft|lpm_divide:Div3" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 226
+Info (12133): Instantiated megafunction "fft:fft|lpm_divide:Div3" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 226
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "5"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
-Info (12130): Elaborated megafunction instantiation "fft:fft|lpm_divide:Mod0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 136
-Info (12133): Instantiated megafunction "fft:fft|lpm_divide:Mod0" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 136
+Info (12130): Elaborated megafunction instantiation "fft:fft|lpm_divide:Mod0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 142
+Info (12133): Instantiated megafunction "fft:fft|lpm_divide:Mod0" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 142
     Info (12134): Parameter "LPM_WIDTHN" = "8"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -2142,8 +2192,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_9nh File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/sign_div_unsign_9nh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ske.tdf
     Info (12023): Found entity 1: alt_u_div_ske File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/alt_u_div_ske.tdf Line: 27
-Info (12130): Elaborated megafunction instantiation "fft:fft|butterfly:butterfly|lpm_mult:Mult2" File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 30
-Info (12133): Instantiated megafunction "fft:fft|butterfly:butterfly|lpm_mult:Mult2" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 30
+Info (12130): Elaborated megafunction instantiation "fft:fft|butterfly:butterfly|lpm_mult:Mult2" File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 45
+Info (12133): Instantiated megafunction "fft:fft|butterfly:butterfly|lpm_mult:Mult2" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 45
     Info (12134): Parameter "LPM_WIDTHA" = "10"
     Info (12134): Parameter "LPM_WIDTHB" = "16"
     Info (12134): Parameter "LPM_WIDTHP" = "26"
@@ -2155,8 +2205,8 @@ Info (12133): Instantiated megafunction "fft:fft|butterfly:butterfly|lpm_mult:Mu
     Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/mult_mgs.tdf
     Info (12023): Found entity 1: mult_mgs File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/mult_mgs.tdf Line: 29
-Info (12130): Elaborated megafunction instantiation "fft:fft|butterfly:butterfly|lpm_mult:Mult3" File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 30
-Info (12133): Instantiated megafunction "fft:fft|butterfly:butterfly|lpm_mult:Mult3" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 30
+Info (12130): Elaborated megafunction instantiation "fft:fft|butterfly:butterfly|lpm_mult:Mult3" File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 45
+Info (12133): Instantiated megafunction "fft:fft|butterfly:butterfly|lpm_mult:Mult3" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 45
     Info (12134): Parameter "LPM_WIDTHA" = "11"
     Info (12134): Parameter "LPM_WIDTHB" = "16"
     Info (12134): Parameter "LPM_WIDTHP" = "27"
@@ -2168,14 +2218,14 @@ Info (12133): Instantiated megafunction "fft:fft|butterfly:butterfly|lpm_mult:Mu
     Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/mult_ogs.tdf
     Info (12023): Found entity 1: mult_ogs File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/mult_ogs.tdf Line: 29
-Info (12130): Elaborated megafunction instantiation "fft:fft|lpm_divide:Mod1" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 167
-Info (12133): Instantiated megafunction "fft:fft|lpm_divide:Mod1" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 167
+Info (12130): Elaborated megafunction instantiation "fft:fft|lpm_divide:Mod1" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 173
+Info (12133): Instantiated megafunction "fft:fft|lpm_divide:Mod1" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 173
     Info (12134): Parameter "LPM_WIDTHN" = "8"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12130): Elaborated megafunction instantiation "fft:fft|lpm_mult:Mult0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 167
-Info (12133): Instantiated megafunction "fft:fft|lpm_mult:Mult0" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 167
+Info (12130): Elaborated megafunction instantiation "fft:fft|lpm_mult:Mult0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 173
+Info (12133): Instantiated megafunction "fft:fft|lpm_mult:Mult0" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 173
     Info (12134): Parameter "LPM_WIDTHA" = "7"
     Info (12134): Parameter "LPM_WIDTHB" = "7"
     Info (12134): Parameter "LPM_WIDTHP" = "14"
@@ -2204,27 +2254,27 @@ Warning (13024): Output pins are stuck at VCC or GND
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 4 registers lost all their fanouts during netlist optimizations.
 Info (17016): Found the following redundant logic cells in design
-    Info (17048): Logic cell "fft:fft|Add0~0" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 1244
-    Info (17048): Logic cell "fft:fft|Add0~2" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 1244
-    Info (17048): Logic cell "fft:fft|Add0~4" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 1244
-    Info (17048): Logic cell "fft:fft|Add0~6" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 1244
-    Info (17048): Logic cell "fft:fft|Add0~8" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 1244
-    Info (17048): Logic cell "fft:fft|Add0~10" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 1244
-    Info (17048): Logic cell "fft:fft|Add0~12" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 1244
-    Info (17048): Logic cell "fft:fft|Add0~14" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 1244
+    Info (17048): Logic cell "fft:fft|Add6~0" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 1244
+    Info (17048): Logic cell "fft:fft|Add6~2" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 1244
+    Info (17048): Logic cell "fft:fft|Add6~4" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 1244
+    Info (17048): Logic cell "fft:fft|Add6~6" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 1244
+    Info (17048): Logic cell "fft:fft|Add6~8" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 1244
+    Info (17048): Logic cell "fft:fft|Add6~10" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 1244
+    Info (17048): Logic cell "fft:fft|Add6~12" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 1244
+    Info (17048): Logic cell "fft:fft|Add6~14" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/vhdl/ieee/1993/numeric_std_vhdl1993.vhd Line: 1244
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 13479 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 14697 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 19 output pins
-    Info (21061): Implemented 13408 logic cells
+    Info (21061): Implemented 14626 logic cells
     Info (21064): Implemented 32 RAM segments
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 17 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 17 warnings
-    Info: Peak virtual memory: 575 megabytes
-    Info: Processing ended: Wed Jun  1 18:03:34 2022
-    Info: Elapsed time: 00:00:44
-    Info: Total CPU time (on all processors): 00:00:59
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 18 warnings
+    Info: Peak virtual memory: 563 megabytes
+    Info: Processing ended: Mon Oct 24 11:01:59 2022
+    Info: Elapsed time: 00:01:04
+    Info: Total CPU time (on all processors): 00:01:21
 
 
