@@ -17,27 +17,31 @@ end queue;
 
 architecture arch of queue is
     signal data: isignal_t := (others => 0);
+    type queue_state is (idle, write_to_array);
+    signal state: queue_state := write_to_array; 
 begin
     
     process(clk)
         variable temp: integer range -600 to 600 := 0;
-        variable ctr: integer range 0 to 31;
     begin
         if rising_edge(clk) then
-            if wr_en = '1' and do_fft = '1' then
-                -- if ctr = 15 then
-                    temp :=(to_integer(signed(data_in(23 downto 10))) + 427)/4 ;
-                    -- if data_in(23) = '1' then
-                    --     temp := -100;
-                    -- else
-                    --     temp := 100;
-                    -- end if;
-                    data <= temp & data(0 to data'high-1);
-                    -- ctr := 0;
-                -- else
-                    -- ctr := ctr + 1;        
-                -- end if;
-            end if;
+            case state is
+                when idle =>
+                    if wr_en = '0' then
+                        state <= write_to_array;
+                    end if;
+                when write_to_array =>
+                    if wr_en = '1' and do_fft = '1' then
+                        temp :=(to_integer(signed(data_in(23 downto 10))) + 427)/4 ;
+                        data <= temp & data(0 to data'high-1);
+                        state <= idle;
+                    end if;
+            
+                when others =>
+                    
+            
+            end case;
+
         end if;
     end process;
     data_out <= data;

@@ -37,14 +37,14 @@ begin
 
     clk <= not clk after clk_period / 2;
 
-    fft: entity work.fft
-    port map(
-        clk => clk,
-        data_i => data,
-        do_fft=> do_fft,
-        done=> done,
-        res=> res
-    );
+--    fft: entity work.fft
+--    port map(
+--        clk => clk,
+--        data_i => data,
+--        do_fft=> do_fft,
+--        done=> done,
+--        res=> res
+--    );
 
 
 end architecture;

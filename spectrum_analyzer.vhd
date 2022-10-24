@@ -96,11 +96,11 @@ architecture arch of spectrum_analyzer is
 --    port map(mclk => mclk, sclk => sclk, ws => lrcl, d_rx => din, l_data => l_data, r_data => r_data, 
 --            read_en => wr_en);
 
-   fifo: entity work.queue
-   port map(clk => mclk, data_in => l_data, data_out => do, wr_en => wr_en, do_fft => do_fft);
+--    fifo: entity work.queue
+--    port map(clk => clk, data_in => l_data, data_out => do, wr_en => wr_en, do_fft => do_fft);
 
     fft: entity work.fft
-    port map(clk => clk, data_i => do_i, do_fft => do_fft, done => done_f, res => do_cos );
+    port map(clk => clk,  do_fft => do_fft, done => done_f, res => do_cos, wr_en => wr_en, data_in => l_data);
 
     process(clk)
     begin
@@ -111,37 +111,37 @@ architecture arch of spectrum_analyzer is
         end if;
     end process;
 
-    process(clk)
+    -- process(clk)
     
-    type writing_sm is (idle, write_to_array);
-    variable state: writing_sm := idle;
-    begin
-        if rising_edge(clk) then
-            case state is
-                when idle =>
-                    if done_f = '1' then
-                        state := write_to_array;
-                        do_fft <= '0';
-                    else
-                        state := idle;
-                        do_fft <= '1';
-                    end if;
-                when write_to_array =>
-                    if do_i_cnt = N then
-                        state := idle;
-                        do_i_cnt <= 0;
-                    else
-                        do_i_cnt <= do_i_cnt + 1;
-                        do_i(do_i_cnt) <= do(do_i_cnt);
-                    end if;
+    -- type writing_sm is (idle, write_to_array);
+    -- variable state: writing_sm := idle;
+    -- begin
+    --     if rising_edge(clk) then
+    --         case state is
+    --             when idle =>
+    --                 if done_f = '1' then
+    --                     state := write_to_array;
+    --                     do_fft <= '0';
+    --                 else
+    --                     state := idle;
+    --                     do_fft <= '1';
+    --                 end if;
+    --             when write_to_array =>
+    --                 if do_i_cnt = N then
+    --                     state := idle;
+    --                     do_i_cnt <= 0;
+    --                 else
+    --                     do_i_cnt <= do_i_cnt + 1;
+    --                     do_i(do_i_cnt) <= do_i_cnt mod 3; --do(do_i_cnt);
+    --                 end if;
             
-                when others =>
+    --             when others =>
                     
             
-            end case;
+    --         end case;
 
-        end if;
-    end process;
+    --     end if;
+    -- end process;
 
     i2s: entity work.i2s_receiver
     port map(sclk => mclk, ws => ws, d_rx => din, l_data => l_data, r_data => r_data, sel => sel,

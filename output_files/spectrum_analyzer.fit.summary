@@ -1,14 +1,14 @@
-Fitter Status : Successful - Mon Oct 24 11:05:11 2022
+Fitter Status : Successful - Mon Oct 24 15:50:36 2022
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : spectrum_analyzer
 Top-level Entity Name : spectrum_analyzer
 Family : MAX 10
 Device : 10M50DAF484C7G
 Timing Models : Final
-Total logic elements : 12,719 / 49,760 ( 26 % )
-    Total combinational functions : 9,423 / 49,760 ( 19 % )
-    Dedicated logic registers : 5,897 / 49,760 ( 12 % )
-Total registers : 5897
+Total logic elements : 8,015 / 49,760 ( 16 % )
+    Total combinational functions : 5,557 / 49,760 ( 11 % )
+    Dedicated logic registers : 4,296 / 49,760 ( 9 % )
+Total registers : 4296
 Total pins : 21 / 360 ( 6 % )
 Total virtual pins : 0
 Total memory bits : 16,384 / 1,677,312 ( < 1 % )

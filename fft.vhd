@@ -9,16 +9,17 @@ use work.trigonometric.all;
 entity fft is
     port (
         clk: in std_logic;
-        data_i: in isignal_t;
         do_fft: in std_logic;
         done: out std_logic;
-        res: out osignal_t
+        res: out osignal_t;
+        wr_en: in std_logic;
+        data_in: in std_logic_vector(23 downto 0)
     );
 end entity fft;
 
 architecture rtl of fft is
 
-    constant NORM : integer := 12;
+    constant NORM : integer := 16;
     
     type state_t is (idle, write_to_ram, transform, clean, save_data, wait_for_ram, butterfly_step, transform_end, test);
     signal state_m, next_state: state_t := idle;
@@ -107,8 +108,8 @@ begin
                         adA := to_integer(counter_n_inversed1);
                         adB := to_integer(counter_n_inversed2);
                       
-                        dataAi <= std_logic_vector(to_signed(data_i(adA), 16)) & "0000000000000000";
-                        dataBi <= std_logic_vector(to_signed(data_i(adB), 16)) & "0000000000000000";
+                        dataAi <= std_logic_vector(to_signed(data(adA), 16)) & "0000000000000000";
+                        dataBi <= std_logic_vector(to_signed(data(adB), 16)) & "0000000000000000";
 
                         report "adrA: " & integer'image(adA) & " data: " & integer'image(data(adA)) & " addr " & integer'image(to_integer(unsigned(addrA)));
                         report "adrB: " & integer'image(adB) & " data: " & integer'image(data(adB)) & " addr " & integer'image(to_integer(unsigned(addrB)));
@@ -223,8 +224,8 @@ begin
                         dA := (to_integer(signed(dataAo(31 downto 16))), to_integer(signed(dataAo(15 downto 0))));
                         dB := (to_integer(signed(dataBo(31 downto 16))), to_integer(signed(dataBo(15 downto 0))));
                         counter_n <= counter_n + 2;
-                        new_data(adA) <= (dA(0)/NORM * dA(0)/NORM) + (dA(1)/NORM * dA(1)/NORM);
-                        new_data(adB) <= (dB(0)/NORM * dB(0)/NORM) + (dB(1)/NORM * dB(1)/NORM);
+                        new_data(adA) <= ((dA(0)/NORM * dA(0)/NORM) + (dA(1)/NORM * dA(1)/NORM)) mod 512;
+                        new_data(adB) <= ((dB(0)/NORM * dB(0)/NORM) + (dB(1)/NORM * dB(1)/NORM)) mod 512;
                         state_m <= wait_for_ram;
                         next_state <= transform_end;
                         -- res(adA) <= (ram_arr(adA)(0)*ram_arr(adA)(0))/4000  + (ram_arr(adA)(1)*ram_arr(adA)(1))/4000;
@@ -240,6 +241,32 @@ begin
                     state_m <= idle;
             
             end case;
+        end if;
+    end process;
+
+    process(clk)
+        variable temp: integer range -600 to 600 := 0;
+        type queue_state is (idle, write_to_array);
+        variable queue_s: queue_state := write_to_array;
+    begin
+        if rising_edge(clk) then
+            case queue_s is
+                when idle =>
+                    if wr_en = '0' then
+                        queue_s := write_to_array;
+                    end if;
+                when write_to_array =>
+                    if wr_en = '1' then
+                        temp :=(to_integer(signed(data_in(23 downto 10))) + 427)/8 ;
+                        data <= temp & data(0 to data'high-1);
+                        queue_s := idle;
+                    end if;
+            
+                when others =>
+                    
+            
+            end case;
+
         end if;
     end process;
     
