@@ -108,8 +108,8 @@ begin
                         adA := to_integer(counter_n_inversed1);
                         adB := to_integer(counter_n_inversed2);
                       
-                        dataAi <= std_logic_vector(to_signed(data(adA), 16)) & "0000000000000000";
-                        dataBi <= std_logic_vector(to_signed(data(adB), 16)) & "0000000000000000";
+                        dataAi <= std_logic_vector(to_signed(data(adA), WORD_WIDTH)) & std_logic_vector(to_unsigned(0, WORD_WIDTH));
+                        dataBi <= std_logic_vector(to_signed(data(adB), WORD_WIDTH)) & std_logic_vector(to_unsigned(0, WORD_WIDTH));
 
                         report "adrA: " & integer'image(adA) & " data: " & integer'image(data(adA)) & " addr " & integer'image(to_integer(unsigned(addrA)));
                         report "adrB: " & integer'image(adB) & " data: " & integer'image(data(adB)) & " addr " & integer'image(to_integer(unsigned(addrB)));
@@ -169,8 +169,8 @@ begin
                     
 
                 when butterfly_step =>
-                    x <= (to_integer(signed(dataAo(31 downto 16))), to_integer(signed(dataAo(15 downto 0))));
-                    y <= (to_integer(signed(dataBo(31 downto 16))), to_integer(signed(dataBo(15 downto 0))));
+                    x <= (to_integer(signed(dataAo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH))), to_integer(signed(dataAo(WORD_WIDTH-1 downto 0))));
+                    y <= (to_integer(signed(dataBo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH))), to_integer(signed(dataBo(WORD_WIDTH-1 downto 0))));
                     alpha <= (pair_counter mod (2**(counter_m-1)))* counter_divider/2 ; --((alpha_counter mod 2**counter_m) * counter_divider/2);
                     -- alpha <= 628 * (alpha_counter mod 2**counter_m) ;
                     state_m <= save_data;
@@ -182,8 +182,8 @@ begin
                     do_btfly_step <= '0';
                     if btfl_done = '1' then
                         wr <= '1';
-                        dataAi <= std_logic_vector(to_signed(Sa(0), dataAi'length/2) & to_signed(Sa(1), dataAi'length/2));
-                        dataBi <= std_logic_vector(to_signed(Sb(0), dataBi'length/2) & to_signed(Sb(1), dataBi'length/2));
+                        dataAi <= std_logic_vector(to_signed(Sa(0), WORD_WIDTH) & to_signed(Sa(1), WORD_WIDTH));
+                        dataBi <= std_logic_vector(to_signed(Sb(0), WORD_WIDTH) & to_signed(Sb(1), WORD_WIDTH));
                         -- ram_arr(adA) <= Sa;
                         -- ram_arr(adB) <= Sb;
                         -- report "alpha: " & integer'image(alpha);
@@ -221,8 +221,8 @@ begin
                             addrA <= std_logic_vector(counter_n + 2);
                             addrB <= std_logic_vector(counter_n + 3);
                         end if;
-                        dA := (to_integer(signed(dataAo(31 downto 16))), to_integer(signed(dataAo(15 downto 0))));
-                        dB := (to_integer(signed(dataBo(31 downto 16))), to_integer(signed(dataBo(15 downto 0))));
+                        dA := (to_integer(signed(dataAo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH))), to_integer(signed(dataAo(WORD_WIDTH-1 downto 0))));
+                        dB := (to_integer(signed(dataBo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH))), to_integer(signed(dataBo(WORD_WIDTH-1 downto 0))));
                         counter_n <= counter_n + 2;
                         new_data(adA) <= ((dA(0)/NORM * dA(0)/NORM) + (dA(1)/NORM * dA(1)/NORM)) mod 512;
                         new_data(adB) <= ((dB(0)/NORM * dB(0)/NORM) + (dB(1)/NORM * dB(1)/NORM)) mod 512;
@@ -244,7 +244,7 @@ begin
         end if;
     end process;
 
-    process(clk)
+    COLLECT_DATA: process(clk)
         variable temp: integer range -600 to 600 := 0;
         type queue_state is (idle, write_to_array);
         variable queue_s: queue_state := write_to_array;

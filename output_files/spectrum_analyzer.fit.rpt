@@ -1,5 +1,5 @@
 Fitter report for spectrum_analyzer
-Mon Oct 24 15:50:37 2022
+Tue Oct 25 20:36:35 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -75,7 +75,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Mon Oct 24 15:50:36 2022       ;
+; Fitter Status                      ; Successful - Tue Oct 25 20:36:35 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; spectrum_analyzer                           ;
 ; Top-level Entity Name              ; spectrum_analyzer                           ;
@@ -161,12 +161,12 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
-; Average used               ; 1.17        ;
+; Average used               ; 1.16        ;
 ; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  17.1%      ;
+;     Processor 2            ;  16.5%      ;
 +----------------------------+-------------+
 
 
@@ -1672,34 +1672,34 @@ Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176218): Packed 6 registers into blocks of type Embedded multiplier output
 Warning (15064): PLL "bclk:bclk|altpll:altpll_component|bclk_altpll:auto_generated|pll1" output port clk[0] feeds output pin "sclk~output" via non-dedicated routing -- jitter performance depends on switching rate of other design elements. Use PLL dedicated clock outputs to ensure jitter performance File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/bclk_altpll.v Line: 44
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:08
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:09
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
-Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:03
+Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:04
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:25
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:28
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 4% of the available device resources
     Info (170196): Router estimated peak interconnect usage is 24% of the available device resources in the region that extends from location X45_Y22 to location X55_Y32
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:22
-Info (11888): Total time spent on timing analysis during the Fitter is 5.99 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 6.33 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:15
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:17
 Warning (169177): 2 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 2.5-V interfaces. For more information, refer to AN 447: Interfacing MAX 10 Devices with 3.3/3.0/2.5-V LVTTL/LVCMOS I/O Systems.
     Info (169178): Pin clk uses I/O standard 3.3-V LVTTL at P11 File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 9
     Info (169178): Pin din uses I/O standard 3.3-V LVTTL at AB9 File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 19
 Info (144001): Generated suppressed messages file /home/tomek/vhdl/spctr/spectrum_analyzer/output_files/spectrum_analyzer.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 939 megabytes
-    Info: Processing ended: Mon Oct 24 15:50:38 2022
-    Info: Elapsed time: 00:01:26
-    Info: Total CPU time (on all processors): 00:02:09
+    Info: Peak virtual memory: 951 megabytes
+    Info: Processing ended: Tue Oct 25 20:36:37 2022
+    Info: Elapsed time: 00:01:33
+    Info: Total CPU time (on all processors): 00:02:20
 
 
 +----------------------------+
