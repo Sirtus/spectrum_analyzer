@@ -3,19 +3,19 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -104.028
-TNS   : -4628.962
+Slack : -104.245
+TNS   : -4124.032
 
 Type  : Slow 1200mV 85C Model Setup 'bclk|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 347.663
+Slack : 347.820
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : 0.236
+Slack : 0.250
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'bclk|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.413
+Slack : 0.418
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
@@ -27,19 +27,19 @@ Slack : 176.416
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -92.620
-TNS   : -4108.080
+Slack : -92.712
+TNS   : -3630.736
 
 Type  : Slow 1200mV 0C Model Setup 'bclk|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 348.043
+Slack : 348.247
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : 0.240
+Slack : 0.250
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'bclk|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.334
+Slack : 0.338
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
@@ -47,31 +47,31 @@ Slack : 9.453
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'bclk|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 176.395
+Slack : 176.396
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -31.437
-TNS   : -1335.066
+Slack : -31.285
+TNS   : -1207.429
 
 Type  : Fast 1200mV 0C Model Setup 'bclk|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 350.809
+Slack : 350.949
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
-Slack : 0.095
+Slack : 0.098
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'bclk|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.205
+Slack : 0.207
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
-Slack : 9.269
+Slack : 9.268
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'bclk|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 176.441
+Slack : 176.445
 TNS   : 0.000
 
 ------------------------------------------------------------

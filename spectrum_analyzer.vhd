@@ -31,7 +31,8 @@ architecture arch of spectrum_analyzer is
     signal do_cos, do_next: osignal_t := (others => 0);
     signal wr_en, do_fft: std_logic := '1';
     signal do_i_cnt: integer := 0;
-    signal data_pixel: integer := 0;
+    signal data_pixel: std_logic_vector(15 downto 0) := (others => '0');
+    signal data_pixel_int: integer := 0;
     
     signal done_f: std_logic := '0';
     signal ws: std_logic := '0';
@@ -39,6 +40,8 @@ architecture arch of spectrum_analyzer is
     signal addressA, addressB: std_logic_vector(7 downto 0);
     signal dataA, dataB, qA, qB: std_logic_vector(15 downto 0);
     signal wrA, wrB: std_logic;
+    
+    signal last_column: integer range 0 to 127;
 
     begin 
 
@@ -55,7 +58,7 @@ architecture arch of spectrum_analyzer is
 
     plot: entity work.plot_controller
     port map(clk => clk, video_on => video_on, pixel_x => pixel_x, pixel_y => pixel_y, 
-             red => red, green => green, blue => blue, do => data_pixel);
+             red => red, green => green, blue => blue, do => data_pixel, do_int => data_pixel_int);
 
     
     fft: entity work.fft
@@ -90,12 +93,13 @@ architecture arch of spectrum_analyzer is
                     end if;
                 when write_to_register =>
                     wrB <= '1';
-                    if do_i_cnt = N then
+                    if do_i_cnt = WORD_WIDTH then
                         state := idle;
                         do_i_cnt <= 0;
+                        last_column <= (last_column + 1) mod 128;
                     else
                         addressB <= std_logic_vector(to_unsigned(do_i_cnt, addressB'length));
-                        dataB <= std_logic_vector(to_unsigned(do_next(do_i_cnt), dataB'length));
+                        dataB <= std_logic_vector(to_unsigned(do_next((last_column*WORD_WIDTH) + do_i_cnt), dataB'length));
                         do_i_cnt <= do_i_cnt + 1;
                         state := wait_for_reg;
                     end if;
@@ -119,13 +123,16 @@ architecture arch of spectrum_analyzer is
 
     process(clk)
     variable pixel_addr: integer := 0; 
+    variable current_column: integer range 0 to 127 := 0;
     begin
         if rising_edge(clk) then
-            if pixel_x <= 768 then
-                pixel_addr := pixel_x/12;
+            if pixel_y <= 512 then
+                pixel_addr := pixel_y/8;
             end if;
-            addressA <= std_logic_vector(to_unsigned(pixel_addr, addressA'length));
-            data_pixel <= to_integer(unsigned(qA));
+            current_column := (last_column + pixel_x) mod 128;
+            addressA <= std_logic_vector(to_unsigned((current_column * WORD_WIDTH) + pixel_addr, addressA'length));
+            data_pixel_int <= to_integer(unsigned(qA));
+            data_pixel <= qA;
         end if;
     end process;
 

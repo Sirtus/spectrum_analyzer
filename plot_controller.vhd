@@ -11,7 +11,8 @@ entity plot_controller is
         red, green, blue: out std_logic_vector(3 downto 0);
         video_on: in std_logic;
         pixel_x, pixel_y: in integer;
-        do: in integer range 0 to 600
+        do: in std_logic_vector(15 downto 0);
+        do_int: in integer range 0 to 600
     );
 end entity plot_controller;
 
@@ -31,10 +32,10 @@ begin
     --     end if;
     -- end process;
 
-    red <= "0000";
+    red <=   "0000";
     blue <= "0000";-- when video_on = '1' and pixel_y = 300 else "0000";
     -- green <= "1111" when video_on = '1' and pixel_y <= que_cos(pixel_x/100) else "0000";
-        green <= "1111" when video_on = '1' and pixel_x <= 768 and pixel_y >= 600 - do else "0000";
+        green <= do(8 downto 5) when video_on = '1' and pixel_y <= 512 and pixel_x <= 128 else "0000";
         -- green <= "1111" when video_on = '1' and pixel_x < 32 and pixel_y = que_cos(pixel_x)+300 else "0000";
 --pixel_y >= (600 - que_cos(pixel_x/100))
     
