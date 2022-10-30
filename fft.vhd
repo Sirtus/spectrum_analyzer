@@ -136,7 +136,7 @@ begin
                     wr <= '0';
                     if counter_n > isignal_t'high-1 then
                         if counter_m = LOG_N then
-                            if fft_counter = 10 then
+                            if fft_counter = 1 then
                                 fft_counter <= 0;
                                 state_m <= wait_for_ram;
                                 next_state <= transform_end;
@@ -241,7 +241,7 @@ begin
                             addrA <= std_logic_vector(counter_n + 1);
                             -- addrB <= std_logic_vector(counter_n + 3);
                         -- end if;
-                        dA := (to_integer(signed(dataAo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH))), to_integer(signed(dataAo(WORD_WIDTH-1 downto 0))));
+                        dA := (to_integer(signed(dataAo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH+4))), to_integer(signed(dataAo(WORD_WIDTH-1 downto 4))));
                         -- dB := (to_integer(signed(dataBo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH))), to_integer(signed(dataBo(WORD_WIDTH-1 downto 0))));
                         -- if dA(0) /= 0 or dA(1) /= 0 then
                         --     general_ram_data <= "1111111111111111";
@@ -249,7 +249,9 @@ begin
                         --     general_ram_data <= "0000000000000000";
                         -- end if;
                         -- new_data(adB) <= ((dB(0)/NORM * dB(0)/NORM) + (dB(1)/NORM * dB(1)/NORM)) mod 512;
-                        new_data2 <= ((dA(0)/NORM * dA(0)/NORM) + (dA(1)/NORM * dA(1)/NORM));
+                        -- new_data2 <= ((dA(0)/NORM * dA(0)/NORM) + (dA(1)/NORM * dA(1)/NORM));
+                        new_data2 <= ((dA(0) * dA(0)) + (dA(1) * dA(1)));
+
                         -- new_data2 <= to_integer(counter_n) * 16 + to_integer(counter_n) + dA(0);
 
                         state_m <= test;

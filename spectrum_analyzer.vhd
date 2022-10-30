@@ -134,7 +134,7 @@ architecture arch of spectrum_analyzer is
     variable current_column: integer range 0 to 255 := 0;
     begin
         if rising_edge(clk) then
-            if pixel_y <= 128 then
+            if pixel_y <= 256 then
                 col_y <= (current_column * N_DIV_2) + pixel_y/8;
                 pixel_addr := to_unsigned(col_y, addressA'length);
             end if;
