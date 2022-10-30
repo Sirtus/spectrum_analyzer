@@ -241,7 +241,7 @@ begin
                             addrA <= std_logic_vector(counter_n + 1);
                             -- addrB <= std_logic_vector(counter_n + 3);
                         -- end if;
-                        dA := (to_integer(signed(dataAo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH+4))), to_integer(signed(dataAo(WORD_WIDTH-1 downto 4))));
+                        dA := (to_integer(signed(dataAo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH+6))), to_integer(signed(dataAo(WORD_WIDTH-1 downto 6))));
                         -- dB := (to_integer(signed(dataBo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH))), to_integer(signed(dataBo(WORD_WIDTH-1 downto 0))));
                         -- if dA(0) /= 0 or dA(1) /= 0 then
                         --     general_ram_data <= "1111111111111111";

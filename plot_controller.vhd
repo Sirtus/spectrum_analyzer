@@ -26,7 +26,7 @@ begin
     process(clk)
     begin
         if rising_edge(clk)   then
-            if video_on = '1' and pixel_y <= 256 and pixel_x <= 128 then
+            if video_on = '1' and pixel_y <= 512 and pixel_x <= 128 then
                 if que(15 downto 12) /= "0000" then
                     blue <= "0000";
                     green <= not que(15 downto 12);

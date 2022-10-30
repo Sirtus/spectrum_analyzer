@@ -1,5 +1,5 @@
 Flow report for spectrum_analyzer
-Sun Oct 30 15:09:18 2022
+Sun Oct 30 15:44:27 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,17 +41,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sun Oct 30 15:09:18 2022       ;
+; Flow Status                        ; Successful - Sun Oct 30 15:44:27 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; spectrum_analyzer                           ;
 ; Top-level Entity Name              ; spectrum_analyzer                           ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 4,135 / 49,760 ( 8 % )                      ;
-;     Total combinational functions  ; 3,708 / 49,760 ( 7 % )                      ;
-;     Dedicated logic registers      ; 1,387 / 49,760 ( 3 % )                      ;
-; Total registers                    ; 1387                                        ;
+; Total logic elements               ; 5,050 / 49,760 ( 10 % )                     ;
+;     Total combinational functions  ; 4,240 / 49,760 ( 9 % )                      ;
+;     Dedicated logic registers      ; 2,094 / 49,760 ( 4 % )                      ;
+; Total registers                    ; 2094                                        ;
 ; Total pins                         ; 21 / 360 ( 6 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 114,688 / 1,677,312 ( 7 % )                 ;
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/30/2022 15:07:28 ;
+; Start date & time ; 10/30/2022 15:41:52 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; spectrum_analyzer   ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+--------------------------------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value                        ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+--------------------------------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 167304649327723.166713884716257        ; --                                   ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 167304649327723.166714091219814        ; --                                   ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --                                   ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --                                   ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --                                   ; --          ; eda_board_design_signal_integrity ;
@@ -105,12 +105,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:27     ; 1.0                     ; 522 MB              ; 00:00:44                           ;
-; Fitter               ; 00:01:03     ; 1.2                     ; 901 MB              ; 00:01:34                           ;
-; Assembler            ; 00:00:03     ; 1.0                     ; 396 MB              ; 00:00:04                           ;
-; Timing Analyzer      ; 00:00:07     ; 1.5                     ; 536 MB              ; 00:00:11                           ;
-; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 664 MB              ; 00:00:02                           ;
-; Total                ; 00:01:42     ; --                      ; --                  ; 00:02:35                           ;
+; Analysis & Synthesis ; 00:00:35     ; 1.0                     ; 526 MB              ; 00:00:54                           ;
+; Fitter               ; 00:01:36     ; 1.1                     ; 915 MB              ; 00:02:17                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 399 MB              ; 00:00:04                           ;
+; Timing Analyzer      ; 00:00:10     ; 1.5                     ; 547 MB              ; 00:00:16                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 670 MB              ; 00:00:02                           ;
+; Total                ; 00:02:27     ; --                      ; --                  ; 00:03:33                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
