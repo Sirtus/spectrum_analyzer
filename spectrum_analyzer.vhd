@@ -37,11 +37,12 @@ architecture arch of spectrum_analyzer is
     signal done_f: std_logic := '0';
     signal ws: std_logic := '0';
 
-    signal addressA, addressB: std_logic_vector(7 downto 0);
+    signal addressA, addressB: std_logic_vector(13 downto 0);
     signal dataA, dataB, qA, qB: std_logic_vector(15 downto 0);
     signal wrA, wrB: std_logic;
     
-    signal last_column: integer range 0 to 127;
+    signal last_column: integer;
+    signal col_y: integer range 0 to 1023 := 0;
 
     begin 
 
@@ -58,80 +59,87 @@ architecture arch of spectrum_analyzer is
 
     plot: entity work.plot_controller
     port map(clk => clk, video_on => video_on, pixel_x => pixel_x, pixel_y => pixel_y, 
-             red => red, green => green, blue => blue, do => data_pixel, do_int => data_pixel_int);
+             red => red, green => green, blue => blue, do => data_pixel);
 
     
     fft: entity work.fft
-    port map(clk => clk,  do_fft => do_fft, done => done_f, res => do_cos, wr_en => wr_en, data_in => l_data);
+    port map(clk => clk,  do_fft => do_fft, done => done_f, wr_en => wr_en, data_in => l_data, last_column => last_column, general_ram_addr => addressB, general_ram_data => dataB, general_ram_wren => wrB);
 
-    process(clk)
-    begin
-        if rising_edge(clk) then
-            if done_f = '1' then
-                do_next <= do_cos;
-            end if;
-        end if;
-    end process;
+    -- process(clk)
+    -- begin
+    --     if rising_edge(clk) then
+    --         if done_f = '1' then
+    --             do_next <= do_cos;
+    --         end if;
+    --     end if;
+    -- end process;
 
-    process(clk)
+    -- process(clk)
     
-    type writing_sm is (idle, write_to_register, wait_for_reg);
-    variable state: writing_sm := idle;
-    variable wait_cnt: integer range 0 to 7 := 0;
-    begin
-        if rising_edge(clk) then
-            case state is
-                when idle =>
-                    wrB <= '0';
-                    if done_f = '1' then
-                        state := write_to_register;
-                        do_fft <= '0';
-                        wait_cnt := 0;
-                    else
-                        state := idle;
-                        do_fft <= '1';
-                    end if;
-                when write_to_register =>
-                    wrB <= '1';
-                    if do_i_cnt = WORD_WIDTH then
-                        state := idle;
-                        do_i_cnt <= 0;
-                        last_column <= (last_column + 1) mod 128;
-                    else
-                        addressB <= std_logic_vector(to_unsigned(do_i_cnt, addressB'length));
-                        dataB <= std_logic_vector(to_unsigned(do_next((last_column*WORD_WIDTH) + do_i_cnt), dataB'length));
-                        do_i_cnt <= do_i_cnt + 1;
-                        state := wait_for_reg;
-                    end if;
+    -- type writing_sm is (idle, write_to_register, wait_for_reg);
+    -- variable state: writing_sm := idle;
+    -- variable wait_cnt: integer range 0 to 7 := 0;
+    -- variable fft_counter: integer range 0 to 15 := 0;
+    -- begin
+    --     if rising_edge(clk) then
+    --         case state is
+    --             when idle =>
+    --                 wrB <= '0';
+    --                 if done_f = '1' then
+    --                     if fft_counter = 10 then
+    --                         state := write_to_register;
+    --                         do_fft <= '0';
+    --                         wait_cnt := 0;
+    --                         do_i_cnt <= 0;
+    --                         fft_counter := 0;
+    --                     else
+    --                         fft_counter := fft_counter + 1;
+    --                     end if;
+    --                 else
+    --                     state := idle;
+    --                     do_fft <= '1';
+    --                 end if;
+    --             when write_to_register =>
+    --                 wrB <= '1';
+    --                 if do_i_cnt = WORD_WIDTH then
+    --                     state := idle;
+    --                     do_i_cnt <= 0;
+    --                     last_column <= (last_column + 1) mod 128;
+    --                 else
+    --                     addressB <= std_logic_vector(to_unsigned((last_column*WORD_WIDTH) + do_i_cnt, addressB'length));
+    --                     dataB <= std_logic_vector(to_unsigned(do_next(do_i_cnt), dataB'length));
+    --                     do_i_cnt <= do_i_cnt + 1;
+    --                     state := wait_for_reg;
+    --                 end if;
             
-                when wait_for_reg =>
-                    if wait_cnt = 6 then
-                        wait_cnt := 0;
-                        state := write_to_register;
-                    else
-                        wait_cnt := wait_cnt + 1;
-                        state := wait_for_reg;
-                    end if;
+    --             when wait_for_reg =>
+    --                 if wait_cnt = 6 then
+    --                     wait_cnt := 0;
+    --                     state := write_to_register;
+    --                 else
+    --                     wait_cnt := wait_cnt + 1;
+    --                     state := wait_for_reg;
+    --                 end if;
                     
-                when others =>
+    --             when others =>
                     
             
-            end case;
+    --         end case;
 
-        end if;
-    end process;
+    --     end if;
+    -- end process;
 
     process(clk)
-    variable pixel_addr: integer := 0; 
-    variable current_column: integer range 0 to 127 := 0;
+    variable pixel_addr: unsigned(13 downto 0) := (others => '0'); 
+    variable current_column: integer range 0 to 255 := 0;
     begin
         if rising_edge(clk) then
-            if pixel_y <= 512 then
-                pixel_addr := pixel_y/8;
+            if pixel_y <= 128 then
+                col_y <= (current_column * N_DIV_2) + pixel_y/8;
+                pixel_addr := to_unsigned(col_y, addressA'length);
             end if;
             current_column := (last_column + pixel_x) mod 128;
-            addressA <= std_logic_vector(to_unsigned((current_column * WORD_WIDTH) + pixel_addr, addressA'length));
-            data_pixel_int <= to_integer(unsigned(qA));
+            addressA <= std_logic_vector(pixel_addr);
             data_pixel <= qA;
         end if;
     end process;

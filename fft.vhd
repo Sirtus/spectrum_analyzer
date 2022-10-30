@@ -11,9 +11,13 @@ entity fft is
         clk: in std_logic;
         do_fft: in std_logic;
         done: out std_logic;
-        res: out osignal_t;
+        -- res: out osignal_t;
         wr_en: in std_logic;
-        data_in: in std_logic_vector(23 downto 0)
+        data_in: in std_logic_vector(23 downto 0);
+        general_ram_addr: out std_logic_vector(13 downto 0);
+        general_ram_data: out std_logic_vector(15 downto 0);
+        general_ram_wren: out std_logic;
+        last_column: out integer range 0 to 255 := 0
     );
 end entity fft;
 
@@ -33,12 +37,16 @@ architecture rtl of fft is
     signal x,y: cplx := (others => 0);
     signal data: isignal_t := (others => 0);
     signal new_data: osignal_t := (others => 0);
+    signal new_data2: integer := 0;
 
     signal wr: std_logic := '0';
     signal rd: std_logic := '1';  
     signal rdwr_wait: std_logic := '0';
     signal do_btfly_step: std_logic := '0';
     signal btfl_done: std_logic := '0';
+    signal last_column_o: integer range 0 to 255 := 0;
+    signal last_column_addr: integer := 0;
+    signal fft_counter: integer range 0 to 100 := 0;
     
 begin
 
@@ -71,6 +79,7 @@ begin
     variable dA, dB: cplx := (others => 0);
     variable counter_n_inversed1, counter_n_inversed2: unsigned(LOG_N downto 0):= (others => '0');
     variable wait_counter: integer range 0 to 7 := 0;
+    variable column_counter: integer range 0 to 255 := 0;
     
     begin
         if rising_edge(clk) then
@@ -127,11 +136,18 @@ begin
                     wr <= '0';
                     if counter_n > isignal_t'high-1 then
                         if counter_m = LOG_N then
-                            state_m <= wait_for_ram;
-                            next_state <= transform_end;
-                            addrA <= (others => '0');
-                            addrB <= (std_logic_vector(to_unsigned(1, addrB'length)));
-                            counter_n <= (others => '0');  
+                            if fft_counter = 10 then
+                                fft_counter <= 0;
+                                state_m <= wait_for_ram;
+                                next_state <= transform_end;
+                                addrA <= (others => '0');
+                                general_ram_addr <= (others => '0');
+                                counter_n <= (others => '0');  
+                            else
+                                fft_counter <= fft_counter + 1;
+                                state_m <= idle;
+                            end if;
+
                         else
                             counter_m <= counter_m + 1;
                             counter_n <= (others => '0');
@@ -159,7 +175,7 @@ begin
 
                 when wait_for_ram =>
 
-                    if wait_counter = 4 then
+                    if wait_counter = 7 then
                         state_m <= next_state;
                         wait_counter := 0;
                    else
@@ -205,33 +221,48 @@ begin
                     
 
                 when transform_end =>
-
-                    if counter_n >= osignal_t'length-1 then
+                    done <= '1';
+                    if counter_n >= N_DIV_2 then
+                        general_ram_wren <= '0';
                         counter_n <= (others => '0');
                         state_m <= clean;
-                        res <= new_data;
-                        done <= '1';
+                        -- res <= new_data;
+                        column_counter := (column_counter + 1) mod 128;
+                        last_column_o <= column_counter;
+                        last_column_addr <= column_counter * N_DIV_2;
                     else
-                        adA := to_integer(counter_n );
-                        adB := to_integer(counter_n + 1);
-                        if counter_n < osignal_t'length-3 then
-
+                        general_ram_wren <= '1';
+                        adA := to_integer(counter_n) + last_column_addr;
+                        -- adB := to_integer(counter_n + 1);
+                        -- if counter_n < N_DIV_2 then
+                        general_ram_addr <= std_logic_vector(to_unsigned(adA, general_ram_addr'length));
                             -- addrA <= std_logic_vector(to_unsigned(1, addrA'length));--
                             -- addrB <= std_logic_vector(to_unsigned(0, addrA'length));--
-                            addrA <= std_logic_vector(counter_n + 2);
-                            addrB <= std_logic_vector(counter_n + 3);
-                        end if;
+                            addrA <= std_logic_vector(counter_n + 1);
+                            -- addrB <= std_logic_vector(counter_n + 3);
+                        -- end if;
                         dA := (to_integer(signed(dataAo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH))), to_integer(signed(dataAo(WORD_WIDTH-1 downto 0))));
-                        dB := (to_integer(signed(dataBo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH))), to_integer(signed(dataBo(WORD_WIDTH-1 downto 0))));
-                        counter_n <= counter_n + 2;
-                        new_data(adA) <= ((dA(0)/NORM * dA(0)/NORM) + (dA(1)/NORM * dA(1)/NORM)) mod 512;
-                        new_data(adB) <= ((dB(0)/NORM * dB(0)/NORM) + (dB(1)/NORM * dB(1)/NORM)) mod 512;
-                        state_m <= wait_for_ram;
-                        next_state <= transform_end;
+                        -- dB := (to_integer(signed(dataBo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH))), to_integer(signed(dataBo(WORD_WIDTH-1 downto 0))));
+                        -- if dA(0) /= 0 or dA(1) /= 0 then
+                        --     general_ram_data <= "1111111111111111";
+                        -- else
+                        --     general_ram_data <= "0000000000000000";
+                        -- end if;
+                        -- new_data(adB) <= ((dB(0)/NORM * dB(0)/NORM) + (dB(1)/NORM * dB(1)/NORM)) mod 512;
+                        new_data2 <= ((dA(0)/NORM * dA(0)/NORM) + (dA(1)/NORM * dA(1)/NORM));
+                        -- new_data2 <= to_integer(counter_n) * 16 + to_integer(counter_n) + dA(0);
+
+                        state_m <= test;
                         -- res(adA) <= (ram_arr(adA)(0)*ram_arr(adA)(0))/4000  + (ram_arr(adA)(1)*ram_arr(adA)(1))/4000;
                         -- res(adB) <= (ram_arr(adB)(0)*ram_arr(adB)(0))/4000  + (ram_arr(adB)(1)*ram_arr(adB)(1))/4000; -- + ram_arr(adB)(1);
                     end if;
-                
+
+                when test =>
+                    general_ram_data <= std_logic_vector(to_unsigned(new_data2, general_ram_data'length));
+                    state_m <= wait_for_ram;
+                    next_state <= transform_end;
+                    counter_n <= counter_n + 1;
+
                 when clean =>
                     -- done <= '1';
                     
@@ -243,6 +274,7 @@ begin
             end case;
         end if;
     end process;
+    last_column <= last_column_o;
 
     COLLECT_DATA: process(clk)
         variable temp: integer range -600 to 600 := 0;
