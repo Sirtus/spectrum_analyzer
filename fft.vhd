@@ -25,9 +25,9 @@ architecture rtl of fft is
 
     constant NORM : integer := 16;
     
-    type state_t is (idle, write_to_ram, transform, clean, save_data, wait_for_ram, butterfly_step, transform_end, test);
+    type state_t is (idle, write_to_ram, invert_vectors, transform, clean, save_data, wait_for_ram, butterfly_step, transform_end, test);
     signal state_m, next_state: state_t := idle;
-    signal dataAi, dataBi, dataAo, dataBo: std_logic_vector(31 downto 0) := (others => '0');
+    signal dataAi, dataBi, dataAo, dataBo: std_logic_vector(DOUBLE_WORD_WIDTH-1 downto 0) := (others => '0');
     signal Sa, Sb: cplx := (others => 0);
     signal addrA, addrB: std_logic_vector(WORD_LEN-1 downto 0) := (others => '0');
     signal counter_n: unsigned(WORD_LEN-1 downto 0):= (others => '0');
@@ -46,7 +46,7 @@ architecture rtl of fft is
     signal btfl_done: std_logic := '0';
     signal last_column_o: integer range 0 to 255 := 0;
     signal last_column_addr: integer := 0;
-    signal fft_counter: integer range 0 to 100 := 0;
+    signal fft_counter: integer range 0 to 255 := 0;
     
 begin
 
@@ -79,7 +79,7 @@ begin
     variable dA, dB: cplx := (others => 0);
     variable counter_n_inversed1, counter_n_inversed2: unsigned(LOG_N downto 0):= (others => '0');
     variable wait_counter: integer range 0 to 7 := 0;
-    variable column_counter: integer range 0 to 255 := 0;
+    variable column_counter: integer range 0 to 128 := 0;
     
     begin
         if rising_edge(clk) then
@@ -87,7 +87,7 @@ begin
                 when idle =>
                     done <= '0';
                     if do_fft = '1' then
-                        state_m <= write_to_ram;
+                        state_m <= invert_vectors;
                         counter_m <= 1;
                         counter_n <= (others => '0');
                         counter_divider <= N;
@@ -96,21 +96,25 @@ begin
                         rdwr_wait <= '0';
                     end if;
 
+                when invert_vectors =>
+                    for i in 0 to LOG_N -1 loop
+                        counter_n_inversed1(i) := counter_n(LOG_N-1 - i);
+                        counter_n_inversed2(i) := counter_n(LOG_N-1 - i);
+                    end loop;
+                    counter_n_inversed1(LOG_N-1) := '0';
+                    counter_n_inversed2(LOG_N-1) := '1'; 
+                    state_m <= write_to_ram;
+
                 when write_to_ram =>
                     if counter_n > N-1 then
                         counter_n <= (others => '0');
-                        wr<= '0';
+                        wr <= '0';
                         addrA <= (others => '0');
                         addrB <= (others => '0');
                         state_m <= transform;
                     else
                         wr <= '1';
-                        for i in 0 to LOG_N -1 loop
-                            counter_n_inversed1(i) := counter_n(LOG_N-1 - i);
-                            counter_n_inversed2(i) := counter_n(LOG_N-1 - i);
-                        end loop;
-                        counter_n_inversed1(LOG_N-1) := '0';
-                        counter_n_inversed2(LOG_N-1) := '1'; 
+
                         addrA <= std_logic_vector(counter_n);
                         addrB <= std_logic_vector(counter_n + 1);
 
@@ -120,23 +124,23 @@ begin
                         dataAi <= std_logic_vector(to_signed(data(adA), WORD_WIDTH)) & std_logic_vector(to_unsigned(0, WORD_WIDTH));
                         dataBi <= std_logic_vector(to_signed(data(adB), WORD_WIDTH)) & std_logic_vector(to_unsigned(0, WORD_WIDTH));
 
-                        report "adrA: " & integer'image(adA) & " data: " & integer'image(data(adA)) & " addr " & integer'image(to_integer(unsigned(addrA)));
-                        report "adrB: " & integer'image(adB) & " data: " & integer'image(data(adB)) & " addr " & integer'image(to_integer(unsigned(addrB)));
+                        -- report "adrA: " & integer'image(adA) & " data: " & integer'image(data(adA)) & " addr " & integer'image(to_integer(unsigned(addrA)));
+                        -- report "adrB: " & integer'image(adB) & " data: " & integer'image(data(adB)) & " addr " & integer'image(to_integer(unsigned(addrB)));
                         counter_n <= counter_n + 2;
-                        next_state <= write_to_ram;
                         wait_counter := 0;
                         state_m <= wait_for_ram;
+                        next_state <= invert_vectors;
                     end if;
 
                 when transform =>
-                    report "!!!!!!!!!!!!counter_n" & integer'image(to_integer(counter_n));
+                    -- report "!!!!!!!!!!!!counter_n" & integer'image(to_integer(counter_n));
                     -- for i in 0 to 7 loop
                     --     report "Mess:" & integer'image(ram_arr(i)(0))& " res: " & integer'image(ram_arr(i)(1));
                     -- end loop;
                     wr <= '0';
                     if counter_n > isignal_t'high-1 then
                         if counter_m = LOG_N then
-                            if fft_counter = 1 then
+                            if fft_counter = 5 then
                                 fft_counter <= 0;
                                 state_m <= wait_for_ram;
                                 next_state <= transform_end;
@@ -175,7 +179,7 @@ begin
 
                 when wait_for_ram =>
 
-                    if wait_counter = 7 then
+                    if wait_counter = 5 then
                         state_m <= next_state;
                         wait_counter := 0;
                    else
@@ -227,7 +231,7 @@ begin
                         counter_n <= (others => '0');
                         state_m <= clean;
                         -- res <= new_data;
-                        column_counter := (column_counter + 1) mod 128;
+                        column_counter := column_counter + 1;
                         last_column_o <= column_counter;
                         last_column_addr <= column_counter * N_DIV_2;
                     else
@@ -264,6 +268,7 @@ begin
                     state_m <= wait_for_ram;
                     next_state <= transform_end;
                     counter_n <= counter_n + 1;
+                    last_column <= last_column_o;
 
                 when clean =>
                     -- done <= '1';
@@ -276,7 +281,7 @@ begin
             end case;
         end if;
     end process;
-    last_column <= last_column_o;
+    
 
     COLLECT_DATA: process(clk)
         variable temp: integer range -600 to 600 := 0;
