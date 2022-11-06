@@ -79,7 +79,7 @@ begin
     variable dA, dB: cplx := (others => 0);
     variable counter_n_inversed1, counter_n_inversed2: unsigned(LOG_N downto 0):= (others => '0');
     variable wait_counter: integer range 0 to 7 := 0;
-    variable column_counter: integer range 0 to 128 := 0;
+    variable column_counter: integer range 0 to 63 := 0;
     
     begin
         if rising_edge(clk) then
@@ -208,7 +208,7 @@ begin
                         adA := to_integer(counter_n) + last_column_addr;
                         general_ram_addr <= std_logic_vector(to_unsigned(adA, general_ram_addr'length));
                         addrA <= std_logic_vector(counter_n + 1);
-                        dA := (to_integer(signed(dataAo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH+6))), to_integer(signed(dataAo(WORD_WIDTH-1 downto 6))));
+                        dA := (to_integer(signed(dataAo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH+7))), to_integer(signed(dataAo(WORD_WIDTH-1 downto 7))));
                         new_data2 <= ((dA(0) * dA(0)) + (dA(1) * dA(1)));
                         state_m <= test;
                     end if;

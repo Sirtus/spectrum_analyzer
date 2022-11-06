@@ -1,7 +1,7 @@
 library IEEE;
 use ieee.math_real.all;
 package common is
-    constant N: integer := 128;
+    constant N: integer := 256;
     constant N_DIV_2: integer := N/2;
     constant LOG_N: integer := integer(ceil(log2(real(N))));
     constant WORD_LEN: integer := 9;
