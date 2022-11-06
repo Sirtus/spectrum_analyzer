@@ -92,7 +92,6 @@ begin
                         counter_n <= (others => '0');
                         counter_divider <= N;
                         pair_counter <= 0;
-                        -- data <= data_i;
                         rdwr_wait <= '0';
                     end if;
 
@@ -114,18 +113,12 @@ begin
                         state_m <= transform;
                     else
                         wr <= '1';
-
                         addrA <= std_logic_vector(counter_n);
                         addrB <= std_logic_vector(counter_n + 1);
-
                         adA := to_integer(counter_n_inversed1);
                         adB := to_integer(counter_n_inversed2);
-                      
                         dataAi <= std_logic_vector(to_signed(data(adA), WORD_WIDTH)) & std_logic_vector(to_unsigned(0, WORD_WIDTH));
                         dataBi <= std_logic_vector(to_signed(data(adB), WORD_WIDTH)) & std_logic_vector(to_unsigned(0, WORD_WIDTH));
-
-                        -- report "adrA: " & integer'image(adA) & " data: " & integer'image(data(adA)) & " addr " & integer'image(to_integer(unsigned(addrA)));
-                        -- report "adrB: " & integer'image(adB) & " data: " & integer'image(data(adB)) & " addr " & integer'image(to_integer(unsigned(addrB)));
                         counter_n <= counter_n + 2;
                         wait_counter := 0;
                         state_m <= wait_for_ram;
@@ -133,10 +126,6 @@ begin
                     end if;
 
                 when transform =>
-                    -- report "!!!!!!!!!!!!counter_n" & integer'image(to_integer(counter_n));
-                    -- for i in 0 to 7 loop
-                    --     report "Mess:" & integer'image(ram_arr(i)(0))& " res: " & integer'image(ram_arr(i)(1));
-                    -- end loop;
                     wr <= '0';
                     if counter_n > isignal_t'high-1 then
                         if counter_m = LOG_N then
@@ -163,18 +152,13 @@ begin
                         if (pair_counter mod (2**(counter_m))) < 2**(counter_m-1) then
                             adA := pair_counter;
                             adB := pair_counter + 2**(counter_m-1);
-                            -- x <= ram_arr(adA);
-                            -- y <= ram_arr(adB);
-                            report ")))) adrA: " & integer'image(adA) & " adrB: " & integer'image(adB);
                             addrA <= std_logic_vector(to_unsigned(adA, addrA'length));
-                            addrB <= std_logic_vector(to_unsigned(adB, addrB'length));
-                            
+                            addrB <= std_logic_vector(to_unsigned(adB, addrB'length)); 
                             state_m <= wait_for_ram;
                             next_state <= butterfly_step;
                         else
                             pair_counter <= pair_counter + 1;
                         end if;
- 
                     end if;
 
                 when wait_for_ram =>
@@ -192,11 +176,8 @@ begin
                     x <= (to_integer(signed(dataAo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH))), to_integer(signed(dataAo(WORD_WIDTH-1 downto 0))));
                     y <= (to_integer(signed(dataBo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH))), to_integer(signed(dataBo(WORD_WIDTH-1 downto 0))));
                     alpha <= (pair_counter mod (2**(counter_m-1)))* counter_divider/2 ; --((alpha_counter mod 2**counter_m) * counter_divider/2);
-                    -- alpha <= 628 * (alpha_counter mod 2**counter_m) ;
                     state_m <= save_data;
                     do_btfly_step <= '1';
-
-                    -- report "hmm " & integer'image(to_integer(signed(dataAo(23 downto 12))));
 
                 when save_data =>
                     do_btfly_step <= '0';
@@ -204,17 +185,6 @@ begin
                         wr <= '1';
                         dataAi <= std_logic_vector(to_signed(Sa(0), WORD_WIDTH) & to_signed(Sa(1), WORD_WIDTH));
                         dataBi <= std_logic_vector(to_signed(Sb(0), WORD_WIDTH) & to_signed(Sb(1), WORD_WIDTH));
-                        -- ram_arr(adA) <= Sa;
-                        -- ram_arr(adB) <= Sb;
-                        -- report "alpha: " & integer'image(alpha);
-                        -- report "alpha counter: " & integer'image(alpha_counter);
-                        -- report "counter_m: " & integer'image(counter_m);
-                        -- report "@@@ args: " & integer'image(to_integer(counter_n_inversed1)) & " " & integer'image(to_integer(counter_n_inversed2));
-                        report "1 x: " & integer'image(x(0)) & " " & integer'image(x(1));
-                        report "2 y: " & integer'image(y(0)) & " " & integer'image(y(1));
-                        report "1 wynik: " & integer'image(Sa(0)) & " " & integer'image(Sa(1));
-                        -- -- report "2 arg: " & integer'image(y(0)) & " " & integer'image(y(1));
-                        report "2 wynik: " & integer'image(Sb(0)) & " " & integer'image(Sb(1));
                         counter_n <= counter_n + 2;
                         pair_counter <= pair_counter + 1;
                         state_m <= wait_for_ram;
@@ -230,37 +200,17 @@ begin
                         general_ram_wren <= '0';
                         counter_n <= (others => '0');
                         state_m <= clean;
-                        -- res <= new_data;
                         column_counter := column_counter + 1;
                         last_column_o <= column_counter;
                         last_column_addr <= column_counter * N_DIV_2;
                     else
                         general_ram_wren <= '1';
                         adA := to_integer(counter_n) + last_column_addr;
-                        -- adB := to_integer(counter_n + 1);
-                        -- if counter_n < N_DIV_2 then
                         general_ram_addr <= std_logic_vector(to_unsigned(adA, general_ram_addr'length));
-                            -- addrA <= std_logic_vector(to_unsigned(1, addrA'length));--
-                            -- addrB <= std_logic_vector(to_unsigned(0, addrA'length));--
-                            addrA <= std_logic_vector(counter_n + 1);
-                            -- addrB <= std_logic_vector(counter_n + 3);
-                        -- end if;
+                        addrA <= std_logic_vector(counter_n + 1);
                         dA := (to_integer(signed(dataAo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH+6))), to_integer(signed(dataAo(WORD_WIDTH-1 downto 6))));
-                        -- dB := (to_integer(signed(dataBo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH))), to_integer(signed(dataBo(WORD_WIDTH-1 downto 0))));
-                        -- if dA(0) /= 0 or dA(1) /= 0 then
-                        --     general_ram_data <= "1111111111111111";
-                        -- else
-                        --     general_ram_data <= "0000000000000000";
-                        -- end if;
-                        -- new_data(adB) <= ((dB(0)/NORM * dB(0)/NORM) + (dB(1)/NORM * dB(1)/NORM)) mod 512;
-                        -- new_data2 <= ((dA(0)/NORM * dA(0)/NORM) + (dA(1)/NORM * dA(1)/NORM));
                         new_data2 <= ((dA(0) * dA(0)) + (dA(1) * dA(1)));
-
-                        -- new_data2 <= to_integer(counter_n) * 16 + to_integer(counter_n) + dA(0);
-
                         state_m <= test;
-                        -- res(adA) <= (ram_arr(adA)(0)*ram_arr(adA)(0))/4000  + (ram_arr(adA)(1)*ram_arr(adA)(1))/4000;
-                        -- res(adB) <= (ram_arr(adB)(0)*ram_arr(adB)(0))/4000  + (ram_arr(adB)(1)*ram_arr(adB)(1))/4000; -- + ram_arr(adB)(1);
                     end if;
 
                 when test =>
@@ -271,8 +221,6 @@ begin
                     last_column <= last_column_o;
 
                 when clean =>
-                    -- done <= '1';
-                    
                     state_m <= idle;
             
                 when others =>

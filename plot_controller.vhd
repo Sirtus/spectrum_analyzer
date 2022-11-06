@@ -34,7 +34,7 @@ begin
     process(clk)
     begin
         if rising_edge(clk)   then
-            if pixel_y <= 256 and pixel_x <= 512 then
+            if pixel_y < 256 and pixel_x < 512 then
                 data_pixel <= pixel_array(pixel_x/4);
             else
                 data_pixel <= (others => '0') ;
@@ -73,11 +73,11 @@ begin
     variable pixel_counter_x, pixel_counter_y: integer range 0 to 31 := 0;
     begin
         if rising_edge(clk) then
-            if pixel_y mod 16 = 0 then
+            if pixel_y mod 4 = 0 then
                 if pixel_counter_x = 0 then
                     pixel_counter_x := pixel_counter_x + 1;
-                    if pixel_y <= 256 and pixel_x <= 512 then
-                        row_y := (current_column * N_DIV_2) + pixel_y/16;
+                    if pixel_y < 256 and pixel_x < 512 then
+                        row_y := (current_column * N_DIV_2) + pixel_y/4;
                         pixel_addr := to_unsigned(row_y, addressA'length);
                         col_x := pixel_x / 4;
                         current_column := last_column + col_x;
@@ -90,7 +90,7 @@ begin
                     else
                         pixel_counter_x := pixel_counter_x + 1;
                     end if;
-                    if pixel_x <= 512 and pixel_y <= 256 then
+                    if pixel_x < 512 and pixel_y < 256 then
                         pixel_array(col_x) <= qA;
                     else
                     end if;
