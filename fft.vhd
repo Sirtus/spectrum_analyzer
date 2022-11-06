@@ -179,7 +179,7 @@ begin
 
                 when wait_for_ram =>
 
-                    if wait_counter = 5 then
+                    if wait_counter = 6 then
                         state_m <= next_state;
                         wait_counter := 0;
                    else
