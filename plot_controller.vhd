@@ -20,6 +20,10 @@ entity plot_controller is
 end entity plot_controller;
 
 architecture arch of plot_controller is
+
+    constant X_LIMIT: integer := 256;
+    constant Y_LIMIT: integer := 512;
+    
     signal point_x: integer range 0 to 2047 := 0;
     signal point_y: integer range 0 to 2047 := 0;
     signal que: std_logic_vector(15 downto 0);
@@ -34,7 +38,7 @@ begin
     process(clk)
     begin
         if rising_edge(clk)   then
-            if pixel_y < 512 and pixel_x < 256 then
+            if pixel_y < Y_LIMIT and pixel_x < X_LIMIT then
                 data_pixel <= pixel_array(pixel_x/4);
             else
                 data_pixel <= (others => '0') ;
@@ -68,7 +72,7 @@ begin
 
     process(clk)
     variable pixel_addr: unsigned(13 downto 0) := (others => '0'); 
-    variable current_column: integer range 0 to 63 := 0;
+    variable current_column: integer range 0 to 31 := 0;
     variable col_x, row_y: integer range 0 to 1023 := 0;
     variable pixel_counter_x, pixel_counter_y: integer range 0 to 31 := 0;
     begin
@@ -76,7 +80,7 @@ begin
             if pixel_y mod 4 = 0 then
                 if pixel_counter_x = 0 then
                     pixel_counter_x := pixel_counter_x + 1;
-                    if pixel_y < 512 and pixel_x < 256 then
+                    if pixel_y < Y_LIMIT and pixel_x < X_LIMIT then
                         row_y := (current_column * N_DIV_2) + pixel_y/4;
                         pixel_addr := to_unsigned(row_y, addressA'length);
                         col_x := pixel_x / 4;
@@ -90,7 +94,7 @@ begin
                     else
                         pixel_counter_x := pixel_counter_x + 1;
                     end if;
-                    if pixel_x < 256 and pixel_y < 512 then
+                    if pixel_x < X_LIMIT and pixel_y < Y_LIMIT then
                         pixel_array(col_x) <= qA;
                     else
                     end if;
