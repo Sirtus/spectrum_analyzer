@@ -52,6 +52,7 @@ architecture rtl of fft is
     signal block_shift, block_shift_div2: integer range 0 to N := 0;
     signal do_butterfly_step: boolean := false;
     signal dA, dB: cplx := (others => 0);
+    signal column_counter: integer range 0 to 63 := 0;
 
     
 begin
@@ -92,7 +93,7 @@ begin
     -- variable dA, dB: cplx := (others => 0);
     -- variable counter_n_inversed1, counter_n_inversed2: unsigned(LOG_N downto 0):= (others => '0');
     variable wait_counter: integer range 0 to 7 := 0;
-    variable column_counter: integer range 0 to 63 := 0;
+    -- variable column_counter: integer range 0 to 63 := 0;
     
     begin
         if rising_edge(clk) then
@@ -106,16 +107,9 @@ begin
                         counter_divider <= N;
                         pair_counter <= 0;
                         rdwr_wait <= '0';
+                    else
+                        state_m <= idle;
                     end if;
-
-                -- when invert_vectors =>
-                --     -- for i in 0 to LOG_N -1 loop
-                --     --     counter_n_inversed1(i) := counter_n(LOG_N-1 - i);
-                --     --     counter_n_inversed2(i) := counter_n(LOG_N-1 - i);
-                --     -- end loop;
-                --     -- counter_n_inversed1(LOG_N-1) := '0';
-                --     -- counter_n_inversed2(LOG_N-1) := '1'; 
-                --     state_m <= write_to_ram;
 
                 when write_to_ram =>
                     if counter_n > N-1 then
@@ -141,17 +135,17 @@ begin
                     wr <= '0';
                     if counter_n > isignal_t'high-1 then
                         if counter_m = LOG_N then
-                            -- if fft_counter = 5 then
+                            if fft_counter = 0 then
                                 fft_counter <= 0;
                                 state_m <= wait_for_ram;
                                 next_state <= transform_end;
                                 addrA <= (others => '0');
                                 general_ram_addr <= (others => '0');
                                 counter_n <= (others => '0');  
-                            -- else
-                            --     fft_counter <= fft_counter + 1;
-                            --     state_m <= idle;
-                            -- end if;
+                            else
+                                fft_counter <= fft_counter + 1;
+                                state_m <= idle;
+                            end if;
 
                         else
                             counter_m <= counter_m + 1;
@@ -185,9 +179,6 @@ begin
                     
 
                 when butterfly_step =>
-                    x <= (to_integer(signed(dataAo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH))), to_integer(signed(dataAo(WORD_WIDTH-1 downto 0))));
-                    y <= (to_integer(signed(dataBo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH))), to_integer(signed(dataBo(WORD_WIDTH-1 downto 0))));
-                    -- alpha <= (pair_counter mod (block_shift_div2)) * counter_divider/2 ; --((alpha_counter mod 2**counter_m) * counter_divider/2);
                     state_m <= save_data;
                     do_btfly_step <= '1';
 
@@ -212,16 +203,13 @@ begin
                         general_ram_wren <= '0';
                         counter_n <= (others => '0');
                         state_m <= clean;
-                        column_counter := column_counter + 1;
-                        last_column_o <= column_counter;
-                        last_column_addr <= column_counter * N_DIV_2;
+                        column_counter <= column_counter + 1;
                     else
                         general_ram_wren <= '1';
                         adA := to_integer(counter_n) + last_column_addr;
                         general_ram_addr <= std_logic_vector(to_unsigned(adA, general_ram_addr'length));
                         addrA <= std_logic_vector(counter_n + 1);
                         dA <= (to_integer(signed(dataAo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH+7))), to_integer(signed(dataAo(WORD_WIDTH-1 downto 7))));
-                        -- new_data2 <= ((dA(0) * dA(0)) + (dA(1) * dA(1)));
                         state_m <= test;
                     end if;
 
@@ -230,7 +218,6 @@ begin
                     state_m <= wait_for_ram;
                     next_state <= transform_end;
                     counter_n <= counter_n + 1;
-                    last_column <= last_column_o;
 
                 when clean =>
                     state_m <= idle;
@@ -248,17 +235,11 @@ begin
     do_butterfly_step <= (pair_counter mod (block_shift)) < block_shift_div2;
     new_data2 <= ((dA(0) * dA(0)) + (dA(1) * dA(1)));
 
-    -- INV_VECT : process(counter_n)
-    -- begin
-    --     -- if rising_edge(clk) then
-    --         for i in 0 to LOG_N -1 loop
-    --             counter_n_inversed1(i) <= counter_n(LOG_N-1 - i);
-    --             counter_n_inversed2(i) <= counter_n(LOG_N-1 - i);
-    --         end loop;
-    --         counter_n_inversed1(LOG_N-1) <= '0';
-    --         counter_n_inversed2(LOG_N-1) <= '1'; 
-    --     -- end if;
-    -- end process;
+    x <= (to_integer(signed(dataAo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH))), to_integer(signed(dataAo(WORD_WIDTH-1 downto 0))));
+    y <= (to_integer(signed(dataBo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH))), to_integer(signed(dataBo(WORD_WIDTH-1 downto 0))));
+
+    last_column <= column_counter;
+    last_column_addr <= column_counter * N_DIV_2;
     
 
     COLLECT_DATA: process(clk)
