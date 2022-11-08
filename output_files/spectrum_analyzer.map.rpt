@@ -1,5 +1,5 @@
 Analysis & Synthesis report for spectrum_analyzer
-Tue Nov  8 02:52:40 2022
+Tue Nov  8 02:55:11 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -81,18 +81,18 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Nov  8 02:52:40 2022       ;
+; Analysis & Synthesis Status        ; Successful - Tue Nov  8 02:55:11 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; spectrum_analyzer                           ;
 ; Top-level Entity Name              ; spectrum_analyzer                           ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 1,666                                       ;
-;     Total combinational functions  ; 1,167                                       ;
-;     Dedicated logic registers      ; 997                                         ;
-; Total registers                    ; 997                                         ;
+; Total logic elements               ; 3,617                                       ;
+;     Total combinational functions  ; 2,061                                       ;
+;     Dedicated logic registers      ; 2,059                                       ;
+; Total registers                    ; 2059                                        ;
 ; Total pins                         ; 22                                          ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 53,248                                      ;
+; Total memory bits                  ; 151,552                                     ;
 ; Embedded Multiplier 9-bit elements ; 11                                          ;
 ; Total PLLs                         ; 1                                           ;
 ; UFM blocks                         ; 0                                           ;
@@ -199,7 +199,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
+;     Processor 2            ;   0.2%      ;
 +----------------------------+-------------+
 
 
@@ -248,14 +248,14 @@ https://fpgasoftware.intel.com/eula.
 ; lpm_divide.tdf                   ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_divide.tdf        ;         ;
 ; abs_divider.inc                  ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/abs_divider.inc       ;         ;
 ; sign_div_unsign.inc              ; yes             ; Megafunction                 ; /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/sign_div_unsign.inc   ;         ;
-; db/lpm_divide_ckl.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/lpm_divide_ckl.tdf                        ;         ;
-; db/sign_div_unsign_bkh.tdf       ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/sign_div_unsign_bkh.tdf                   ;         ;
-; db/alt_u_div_0fe.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/alt_u_div_0fe.tdf                         ;         ;
+; db/lpm_divide_gkl.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/lpm_divide_gkl.tdf                        ;         ;
+; db/sign_div_unsign_fkh.tdf       ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/sign_div_unsign_fkh.tdf                   ;         ;
+; db/alt_u_div_8fe.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/alt_u_div_8fe.tdf                         ;         ;
 ; db/add_sub_t3c.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/add_sub_t3c.tdf                           ;         ;
 ; db/add_sub_u3c.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/add_sub_u3c.tdf                           ;         ;
 ; db/mult_ogs.tdf                  ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/mult_ogs.tdf                              ;         ;
 ; db/mult_mgs.tdf                  ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/mult_mgs.tdf                              ;         ;
-; db/mult_kks.tdf                  ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/mult_kks.tdf                              ;         ;
+; db/mult_sks.tdf                  ; yes             ; Auto-Generated Megafunction  ; /home/tomek/vhdl/spctr/spectrum_analyzer/db/mult_sks.tdf                              ;         ;
 +----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------+---------+
 
 
@@ -264,24 +264,24 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 1,666     ;
+; Estimated Total logic elements              ; 3,617     ;
 ;                                             ;           ;
-; Total combinational functions               ; 1167      ;
+; Total combinational functions               ; 2061      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 478       ;
-;     -- 3 input functions                    ; 372       ;
-;     -- <=2 input functions                  ; 317       ;
+;     -- 4 input functions                    ; 1287      ;
+;     -- 3 input functions                    ; 423       ;
+;     -- <=2 input functions                  ; 351       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 777       ;
-;     -- arithmetic mode                      ; 390       ;
+;     -- normal mode                          ; 1620      ;
+;     -- arithmetic mode                      ; 441       ;
 ;                                             ;           ;
-; Total registers                             ; 997       ;
-;     -- Dedicated logic registers            ; 997       ;
+; Total registers                             ; 2059      ;
+;     -- Dedicated logic registers            ; 2059      ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 22        ;
-; Total memory bits                           ; 53248     ;
+; Total memory bits                           ; 151552    ;
 ;                                             ;           ;
 ; Embedded Multiplier 9-bit elements          ; 11        ;
 ;                                             ;           ;
@@ -289,57 +289,58 @@ https://fpgasoftware.intel.com/eula.
 ;     -- PLLs                                 ; 1         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 990       ;
-; Total fan-out                               ; 8171      ;
-; Average fan-out                             ; 3.57      ;
+; Maximum fan-out                             ; 2052      ;
+; Total fan-out                               ; 14701     ;
+; Average fan-out                             ; 3.46      ;
 +---------------------------------------------+-----------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                 ;
-+----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                        ; Entity Name         ; Library Name ;
-+----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |spectrum_analyzer                           ; 1167 (1)            ; 997 (0)                   ; 53248       ; 0          ; 11           ; 3       ; 4         ; 22   ; 0            ; 0          ; |spectrum_analyzer                                                                                                         ; spectrum_analyzer   ; work         ;
-;    |bclk:bclk|                               ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|bclk:bclk                                                                                               ; bclk                ; work         ;
-;       |altpll:altpll_component|              ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|bclk:bclk|altpll:altpll_component                                                                       ; altpll              ; work         ;
-;          |bclk_altpll:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|bclk:bclk|altpll:altpll_component|bclk_altpll:auto_generated                                            ; bclk_altpll         ; work         ;
-;    |fft:fft|                                 ; 978 (508)           ; 796 (610)                 ; 16384       ; 0          ; 11           ; 3       ; 4         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft                                                                                                 ; fft                 ; work         ;
-;       |butterfly:butterfly|                  ; 382 (382)           ; 186 (186)                 ; 0           ; 0          ; 8            ; 0       ; 4         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly                                                                             ; butterfly           ; work         ;
-;          |lpm_mult:Mult0|                    ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult0                                                              ; lpm_mult            ; work         ;
-;             |mult_ogs:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult0|mult_ogs:auto_generated                                      ; mult_ogs            ; work         ;
-;          |lpm_mult:Mult1|                    ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult1                                                              ; lpm_mult            ; work         ;
-;             |mult_mgs:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult1|mult_mgs:auto_generated                                      ; mult_mgs            ; work         ;
-;          |lpm_mult:Mult2|                    ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult2                                                              ; lpm_mult            ; work         ;
-;             |mult_mgs:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult2|mult_mgs:auto_generated                                      ; mult_mgs            ; work         ;
-;          |lpm_mult:Mult3|                    ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult3                                                              ; lpm_mult            ; work         ;
-;             |mult_ogs:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult3|mult_ogs:auto_generated                                      ; mult_ogs            ; work         ;
-;       |lpm_divide:Mod0|                      ; 44 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_ckl:auto_generated|     ; 44 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod0|lpm_divide_ckl:auto_generated                                                   ; lpm_divide_ckl      ; work         ;
-;             |sign_div_unsign_bkh:divider|    ; 44 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod0|lpm_divide_ckl:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh ; work         ;
-;                |alt_u_div_0fe:divider|       ; 44 (44)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod0|lpm_divide_ckl:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_0fe:divider ; alt_u_div_0fe       ; work         ;
-;       |lpm_divide:Mod1|                      ; 44 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod1                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_ckl:auto_generated|     ; 44 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod1|lpm_divide_ckl:auto_generated                                                   ; lpm_divide_ckl      ; work         ;
-;             |sign_div_unsign_bkh:divider|    ; 44 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod1|lpm_divide_ckl:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh ; work         ;
-;                |alt_u_div_0fe:divider|       ; 44 (44)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod1|lpm_divide_ckl:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_0fe:divider ; alt_u_div_0fe       ; work         ;
-;       |lpm_mult:Mult0|                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult0                                                                                  ; lpm_mult            ; work         ;
-;          |mult_kks:auto_generated|           ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult0|mult_kks:auto_generated                                                          ; mult_kks            ; work         ;
-;       |lpm_mult:Mult1|                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult1                                                                                  ; lpm_mult            ; work         ;
-;          |mult_1es:auto_generated|           ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult1|mult_1es:auto_generated                                                          ; mult_1es            ; work         ;
-;       |lpm_mult:Mult2|                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult2                                                                                  ; lpm_mult            ; work         ;
-;          |mult_1es:auto_generated|           ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult2|mult_1es:auto_generated                                                          ; mult_1es            ; work         ;
-;       |ram_ip:ram|                           ; 0 (0)               ; 0 (0)                     ; 16384       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|ram_ip:ram                                                                                      ; ram_ip              ; work         ;
-;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 16384       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|ram_ip:ram|altsyncram:altsyncram_component                                                      ; altsyncram          ; work         ;
-;             |altsyncram_8mo3:auto_generated| ; 0 (0)               ; 0 (0)                     ; 16384       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated                       ; altsyncram_8mo3     ; work         ;
-;    |i2s_receiver:i2s|                        ; 71 (71)             ; 72 (72)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|i2s_receiver:i2s                                                                                        ; i2s_receiver        ; work         ;
-;    |plot_controller:plot|                    ; 67 (67)             ; 87 (87)                   ; 4096        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot                                                                                    ; plot_controller     ; work         ;
-;       |altsyncram:pixel_array_rtl_0|         ; 0 (0)               ; 0 (0)                     ; 4096        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot|altsyncram:pixel_array_rtl_0                                                       ; altsyncram          ; work         ;
-;          |altsyncram_uag1:auto_generated|    ; 0 (0)               ; 0 (0)                     ; 4096        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot|altsyncram:pixel_array_rtl_0|altsyncram_uag1:auto_generated                        ; altsyncram_uag1     ; work         ;
-;    |shift_reg:reg|                           ; 0 (0)               ; 0 (0)                     ; 32768       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|shift_reg:reg                                                                                           ; shift_reg           ; work         ;
-;       |altsyncram:altsyncram_component|      ; 0 (0)               ; 0 (0)                     ; 32768       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|shift_reg:reg|altsyncram:altsyncram_component                                                           ; altsyncram          ; work         ;
-;          |altsyncram_00p3:auto_generated|    ; 0 (0)               ; 0 (0)                     ; 32768       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated                            ; altsyncram_00p3     ; work         ;
-;    |vga_controller:vga|                      ; 50 (50)             ; 42 (42)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|vga_controller:vga                                                                                      ; vga_controller      ; work         ;
-+----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                       ;
++----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                              ; Entity Name         ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |spectrum_analyzer                           ; 2061 (1)            ; 2059 (0)                  ; 151552      ; 0          ; 11           ; 3       ; 4         ; 22   ; 0            ; 0          ; |spectrum_analyzer                                                                                                                               ; spectrum_analyzer   ; work         ;
+;    |bclk:bclk|                               ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|bclk:bclk                                                                                                                     ; bclk                ; work         ;
+;       |altpll:altpll_component|              ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|bclk:bclk|altpll:altpll_component                                                                                             ; altpll              ; work         ;
+;          |bclk_altpll:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|bclk:bclk|altpll:altpll_component|bclk_altpll:auto_generated                                                                  ; bclk_altpll         ; work         ;
+;    |fft:fft|                                 ; 1875 (1257)         ; 1859 (1673)               ; 16384       ; 0          ; 11           ; 3       ; 4         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft                                                                                                                       ; fft                 ; work         ;
+;       |butterfly:butterfly|                  ; 460 (460)           ; 186 (186)                 ; 0           ; 0          ; 8            ; 0       ; 4         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly                                                                                                   ; butterfly           ; work         ;
+;          |lpm_mult:Mult0|                    ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult0                                                                                    ; lpm_mult            ; work         ;
+;             |mult_ogs:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult0|mult_ogs:auto_generated                                                            ; mult_ogs            ; work         ;
+;          |lpm_mult:Mult1|                    ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult1                                                                                    ; lpm_mult            ; work         ;
+;             |mult_mgs:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult1|mult_mgs:auto_generated                                                            ; mult_mgs            ; work         ;
+;          |lpm_mult:Mult2|                    ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult2                                                                                    ; lpm_mult            ; work         ;
+;             |mult_mgs:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult2|mult_mgs:auto_generated                                                            ; mult_mgs            ; work         ;
+;          |lpm_mult:Mult3|                    ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult3                                                                                    ; lpm_mult            ; work         ;
+;             |mult_ogs:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult3|mult_ogs:auto_generated                                                            ; mult_ogs            ; work         ;
+;       |lpm_divide:Mod0|                      ; 81 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod0                                                                                                       ; lpm_divide          ; work         ;
+;          |lpm_divide_gkl:auto_generated|     ; 81 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod0|lpm_divide_gkl:auto_generated                                                                         ; lpm_divide_gkl      ; work         ;
+;             |sign_div_unsign_fkh:divider|    ; 81 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod0|lpm_divide_gkl:auto_generated|sign_div_unsign_fkh:divider                                             ; sign_div_unsign_fkh ; work         ;
+;                |alt_u_div_8fe:divider|       ; 81 (80)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod0|lpm_divide_gkl:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_8fe:divider                       ; alt_u_div_8fe       ; work         ;
+;                   |add_sub_u3c:add_sub_1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod0|lpm_divide_gkl:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_8fe:divider|add_sub_u3c:add_sub_1 ; add_sub_u3c         ; work         ;
+;       |lpm_divide:Mod1|                      ; 77 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod1                                                                                                       ; lpm_divide          ; work         ;
+;          |lpm_divide_gkl:auto_generated|     ; 77 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod1|lpm_divide_gkl:auto_generated                                                                         ; lpm_divide_gkl      ; work         ;
+;             |sign_div_unsign_fkh:divider|    ; 77 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod1|lpm_divide_gkl:auto_generated|sign_div_unsign_fkh:divider                                             ; sign_div_unsign_fkh ; work         ;
+;                |alt_u_div_8fe:divider|       ; 77 (77)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod1|lpm_divide_gkl:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_8fe:divider                       ; alt_u_div_8fe       ; work         ;
+;       |lpm_mult:Mult0|                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult0                                                                                                        ; lpm_mult            ; work         ;
+;          |mult_sks:auto_generated|           ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult0|mult_sks:auto_generated                                                                                ; mult_sks            ; work         ;
+;       |lpm_mult:Mult1|                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult1                                                                                                        ; lpm_mult            ; work         ;
+;          |mult_1es:auto_generated|           ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult1|mult_1es:auto_generated                                                                                ; mult_1es            ; work         ;
+;       |lpm_mult:Mult2|                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult2                                                                                                        ; lpm_mult            ; work         ;
+;          |mult_1es:auto_generated|           ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult2|mult_1es:auto_generated                                                                                ; mult_1es            ; work         ;
+;       |ram_ip:ram|                           ; 0 (0)               ; 0 (0)                     ; 16384       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|ram_ip:ram                                                                                                            ; ram_ip              ; work         ;
+;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 16384       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|ram_ip:ram|altsyncram:altsyncram_component                                                                            ; altsyncram          ; work         ;
+;             |altsyncram_8mo3:auto_generated| ; 0 (0)               ; 0 (0)                     ; 16384       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated                                             ; altsyncram_8mo3     ; work         ;
+;    |i2s_receiver:i2s|                        ; 71 (71)             ; 72 (72)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|i2s_receiver:i2s                                                                                                              ; i2s_receiver        ; work         ;
+;    |plot_controller:plot|                    ; 64 (64)             ; 86 (86)                   ; 4096        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot                                                                                                          ; plot_controller     ; work         ;
+;       |altsyncram:pixel_array_rtl_0|         ; 0 (0)               ; 0 (0)                     ; 4096        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot|altsyncram:pixel_array_rtl_0                                                                             ; altsyncram          ; work         ;
+;          |altsyncram_uag1:auto_generated|    ; 0 (0)               ; 0 (0)                     ; 4096        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot|altsyncram:pixel_array_rtl_0|altsyncram_uag1:auto_generated                                              ; altsyncram_uag1     ; work         ;
+;    |shift_reg:reg|                           ; 0 (0)               ; 0 (0)                     ; 131072      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|shift_reg:reg                                                                                                                 ; shift_reg           ; work         ;
+;       |altsyncram:altsyncram_component|      ; 0 (0)               ; 0 (0)                     ; 131072      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|shift_reg:reg|altsyncram:altsyncram_component                                                                                 ; altsyncram          ; work         ;
+;          |altsyncram_00p3:auto_generated|    ; 0 (0)               ; 0 (0)                     ; 131072      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated                                                  ; altsyncram_00p3     ; work         ;
+;    |vga_controller:vga|                      ; 50 (50)             ; 42 (42)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|vga_controller:vga                                                                                                            ; vga_controller      ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -437,7 +438,7 @@ Encoding Type:  One-Hot
 +---------------------------------------------------------------------------------------------------+----------------------------------------------------+
 ; Register name                                                                                     ; Reason for Removal                                 ;
 +---------------------------------------------------------------------------------------------------+----------------------------------------------------+
-; fft:fft|last_column_addr[0..3,10..31]                                                             ; Stuck at GND due to stuck port data_in             ;
+; fft:fft|last_column_addr[0..5,12..31]                                                             ; Stuck at GND due to stuck port data_in             ;
 ; fft:fft|last_column_o[6,7]                                                                        ; Stuck at GND due to stuck port data_in             ;
 ; plot_controller:plot|addressA[10..13]                                                             ; Stuck at GND due to stuck port data_in             ;
 ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|address_reg_a[0]     ; Stuck at GND due to stuck port data_in             ;
@@ -477,6 +478,9 @@ Encoding Type:  One-Hot
 ; fft:fft|butterfly:butterfly|x_v[0][29]                                                            ; Lost fanout                                        ;
 ; fft:fft|butterfly:butterfly|x_v[0][30]                                                            ; Lost fanout                                        ;
 ; fft:fft|butterfly:butterfly|x_v[0][31]                                                            ; Lost fanout                                        ;
+; plot_controller:plot|current_column[4]                                                            ; Lost fanout                                        ;
+; fft:fft|last_column[4]                                                                            ; Lost fanout                                        ;
+; fft:fft|last_column_o[4]                                                                          ; Lost fanout                                        ;
 ; fft:fft|y[1][16]                                                                                  ; Merged with fft:fft|y[1][15]                       ;
 ; fft:fft|y[1][17]                                                                                  ; Merged with fft:fft|y[1][15]                       ;
 ; fft:fft|y[1][18]                                                                                  ; Merged with fft:fft|y[1][15]                       ;
@@ -542,7 +546,6 @@ Encoding Type:  One-Hot
 ; fft:fft|x[0][30]                                                                                  ; Merged with fft:fft|x[0][15]                       ;
 ; fft:fft|x[0][31]                                                                                  ; Merged with fft:fft|x[0][15]                       ;
 ; fft:fft|butterfly:butterfly|w_i[10]                                                               ; Merged with fft:fft|butterfly:butterfly|w_i[9]     ;
-; fft:fft|general_ram_addr[12,13]                                                                   ; Merged with fft:fft|general_ram_addr[11]           ;
 ; fft:fft|dA[1][11]                                                                                 ; Merged with fft:fft|dA[1][10]                      ;
 ; fft:fft|dA[1][12]                                                                                 ; Merged with fft:fft|dA[1][10]                      ;
 ; fft:fft|dA[1][13]                                                                                 ; Merged with fft:fft|dA[1][10]                      ;
@@ -589,19 +592,18 @@ Encoding Type:  One-Hot
 ; fft:fft|dA[0][31]                                                                                 ; Merged with fft:fft|dA[0][10]                      ;
 ; fft:fft|dA[0][8]                                                                                  ; Merged with fft:fft|dA[0][10]                      ;
 ; fft:fft|dA[0][9]                                                                                  ; Merged with fft:fft|dA[0][10]                      ;
-; fft:fft|last_column_addr[4]                                                                       ; Merged with fft:fft|column_counter[0]              ;
+; fft:fft|last_column_addr[6]                                                                       ; Merged with fft:fft|column_counter[0]              ;
 ; fft:fft|last_column_o[0]                                                                          ; Merged with fft:fft|column_counter[0]              ;
-; fft:fft|last_column_addr[5]                                                                       ; Merged with fft:fft|column_counter[1]              ;
+; fft:fft|last_column_addr[7]                                                                       ; Merged with fft:fft|column_counter[1]              ;
 ; fft:fft|last_column_o[1]                                                                          ; Merged with fft:fft|column_counter[1]              ;
-; fft:fft|last_column_addr[6]                                                                       ; Merged with fft:fft|column_counter[2]              ;
+; fft:fft|last_column_addr[8]                                                                       ; Merged with fft:fft|column_counter[2]              ;
 ; fft:fft|last_column_o[2]                                                                          ; Merged with fft:fft|column_counter[2]              ;
-; fft:fft|last_column_addr[7]                                                                       ; Merged with fft:fft|column_counter[3]              ;
+; fft:fft|last_column_addr[9]                                                                       ; Merged with fft:fft|column_counter[3]              ;
 ; fft:fft|last_column_o[3]                                                                          ; Merged with fft:fft|column_counter[3]              ;
-; fft:fft|last_column_addr[8]                                                                       ; Merged with fft:fft|column_counter[4]              ;
-; fft:fft|last_column_o[4]                                                                          ; Merged with fft:fft|column_counter[4]              ;
-; fft:fft|last_column_addr[9]                                                                       ; Merged with fft:fft|column_counter[5]              ;
+; fft:fft|last_column_addr[10]                                                                      ; Merged with fft:fft|column_counter[4]              ;
+; fft:fft|last_column_addr[11]                                                                      ; Merged with fft:fft|column_counter[5]              ;
 ; vga_controller:vga|pixel_x[0,1]                                                                   ; Lost fanout                                        ;
-; fft:fft|general_ram_addr[11]                                                                      ; Stuck at GND due to stuck port data_in             ;
+; fft:fft|general_ram_addr[13]                                                                      ; Stuck at GND due to stuck port data_in             ;
 ; plot_controller:plot|col_x[6,7]                                                                   ; Stuck at GND due to stuck port data_in             ;
 ; fft:fft|butterfly:butterfly|y_v[1][16]                                                            ; Merged with fft:fft|butterfly:butterfly|y_v[1][15] ;
 ; fft:fft|butterfly:butterfly|y_v[1][17]                                                            ; Merged with fft:fft|butterfly:butterfly|y_v[1][15] ;
@@ -648,11 +650,11 @@ Encoding Type:  One-Hot
 +-----------------------------------+---------------------------+---------------------------------------------------------------------------------------------------+
 ; Register name                     ; Reason for Removal        ; Registers Removed due to This Register                                                            ;
 +-----------------------------------+---------------------------+---------------------------------------------------------------------------------------------------+
-; fft:fft|last_column_o[6]          ; Stuck at GND              ; fft:fft|last_column[6], fft:fft|last_column[5], fft:fft|last_column_o[5]                          ;
-;                                   ; due to stuck port data_in ;                                                                                                   ;
+; fft:fft|last_column_o[6]          ; Stuck at GND              ; fft:fft|last_column[6], fft:fft|last_column[5], fft:fft|last_column_o[5],                         ;
+;                                   ; due to stuck port data_in ; fft:fft|last_column[4], fft:fft|last_column_o[4]                                                  ;
 ; plot_controller:plot|addressA[13] ; Stuck at GND              ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|address_reg_a[0],    ;
 ;                                   ; due to stuck port data_in ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|out_address_reg_a[0] ;
-; fft:fft|last_column_addr[0]       ; Stuck at GND              ; fft:fft|general_ram_addr[11]                                                                      ;
+; fft:fft|last_column_addr[0]       ; Stuck at GND              ; fft:fft|general_ram_addr[13]                                                                      ;
 ;                                   ; due to stuck port data_in ;                                                                                                   ;
 ; fft:fft|last_column_o[7]          ; Stuck at GND              ; fft:fft|last_column[7]                                                                            ;
 ;                                   ; due to stuck port data_in ;                                                                                                   ;
@@ -664,12 +666,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 997   ;
-; Number of registers using Synchronous Clear  ; 14    ;
-; Number of registers using Synchronous Load   ; 90    ;
+; Total registers                              ; 2059  ;
+; Number of registers using Synchronous Clear  ; 16    ;
+; Number of registers using Synchronous Load   ; 92    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 847   ;
+; Number of registers using Clock Enable       ; 1908  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -737,34 +739,31 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
-; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |spectrum_analyzer|i2s_receiver:i2s|l_data_int[11]        ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |spectrum_analyzer|plot_controller:plot|data_pixel[7]     ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |spectrum_analyzer|fft:fft|butterfly:butterfly|x_v[0][12] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |spectrum_analyzer|fft:fft|butterfly:butterfly|x_v[1][14] ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |spectrum_analyzer|i2s_receiver:i2s|l_data_int[16]        ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |spectrum_analyzer|plot_controller:plot|data_pixel[3]     ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |spectrum_analyzer|fft:fft|butterfly:butterfly|x_v[0][4]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |spectrum_analyzer|fft:fft|butterfly:butterfly|x_v[1][13] ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |spectrum_analyzer|plot_controller:plot|red[3]            ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|dataBi[12]                     ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|dataAi[9]                      ;
 ; 5:1                ; 12 bits   ; 36 LEs        ; 12 LEs               ; 24 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|dataBi[29]                     ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|counter_m[4]                   ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |spectrum_analyzer|fft:fft|addrB[8]                       ;
-; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; Yes        ; |spectrum_analyzer|fft:fft|addrB[0]                       ;
-; 5:1                ; 11 bits   ; 33 LEs        ; 11 LEs               ; 22 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|general_ram_addr[10]           ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |spectrum_analyzer|fft:fft|addrA[8]                       ;
-; 8:1                ; 6 bits    ; 30 LEs        ; 6 LEs                ; 24 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|pair_counter[2]                ;
-; 8:1                ; 5 bits    ; 25 LEs        ; 10 LEs               ; 15 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|addrA[5]                       ;
-; 20:1               ; 20 bits   ; 260 LEs       ; 220 LEs              ; 40 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|dataBi[22]                     ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|counter_m[5]                   ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 18 LEs               ; 9 LEs                  ; Yes        ; |spectrum_analyzer|fft:fft|addrB[5]                       ;
+; 5:1                ; 13 bits   ; 39 LEs        ; 13 LEs               ; 26 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|general_ram_addr[5]            ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 8 LEs                ; 32 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|pair_counter[0]                ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 14 LEs               ; 21 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|addrA[4]                       ;
+; 68:1               ; 20 bits   ; 900 LEs       ; 860 LEs              ; 40 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|dataAi[20]                     ;
 ; 14:1               ; 8 bits    ; 72 LEs        ; 16 LEs               ; 56 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|counter_n[3]                   ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; Yes        ; |spectrum_analyzer|fft:fft|butterfly:butterfly|y_v[1][11] ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; Yes        ; |spectrum_analyzer|fft:fft|butterfly:butterfly|y_v[0][13] ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 5 LEs                ; 10 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|counter_divider[0]             ;
-; 16:1               ; 2 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |spectrum_analyzer|fft:fft|Mux0                           ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; No         ; |spectrum_analyzer|fft:fft|ShiftLeft0                     ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; No         ; |spectrum_analyzer|fft:fft|ShiftLeft0                     ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; No         ; |spectrum_analyzer|fft:fft|ShiftLeft0                     ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; No         ; |spectrum_analyzer|fft:fft|block_shift_div2[5]            ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; No         ; |spectrum_analyzer|fft:fft|block_shift_div2[2]            ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; Yes        ; |spectrum_analyzer|fft:fft|butterfly:butterfly|y_v[1][6]  ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; Yes        ; |spectrum_analyzer|fft:fft|butterfly:butterfly|y_v[0][14] ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|counter_divider[0]             ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |spectrum_analyzer|fft:fft|ShiftLeft0                     ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |spectrum_analyzer|fft:fft|ShiftLeft0                     ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; No         ; |spectrum_analyzer|fft:fft|block_shift_div2[7]            ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; No         ; |spectrum_analyzer|fft:fft|block_shift_div2[1]            ;
+; 64:1               ; 2 bits    ; 84 LEs        ; 84 LEs               ; 0 LEs                  ; No         ; |spectrum_analyzer|fft:fft|Mux11                          ;
 ; 7:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |spectrum_analyzer|fft:fft|Selector8                      ;
-; 8:1                ; 7 bits    ; 35 LEs        ; 21 LEs               ; 14 LEs                 ; No         ; |spectrum_analyzer|fft:fft|Selector120                    ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |spectrum_analyzer|fft:fft|Selector126                    ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 21 LEs               ; 14 LEs                 ; No         ; |spectrum_analyzer|fft:fft|Selector126                    ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |spectrum_analyzer|fft:fft|Selector133                    ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |spectrum_analyzer|fft:fft|Selector4                      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
 
@@ -1458,14 +1457,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------------+----------------+--------------------------------+
 ; Parameter Name         ; Value          ; Type                           ;
 +------------------------+----------------+--------------------------------+
-; LPM_WIDTHN             ; 6              ; Untyped                        ;
-; LPM_WIDTHD             ; 6              ; Untyped                        ;
+; LPM_WIDTHN             ; 8              ; Untyped                        ;
+; LPM_WIDTHD             ; 8              ; Untyped                        ;
 ; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                        ;
 ; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                        ;
 ; LPM_PIPELINE           ; 0              ; Untyped                        ;
 ; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                        ;
 ; MAXIMIZE_SPEED         ; 5              ; Untyped                        ;
-; CBXI_PARAMETER         ; lpm_divide_ckl ; Untyped                        ;
+; CBXI_PARAMETER         ; lpm_divide_gkl ; Untyped                        ;
 ; CARRY_CHAIN            ; MANUAL         ; Untyped                        ;
 ; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                        ;
 ; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                     ;
@@ -1621,14 +1620,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------------+----------------+--------------------------------+
 ; Parameter Name         ; Value          ; Type                           ;
 +------------------------+----------------+--------------------------------+
-; LPM_WIDTHN             ; 6              ; Untyped                        ;
-; LPM_WIDTHD             ; 6              ; Untyped                        ;
+; LPM_WIDTHN             ; 8              ; Untyped                        ;
+; LPM_WIDTHD             ; 8              ; Untyped                        ;
 ; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                        ;
 ; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                        ;
 ; LPM_PIPELINE           ; 0              ; Untyped                        ;
 ; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                        ;
 ; MAXIMIZE_SPEED         ; 5              ; Untyped                        ;
-; CBXI_PARAMETER         ; lpm_divide_ckl ; Untyped                        ;
+; CBXI_PARAMETER         ; lpm_divide_gkl ; Untyped                        ;
 ; CARRY_CHAIN            ; MANUAL         ; Untyped                        ;
 ; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                        ;
 ; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                     ;
@@ -1648,10 +1647,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY        ;
 ; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE        ;
 ; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE      ;
-; LPM_WIDTHA                                     ; 5        ; Untyped             ;
-; LPM_WIDTHB                                     ; 5        ; Untyped             ;
-; LPM_WIDTHP                                     ; 10       ; Untyped             ;
-; LPM_WIDTHR                                     ; 10       ; Untyped             ;
+; LPM_WIDTHA                                     ; 7        ; Untyped             ;
+; LPM_WIDTHB                                     ; 7        ; Untyped             ;
+; LPM_WIDTHP                                     ; 14       ; Untyped             ;
+; LPM_WIDTHR                                     ; 14       ; Untyped             ;
 ; LPM_WIDTHS                                     ; 1        ; Untyped             ;
 ; LPM_REPRESENTATION                             ; UNSIGNED ; Untyped             ;
 ; LPM_PIPELINE                                   ; 0        ; Untyped             ;
@@ -1666,7 +1665,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped             ;
 ; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped             ;
 ; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped             ;
-; CBXI_PARAMETER                                 ; mult_kks ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_sks ; Untyped             ;
 ; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped             ;
 ; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped             ;
 ; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped             ;
@@ -1806,9 +1805,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- INPUT_A_FIXED_VALUE            ; Bx                                         ;
 ;     -- INPUT_B_FIXED_VALUE            ; Bx                                         ;
 ; Entity Instance                       ; fft:fft|lpm_mult:Mult0                     ;
-;     -- LPM_WIDTHA                     ; 5                                          ;
-;     -- LPM_WIDTHB                     ; 5                                          ;
-;     -- LPM_WIDTHP                     ; 10                                         ;
+;     -- LPM_WIDTHA                     ; 7                                          ;
+;     -- LPM_WIDTHB                     ; 7                                          ;
+;     -- LPM_WIDTHP                     ; 14                                         ;
 ;     -- LPM_REPRESENTATION             ; UNSIGNED                                   ;
 ;     -- INPUT_A_IS_CONSTANT            ; NO                                         ;
 ;     -- INPUT_B_IS_CONSTANT            ; NO                                         ;
@@ -1833,8 +1832,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port                   ; Type   ; Severity ; Details                                                                             ;
 +------------------------+--------+----------+-------------------------------------------------------------------------------------+
-; counter_n_inversed1[5] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; counter_n_inversed2[5] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; counter_n_inversed1[7] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; counter_n_inversed2[7] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +------------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -1887,28 +1886,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 22                          ;
-; cycloneiii_ff         ; 997                         ;
-;     ENA               ; 743                         ;
-;     ENA SCLR          ; 14                          ;
-;     ENA SLD           ; 90                          ;
-;     plain             ; 150                         ;
-; cycloneiii_lcell_comb ; 1170                        ;
-;     arith             ; 390                         ;
-;         2 data inputs ; 191                         ;
-;         3 data inputs ; 199                         ;
-;     normal            ; 780                         ;
-;         0 data inputs ; 14                          ;
-;         1 data inputs ; 30                          ;
-;         2 data inputs ; 85                          ;
-;         3 data inputs ; 173                         ;
-;         4 data inputs ; 478                         ;
+; cycloneiii_ff         ; 2059                        ;
+;     ENA               ; 1800                        ;
+;     ENA SCLR          ; 16                          ;
+;     ENA SLD           ; 92                          ;
+;     plain             ; 151                         ;
+; cycloneiii_lcell_comb ; 2064                        ;
+;     arith             ; 441                         ;
+;         2 data inputs ; 211                         ;
+;         3 data inputs ; 230                         ;
+;     normal            ; 1623                        ;
+;         0 data inputs ; 18                          ;
+;         1 data inputs ; 32                          ;
+;         2 data inputs ; 93                          ;
+;         3 data inputs ; 193                         ;
+;         4 data inputs ; 1287                        ;
 ; cycloneiii_mac_mult   ; 7                           ;
 ; cycloneiii_mac_out    ; 7                           ;
 ; cycloneiii_pll        ; 1                           ;
 ; cycloneiii_ram_block  ; 64                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 16.90                       ;
-; Average LUT depth     ; 3.55                        ;
+; Max LUT depth         ; 22.50                       ;
+; Average LUT depth     ; 5.00                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1917,7 +1916,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:06     ;
+; Top            ; 00:00:10     ;
 +----------------+--------------+
 
 
@@ -1927,7 +1926,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Tue Nov  8 02:52:20 2022
+    Info: Processing started: Tue Nov  8 02:54:46 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off spectrum_analyzer -c spectrum_analyzer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -2259,16 +2258,16 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/mult
     Info (12023): Found entity 1: mult_1es File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/mult_1es.tdf Line: 29
 Info (12130): Elaborated megafunction instantiation "fft:fft|lpm_divide:Mod1" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 248
 Info (12133): Instantiated megafunction "fft:fft|lpm_divide:Mod1" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 248
-    Info (12134): Parameter "LPM_WIDTHN" = "6"
-    Info (12134): Parameter "LPM_WIDTHD" = "6"
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "8"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ckl.tdf
-    Info (12023): Found entity 1: lpm_divide_ckl File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/lpm_divide_ckl.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_bkh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_bkh File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/sign_div_unsign_bkh.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_0fe.tdf
-    Info (12023): Found entity 1: alt_u_div_0fe File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/alt_u_div_0fe.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_gkl.tdf
+    Info (12023): Found entity 1: lpm_divide_gkl File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/lpm_divide_gkl.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_fkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_fkh File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/sign_div_unsign_fkh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_8fe.tdf
+    Info (12023): Found entity 1: alt_u_div_8fe File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/alt_u_div_8fe.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_t3c.tdf
     Info (12023): Found entity 1: add_sub_t3c File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/add_sub_t3c.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
@@ -2301,43 +2300,42 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/mult
     Info (12023): Found entity 1: mult_mgs File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/mult_mgs.tdf Line: 29
 Info (12130): Elaborated megafunction instantiation "fft:fft|lpm_divide:Mod0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 247
 Info (12133): Instantiated megafunction "fft:fft|lpm_divide:Mod0" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 247
-    Info (12134): Parameter "LPM_WIDTHN" = "6"
-    Info (12134): Parameter "LPM_WIDTHD" = "6"
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "8"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12130): Elaborated megafunction instantiation "fft:fft|lpm_mult:Mult0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 247
 Info (12133): Instantiated megafunction "fft:fft|lpm_mult:Mult0" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 247
-    Info (12134): Parameter "LPM_WIDTHA" = "5"
-    Info (12134): Parameter "LPM_WIDTHB" = "5"
-    Info (12134): Parameter "LPM_WIDTHP" = "10"
-    Info (12134): Parameter "LPM_WIDTHR" = "10"
+    Info (12134): Parameter "LPM_WIDTHA" = "7"
+    Info (12134): Parameter "LPM_WIDTHB" = "7"
+    Info (12134): Parameter "LPM_WIDTHP" = "14"
+    Info (12134): Parameter "LPM_WIDTHR" = "14"
     Info (12134): Parameter "LPM_WIDTHS" = "1"
     Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
     Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
     Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
-Info (12021): Found 1 design units, including 1 entities, in source file db/mult_kks.tdf
-    Info (12023): Found entity 1: mult_kks File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/mult_kks.tdf Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_sks.tdf
+    Info (12023): Found entity 1: mult_sks File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/mult_sks.tdf Line: 29
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "mic_vcc" is stuck at VCC File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 14
     Warning (13410): Pin "mic_gnd" is stuck at GND File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 15
     Warning (13410): Pin "sel" is stuck at GND File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 17
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 36 registers lost all their fanouts during netlist optimizations.
-Info (17036): Removed 2 MSB VCC or GND address nodes from RAM block "shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ALTSYNCRAM" File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/altsyncram_00p3.tdf Line: 341
+Info (17049): 39 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1777 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3728 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 19 output pins
-    Info (21061): Implemented 1679 logic cells
+    Info (21061): Implemented 3630 logic cells
     Info (21064): Implemented 64 RAM segments
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 11 DSP elements
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 31 warnings
-    Info: Peak virtual memory: 492 megabytes
-    Info: Processing ended: Tue Nov  8 02:52:40 2022
-    Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:37
+    Info: Peak virtual memory: 494 megabytes
+    Info: Processing ended: Tue Nov  8 02:55:11 2022
+    Info: Elapsed time: 00:00:25
+    Info: Total CPU time (on all processors): 00:00:42
 
 
