@@ -1,5 +1,5 @@
 Fitter report for spectrum_analyzer
-Tue Nov  8 02:55:47 2022
+Tue Nov  8 03:02:31 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -75,17 +75,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Tue Nov  8 02:55:47 2022       ;
+; Fitter Status                      ; Successful - Tue Nov  8 03:02:31 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; spectrum_analyzer                           ;
 ; Top-level Entity Name              ; spectrum_analyzer                           ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 2,848 / 49,760 ( 6 % )                      ;
-;     Total combinational functions  ; 2,061 / 49,760 ( 4 % )                      ;
-;     Dedicated logic registers      ; 2,042 / 49,760 ( 4 % )                      ;
-; Total registers                    ; 2042                                        ;
+; Total logic elements               ; 4,612 / 49,760 ( 9 % )                      ;
+;     Total combinational functions  ; 3,139 / 49,760 ( 6 % )                      ;
+;     Dedicated logic registers      ; 3,444 / 49,760 ( 7 % )                      ;
+; Total registers                    ; 3444                                        ;
 ; Total pins                         ; 22 / 360 ( 6 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 151,552 / 1,677,312 ( 9 % )                 ;
@@ -161,12 +161,12 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
-; Average used               ; 1.14        ;
+; Average used               ; 1.15        ;
 ; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  13.6%      ;
+;     Processor 2            ;  15.0%      ;
 +----------------------------+-------------+
 
 
@@ -175,19 +175,21 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------+-----------------+------------------+---------------------+-----------+----------------+----------------------------------------------------------+------------------+-----------------------+
 ; Node                           ; Action          ; Operation        ; Reason              ; Node Port ; Node Port Name ; Destination Node                                         ; Destination Port ; Destination Port Name ;
 +--------------------------------+-----------------+------------------+---------------------+-----------+----------------+----------------------------------------------------------+------------------+-----------------------+
-; fft:fft|counter_divider[0]     ; Packed Register ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|lpm_mult:Mult0|mult_sks:auto_generated|mac_mult1 ; DATAB            ;                       ;
-; fft:fft|counter_divider[1]     ; Packed Register ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|lpm_mult:Mult0|mult_sks:auto_generated|mac_mult1 ; DATAB            ;                       ;
+; fft:fft|counter_divider[0]     ; Packed Register ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|lpm_mult:Mult0|mult_0ls:auto_generated|mac_mult1 ; DATAB            ;                       ;
+; fft:fft|counter_divider[1]     ; Packed Register ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|lpm_mult:Mult0|mult_0ls:auto_generated|mac_mult1 ; DATAB            ;                       ;
 ; fft:fft|counter_divider[1]     ; Duplicated      ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|counter_divider[1]~_Duplicate_1                  ; Q                ;                       ;
-; fft:fft|counter_divider[2]     ; Packed Register ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|lpm_mult:Mult0|mult_sks:auto_generated|mac_mult1 ; DATAB            ;                       ;
+; fft:fft|counter_divider[2]     ; Packed Register ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|lpm_mult:Mult0|mult_0ls:auto_generated|mac_mult1 ; DATAB            ;                       ;
 ; fft:fft|counter_divider[2]     ; Duplicated      ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|counter_divider[2]~_Duplicate_1                  ; Q                ;                       ;
-; fft:fft|counter_divider[3]     ; Packed Register ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|lpm_mult:Mult0|mult_sks:auto_generated|mac_mult1 ; DATAB            ;                       ;
+; fft:fft|counter_divider[3]     ; Packed Register ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|lpm_mult:Mult0|mult_0ls:auto_generated|mac_mult1 ; DATAB            ;                       ;
 ; fft:fft|counter_divider[3]     ; Duplicated      ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|counter_divider[3]~_Duplicate_1                  ; Q                ;                       ;
-; fft:fft|counter_divider[4]     ; Packed Register ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|lpm_mult:Mult0|mult_sks:auto_generated|mac_mult1 ; DATAB            ;                       ;
+; fft:fft|counter_divider[4]     ; Packed Register ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|lpm_mult:Mult0|mult_0ls:auto_generated|mac_mult1 ; DATAB            ;                       ;
 ; fft:fft|counter_divider[4]     ; Duplicated      ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|counter_divider[4]~_Duplicate_1                  ; Q                ;                       ;
-; fft:fft|counter_divider[5]     ; Packed Register ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|lpm_mult:Mult0|mult_sks:auto_generated|mac_mult1 ; DATAB            ;                       ;
+; fft:fft|counter_divider[5]     ; Packed Register ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|lpm_mult:Mult0|mult_0ls:auto_generated|mac_mult1 ; DATAB            ;                       ;
 ; fft:fft|counter_divider[5]     ; Duplicated      ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|counter_divider[5]~_Duplicate_1                  ; Q                ;                       ;
-; fft:fft|counter_divider[6]     ; Packed Register ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|lpm_mult:Mult0|mult_sks:auto_generated|mac_mult1 ; DATAB            ;                       ;
+; fft:fft|counter_divider[6]     ; Packed Register ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|lpm_mult:Mult0|mult_0ls:auto_generated|mac_mult1 ; DATAB            ;                       ;
 ; fft:fft|counter_divider[6]     ; Duplicated      ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|counter_divider[6]~_Duplicate_1                  ; Q                ;                       ;
+; fft:fft|counter_divider[7]     ; Packed Register ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|lpm_mult:Mult0|mult_0ls:auto_generated|mac_mult1 ; DATAB            ;                       ;
+; fft:fft|counter_divider[7]     ; Duplicated      ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|counter_divider[7]~_Duplicate_1                  ; Q                ;                       ;
 ; fft:fft|dA[0][0]               ; Packed Register ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|lpm_mult:Mult1|mult_1es:auto_generated|mac_mult1 ; DATAA            ;                       ;
 ; fft:fft|dA[0][0]               ; Duplicated      ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|dA[0][0]~_Duplicate_1                            ; Q                ;                       ;
 ; fft:fft|dA[0][0]~_Duplicate_1  ; Packed Register ; Register Packing ; Timing optimization ; Q         ;                ; fft:fft|lpm_mult:Mult1|mult_1es:auto_generated|mac_mult1 ; DATAB            ;                       ;
@@ -253,8 +255,8 @@ https://fpgasoftware.intel.com/eula.
 ; Type                ; Total [A + B]       ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+---------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                     ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 4264 ) ; 0.00 % ( 0 / 4264 )        ; 0.00 % ( 0 / 4264 )      ;
-;     -- Achieved     ; 0.00 % ( 0 / 4264 ) ; 0.00 % ( 0 / 4264 )        ; 0.00 % ( 0 / 4264 )      ;
+;     -- Requested    ; 0.00 % ( 0 / 6744 ) ; 0.00 % ( 0 / 6744 )        ; 0.00 % ( 0 / 6744 )      ;
+;     -- Achieved     ; 0.00 % ( 0 / 6744 ) ; 0.00 % ( 0 / 6744 )        ; 0.00 % ( 0 / 6744 )      ;
 ;                     ;                     ;                            ;                          ;
 ; Routing (by net)    ;                     ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )    ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -277,7 +279,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 4246 )   ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 6726 )   ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 18 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -293,26 +295,26 @@ The pin-out file can be found in /home/tomek/vhdl/spctr/spectrum_analyzer/output
 +---------------------------------------------+------------------------------+
 ; Resource                                    ; Usage                        ;
 +---------------------------------------------+------------------------------+
-; Total logic elements                        ; 2,848 / 49,760 ( 6 % )       ;
-;     -- Combinational with no register       ; 806                          ;
-;     -- Register only                        ; 787                          ;
-;     -- Combinational with a register        ; 1255                         ;
+; Total logic elements                        ; 4,612 / 49,760 ( 9 % )       ;
+;     -- Combinational with no register       ; 1168                         ;
+;     -- Register only                        ; 1473                         ;
+;     -- Combinational with a register        ; 1971                         ;
 ;                                             ;                              ;
 ; Logic element usage by number of LUT inputs ;                              ;
-;     -- 4 input functions                    ; 1287                         ;
-;     -- 3 input functions                    ; 423                          ;
-;     -- <=2 input functions                  ; 351                          ;
-;     -- Register only                        ; 787                          ;
+;     -- 4 input functions                    ; 2315                         ;
+;     -- 3 input functions                    ; 477                          ;
+;     -- <=2 input functions                  ; 347                          ;
+;     -- Register only                        ; 1473                         ;
 ;                                             ;                              ;
 ; Logic elements by mode                      ;                              ;
-;     -- normal mode                          ; 1620                         ;
-;     -- arithmetic mode                      ; 441                          ;
+;     -- normal mode                          ; 2684                         ;
+;     -- arithmetic mode                      ; 455                          ;
 ;                                             ;                              ;
-; Total registers*                            ; 2,042 / 51,509 ( 4 % )       ;
-;     -- Dedicated logic registers            ; 2,042 / 49,760 ( 4 % )       ;
+; Total registers*                            ; 3,444 / 51,509 ( 7 % )       ;
+;     -- Dedicated logic registers            ; 3,444 / 49,760 ( 7 % )       ;
 ;     -- I/O registers                        ; 0 / 1,749 ( 0 % )            ;
 ;                                             ;                              ;
-; Total LABs:  partially or completely used   ; 203 / 3,110 ( 7 % )          ;
+; Total LABs:  partially or completely used   ; 332 / 3,110 ( 11 % )         ;
 ; Virtual pins                                ; 0                            ;
 ; I/O pins                                    ; 22 / 360 ( 6 % )             ;
 ;     -- Clock pins                           ; 1 / 8 ( 13 % )               ;
@@ -332,12 +334,12 @@ The pin-out file can be found in /home/tomek/vhdl/spctr/spectrum_analyzer/output
 ; Remote update blocks                        ; 0 / 1 ( 0 % )                ;
 ; Oscillator blocks                           ; 0 / 1 ( 0 % )                ;
 ; Impedance control blocks                    ; 0 / 1 ( 0 % )                ;
-; Average interconnect usage (total/H/V)      ; 1.6% / 1.7% / 1.6%           ;
-; Peak interconnect usage (total/H/V)         ; 13.2% / 13.4% / 12.9%        ;
-; Maximum fan-out                             ; 1992                         ;
-; Highest non-global fan-out                  ; 1408                         ;
-; Total fan-out                               ; 14570                        ;
-; Average fan-out                             ; 2.92                         ;
+; Average interconnect usage (total/H/V)      ; 2.4% / 2.6% / 2.2%           ;
+; Peak interconnect usage (total/H/V)         ; 21.3% / 23.1% / 18.8%        ;
+; Maximum fan-out                             ; 3394                         ;
+; Highest non-global fan-out                  ; 2816                         ;
+; Total fan-out                               ; 23577                        ;
+; Average fan-out                             ; 2.89                         ;
 +---------------------------------------------+------------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -350,26 +352,26 @@ The pin-out file can be found in /home/tomek/vhdl/spctr/spectrum_analyzer/output
 +---------------------------------------------+----------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                  ; Low                            ;
 ;                                             ;                      ;                                ;
-; Total logic elements                        ; 2848 / 49760 ( 6 % ) ; 0 / 49760 ( 0 % )              ;
-;     -- Combinational with no register       ; 806                  ; 0                              ;
-;     -- Register only                        ; 787                  ; 0                              ;
-;     -- Combinational with a register        ; 1255                 ; 0                              ;
+; Total logic elements                        ; 4612 / 49760 ( 9 % ) ; 0 / 49760 ( 0 % )              ;
+;     -- Combinational with no register       ; 1168                 ; 0                              ;
+;     -- Register only                        ; 1473                 ; 0                              ;
+;     -- Combinational with a register        ; 1971                 ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic element usage by number of LUT inputs ;                      ;                                ;
-;     -- 4 input functions                    ; 1287                 ; 0                              ;
-;     -- 3 input functions                    ; 423                  ; 0                              ;
-;     -- <=2 input functions                  ; 351                  ; 0                              ;
-;     -- Register only                        ; 787                  ; 0                              ;
+;     -- 4 input functions                    ; 2315                 ; 0                              ;
+;     -- 3 input functions                    ; 477                  ; 0                              ;
+;     -- <=2 input functions                  ; 347                  ; 0                              ;
+;     -- Register only                        ; 1473                 ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic elements by mode                      ;                      ;                                ;
-;     -- normal mode                          ; 1620                 ; 0                              ;
-;     -- arithmetic mode                      ; 441                  ; 0                              ;
+;     -- normal mode                          ; 2684                 ; 0                              ;
+;     -- arithmetic mode                      ; 455                  ; 0                              ;
 ;                                             ;                      ;                                ;
-; Total registers                             ; 2042                 ; 0                              ;
-;     -- Dedicated logic registers            ; 2042 / 49760 ( 4 % ) ; 0 / 49760 ( 0 % )              ;
+; Total registers                             ; 3444                 ; 0                              ;
+;     -- Dedicated logic registers            ; 3444 / 49760 ( 7 % ) ; 0 / 49760 ( 0 % )              ;
 ;     -- I/O registers                        ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
-; Total LABs:  partially or completely used   ; 203 / 3110 ( 7 % )   ; 0 / 3110 ( 0 % )               ;
+; Total LABs:  partially or completely used   ; 332 / 3110 ( 11 % )  ; 0 / 3110 ( 0 % )               ;
 ;                                             ;                      ;                                ;
 ; Virtual pins                                ; 0                    ; 0                              ;
 ; I/O pins                                    ; 22                   ; 0                              ;
@@ -389,8 +391,8 @@ The pin-out file can be found in /home/tomek/vhdl/spctr/spectrum_analyzer/output
 ;     -- Registered Output Connections        ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Internal Connections                        ;                      ;                                ;
-;     -- Total Connections                    ; 15053                ; 84                             ;
-;     -- Registered Connections               ; 6611                 ; 0                              ;
+;     -- Total Connections                    ; 24223                ; 84                             ;
+;     -- Registered Connections               ; 10842                ; 0                              ;
 ;                                             ;                      ;                                ;
 ; External Connections                        ;                      ;                                ;
 ;     -- Top                                  ; 0                    ; 74                             ;
@@ -422,9 +424,9 @@ The pin-out file can be found in /home/tomek/vhdl/spctr/spectrum_analyzer/output
 +--------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 ; Name   ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination Control Block ; Location assigned by ; Slew Rate ;
 +--------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
-; clk    ; P11   ; 3        ; 34           ; 0            ; 28           ; 1993                  ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL  ; --                        ; User                 ; 0         ;
+; clk    ; P11   ; 3        ; 34           ; 0            ; 28           ; 3395                  ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL  ; --                        ; User                 ; 0         ;
 ; din    ; AB9   ; 3        ; 34           ; 0            ; 14           ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL  ; --                        ; User                 ; 0         ;
-; switch ; C10   ; 7        ; 51           ; 54           ; 28           ; 4                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL  ; --                        ; User                 ; 0         ;
+; switch ; C10   ; 7        ; 51           ; 54           ; 28           ; 6                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL  ; --                        ; User                 ; 0         ;
 +--------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 
 
@@ -1063,12 +1065,12 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +----------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                   ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; ADC blocks ; Full Hierarchy Name                                                                                                                              ; Entity Name         ; Library Name ;
 +----------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |spectrum_analyzer                           ; 2848 (1)    ; 2042 (0)                  ; 0 (0)         ; 151552      ; 19   ; 1          ; 11           ; 3       ; 4         ; 22   ; 0            ; 806 (1)      ; 787 (0)           ; 1255 (0)         ; 0          ; |spectrum_analyzer                                                                                                                               ; spectrum_analyzer   ; work         ;
+; |spectrum_analyzer                           ; 4612 (1)    ; 3444 (0)                  ; 0 (0)         ; 151552      ; 19   ; 1          ; 11           ; 3       ; 4         ; 22   ; 0            ; 1168 (1)     ; 1473 (0)          ; 1971 (0)         ; 0          ; |spectrum_analyzer                                                                                                                               ; spectrum_analyzer   ; work         ;
 ;    |bclk:bclk|                               ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|bclk:bclk                                                                                                                     ; bclk                ; work         ;
 ;       |altpll:altpll_component|              ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|bclk:bclk|altpll:altpll_component                                                                                             ; altpll              ; work         ;
 ;          |bclk_altpll:auto_generated|        ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|bclk:bclk|altpll:altpll_component|bclk_altpll:auto_generated                                                                  ; bclk_altpll         ; work         ;
-;    |fft:fft|                                 ; 2616 (2033) ; 1842 (1656)               ; 0 (0)         ; 16384       ; 2    ; 0          ; 11           ; 3       ; 4         ; 0    ; 0            ; 758 (367)    ; 741 (739)         ; 1117 (890)       ; 0          ; |spectrum_analyzer|fft:fft                                                                                                                       ; fft                 ; work         ;
-;       |butterfly:butterfly|                  ; 462 (462)   ; 186 (186)                 ; 0 (0)         ; 0           ; 0    ; 0          ; 8            ; 0       ; 4         ; 0    ; 0            ; 234 (234)    ; 2 (2)             ; 226 (226)        ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly                                                                                                   ; butterfly           ; work         ;
+;    |fft:fft|                                 ; 4379 (3658) ; 3245 (3059)               ; 0 (0)         ; 16384       ; 2    ; 0          ; 11           ; 3       ; 4         ; 0    ; 0            ; 1120 (585)   ; 1425 (1423)       ; 1834 (1605)      ; 0          ; |spectrum_analyzer|fft:fft                                                                                                                       ; fft                 ; work         ;
+;       |butterfly:butterfly|                  ; 562 (562)   ; 186 (186)                 ; 0 (0)         ; 0           ; 0    ; 0          ; 8            ; 0       ; 4         ; 0    ; 0            ; 331 (331)    ; 2 (2)             ; 229 (229)        ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly                                                                                                   ; butterfly           ; work         ;
 ;          |lpm_mult:Mult0|                    ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult0                                                                                    ; lpm_mult            ; work         ;
 ;             |mult_ogs:auto_generated|        ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult0|mult_ogs:auto_generated                                                            ; mult_ogs            ; work         ;
 ;          |lpm_mult:Mult1|                    ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult1                                                                                    ; lpm_mult            ; work         ;
@@ -1077,17 +1079,17 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;             |mult_mgs:auto_generated|        ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult2|mult_mgs:auto_generated                                                            ; mult_mgs            ; work         ;
 ;          |lpm_mult:Mult3|                    ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult3                                                                                    ; lpm_mult            ; work         ;
 ;             |mult_ogs:auto_generated|        ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult3|mult_ogs:auto_generated                                                            ; mult_ogs            ; work         ;
-;       |lpm_divide:Mod0|                      ; 81 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 81 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod0                                                                                                       ; lpm_divide          ; work         ;
-;          |lpm_divide_gkl:auto_generated|     ; 81 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 81 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod0|lpm_divide_gkl:auto_generated                                                                         ; lpm_divide_gkl      ; work         ;
-;             |sign_div_unsign_fkh:divider|    ; 81 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 81 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod0|lpm_divide_gkl:auto_generated|sign_div_unsign_fkh:divider                                             ; sign_div_unsign_fkh ; work         ;
-;                |alt_u_div_8fe:divider|       ; 81 (80)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 81 (80)      ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod0|lpm_divide_gkl:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_8fe:divider                       ; alt_u_div_8fe       ; work         ;
-;                   |add_sub_u3c:add_sub_1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod0|lpm_divide_gkl:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_8fe:divider|add_sub_u3c:add_sub_1 ; add_sub_u3c         ; work         ;
-;       |lpm_divide:Mod1|                      ; 77 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 76 (0)       ; 0 (0)             ; 1 (0)            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod1                                                                                                       ; lpm_divide          ; work         ;
-;          |lpm_divide_gkl:auto_generated|     ; 77 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 76 (0)       ; 0 (0)             ; 1 (0)            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod1|lpm_divide_gkl:auto_generated                                                                         ; lpm_divide_gkl      ; work         ;
-;             |sign_div_unsign_fkh:divider|    ; 77 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 76 (0)       ; 0 (0)             ; 1 (0)            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod1|lpm_divide_gkl:auto_generated|sign_div_unsign_fkh:divider                                             ; sign_div_unsign_fkh ; work         ;
-;                |alt_u_div_8fe:divider|       ; 77 (77)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 76 (76)      ; 0 (0)             ; 1 (1)            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod1|lpm_divide_gkl:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_8fe:divider                       ; alt_u_div_8fe       ; work         ;
+;       |lpm_divide:Mod0|                      ; 102 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 102 (0)      ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod0                                                                                                       ; lpm_divide          ; work         ;
+;          |lpm_divide_ikl:auto_generated|     ; 102 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 102 (0)      ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod0|lpm_divide_ikl:auto_generated                                                                         ; lpm_divide_ikl      ; work         ;
+;             |sign_div_unsign_hkh:divider|    ; 102 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 102 (0)      ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod0|lpm_divide_ikl:auto_generated|sign_div_unsign_hkh:divider                                             ; sign_div_unsign_hkh ; work         ;
+;                |alt_u_div_cfe:divider|       ; 102 (101)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 102 (101)    ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod0|lpm_divide_ikl:auto_generated|sign_div_unsign_hkh:divider|alt_u_div_cfe:divider                       ; alt_u_div_cfe       ; work         ;
+;                   |add_sub_u3c:add_sub_1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod0|lpm_divide_ikl:auto_generated|sign_div_unsign_hkh:divider|alt_u_div_cfe:divider|add_sub_u3c:add_sub_1 ; add_sub_u3c         ; work         ;
+;       |lpm_divide:Mod1|                      ; 102 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 102 (0)      ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod1                                                                                                       ; lpm_divide          ; work         ;
+;          |lpm_divide_ikl:auto_generated|     ; 102 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 102 (0)      ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod1|lpm_divide_ikl:auto_generated                                                                         ; lpm_divide_ikl      ; work         ;
+;             |sign_div_unsign_hkh:divider|    ; 102 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 102 (0)      ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod1|lpm_divide_ikl:auto_generated|sign_div_unsign_hkh:divider                                             ; sign_div_unsign_hkh ; work         ;
+;                |alt_u_div_cfe:divider|       ; 102 (102)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 102 (102)    ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Mod1|lpm_divide_ikl:auto_generated|sign_div_unsign_hkh:divider|alt_u_div_cfe:divider                       ; alt_u_div_cfe       ; work         ;
 ;       |lpm_mult:Mult0|                       ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult0                                                                                                        ; lpm_mult            ; work         ;
-;          |mult_sks:auto_generated|           ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult0|mult_sks:auto_generated                                                                                ; mult_sks            ; work         ;
+;          |mult_0ls:auto_generated|           ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult0|mult_0ls:auto_generated                                                                                ; mult_0ls            ; work         ;
 ;       |lpm_mult:Mult1|                       ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult1                                                                                                        ; lpm_mult            ; work         ;
 ;          |mult_1es:auto_generated|           ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult1|mult_1es:auto_generated                                                                                ; mult_1es            ; work         ;
 ;       |lpm_mult:Mult2|                       ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|lpm_mult:Mult2                                                                                                        ; lpm_mult            ; work         ;
@@ -1095,14 +1097,15 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;       |ram_ip:ram|                           ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 16384       ; 2    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|ram_ip:ram                                                                                                            ; ram_ip              ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 16384       ; 2    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|ram_ip:ram|altsyncram:altsyncram_component                                                                            ; altsyncram          ; work         ;
 ;             |altsyncram_8mo3:auto_generated| ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 16384       ; 2    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated                                             ; altsyncram_8mo3     ; work         ;
-;    |i2s_receiver:i2s|                        ; 86 (86)     ; 72 (72)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 14 (14)      ; 0 (0)             ; 72 (72)          ; 0          ; |spectrum_analyzer|i2s_receiver:i2s                                                                                                              ; i2s_receiver        ; work         ;
-;    |plot_controller:plot|                    ; 94 (94)     ; 86 (86)                   ; 0 (0)         ; 4096        ; 1    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 6 (6)        ; 29 (29)           ; 59 (59)          ; 0          ; |spectrum_analyzer|plot_controller:plot                                                                                                          ; plot_controller     ; work         ;
+;    |i2s_receiver:i2s|                        ; 86 (86)     ; 72 (72)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 14 (14)      ; 1 (1)             ; 71 (71)          ; 0          ; |spectrum_analyzer|i2s_receiver:i2s                                                                                                              ; i2s_receiver        ; work         ;
+;    |plot_controller:plot|                    ; 95 (95)     ; 85 (85)                   ; 0 (0)         ; 4096        ; 1    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 6 (6)        ; 33 (33)           ; 56 (56)          ; 0          ; |spectrum_analyzer|plot_controller:plot                                                                                                          ; plot_controller     ; work         ;
 ;       |altsyncram:pixel_array_rtl_0|         ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 4096        ; 1    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|plot_controller:plot|altsyncram:pixel_array_rtl_0                                                                             ; altsyncram          ; work         ;
 ;          |altsyncram_uag1:auto_generated|    ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 4096        ; 1    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|plot_controller:plot|altsyncram:pixel_array_rtl_0|altsyncram_uag1:auto_generated                                              ; altsyncram_uag1     ; work         ;
-;    |shift_reg:reg|                           ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 131072      ; 16   ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|shift_reg:reg                                                                                                                 ; shift_reg           ; work         ;
-;       |altsyncram:altsyncram_component|      ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 131072      ; 16   ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|shift_reg:reg|altsyncram:altsyncram_component                                                                                 ; altsyncram          ; work         ;
-;          |altsyncram_00p3:auto_generated|    ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 131072      ; 16   ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated                                                  ; altsyncram_00p3     ; work         ;
-;    |vga_controller:vga|                      ; 69 (69)     ; 42 (42)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 27 (27)      ; 17 (17)           ; 25 (25)          ; 0          ; |spectrum_analyzer|vga_controller:vga                                                                                                            ; vga_controller      ; work         ;
+;    |shift_reg:reg|                           ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 131072      ; 16   ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|shift_reg:reg                                                                                                                 ; shift_reg           ; work         ;
+;       |altsyncram:altsyncram_component|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 131072      ; 16   ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|shift_reg:reg|altsyncram:altsyncram_component                                                                                 ; altsyncram          ; work         ;
+;          |altsyncram_00p3:auto_generated|    ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 131072      ; 16   ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated                                                  ; altsyncram_00p3     ; work         ;
+;             |decode_97a:decode3|             ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |spectrum_analyzer|shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|decode_97a:decode3                               ; decode_97a          ; work         ;
+;    |vga_controller:vga|                      ; 68 (68)     ; 42 (42)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 26 (26)      ; 14 (14)           ; 28 (28)          ; 0          ; |spectrum_analyzer|vga_controller:vga                                                                                                            ; vga_controller      ; work         ;
 +----------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1132,8 +1135,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; lrcl     ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; sclk     ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; clk      ; Input    ; (0) 0 ps      ; --            ; --                    ; --  ; --   ;
-; switch   ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
-; din      ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
+; switch   ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
+; din      ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
 +----------+----------+---------------+---------------+-----------------------+-----+------+
 
 
@@ -1144,58 +1147,62 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------+-------------------+---------+
 ; clk                                   ;                   ;         ;
 ; switch                                ;                   ;         ;
-;      - fft:fft|Selector1~0            ; 1                 ; 6       ;
-;      - fft:fft|counter_m[5]~8         ; 1                 ; 6       ;
-;      - fft:fft|Selector2~0            ; 1                 ; 6       ;
-;      - fft:fft|counter_divider[7]~3   ; 1                 ; 6       ;
+;      - fft:fft|counter_n[3]~0         ; 0                 ; 6       ;
+;      - fft:fft|Selector1~0            ; 0                 ; 6       ;
+;      - fft:fft|counter_m[0]~27        ; 0                 ; 6       ;
+;      - fft:fft|Selector2~1            ; 0                 ; 6       ;
+;      - fft:fft|pair_counter[0]~33     ; 0                 ; 6       ;
+;      - fft:fft|counter_divider[8]~3   ; 0                 ; 6       ;
 ; din                                   ;                   ;         ;
-;      - i2s_receiver:i2s|l_data_int~25 ; 0                 ; 6       ;
+;      - i2s_receiver:i2s|l_data_int~25 ; 1                 ; 6       ;
 +---------------------------------------+-------------------+---------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                                                                                         ;
-+-------------------------------------------------------------------------------+--------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
-; Name                                                                          ; Location           ; Fan-Out ; Usage                     ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+-------------------------------------------------------------------------------+--------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
-; bclk:bclk|altpll:altpll_component|bclk_altpll:auto_generated|wire_pll1_clk[0] ; PLL_1              ; 73      ; Clock                     ; yes    ; Global Clock         ; GCLK18           ; --                        ;
-; clk                                                                           ; PIN_P11            ; 1992    ; Clock                     ; yes    ; Global Clock         ; GCLK19           ; --                        ;
-; clk                                                                           ; PIN_P11            ; 2       ; Clock                     ; no     ; --                   ; --               ; --                        ;
-; fft:fft|Selector128~0                                                         ; LCCOMB_X44_Y26_N10 ; 3       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; fft:fft|addrA[4]~3                                                            ; LCCOMB_X43_Y27_N24 ; 7       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; fft:fft|addrB[5]~0                                                            ; LCCOMB_X44_Y25_N26 ; 9       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; fft:fft|butterfly:butterfly|process_0~19                                      ; LCCOMB_X29_Y20_N0  ; 16      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
-; fft:fft|butterfly:butterfly|process_0~29                                      ; LCCOMB_X37_Y18_N18 ; 16      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
-; fft:fft|butterfly:butterfly|process_0~39                                      ; LCCOMB_X32_Y19_N30 ; 16      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
-; fft:fft|butterfly:butterfly|process_0~9                                       ; LCCOMB_X34_Y22_N10 ; 16      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
-; fft:fft|butterfly:butterfly|state.read_from_rom                               ; FF_X29_Y17_N11     ; 87      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; fft:fft|butterfly:butterfly|state.trns1                                       ; FF_X29_Y17_N29     ; 34      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; fft:fft|butterfly:butterfly|state.trns2                                       ; FF_X29_Y17_N5      ; 66      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; fft:fft|column_counter[0]~5                                                   ; LCCOMB_X43_Y27_N30 ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; fft:fft|counter_m[5]~15                                                       ; LCCOMB_X45_Y27_N4  ; 15      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; fft:fft|counter_n[3]~5                                                        ; LCCOMB_X45_Y27_N28 ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; fft:fft|dataAi[20]~0                                                          ; LCCOMB_X45_Y26_N30 ; 68      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; fft:fft|data[42][2]~11                                                        ; LCCOMB_X39_Y19_N30 ; 1408    ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; fft:fft|fft_counter[0]~0                                                      ; LCCOMB_X46_Y27_N28 ; 9       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; fft:fft|general_ram_addr[5]~24                                                ; LCCOMB_X46_Y27_N26 ; 13      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; fft:fft|general_ram_addr[5]~9                                                 ; LCCOMB_X45_Y27_N24 ; 7       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; fft:fft|general_ram_wren                                                      ; FF_X52_Y27_N9      ; 16      ; Write enable              ; no     ; --                   ; --               ; --                        ;
-; fft:fft|pair_counter[0]~24                                                    ; LCCOMB_X46_Y26_N4  ; 8       ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
-; fft:fft|pair_counter[0]~25                                                    ; LCCOMB_X44_Y25_N20 ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; fft:fft|state_m.butterfly_step                                                ; FF_X44_Y26_N17     ; 67      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; fft:fft|state_m.save_data                                                     ; FF_X29_Y17_N25     ; 72      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
-; fft:fft|state_m.test                                                          ; FF_X45_Y27_N25     ; 37      ; Clock enable, Sync. clear ; no     ; --                   ; --               ; --                        ;
-; fft:fft|state_m.transform                                                     ; FF_X44_Y26_N1      ; 54      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
-; fft:fft|state_m.transform_end                                                 ; FF_X44_Y26_N23     ; 31      ; Clock enable, Sync. clear ; no     ; --                   ; --               ; --                        ;
-; fft:fft|state_m.wait_for_ram                                                  ; FF_X45_Y26_N5      ; 7       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; fft:fft|wr                                                                    ; FF_X45_Y26_N21     ; 4       ; Write enable              ; no     ; --                   ; --               ; --                        ;
-; i2s_receiver:i2s|l_data[11]~0                                                 ; LCCOMB_X37_Y15_N30 ; 15      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; i2s_receiver:i2s|l_data_int[23]~2                                             ; LCCOMB_X37_Y15_N22 ; 24      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; plot_controller:plot|Equal1~0                                                 ; LCCOMB_X54_Y29_N12 ; 7       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; plot_controller:plot|col_x[0]~2                                               ; LCCOMB_X54_Y27_N26 ; 2       ; Write enable              ; no     ; --                   ; --               ; --                        ;
-; plot_controller:plot|col_x[0]~3                                               ; LCCOMB_X54_Y26_N22 ; 20      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; vga_controller:vga|Equal0~3                                                   ; LCCOMB_X55_Y28_N8  ; 14      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-+-------------------------------------------------------------------------------+--------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                                                                                                      ;
++------------------------------------------------------------------------------------------------------------+--------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
+; Name                                                                                                       ; Location           ; Fan-Out ; Usage                     ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++------------------------------------------------------------------------------------------------------------+--------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
+; bclk:bclk|altpll:altpll_component|bclk_altpll:auto_generated|wire_pll1_clk[0]                              ; PLL_1              ; 73      ; Clock                     ; yes    ; Global Clock         ; GCLK18           ; --                        ;
+; clk                                                                                                        ; PIN_P11            ; 3394    ; Clock                     ; yes    ; Global Clock         ; GCLK19           ; --                        ;
+; clk                                                                                                        ; PIN_P11            ; 2       ; Clock                     ; no     ; --                   ; --               ; --                        ;
+; fft:fft|Selector131~0                                                                                      ; LCCOMB_X54_Y30_N6  ; 4       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; fft:fft|addrA[5]~0                                                                                         ; LCCOMB_X56_Y28_N8  ; 7       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; fft:fft|addrB[6]~0                                                                                         ; LCCOMB_X55_Y28_N30 ; 9       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; fft:fft|butterfly:butterfly|process_0~19                                                                   ; LCCOMB_X37_Y30_N18 ; 16      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
+; fft:fft|butterfly:butterfly|process_0~29                                                                   ; LCCOMB_X40_Y29_N20 ; 16      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
+; fft:fft|butterfly:butterfly|process_0~39                                                                   ; LCCOMB_X36_Y30_N26 ; 16      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
+; fft:fft|butterfly:butterfly|process_0~9                                                                    ; LCCOMB_X35_Y27_N6  ; 16      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
+; fft:fft|butterfly:butterfly|state.read_from_rom                                                            ; FF_X44_Y29_N15     ; 87      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; fft:fft|butterfly:butterfly|state.trns1                                                                    ; FF_X45_Y29_N19     ; 34      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; fft:fft|butterfly:butterfly|state.trns2                                                                    ; FF_X45_Y29_N25     ; 66      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; fft:fft|column_counter[0]~15                                                                               ; LCCOMB_X52_Y29_N26 ; 6       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; fft:fft|counter_m[0]~28                                                                                    ; LCCOMB_X54_Y30_N18 ; 17      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; fft:fft|counter_n[3]~4                                                                                     ; LCCOMB_X54_Y29_N6  ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; fft:fft|dataAi[23]~1                                                                                       ; LCCOMB_X54_Y29_N26 ; 67      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; fft:fft|data[84][2]~11                                                                                     ; LCCOMB_X42_Y16_N4  ; 2816    ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; fft:fft|general_ram_addr[9]~21                                                                             ; LCCOMB_X51_Y29_N28 ; 7       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; fft:fft|general_ram_addr[9]~22                                                                             ; LCCOMB_X52_Y29_N24 ; 14      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; fft:fft|lpm_mult:Mult0|mult_0ls:auto_generated|mac_out2~DATAOUT2                                           ; DSPOUT_X48_Y27_N2  ; 79      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
+; fft:fft|lpm_mult:Mult0|mult_0ls:auto_generated|mac_out2~DATAOUT5                                           ; DSPOUT_X48_Y27_N2  ; 70      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
+; fft:fft|lpm_mult:Mult0|mult_0ls:auto_generated|mac_out2~DATAOUT6                                           ; DSPOUT_X48_Y27_N2  ; 75      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
+; fft:fft|pair_counter[0]~32                                                                                 ; LCCOMB_X52_Y26_N24 ; 9       ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
+; fft:fft|pair_counter[0]~33                                                                                 ; LCCOMB_X52_Y26_N28 ; 9       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; fft:fft|state_m.butterfly_step                                                                             ; FF_X54_Y30_N9      ; 67      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; fft:fft|state_m.save_data                                                                                  ; FF_X54_Y29_N11     ; 71      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
+; fft:fft|state_m.test                                                                                       ; FF_X52_Y29_N25     ; 35      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; fft:fft|state_m.transform                                                                                  ; FF_X55_Y30_N31     ; 48      ; Sync. load                ; no     ; --                   ; --               ; --                        ;
+; fft:fft|state_m.transform_end                                                                              ; FF_X54_Y30_N21     ; 33      ; Clock enable, Sync. clear ; no     ; --                   ; --               ; --                        ;
+; fft:fft|state_m.wait_for_ram                                                                               ; FF_X54_Y30_N23     ; 11      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; fft:fft|wr                                                                                                 ; FF_X54_Y29_N31     ; 4       ; Write enable              ; no     ; --                   ; --               ; --                        ;
+; i2s_receiver:i2s|l_data[11]~0                                                                              ; LCCOMB_X37_Y13_N18 ; 15      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; i2s_receiver:i2s|l_data_int[23]~2                                                                          ; LCCOMB_X37_Y13_N16 ; 24      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; plot_controller:plot|Equal1~0                                                                              ; LCCOMB_X30_Y24_N20 ; 5       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; plot_controller:plot|col_x[0]~0                                                                            ; LCCOMB_X30_Y24_N28 ; 2       ; Write enable              ; no     ; --                   ; --               ; --                        ;
+; plot_controller:plot|col_x[0]~1                                                                            ; LCCOMB_X30_Y24_N14 ; 19      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
+; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|decode_97a:decode3|eq_node[0] ; LCCOMB_X51_Y29_N10 ; 16      ; Write enable              ; no     ; --                   ; --               ; --                        ;
+; vga_controller:vga|Equal0~3                                                                                ; LCCOMB_X30_Y23_N22 ; 14      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
++------------------------------------------------------------------------------------------------------------+--------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1204,7 +1211,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Name                                                                          ; Location ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +-------------------------------------------------------------------------------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 ; bclk:bclk|altpll:altpll_component|bclk_altpll:auto_generated|wire_pll1_clk[0] ; PLL_1    ; 73      ; 0                                    ; Global Clock         ; GCLK18           ; --                        ;
-; clk                                                                           ; PIN_P11  ; 1992    ; 35                                   ; Global Clock         ; GCLK19           ; --                        ;
+; clk                                                                           ; PIN_P11  ; 3394    ; 23                                   ; Global Clock         ; GCLK19           ; --                        ;
 +-------------------------------------------------------------------------------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 
 
@@ -1213,7 +1220,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------+---------+
 ; Name                   ; Fan-Out ;
 +------------------------+---------+
-; fft:fft|data[42][2]~11 ; 1408    ;
+; fft:fft|data[84][2]~11 ; 2816    ;
 +------------------------+---------+
 
 
@@ -1222,9 +1229,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+--------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
 ; Name                                                                                         ; Type ; Mode             ; Clock Mode   ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Port A Input Registers ; Port A Output Registers ; Port B Input Registers ; Port B Output Registers ; Size   ; Implementation Port A Depth ; Implementation Port A Width ; Implementation Port B Depth ; Implementation Port B Width ; Implementation Bits ; M9Ks ; MIF  ; Location                                                                                                                                                                                                                                                       ; Mixed Width RDW Mode ; Port A RDW Mode        ; Port B RDW Mode        ; ECC Mode ; ECC Pipeline Registers ; Fits in MLABs ;
 +----------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+--------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
-; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ALTSYNCRAM ; AUTO ; True Dual Port   ; Single Clock ; 512          ; 32           ; 512          ; 32           ; yes                    ; yes                     ; yes                    ; yes                     ; 16384  ; 512                         ; 32                          ; 512                         ; 32                          ; 16384               ; 2    ; None ; M9K_X33_Y21_N0, M9K_X33_Y22_N0                                                                                                                                                                                                                                 ; Old data             ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
-; plot_controller:plot|altsyncram:pixel_array_rtl_0|altsyncram_uag1:auto_generated|ALTSYNCRAM  ; AUTO ; Simple Dual Port ; Single Clock ; 256          ; 16           ; 256          ; 16           ; yes                    ; no                      ; yes                    ; no                      ; 4096   ; 256                         ; 16                          ; 256                         ; 16                          ; 4096                ; 1    ; None ; M9K_X53_Y27_N0                                                                                                                                                                                                                                                 ; Old data             ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
-; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ALTSYNCRAM      ; AUTO ; True Dual Port   ; Single Clock ; 16384        ; 16           ; 16384        ; 16           ; yes                    ; yes                     ; yes                    ; yes                     ; 262144 ; 8192                        ; 16                          ; 8192                        ; 16                          ; 131072              ; 16   ; None ; M9K_X53_Y33_N0, M9K_X53_Y26_N0, M9K_X73_Y28_N0, M9K_X73_Y26_N0, M9K_X53_Y25_N0, M9K_X73_Y34_N0, M9K_X53_Y34_N0, M9K_X53_Y35_N0, M9K_X53_Y24_N0, M9K_X53_Y32_N0, M9K_X73_Y27_N0, M9K_X53_Y29_N0, M9K_X53_Y28_N0, M9K_X73_Y31_N0, M9K_X53_Y31_N0, M9K_X53_Y30_N0 ; Old data             ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
+; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ALTSYNCRAM ; AUTO ; True Dual Port   ; Single Clock ; 512          ; 32           ; 512          ; 32           ; yes                    ; yes                     ; yes                    ; yes                     ; 16384  ; 512                         ; 32                          ; 512                         ; 32                          ; 16384               ; 2    ; None ; M9K_X33_Y30_N0, M9K_X33_Y27_N0                                                                                                                                                                                                                                 ; Old data             ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
+; plot_controller:plot|altsyncram:pixel_array_rtl_0|altsyncram_uag1:auto_generated|ALTSYNCRAM  ; AUTO ; Simple Dual Port ; Single Clock ; 256          ; 16           ; 256          ; 16           ; yes                    ; no                      ; yes                    ; no                      ; 4096   ; 256                         ; 16                          ; 256                         ; 16                          ; 4096                ; 1    ; None ; M9K_X33_Y25_N0                                                                                                                                                                                                                                                 ; Old data             ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
+; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ALTSYNCRAM      ; AUTO ; True Dual Port   ; Single Clock ; 16384        ; 16           ; 16384        ; 16           ; yes                    ; yes                     ; yes                    ; yes                     ; 262144 ; 8192                        ; 16                          ; 8192                        ; 16                          ; 131072              ; 16   ; None ; M9K_X33_Y35_N0, M9K_X33_Y32_N0, M9K_X53_Y28_N0, M9K_X73_Y35_N0, M9K_X73_Y29_N0, M9K_X53_Y33_N0, M9K_X33_Y31_N0, M9K_X53_Y35_N0, M9K_X73_Y37_N0, M9K_X33_Y28_N0, M9K_X53_Y32_N0, M9K_X53_Y31_N0, M9K_X53_Y29_N0, M9K_X33_Y29_N0, M9K_X53_Y30_N0, M9K_X33_Y33_N0 ; Old data             ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
 +----------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+--------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
 Note: Fitter may spread logical memories into multiple blocks to improve timing. The actual required RAM blocks can be found in the Fitter Resource Usage section.
 
@@ -1251,20 +1258,20 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 +---------------------------------------------------------------------------------+----------------------------+--------------------+---------------------+--------------------------------+-----------------------+-----------------------+-------------------+-----------------+
 ; Name                                                                            ; Mode                       ; Location           ; Sign Representation ; Has Input Shift Register Chain ; Data A Input Register ; Data B Input Register ; Pipeline Register ; Output Register ;
 +---------------------------------------------------------------------------------+----------------------------+--------------------+---------------------+--------------------------------+-----------------------+-----------------------+-------------------+-----------------+
-; fft:fft|lpm_mult:Mult1|mult_1es:auto_generated|mac_out2                         ; Simple Multiplier (9-bit)  ; DSPOUT_X28_Y23_N2  ;                     ; No                             ;                       ;                       ;                   ; no              ;
-;    fft:fft|lpm_mult:Mult1|mult_1es:auto_generated|mac_mult1                     ;                            ; DSPMULT_X28_Y23_N0 ; Signed              ;                                ; yes                   ; yes                   ; no                ;                 ;
-; fft:fft|lpm_mult:Mult2|mult_1es:auto_generated|mac_out2                         ; Simple Multiplier (9-bit)  ; DSPOUT_X28_Y23_N3  ;                     ; No                             ;                       ;                       ;                   ; no              ;
-;    fft:fft|lpm_mult:Mult2|mult_1es:auto_generated|mac_mult1                     ;                            ; DSPMULT_X28_Y23_N1 ; Signed              ;                                ; yes                   ; yes                   ; no                ;                 ;
-; fft:fft|butterfly:butterfly|lpm_mult:Mult0|mult_ogs:auto_generated|mac_out2     ; Simple Multiplier (18-bit) ; DSPOUT_X28_Y17_N2  ;                     ; No                             ;                       ;                       ;                   ; no              ;
-;    fft:fft|butterfly:butterfly|lpm_mult:Mult0|mult_ogs:auto_generated|mac_mult1 ;                            ; DSPMULT_X28_Y17_N0 ; Signed              ;                                ; no                    ; no                    ; no                ;                 ;
-; fft:fft|butterfly:butterfly|lpm_mult:Mult1|mult_mgs:auto_generated|mac_out2     ; Simple Multiplier (18-bit) ; DSPOUT_X28_Y18_N2  ;                     ; No                             ;                       ;                       ;                   ; no              ;
-;    fft:fft|butterfly:butterfly|lpm_mult:Mult1|mult_mgs:auto_generated|mac_mult1 ;                            ; DSPMULT_X28_Y18_N0 ; Signed              ;                                ; no                    ; no                    ; no                ;                 ;
-; fft:fft|butterfly:butterfly|lpm_mult:Mult3|mult_ogs:auto_generated|mac_out2     ; Simple Multiplier (18-bit) ; DSPOUT_X28_Y16_N2  ;                     ; No                             ;                       ;                       ;                   ; no              ;
-;    fft:fft|butterfly:butterfly|lpm_mult:Mult3|mult_ogs:auto_generated|mac_mult1 ;                            ; DSPMULT_X28_Y16_N0 ; Signed              ;                                ; no                    ; no                    ; no                ;                 ;
-; fft:fft|butterfly:butterfly|lpm_mult:Mult2|mult_mgs:auto_generated|mac_out2     ; Simple Multiplier (18-bit) ; DSPOUT_X28_Y15_N2  ;                     ; No                             ;                       ;                       ;                   ; no              ;
-;    fft:fft|butterfly:butterfly|lpm_mult:Mult2|mult_mgs:auto_generated|mac_mult1 ;                            ; DSPMULT_X28_Y15_N0 ; Signed              ;                                ; no                    ; no                    ; no                ;                 ;
-; fft:fft|lpm_mult:Mult0|mult_sks:auto_generated|mac_out2                         ; Simple Multiplier (9-bit)  ; DSPOUT_X48_Y23_N2  ;                     ; No                             ;                       ;                       ;                   ; no              ;
-;    fft:fft|lpm_mult:Mult0|mult_sks:auto_generated|mac_mult1                     ;                            ; DSPMULT_X48_Y23_N0 ; Unsigned            ;                                ; no                    ; yes                   ; no                ;                 ;
+; fft:fft|lpm_mult:Mult1|mult_1es:auto_generated|mac_out2                         ; Simple Multiplier (9-bit)  ; DSPOUT_X48_Y31_N2  ;                     ; No                             ;                       ;                       ;                   ; no              ;
+;    fft:fft|lpm_mult:Mult1|mult_1es:auto_generated|mac_mult1                     ;                            ; DSPMULT_X48_Y31_N0 ; Signed              ;                                ; yes                   ; yes                   ; no                ;                 ;
+; fft:fft|lpm_mult:Mult2|mult_1es:auto_generated|mac_out2                         ; Simple Multiplier (9-bit)  ; DSPOUT_X48_Y31_N3  ;                     ; No                             ;                       ;                       ;                   ; no              ;
+;    fft:fft|lpm_mult:Mult2|mult_1es:auto_generated|mac_mult1                     ;                            ; DSPMULT_X48_Y31_N1 ; Signed              ;                                ; yes                   ; yes                   ; no                ;                 ;
+; fft:fft|butterfly:butterfly|lpm_mult:Mult0|mult_ogs:auto_generated|mac_out2     ; Simple Multiplier (18-bit) ; DSPOUT_X48_Y26_N2  ;                     ; No                             ;                       ;                       ;                   ; no              ;
+;    fft:fft|butterfly:butterfly|lpm_mult:Mult0|mult_ogs:auto_generated|mac_mult1 ;                            ; DSPMULT_X48_Y26_N0 ; Signed              ;                                ; no                    ; no                    ; no                ;                 ;
+; fft:fft|butterfly:butterfly|lpm_mult:Mult1|mult_mgs:auto_generated|mac_out2     ; Simple Multiplier (18-bit) ; DSPOUT_X48_Y29_N2  ;                     ; No                             ;                       ;                       ;                   ; no              ;
+;    fft:fft|butterfly:butterfly|lpm_mult:Mult1|mult_mgs:auto_generated|mac_mult1 ;                            ; DSPMULT_X48_Y29_N0 ; Signed              ;                                ; no                    ; no                    ; no                ;                 ;
+; fft:fft|butterfly:butterfly|lpm_mult:Mult3|mult_ogs:auto_generated|mac_out2     ; Simple Multiplier (18-bit) ; DSPOUT_X48_Y30_N2  ;                     ; No                             ;                       ;                       ;                   ; no              ;
+;    fft:fft|butterfly:butterfly|lpm_mult:Mult3|mult_ogs:auto_generated|mac_mult1 ;                            ; DSPMULT_X48_Y30_N0 ; Signed              ;                                ; no                    ; no                    ; no                ;                 ;
+; fft:fft|butterfly:butterfly|lpm_mult:Mult2|mult_mgs:auto_generated|mac_out2     ; Simple Multiplier (18-bit) ; DSPOUT_X48_Y28_N2  ;                     ; No                             ;                       ;                       ;                   ; no              ;
+;    fft:fft|butterfly:butterfly|lpm_mult:Mult2|mult_mgs:auto_generated|mac_mult1 ;                            ; DSPMULT_X48_Y28_N0 ; Signed              ;                                ; no                    ; no                    ; no                ;                 ;
+; fft:fft|lpm_mult:Mult0|mult_0ls:auto_generated|mac_out2                         ; Simple Multiplier (9-bit)  ; DSPOUT_X48_Y27_N2  ;                     ; No                             ;                       ;                       ;                   ; no              ;
+;    fft:fft|lpm_mult:Mult0|mult_0ls:auto_generated|mac_mult1                     ;                            ; DSPMULT_X48_Y27_N0 ; Unsigned            ;                                ; no                    ; yes                   ; no                ;                 ;
 +---------------------------------------------------------------------------------+----------------------------+--------------------+---------------------+--------------------------------+-----------------------+-----------------------+-------------------+-----------------+
 
 
@@ -1273,166 +1280,163 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 +-----------------------+-------------------------+
 ; Routing Resource Type ; Usage                   ;
 +-----------------------+-------------------------+
-; Block interconnects   ; 3,949 / 148,641 ( 3 % ) ;
-; C16 interconnects     ; 46 / 5,382 ( < 1 % )    ;
-; C4 interconnects      ; 1,683 / 106,704 ( 2 % ) ;
-; Direct links          ; 879 / 148,641 ( < 1 % ) ;
+; Block interconnects   ; 6,234 / 148,641 ( 4 % ) ;
+; C16 interconnects     ; 55 / 5,382 ( 1 % )      ;
+; C4 interconnects      ; 2,361 / 106,704 ( 2 % ) ;
+; Direct links          ; 1,678 / 148,641 ( 1 % ) ;
 ; Global clocks         ; 2 / 20 ( 10 % )         ;
-; Local interconnects   ; 1,864 / 49,760 ( 4 % )  ;
+; Local interconnects   ; 3,224 / 49,760 ( 6 % )  ;
 ; NSLEEPs               ; 0 / 500 ( 0 % )         ;
-; R24 interconnects     ; 77 / 5,406 ( 1 % )      ;
-; R4 interconnects      ; 2,402 / 147,764 ( 2 % ) ;
+; R24 interconnects     ; 110 / 5,406 ( 2 % )     ;
+; R4 interconnects      ; 3,770 / 147,764 ( 3 % ) ;
 +-----------------------+-------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Logic Elements                                                          ;
 +---------------------------------------------+-------------------------------+
-; Number of Logic Elements  (Average = 14.03) ; Number of LABs  (Total = 203) ;
+; Number of Logic Elements  (Average = 13.89) ; Number of LABs  (Total = 332) ;
 +---------------------------------------------+-------------------------------+
-; 1                                           ; 7                             ;
-; 2                                           ; 5                             ;
+; 1                                           ; 14                            ;
+; 2                                           ; 15                            ;
 ; 3                                           ; 1                             ;
-; 4                                           ; 2                             ;
-; 5                                           ; 2                             ;
+; 4                                           ; 0                             ;
+; 5                                           ; 4                             ;
 ; 6                                           ; 2                             ;
-; 7                                           ; 4                             ;
-; 8                                           ; 1                             ;
+; 7                                           ; 1                             ;
+; 8                                           ; 3                             ;
 ; 9                                           ; 6                             ;
 ; 10                                          ; 1                             ;
-; 11                                          ; 0                             ;
-; 12                                          ; 2                             ;
-; 13                                          ; 5                             ;
-; 14                                          ; 6                             ;
-; 15                                          ; 19                            ;
-; 16                                          ; 140                           ;
+; 11                                          ; 2                             ;
+; 12                                          ; 6                             ;
+; 13                                          ; 13                            ;
+; 14                                          ; 10                            ;
+; 15                                          ; 29                            ;
+; 16                                          ; 225                           ;
 +---------------------------------------------+-------------------------------+
 
 
 +--------------------------------------------------------------------+
 ; LAB-wide Signals                                                   ;
 +------------------------------------+-------------------------------+
-; LAB-wide Signals  (Average = 1.75) ; Number of LABs  (Total = 203) ;
+; LAB-wide Signals  (Average = 1.73) ; Number of LABs  (Total = 332) ;
 +------------------------------------+-------------------------------+
-; 1 Clock                            ; 177                           ;
-; 1 Clock enable                     ; 153                           ;
-; 1 Sync. clear                      ; 4                             ;
-; 1 Sync. load                       ; 15                            ;
-; 2 Clock enables                    ; 6                             ;
+; 1 Clock                            ; 287                           ;
+; 1 Clock enable                     ; 255                           ;
+; 1 Sync. load                       ; 21                            ;
+; 2 Clock enables                    ; 13                            ;
 +------------------------------------+-------------------------------+
 
 
 +------------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                          ;
 +----------------------------------------------+-------------------------------+
-; Number of Signals Sourced  (Average = 23.97) ; Number of LABs  (Total = 203) ;
+; Number of Signals Sourced  (Average = 24.19) ; Number of LABs  (Total = 332) ;
 +----------------------------------------------+-------------------------------+
 ; 0                                            ; 0                             ;
-; 1                                            ; 4                             ;
-; 2                                            ; 6                             ;
-; 3                                            ; 0                             ;
-; 4                                            ; 3                             ;
+; 1                                            ; 7                             ;
+; 2                                            ; 15                            ;
+; 3                                            ; 1                             ;
+; 4                                            ; 6                             ;
 ; 5                                            ; 0                             ;
-; 6                                            ; 1                             ;
-; 7                                            ; 4                             ;
-; 8                                            ; 1                             ;
-; 9                                            ; 1                             ;
-; 10                                           ; 3                             ;
+; 6                                            ; 3                             ;
+; 7                                            ; 1                             ;
+; 8                                            ; 3                             ;
+; 9                                            ; 2                             ;
+; 10                                           ; 2                             ;
 ; 11                                           ; 1                             ;
 ; 12                                           ; 5                             ;
-; 13                                           ; 1                             ;
-; 14                                           ; 2                             ;
+; 13                                           ; 5                             ;
+; 14                                           ; 7                             ;
 ; 15                                           ; 3                             ;
-; 16                                           ; 15                            ;
-; 17                                           ; 2                             ;
-; 18                                           ; 7                             ;
+; 16                                           ; 17                            ;
+; 17                                           ; 5                             ;
+; 18                                           ; 8                             ;
 ; 19                                           ; 4                             ;
-; 20                                           ; 2                             ;
-; 21                                           ; 0                             ;
-; 22                                           ; 1                             ;
-; 23                                           ; 4                             ;
-; 24                                           ; 12                            ;
+; 20                                           ; 0                             ;
+; 21                                           ; 4                             ;
+; 22                                           ; 4                             ;
+; 23                                           ; 6                             ;
+; 24                                           ; 4                             ;
 ; 25                                           ; 7                             ;
-; 26                                           ; 4                             ;
-; 27                                           ; 1                             ;
-; 28                                           ; 11                            ;
-; 29                                           ; 6                             ;
-; 30                                           ; 18                            ;
-; 31                                           ; 15                            ;
-; 32                                           ; 59                            ;
+; 26                                           ; 11                            ;
+; 27                                           ; 14                            ;
+; 28                                           ; 15                            ;
+; 29                                           ; 19                            ;
+; 30                                           ; 34                            ;
+; 31                                           ; 21                            ;
+; 32                                           ; 98                            ;
 +----------------------------------------------+-------------------------------+
 
 
 +---------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                         ;
 +-------------------------------------------------+-------------------------------+
-; Number of Signals Sourced Out  (Average = 7.62) ; Number of LABs  (Total = 203) ;
+; Number of Signals Sourced Out  (Average = 6.81) ; Number of LABs  (Total = 332) ;
 +-------------------------------------------------+-------------------------------+
 ; 0                                               ; 0                             ;
-; 1                                               ; 11                            ;
-; 2                                               ; 10                            ;
-; 3                                               ; 15                            ;
-; 4                                               ; 11                            ;
-; 5                                               ; 32                            ;
-; 6                                               ; 22                            ;
-; 7                                               ; 14                            ;
-; 8                                               ; 14                            ;
-; 9                                               ; 11                            ;
-; 10                                              ; 11                            ;
-; 11                                              ; 10                            ;
-; 12                                              ; 8                             ;
-; 13                                              ; 8                             ;
-; 14                                              ; 5                             ;
-; 15                                              ; 8                             ;
+; 1                                               ; 20                            ;
+; 2                                               ; 24                            ;
+; 3                                               ; 9                             ;
+; 4                                               ; 23                            ;
+; 5                                               ; 51                            ;
+; 6                                               ; 52                            ;
+; 7                                               ; 28                            ;
+; 8                                               ; 38                            ;
+; 9                                               ; 22                            ;
+; 10                                              ; 19                            ;
+; 11                                              ; 6                             ;
+; 12                                              ; 10                            ;
+; 13                                              ; 9                             ;
+; 14                                              ; 8                             ;
+; 15                                              ; 3                             ;
 ; 16                                              ; 10                            ;
-; 17                                              ; 0                             ;
-; 18                                              ; 1                             ;
-; 19                                              ; 2                             ;
 +-------------------------------------------------+-------------------------------+
 
 
 +------------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                          ;
 +----------------------------------------------+-------------------------------+
-; Number of Distinct Inputs  (Average = 13.04) ; Number of LABs  (Total = 203) ;
+; Number of Distinct Inputs  (Average = 12.32) ; Number of LABs  (Total = 332) ;
 +----------------------------------------------+-------------------------------+
 ; 0                                            ; 0                             ;
 ; 1                                            ; 0                             ;
-; 2                                            ; 4                             ;
-; 3                                            ; 4                             ;
-; 4                                            ; 4                             ;
-; 5                                            ; 21                            ;
-; 6                                            ; 16                            ;
-; 7                                            ; 8                             ;
-; 8                                            ; 15                            ;
-; 9                                            ; 14                            ;
-; 10                                           ; 12                            ;
-; 11                                           ; 10                            ;
-; 12                                           ; 6                             ;
-; 13                                           ; 9                             ;
-; 14                                           ; 7                             ;
-; 15                                           ; 12                            ;
-; 16                                           ; 4                             ;
-; 17                                           ; 5                             ;
-; 18                                           ; 8                             ;
+; 2                                            ; 5                             ;
+; 3                                            ; 8                             ;
+; 4                                            ; 11                            ;
+; 5                                            ; 6                             ;
+; 6                                            ; 62                            ;
+; 7                                            ; 13                            ;
+; 8                                            ; 18                            ;
+; 9                                            ; 23                            ;
+; 10                                           ; 14                            ;
+; 11                                           ; 21                            ;
+; 12                                           ; 19                            ;
+; 13                                           ; 23                            ;
+; 14                                           ; 13                            ;
+; 15                                           ; 18                            ;
+; 16                                           ; 9                             ;
+; 17                                           ; 7                             ;
+; 18                                           ; 12                            ;
 ; 19                                           ; 5                             ;
-; 20                                           ; 5                             ;
-; 21                                           ; 6                             ;
-; 22                                           ; 4                             ;
-; 23                                           ; 2                             ;
-; 24                                           ; 0                             ;
-; 25                                           ; 0                             ;
-; 26                                           ; 3                             ;
-; 27                                           ; 0                             ;
-; 28                                           ; 2                             ;
-; 29                                           ; 0                             ;
-; 30                                           ; 3                             ;
-; 31                                           ; 1                             ;
-; 32                                           ; 1                             ;
-; 33                                           ; 2                             ;
+; 20                                           ; 4                             ;
+; 21                                           ; 7                             ;
+; 22                                           ; 3                             ;
+; 23                                           ; 1                             ;
+; 24                                           ; 1                             ;
+; 25                                           ; 1                             ;
+; 26                                           ; 2                             ;
+; 27                                           ; 1                             ;
+; 28                                           ; 5                             ;
+; 29                                           ; 3                             ;
+; 30                                           ; 2                             ;
+; 31                                           ; 3                             ;
+; 32                                           ; 0                             ;
+; 33                                           ; 1                             ;
 ; 34                                           ; 5                             ;
-; 35                                           ; 3                             ;
-; 36                                           ; 1                             ;
+; 35                                           ; 2                             ;
+; 36                                           ; 2                             ;
+; 37                                           ; 2                             ;
 +----------------------------------------------+-------------------------------+
 
 
@@ -1563,98 +1567,72 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 +-----------------+----------------------+-------------------+
 ; Source Clock(s) ; Destination Clock(s) ; Delay Added in ns ;
 +-----------------+----------------------+-------------------+
-; clk             ; clk                  ; 22.2              ;
+; clk             ; clk                  ; 9.0               ;
 +-----------------+----------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Estimated Delay Added for Hold Timing Details                                                                                                                             ;
-+-----------------------------------+-------------------------------------------------------------------------------------------------------------------+-------------------+
-; Source Register                   ; Destination Register                                                                                              ; Delay Added in ns ;
-+-----------------------------------+-------------------------------------------------------------------------------------------------------------------+-------------------+
-; fft:fft|dataAi[24]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a24~porta_datain_reg0 ; 0.524             ;
-; fft:fft|dataBi[7]                 ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a7~portb_datain_reg0  ; 0.385             ;
-; fft:fft|dataBi[3]                 ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a3~portb_datain_reg0  ; 0.385             ;
-; fft:fft|dataBi[0]                 ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a0~portb_datain_reg0  ; 0.385             ;
-; fft:fft|dataBi[10]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a10~portb_datain_reg0 ; 0.385             ;
-; fft:fft|dataBi[9]                 ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a9~portb_datain_reg0  ; 0.385             ;
-; fft:fft|dataBi[15]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a15~portb_datain_reg0 ; 0.385             ;
-; fft:fft|dataBi[5]                 ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a5~portb_datain_reg0  ; 0.385             ;
-; fft:fft|dataBi[13]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a13~portb_datain_reg0 ; 0.385             ;
-; fft:fft|dataBi[11]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a11~portb_datain_reg0 ; 0.385             ;
-; fft:fft|dataBi[4]                 ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a4~portb_datain_reg0  ; 0.385             ;
-; fft:fft|dataBi[6]                 ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a6~portb_datain_reg0  ; 0.385             ;
-; fft:fft|dataAi[17]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a17~porta_datain_reg0 ; 0.374             ;
-; fft:fft|dataAi[8]                 ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a8~porta_datain_reg0  ; 0.374             ;
-; fft:fft|dataAi[3]                 ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a3~porta_datain_reg0  ; 0.374             ;
-; fft:fft|dataAi[1]                 ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a1~porta_datain_reg0  ; 0.374             ;
-; fft:fft|dataAi[0]                 ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a0~porta_datain_reg0  ; 0.374             ;
-; fft:fft|dataAi[10]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a10~porta_datain_reg0 ; 0.374             ;
-; fft:fft|dataAi[9]                 ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a9~porta_datain_reg0  ; 0.374             ;
-; fft:fft|dataAi[14]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a14~porta_datain_reg0 ; 0.374             ;
-; fft:fft|dataAi[12]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a12~porta_datain_reg0 ; 0.374             ;
-; fft:fft|dataAi[5]                 ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a5~porta_datain_reg0  ; 0.374             ;
-; fft:fft|dataAi[11]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a11~porta_datain_reg0 ; 0.374             ;
-; plot_controller:plot|addressA[2]  ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a7~porta_address_reg0      ; 0.257             ;
-; plot_controller:plot|addressA[3]  ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a0~porta_address_reg0      ; 0.257             ;
-; fft:fft|general_ram_addr[0]       ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a12~portb_address_reg0     ; 0.242             ;
-; fft:fft|general_ram_addr[1]       ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a12~portb_address_reg0     ; 0.242             ;
-; fft:fft|general_ram_addr[2]       ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a12~portb_address_reg0     ; 0.242             ;
-; fft:fft|general_ram_addr[4]       ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a12~portb_address_reg0     ; 0.242             ;
-; fft:fft|general_ram_addr[3]       ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a0~portb_address_reg0      ; 0.242             ;
-; fft:fft|general_ram_addr[5]       ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a0~portb_address_reg0      ; 0.234             ;
-; fft:fft|dataAi[25]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a25~porta_datain_reg0 ; 0.228             ;
-; plot_controller:plot|addressA[0]  ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a12~porta_address_reg0     ; 0.218             ;
-; plot_controller:plot|addressA[4]  ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a12~porta_address_reg0     ; 0.218             ;
-; plot_controller:plot|addressA[1]  ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a0~porta_address_reg0      ; 0.168             ;
-; plot_controller:plot|addressA[7]  ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a0~porta_address_reg0      ; 0.116             ;
-; plot_controller:plot|addressA[9]  ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a0~porta_address_reg0      ; 0.116             ;
-; fft:fft|next_state.butterfly_step ; fft:fft|state_m.butterfly_step                                                                                    ; 0.110             ;
-; vga_controller:vga|pixel_x[5]     ; plot_controller:plot|current_column[3]                                                                            ; 0.102             ;
-; fft:fft|next_state.transform_end  ; fft:fft|state_m.transform_end                                                                                     ; 0.101             ;
-; fft:fft|dataBi[25]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a25~portb_datain_reg0 ; 0.092             ;
-; fft:fft|dataBi[24]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a24~portb_datain_reg0 ; 0.092             ;
-; fft:fft|dataBi[29]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a29~portb_datain_reg0 ; 0.089             ;
-; fft:fft|dataBi[26]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a26~portb_datain_reg0 ; 0.089             ;
-; fft:fft|dataBi[27]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a27~portb_datain_reg0 ; 0.089             ;
-; fft:fft|dataBi[28]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a28~portb_datain_reg0 ; 0.089             ;
-; fft:fft|dataBi[31]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a31~portb_datain_reg0 ; 0.089             ;
-; fft:fft|dataBi[12]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a12~portb_datain_reg0 ; 0.089             ;
-; fft:fft|dataBi[30]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a30~portb_datain_reg0 ; 0.089             ;
-; plot_controller:plot|addressA[6]  ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a0~porta_address_reg0      ; 0.083             ;
-; plot_controller:plot|addressA[8]  ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a0~porta_address_reg0      ; 0.083             ;
-; fft:fft|dataBi[1]                 ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a1~portb_datain_reg0  ; 0.079             ;
-; fft:fft|dataAi[30]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a30~porta_datain_reg0 ; 0.078             ;
-; fft:fft|dataAi[31]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a31~porta_datain_reg0 ; 0.078             ;
-; fft:fft|dataAi[28]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a28~porta_datain_reg0 ; 0.078             ;
-; fft:fft|dataAi[29]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a29~porta_datain_reg0 ; 0.078             ;
-; fft:fft|dataAi[26]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a26~porta_datain_reg0 ; 0.078             ;
-; fft:fft|dataAi[27]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a27~porta_datain_reg0 ; 0.078             ;
-; fft:fft|dataAi[7]                 ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a7~porta_datain_reg0  ; 0.078             ;
-; fft:fft|dataBi[8]                 ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a8~portb_datain_reg0  ; 0.078             ;
-; fft:fft|dataBi[2]                 ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a2~portb_datain_reg0  ; 0.067             ;
-; fft:fft|dataAi[15]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a15~porta_datain_reg0 ; 0.067             ;
-; fft:fft|dataAi[13]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a13~porta_datain_reg0 ; 0.067             ;
-; plot_controller:plot|col_x[0]     ; plot_controller:plot|pixel_array_rtl_0_bypass[1]                                                                  ; 0.063             ;
-; plot_controller:plot|col_x[1]     ; plot_controller:plot|pixel_array_rtl_0_bypass[3]                                                                  ; 0.063             ;
-; plot_controller:plot|col_x[4]     ; plot_controller:plot|pixel_array_rtl_0_bypass[9]                                                                  ; 0.063             ;
-; plot_controller:plot|col_x[5]     ; plot_controller:plot|pixel_array_rtl_0_bypass[11]                                                                 ; 0.063             ;
-; fft:fft|dataAi[6]                 ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a6~porta_datain_reg0  ; 0.062             ;
-; fft:fft|dataAi[16]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a16~porta_datain_reg0 ; 0.057             ;
-; vga_controller:vga|h_counter[6]   ; plot_controller:plot|altsyncram:pixel_array_rtl_0|altsyncram_uag1:auto_generated|ram_block1a8~portb_address_reg0  ; 0.056             ;
-; vga_controller:vga|h_counter[5]   ; plot_controller:plot|altsyncram:pixel_array_rtl_0|altsyncram_uag1:auto_generated|ram_block1a8~portb_address_reg0  ; 0.056             ;
-; fft:fft|dataBi[14]                ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a14~portb_datain_reg0 ; 0.054             ;
-; vga_controller:vga|h_counter[8]   ; plot_controller:plot|altsyncram:pixel_array_rtl_0|altsyncram_uag1:auto_generated|ram_block1a8~portb_address_reg0  ; 0.052             ;
-; vga_controller:vga|h_counter[4]   ; plot_controller:plot|altsyncram:pixel_array_rtl_0|altsyncram_uag1:auto_generated|ram_block1a8~portb_address_reg0  ; 0.052             ;
-; vga_controller:vga|h_counter[9]   ; plot_controller:plot|altsyncram:pixel_array_rtl_0|altsyncram_uag1:auto_generated|ram_block1a8~portb_address_reg0  ; 0.052             ;
-; vga_controller:vga|h_counter[2]   ; plot_controller:plot|altsyncram:pixel_array_rtl_0|altsyncram_uag1:auto_generated|ram_block1a8~portb_address_reg0  ; 0.045             ;
-; fft:fft|dataAi[4]                 ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a4~porta_datain_reg0  ; 0.044             ;
-; vga_controller:vga|h_counter[7]   ; plot_controller:plot|altsyncram:pixel_array_rtl_0|altsyncram_uag1:auto_generated|ram_block1a8~portb_address_reg0  ; 0.041             ;
-; vga_controller:vga|h_counter[3]   ; plot_controller:plot|altsyncram:pixel_array_rtl_0|altsyncram_uag1:auto_generated|ram_block1a8~portb_address_reg0  ; 0.027             ;
-+-----------------------------------+-------------------------------------------------------------------------------------------------------------------+-------------------+
-Note: This table only shows the top 79 path(s) that have the largest delay added for hold.
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Details                                                                                                                                   ;
++-----------------------------------------+-------------------------------------------------------------------------------------------------------------------+-------------------+
+; Source Register                         ; Destination Register                                                                                              ; Delay Added in ns ;
++-----------------------------------------+-------------------------------------------------------------------------------------------------------------------+-------------------+
+; fft:fft|general_ram_addr[0]             ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a0~portb_address_reg0      ; 0.391             ;
+; fft:fft|general_ram_addr[1]             ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a0~portb_address_reg0      ; 0.391             ;
+; plot_controller:plot|addressA[0]        ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a5~porta_address_reg0      ; 0.391             ;
+; fft:fft|general_ram_addr[3]             ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a0~portb_address_reg0      ; 0.391             ;
+; fft:fft|dataBi[3]                       ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a3~portb_datain_reg0  ; 0.386             ;
+; fft:fft|dataBi[5]                       ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a5~portb_datain_reg0  ; 0.386             ;
+; fft:fft|dataBi[4]                       ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a4~portb_datain_reg0  ; 0.386             ;
+; fft:fft|general_ram_addr[2]             ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a0~portb_address_reg0      ; 0.262             ;
+; fft:fft|general_ram_addr[5]             ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a0~portb_address_reg0      ; 0.259             ;
+; fft:fft|general_ram_addr[12]            ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a0~portb_address_reg0      ; 0.259             ;
+; fft:fft|general_ram_addr[7]             ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a0~portb_address_reg0      ; 0.256             ;
+; fft:fft|general_ram_addr[8]             ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a0~portb_address_reg0      ; 0.254             ;
+; fft:fft|general_ram_addr[6]             ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a0~portb_address_reg0      ; 0.242             ;
+; fft:fft|general_ram_addr[4]             ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a0~portb_address_reg0      ; 0.240             ;
+; fft:fft|general_ram_addr[9]             ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a0~portb_address_reg0      ; 0.220             ;
+; fft:fft|general_ram_addr[11]            ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a0~portb_address_reg0      ; 0.172             ;
+; fft:fft|general_ram_data[7]             ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a7~portb_datain_reg0       ; 0.141             ;
+; fft:fft|general_ram_addr[10]            ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a0~portb_address_reg0      ; 0.137             ;
+; vga_controller:vga|pixel_x[4]           ; plot_controller:plot|current_column[2]                                                                            ; 0.113             ;
+; fft:fft|next_state.transform_end        ; fft:fft|state_m.transform_end                                                                                     ; 0.102             ;
+; fft:fft|dataBi[2]                       ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a2~portb_datain_reg0  ; 0.090             ;
+; fft:fft|dataBi[1]                       ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a1~portb_datain_reg0  ; 0.090             ;
+; fft:fft|dataBi[0]                       ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a0~portb_datain_reg0  ; 0.090             ;
+; fft:fft|dataBi[6]                       ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a6~portb_datain_reg0  ; 0.090             ;
+; fft:fft|dataAi[4]                       ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a4~porta_datain_reg0  ; 0.079             ;
+; fft:fft|dataAi[3]                       ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a3~porta_datain_reg0  ; 0.079             ;
+; fft:fft|dataAi[0]                       ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a0~porta_datain_reg0  ; 0.079             ;
+; fft:fft|dataBi[7]                       ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a7~portb_datain_reg0  ; 0.067             ;
+; fft:fft|dataBi[8]                       ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a8~portb_datain_reg0  ; 0.067             ;
+; plot_controller:plot|col_x[3]           ; plot_controller:plot|pixel_array_rtl_0_bypass[7]                                                                  ; 0.066             ;
+; plot_controller:plot|col_x[4]           ; plot_controller:plot|pixel_array_rtl_0_bypass[9]                                                                  ; 0.066             ;
+; plot_controller:plot|col_x[5]           ; plot_controller:plot|pixel_array_rtl_0_bypass[11]                                                                 ; 0.066             ;
+; fft:fft|dataBi[12]                      ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a12~portb_datain_reg0 ; 0.062             ;
+; fft:fft|dataBi[14]                      ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a14~portb_datain_reg0 ; 0.062             ;
+; plot_controller:plot|addressA[1]        ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a5~porta_address_reg0      ; 0.058             ;
+; plot_controller:plot|addressA[3]        ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a5~porta_address_reg0      ; 0.058             ;
+; fft:fft|dataAi[15]                      ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a15~porta_datain_reg0 ; 0.056             ;
+; fft:fft|dataAi[8]                       ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a8~porta_datain_reg0  ; 0.056             ;
+; fft:fft|dataAi[10]                      ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a10~porta_datain_reg0 ; 0.056             ;
+; fft:fft|dataAi[14]                      ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a14~porta_datain_reg0 ; 0.051             ;
+; fft:fft|dataAi[13]                      ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a13~porta_datain_reg0 ; 0.051             ;
+; fft:fft|dataAi[11]                      ; fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated|ram_block1a11~porta_datain_reg0 ; 0.051             ;
+; vga_controller:vga|pixel_x[3]           ; plot_controller:plot|altsyncram:pixel_array_rtl_0|altsyncram_uag1:auto_generated|ram_block1a8~porta_address_reg0  ; 0.050             ;
+; plot_controller:plot|col_x[1]           ; plot_controller:plot|altsyncram:pixel_array_rtl_0|altsyncram_uag1:auto_generated|ram_block1a8~porta_address_reg0  ; 0.050             ;
+; plot_controller:plot|pixel_counter_x[3] ; plot_controller:plot|altsyncram:pixel_array_rtl_0|altsyncram_uag1:auto_generated|ram_block1a8~porta_address_reg0  ; 0.050             ;
+; plot_controller:plot|pixel_counter_x[2] ; plot_controller:plot|altsyncram:pixel_array_rtl_0|altsyncram_uag1:auto_generated|ram_block1a8~porta_address_reg0  ; 0.050             ;
+; plot_controller:plot|pixel_counter_x[4] ; plot_controller:plot|altsyncram:pixel_array_rtl_0|altsyncram_uag1:auto_generated|ram_block1a8~porta_address_reg0  ; 0.050             ;
+; plot_controller:plot|pixel_counter_x[1] ; plot_controller:plot|altsyncram:pixel_array_rtl_0|altsyncram_uag1:auto_generated|ram_block1a8~porta_address_reg0  ; 0.050             ;
+; plot_controller:plot|pixel_counter_x[0] ; plot_controller:plot|altsyncram:pixel_array_rtl_0|altsyncram_uag1:auto_generated|ram_block1a8~porta_address_reg0  ; 0.050             ;
+; vga_controller:vga|pixel_x[2]           ; plot_controller:plot|altsyncram:pixel_array_rtl_0|altsyncram_uag1:auto_generated|ram_block1a8~porta_address_reg0  ; 0.050             ;
+; plot_controller:plot|col_x[0]           ; plot_controller:plot|altsyncram:pixel_array_rtl_0|altsyncram_uag1:auto_generated|ram_block1a8~porta_address_reg0  ; 0.050             ;
+; plot_controller:plot|col_x[2]           ; plot_controller:plot|altsyncram:pixel_array_rtl_0|altsyncram_uag1:auto_generated|ram_block1a8~porta_address_reg0  ; 0.050             ;
+; plot_controller:plot|addressA[5]        ; shift_reg:reg|altsyncram:altsyncram_component|altsyncram_00p3:auto_generated|ram_block1a5~porta_address_reg0      ; 0.050             ;
++-----------------------------------------+-------------------------------------------------------------------------------------------------------------------+-------------------+
+Note: This table only shows the top 53 path(s) that have the largest delay added for hold.
 
 
 +-----------------+
@@ -1716,38 +1694,38 @@ Info (176353): Automatically promoted node clk~input (placed in PIN P11 (CLK7p, 
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G19
 Info (176233): Starting register packing
 Info (176235): Finished register packing
-    Extra Info (176218): Packed 43 registers into blocks of type Embedded multiplier block
-    Extra Info (176220): Created 26 register duplicates
+    Extra Info (176218): Packed 44 registers into blocks of type Embedded multiplier block
+    Extra Info (176220): Created 27 register duplicates
 Warning (15064): PLL "bclk:bclk|altpll:altpll_component|bclk_altpll:auto_generated|pll1" output port clk[0] feeds output pin "sclk~output" via non-dedicated routing -- jitter performance depends on switching rate of other design elements. Use PLL dedicated clock outputs to ensure jitter performance File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/bclk_altpll.v Line: 44
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:04
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:06
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
-Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:01
+Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:02
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:08
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:12
 Info (170193): Fitter routing operations beginning
-Info (170195): Router estimated average interconnect usage is 1% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 10% of the available device resources in the region that extends from location X45_Y22 to location X55_Y32
+Info (170195): Router estimated average interconnect usage is 2% of the available device resources
+    Info (170196): Router estimated peak interconnect usage is 17% of the available device resources in the region that extends from location X45_Y22 to location X55_Y32
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:07
-Info (11888): Total time spent on timing analysis during the Fitter is 2.91 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:12
+Info (11888): Total time spent on timing analysis during the Fitter is 4.97 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:07
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:10
 Warning (169177): 3 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 2.5-V interfaces. For more information, refer to AN 447: Interfacing MAX 10 Devices with 3.3/3.0/2.5-V LVTTL/LVCMOS I/O Systems.
     Info (169178): Pin clk uses I/O standard 3.3-V LVTTL at P11 File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 9
     Info (169178): Pin switch uses I/O standard 3.3-V LVTTL at C10 File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 21
     Info (169178): Pin din uses I/O standard 3.3-V LVTTL at AB9 File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 19
 Info (144001): Generated suppressed messages file /home/tomek/vhdl/spctr/spectrum_analyzer/output_files/spectrum_analyzer.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 11 warnings
-    Info: Peak virtual memory: 888 megabytes
-    Info: Processing ended: Tue Nov  8 02:55:48 2022
-    Info: Elapsed time: 00:00:36
-    Info: Total CPU time (on all processors): 00:00:51
+    Info: Peak virtual memory: 912 megabytes
+    Info: Processing ended: Tue Nov  8 03:02:33 2022
+    Info: Elapsed time: 00:00:52
+    Info: Total CPU time (on all processors): 00:01:14
 
 
 +----------------------------+

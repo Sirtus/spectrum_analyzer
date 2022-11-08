@@ -141,17 +141,17 @@ begin
                     wr <= '0';
                     if counter_n > isignal_t'high-1 then
                         if counter_m = LOG_N then
-                            if fft_counter = 5 then
+                            -- if fft_counter = 5 then
                                 fft_counter <= 0;
                                 state_m <= wait_for_ram;
                                 next_state <= transform_end;
                                 addrA <= (others => '0');
                                 general_ram_addr <= (others => '0');
                                 counter_n <= (others => '0');  
-                            else
-                                fft_counter <= fft_counter + 1;
-                                state_m <= idle;
-                            end if;
+                            -- else
+                            --     fft_counter <= fft_counter + 1;
+                            --     state_m <= idle;
+                            -- end if;
 
                         else
                             counter_m <= counter_m + 1;
