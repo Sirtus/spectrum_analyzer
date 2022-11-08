@@ -50,6 +50,8 @@ architecture rtl of fft is
 
     signal counter_n_inversed1, counter_n_inversed2: unsigned(LOG_N downto 0):= (others => '0');
     signal block_shift, block_shift_div2: integer range 0 to N := 0;
+    signal do_butterfly_step: boolean := false;
+    signal dA, dB: cplx := (others => 0);
 
     
 begin
@@ -87,7 +89,7 @@ begin
     process(clk)
 
     variable adA, adB: integer := 0;
-    variable dA, dB: cplx := (others => 0);
+    -- variable dA, dB: cplx := (others => 0);
     -- variable counter_n_inversed1, counter_n_inversed2: unsigned(LOG_N downto 0):= (others => '0');
     variable wait_counter: integer range 0 to 7 := 0;
     variable column_counter: integer range 0 to 63 := 0;
@@ -159,7 +161,7 @@ begin
                         end if;
                     else
 
-                        if (pair_counter mod (block_shift)) < block_shift_div2 then
+                        if do_butterfly_step then
                             adA := pair_counter;
                             adB := pair_counter + block_shift_div2;
                             addrA <= std_logic_vector(to_unsigned(adA, addrA'length));
@@ -185,7 +187,7 @@ begin
                 when butterfly_step =>
                     x <= (to_integer(signed(dataAo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH))), to_integer(signed(dataAo(WORD_WIDTH-1 downto 0))));
                     y <= (to_integer(signed(dataBo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH))), to_integer(signed(dataBo(WORD_WIDTH-1 downto 0))));
-                    alpha <= (pair_counter mod (block_shift_div2)) * counter_divider/2 ; --((alpha_counter mod 2**counter_m) * counter_divider/2);
+                    -- alpha <= (pair_counter mod (block_shift_div2)) * counter_divider/2 ; --((alpha_counter mod 2**counter_m) * counter_divider/2);
                     state_m <= save_data;
                     do_btfly_step <= '1';
 
@@ -218,8 +220,8 @@ begin
                         adA := to_integer(counter_n) + last_column_addr;
                         general_ram_addr <= std_logic_vector(to_unsigned(adA, general_ram_addr'length));
                         addrA <= std_logic_vector(counter_n + 1);
-                        dA := (to_integer(signed(dataAo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH+7))), to_integer(signed(dataAo(WORD_WIDTH-1 downto 7))));
-                        new_data2 <= ((dA(0) * dA(0)) + (dA(1) * dA(1)));
+                        dA <= (to_integer(signed(dataAo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH+7))), to_integer(signed(dataAo(WORD_WIDTH-1 downto 7))));
+                        -- new_data2 <= ((dA(0) * dA(0)) + (dA(1) * dA(1)));
                         state_m <= test;
                     end if;
 
@@ -242,6 +244,9 @@ begin
 
     block_shift <= 2**(counter_m);
     block_shift_div2 <= 2**(counter_m-1);
+    alpha <= (pair_counter mod (block_shift_div2)) * counter_divider/2 ;
+    do_butterfly_step <= (pair_counter mod (block_shift)) < block_shift_div2;
+    new_data2 <= ((dA(0) * dA(0)) + (dA(1) * dA(1)));
 
     -- INV_VECT : process(counter_n)
     -- begin
