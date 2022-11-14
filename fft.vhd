@@ -14,7 +14,7 @@ entity fft is
         -- res: out osignal_t;
         wr_en: in std_logic;
         data_in: in std_logic_vector(23 downto 0);
-        general_ram_addr: out std_logic_vector(13 downto 0);
+        general_ram_addr: out std_logic_vector(14 downto 0);
         general_ram_data: out std_logic_vector(15 downto 0);
         general_ram_wren: out std_logic;
         last_column: out integer range 0 to 255 := 0
@@ -54,7 +54,7 @@ architecture rtl of fft is
     signal block_shift, block_shift_div2: integer range 0 to N := 0;
     signal do_butterfly_step: boolean := false;
     signal dA, dB: cplx := (others => 0);
-    signal column_counter: integer range 0 to 127 := 0;
+    signal column_counter: integer range 0 to 199 := 0;
     signal triangle_function_0, triangle_function_1 : integer range 1 to N*2 := 1;
     
 begin
@@ -211,7 +211,7 @@ begin
                         adA := to_integer(counter_n) + last_column_addr;
                         general_ram_addr <= std_logic_vector(to_unsigned(adA, general_ram_addr'length));
                         addrA <= std_logic_vector(counter_n + 1);
-                        dA <= (to_integer(signed(dataAo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH+7))), to_integer(signed(dataAo(WORD_WIDTH-1 downto 7))));
+                        dA <= (to_integer(signed(dataAo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH+2))), to_integer(signed(dataAo(WORD_WIDTH-1 downto 2))));
                         state_m <= test;
                     end if;
 

@@ -38,7 +38,7 @@ architecture arch of spectrum_analyzer is
     signal done_f: std_logic := '0';
     signal ws: std_logic := '0';
 
-    signal addressA, addressB: std_logic_vector(13 downto 0);
+    signal addressA, addressB: std_logic_vector(14 downto 0);
     signal dataA, dataB, qA, qB: std_logic_vector(15 downto 0);
     signal wrA, wrB: std_logic;
     

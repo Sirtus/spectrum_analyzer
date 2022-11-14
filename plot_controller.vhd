@@ -13,7 +13,7 @@ entity plot_controller is
         pixel_x, pixel_y: in integer;
         do: in std_logic_vector(15 downto 0);
         last_column: in integer range 0 to 255;
-        addressA: out std_logic_vector(13 downto 0);
+        addressA: out std_logic_vector(14 downto 0);
         qA: in std_logic_vector(15 downto 0)
         -- do_int: in integer range 0 to 600
     );
@@ -21,7 +21,7 @@ end entity plot_controller;
 
 architecture arch of plot_controller is
 
-    constant X_LIMIT: integer := 512;
+    constant X_LIMIT: integer := 799;
     constant Y_LIMIT: integer := 512;
     
     signal point_x: integer range 0 to 2047 := 0;
@@ -54,10 +54,10 @@ begin
              "0000";
 
     process(clk)
-    variable pixel_addr: unsigned(13 downto 0) := (others => '0'); 
-    variable current_column: integer range 0 to 127 := 0;
+    variable pixel_addr: unsigned(14 downto 0) := (others => '0'); 
+    variable current_column: integer range 0 to 199 := 0;
     variable col_x: integer range 0 to 1023  := 0;
-    variable row_y: integer range 0 to 16384 := 0;
+    variable row_y : integer := 0;
     variable pixel_counter_x, pixel_counter_y: integer range 0 to 31 := 0;
     begin
         if rising_edge(clk) then
