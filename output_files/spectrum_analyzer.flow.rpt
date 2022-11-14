@@ -1,5 +1,5 @@
 Flow report for spectrum_analyzer
-Mon Nov 14 13:50:07 2022
+Mon Nov 14 14:29:45 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,20 +41,20 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Mon Nov 14 13:50:07 2022       ;
+; Flow Status                        ; Successful - Mon Nov 14 14:29:45 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; spectrum_analyzer                           ;
 ; Top-level Entity Name              ; spectrum_analyzer                           ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 5,209 / 49,760 ( 10 % )                     ;
-;     Total combinational functions  ; 3,719 / 49,760 ( 7 % )                      ;
-;     Dedicated logic registers      ; 3,357 / 49,760 ( 7 % )                      ;
-; Total registers                    ; 3357                                        ;
+; Total logic elements               ; 5,229 / 49,760 ( 11 % )                     ;
+;     Total combinational functions  ; 3,744 / 49,760 ( 8 % )                      ;
+;     Dedicated logic registers      ; 3,369 / 49,760 ( 7 % )                      ;
+; Total registers                    ; 3369                                        ;
 ; Total pins                         ; 22 / 360 ( 6 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 151,552 / 1,677,312 ( 9 % )                 ;
+; Total memory bits                  ; 282,624 / 1,677,312 ( 17 % )                ;
 ; Embedded Multiplier 9-bit elements ; 11 / 288 ( 4 % )                            ;
 ; Total PLLs                         ; 1 / 4 ( 25 % )                              ;
 ; UFM blocks                         ; 0 / 1 ( 0 % )                               ;
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/14/2022 13:47:37 ;
+; Start date & time ; 11/14/2022 14:27:42 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; spectrum_analyzer   ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+--------------------------------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value                        ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+--------------------------------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 193744352306778.166843005722229        ; --                                   ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 193744352306778.166843246227985        ; --                                   ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --                                   ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --                                   ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --                                   ; --          ; eda_board_design_signal_integrity ;
@@ -105,12 +105,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:42     ; 1.0                     ; 511 MB              ; 00:01:03                           ;
-; Fitter               ; 00:01:21     ; 1.1                     ; 924 MB              ; 00:01:55                           ;
-; Assembler            ; 00:00:05     ; 1.0                     ; 397 MB              ; 00:00:05                           ;
-; Timing Analyzer      ; 00:00:11     ; 1.4                     ; 551 MB              ; 00:00:15                           ;
+; Analysis & Synthesis ; 00:00:36     ; 1.0                     ; 510 MB              ; 00:00:53                           ;
+; Fitter               ; 00:01:06     ; 1.1                     ; 917 MB              ; 00:01:36                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 402 MB              ; 00:00:04                           ;
+; Timing Analyzer      ; 00:00:09     ; 1.5                     ; 552 MB              ; 00:00:12                           ;
 ; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 668 MB              ; 00:00:02                           ;
-; Total                ; 00:02:21     ; --                      ; --                  ; 00:03:20                           ;
+; Total                ; 00:01:57     ; --                      ; --                  ; 00:02:47                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

@@ -54,7 +54,7 @@ architecture rtl of fft is
     signal block_shift, block_shift_div2: integer range 0 to N := 0;
     signal do_butterfly_step: boolean := false;
     signal dA, dB: cplx := (others => 0);
-    signal column_counter: integer range 0 to 63 := 0;
+    signal column_counter: integer range 0 to 127 := 0;
     signal triangle_function_0, triangle_function_1 : integer range 1 to N*2 := 1;
     
 begin

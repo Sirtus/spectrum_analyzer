@@ -21,7 +21,7 @@ end entity plot_controller;
 
 architecture arch of plot_controller is
 
-    constant X_LIMIT: integer := 256;
+    constant X_LIMIT: integer := 512;
     constant Y_LIMIT: integer := 512;
     
     signal point_x: integer range 0 to 2047 := 0;
@@ -55,8 +55,9 @@ begin
 
     process(clk)
     variable pixel_addr: unsigned(13 downto 0) := (others => '0'); 
-    variable current_column: integer range 0 to 31 := 0;
-    variable col_x, row_y: integer range 0 to 1023 := 0;
+    variable current_column: integer range 0 to 127 := 0;
+    variable col_x: integer range 0 to 1023  := 0;
+    variable row_y: integer range 0 to 16384 := 0;
     variable pixel_counter_x, pixel_counter_y: integer range 0 to 31 := 0;
     begin
         if rising_edge(clk) then
