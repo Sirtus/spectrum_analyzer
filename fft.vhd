@@ -24,6 +24,8 @@ end entity fft;
 architecture rtl of fft is
 
     constant NORM : integer := 16;
+    constant TRIANGLE_N: integer := 256;
+    constant TRIANGLE_N_DIV_2: integer := TRIANGLE_N/2;
     
     type state_t is (idle, write_to_ram, transform, clean, save_data, wait_for_ram, butterfly_step, transform_end, test);
     signal state_m, next_state: state_t := idle;
@@ -53,7 +55,7 @@ architecture rtl of fft is
     signal do_butterfly_step: boolean := false;
     signal dA, dB: cplx := (others => 0);
     signal column_counter: integer range 0 to 63 := 0;
-
+    signal triangle_function_0, triangle_function_1 : integer range 1 to N*2 := 1;
     
 begin
 
@@ -89,7 +91,7 @@ begin
     
     process(clk)
 
-    variable adA, adB: integer := 0;
+    variable adA, adB: integer := 0; 
     -- variable dA, dB: cplx := (others => 0);
     -- variable counter_n_inversed1, counter_n_inversed2: unsigned(LOG_N downto 0):= (others => '0');
     variable wait_counter: integer range 0 to 7 := 0;
@@ -124,8 +126,8 @@ begin
                         addrB <= std_logic_vector(counter_n + 1);
                         adA := to_integer(counter_n_inversed1);
                         adB := to_integer(counter_n_inversed2);
-                        dataAi <= std_logic_vector(to_signed(data(adA), WORD_WIDTH)) & std_logic_vector(to_unsigned(0, WORD_WIDTH));
-                        dataBi <= std_logic_vector(to_signed(data(adB), WORD_WIDTH)) & std_logic_vector(to_unsigned(0, WORD_WIDTH));
+                        dataAi <= std_logic_vector(to_signed(data(adA)/triangle_function_0, WORD_WIDTH)) & std_logic_vector(to_unsigned(0, WORD_WIDTH));
+                        dataBi <= std_logic_vector(to_signed(data(adB)/triangle_function_1, WORD_WIDTH)) & std_logic_vector(to_unsigned(0, WORD_WIDTH));
                         counter_n <= counter_n + 2;
                         state_m <= wait_for_ram;
                         next_state <= write_to_ram;
@@ -235,6 +237,9 @@ begin
     do_butterfly_step <= (pair_counter mod (block_shift)) < block_shift_div2;
     new_data2 <= ((dA(0) * dA(0)) + (dA(1) * dA(1)));
 
+    triangle_function_0 <= 2*(TRIANGLE_N_DIV_2/(to_integer(counter_n_inversed1 + 1)));
+    triangle_function_1 <= 2*(TRIANGLE_N_DIV_2/(N - to_integer(counter_n_inversed2)));
+
     x <= (to_integer(signed(dataAo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH))), to_integer(signed(dataAo(WORD_WIDTH-1 downto 0))));
     y <= (to_integer(signed(dataBo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH))), to_integer(signed(dataBo(WORD_WIDTH-1 downto 0))));
 
@@ -255,7 +260,7 @@ begin
                     end if;
                 when write_to_array =>
                     if wr_en = '1' then
-                        temp :=(to_integer(signed(data_in(23 downto 10))) + 427)/8 ;
+                        temp :=(to_integer(signed(data_in(23 downto 10))) + 427)/4 ;
                         data <= temp & data(0 to data'high-1);
                         queue_s := idle;
                     end if;
