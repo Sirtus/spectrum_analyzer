@@ -35,40 +35,59 @@ architecture arch of plot_controller is
     signal pixel_array: pixel_array_t;
 begin
 
-    process(clk)
-    begin
-        if rising_edge(clk)   then
-            if pixel_y < Y_LIMIT and pixel_x < X_LIMIT then
-                data_pixel <= pixel_array(pixel_x/4);
-            else
-                data_pixel <= (others => '0') ;
-            end if;
-            if video_on = '1' then
-                if data_pixel(15 downto 12) /= "0000" then
-                    red <= "1111";
-                    -- blue <= "0000";
-                    -- green <= not data_pixel(15 downto 12);
-                else
-                    red <= data_pixel(11 downto 8);
-                    -- blue <= data_pixel(7 downto 4); 
-                    -- green <= data_pixel(11 downto 8);
-                end if;
-                -- green <= que(11 downto 8);
-                -- blue <= "0000";-- when video_on = '1' and pixel_y = 300 else "0000";
-                -- red <= data_pixel(15 downto 12);
-                blue <= data_pixel(3 downto 0); 
-                green <= data_pixel(7 downto 4);
-                -- red <= data_pixel(11 downto 8);
-                -- blue <= que(7 downto 4); 
-                -- green <= que(11 downto 8);
-            else
-                green <= "0000";
-                blue <= "0000";
-                red <= "0000";
-            end if;
-        end if;
-    end process;
+    -- process(clk)
+    -- begin
+    --     if rising_edge(clk)   then
+    --         if pixel_y < Y_LIMIT and pixel_x < X_LIMIT then
+    --             data_pixel <= pixel_array(pixel_x/4);
+    --         else
+    --             data_pixel <= (others => '0') ;
+    --         end if;
+    --         if video_on = '1' then
+    --             if data_pixel(15 downto 12) /= "0000" then
+    --                 red <= "1111";
+    --                 -- blue <= "0000";
+    --                 -- green <= not data_pixel(15 downto 12);
+    --             else
+    --                 red <= data_pixel(11 downto 8);
+    --                 -- blue <= data_pixel(7 downto 4); 
+    --                 -- green <= data_pixel(11 downto 8);
+    --             end if;
+    --             -- green <= que(11 downto 8);
+    --             -- blue <= "0000";-- when video_on = '1' and pixel_y = 300 else "0000";
+    --             -- red <= data_pixel(15 downto 12);
+    --             blue <= data_pixel(3 downto 0); 
+    --             green <= data_pixel(7 downto 4);
+    --             -- red <= data_pixel(11 downto 8);
+    --             -- blue <= que(7 downto 4); 
+    --             -- green <= que(11 downto 8);
+    --         else
+    --             green <= "0000";
+    --             blue <= "0000";
+    --             red <= "0000";
+    --         end if;
+    --     end if;
+    -- end process;
     -- que <= do;
+
+    data_pixel <= pixel_array(pixel_x/4) when pixel_y < Y_LIMIT and pixel_x < X_LIMIT else (others => '0');
+    
+    red <= "1111" when video_on = '1' and data_pixel(15 downto 12) /= "0000" else
+           data_pixel(7 downto 4) when video_on = '1' else
+           "0000";
+    
+    -- "1111" when video_on = '1' and data_pixel(15 downto 12) /= "0000" else data_pixel(11 downto 8) when video_on = '1' else "0000";
+    
+    blue <= data_pixel(15 downto 12)       when video_on = '1' and data_pixel(15 downto 12) /= "0000" else 
+            "0000"                         when video_on = '1' and data_pixel(11 downto 8)  /= "0000" else
+            not data_pixel(7 downto 4)     when video_on = '1' and data_pixel(7 downto 4)   /= "0000" else
+            data_pixel(3 downto 0)         when video_on = '1' else 
+            "0000";
+
+    green <= "1111" when video_on = '1' and data_pixel(15 downto 12) /= "0000" else
+             data_pixel(11 downto 8) when video_on = '1' else
+             "0000";
+    -- green <= data_pixel(7 downto 4) when video_on = '1' else "0000";
 
     process(clk)
     variable pixel_addr: unsigned(13 downto 0) := (others => '0'); 
