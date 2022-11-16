@@ -56,6 +56,8 @@ architecture rtl of fft is
     signal dA, dB: cplx := (others => 0);
     signal column_counter: integer range 0 to 199 := 0;
     signal triangle_function_0, triangle_function_1 : integer range 1 to N*2 := 1;
+
+    signal next_fft_ctr: integer := 0;
     
 begin
 
@@ -103,12 +105,17 @@ begin
                 when idle =>
                     done <= '0';
                     if do_fft = '1' then
-                        state_m <= write_to_ram;
-                        counter_m <= 1;
-                        counter_n <= (others => '0');
-                        counter_divider <= N;
-                        pair_counter <= 0;
-                        rdwr_wait <= '0';
+                        if next_fft_ctr = 100000 then
+                            state_m <= write_to_ram;
+                            counter_m <= 1;
+                            counter_n <= (others => '0');
+                            counter_divider <= N;
+                            pair_counter <= 0;
+                            rdwr_wait <= '0';
+                            next_fft_ctr <= 0;
+                        else
+                            next_fft_ctr <= next_fft_ctr + 1;
+                        end if;
                     else
                         state_m <= idle;
                     end if;
