@@ -36,12 +36,17 @@ architecture arch of plot_controller is
     signal lower_pixel_y: integer := 0;
     signal lower_video_on, upper_video_on: std_logic := '1';
 
-    type pixel_array_t is array(0 to 255) of std_logic_vector(15 downto 0);
+    type pixel_array_t is array(0 to 199) of std_logic_vector(15 downto 0);
     signal pixel_array: pixel_array_t;
+    type single_fft_array is array(0 to 127) of integer range 0 to 255;
+    signal single_fft: single_fft_array;
+
+    signal upper_rect_x: integer range 0 to 128 := 0;
 begin
 
 
     data_pixel <= pixel_array(pixel_x/4) when lower_pixel_y < Y_LIMIT and pixel_x < X_LIMIT else (others => '0');
+    single_fft(lower_pixel_y/2) <= to_integer(unsigned(pixel_array(128)(15 downto 8))) when pixel_x = 512 and lower_video_on = '1';
     
     red <= "1111" when lower_video_on = '1' and data_pixel(15 downto 12) /= "0000" else
            data_pixel(7 downto 4) when lower_video_on = '1' else
@@ -54,12 +59,16 @@ begin
             data_pixel(3 downto 0)         when lower_video_on = '1' else 
             "0000";
 
-    green <= "1111" when lower_video_on = '1' and data_pixel(15 downto 12) /= "0000" else
+    green <= "1111" when upper_video_on = '1' and pixel_y = single_fft(upper_rect_x) else
+            "0000" when upper_video_on = '1' else 
+            "1111" when lower_video_on = '1' and data_pixel(15 downto 12) /= "0000" else
              data_pixel(11 downto 8) when lower_video_on = '1' else
              "0000";
 
     lower_video_on <= '1' when video_on = '1' and pixel_y >= UPPER_RECT_Y_LIMIT else '0';
+    upper_video_on <= '1' when video_on = '1' and pixel_y < Y_LIMIT else '0';
     lower_pixel_y <= pixel_y - UPPER_RECT_Y_LIMIT;
+    upper_rect_x <= pixel_x/6;
 
     process(clk)
     variable pixel_addr: unsigned(14 downto 0) := (others => '0'); 
