@@ -20,7 +20,7 @@ end entity plot_controller;
 
 architecture arch of plot_controller is
 
-    constant SINGLE_FFT_DELAY: integer := 512;
+    constant SINGLE_FFT_DELAY: integer := 514;
     constant UPPER_RECT_Y_LIMIT:integer := 344;
 
     constant X_LIMIT: integer := 799;
@@ -37,8 +37,8 @@ architecture arch of plot_controller is
 
     type pixel_array_t is array(0 to 199) of std_logic_vector(15 downto 0);
     signal pixel_array: pixel_array_t;
-    type single_fft_array is array(0 to 127) of integer range 0 to 255;
-    signal single_fft: single_fft_array;
+
+    signal pixel_a: std_logic_vector(15 downto 0) := (others => '0');
 
     signal upper_rect_x: integer range 0 to 800 := 0;
 
@@ -59,6 +59,14 @@ architecture arch of plot_controller is
     signal line_select_out: std_logic_vector(0 to 3) := (others => '0');
     signal inverted_pixel_y: integer range 0 to 256:= 0;
     signal new_fft_y: integer range 0 to 255 := 0;
+
+    signal read_fft_result: std_logic := '0';
+
+    signal lower_red, lower_green, lower_blue:std_logic_vector(3 downto 0) := (others => '0');
+    
+    signal tfft_ram_addr, tfft_ram_column: integer := 0;
+    signal col_x: integer range 0 to 1023  := 0;
+    signal current_column: integer range 0 to 199 := 0;
 
 begin
 
@@ -138,10 +146,13 @@ begin
     rdaddress <= std_logic_vector(to_unsigned(plot_addr2_rd, rdaddress'length)) ;--when upper_video_on = '1' else (others => '0');
     wraddress <= std_logic_vector(to_unsigned(plot_addr2_wr, rdaddress'length)) when wren = '1' else (others => '0');
     data <= "1" when lower_video_on = '1' else "0";
-    start_drawing_line(0) <= '1' when lower_video_on = '1' and line_select = 0 and lower_pixel_y > 4 and pixel_x = SINGLE_FFT_DELAY + 1 else '0';
-    start_drawing_line(1) <= '1' when lower_video_on = '1' and line_select = 1 and pixel_x = SINGLE_FFT_DELAY + 1 else '0';
-    start_drawing_line(2) <= '1' when lower_video_on = '1' and line_select = 2 and pixel_x = SINGLE_FFT_DELAY + 1 else '0';
-    start_drawing_line(3) <= '1' when lower_video_on = '1' and line_select = 3 and pixel_x = SINGLE_FFT_DELAY + 1 else '0';
+
+    start_drawing_line(0) <= '1' when read_fft_result = '1' and line_select = 0 and lower_pixel_y > 4 else '0';
+    start_drawing_line(1) <= '1' when read_fft_result = '1' and line_select = 1  else '0';
+    start_drawing_line(2) <= '1' when read_fft_result = '1' and line_select = 2  else '0';
+    start_drawing_line(3) <= '1' when read_fft_result = '1' and line_select = 3  else '0';
+
+    read_fft_result <= '1' when lower_video_on = '1' and pixel_x = SINGLE_FFT_DELAY + 1 else '0'; 
     
     x1 <= x2 - 3  when pixel_x = SINGLE_FFT_DELAY else x1;
     y1 <= new_fft_y when pixel_x = SINGLE_FFT_DELAY else y1 ;
@@ -188,51 +199,63 @@ begin
 
     lower_pixel_y_div_2 <= lower_pixel_y / 2;
     lower_pixel_x <= pixel_x / 4;
-    data_pixel <= pixel_array(lower_pixel_x) when lower_pixel_y < Y_LIMIT and pixel_x < X_LIMIT else (others => '0');
+    data_pixel <= pixel_a when lower_pixel_y < Y_LIMIT else (others => '0');
     
-    red <= "1111" when lower_video_on = '1' and pixel_x = SINGLE_FFT_DELAY else
-           "1111" when lower_video_on = '1' and data_pixel(15 downto 12) /= "0000" else
-           data_pixel(7 downto 4) when lower_video_on = '1' else
+    red <= lower_red when lower_video_on = '1' else
            "0000";
 
-    
-    blue <= data_pixel(15 downto 12)       when lower_video_on = '1' and data_pixel(15 downto 12) /= "0000" else 
-            "0000"                         when lower_video_on = '1' and data_pixel(11 downto 8)  /= "0000" else
-            not data_pixel(7 downto 4)     when lower_video_on = '1' and data_pixel(7 downto 4)   /= "0000" else
-            data_pixel(3 downto 0)         when lower_video_on = '1' else 
+    lower_red <= "1111" when pixel_x = SINGLE_FFT_DELAY else
+                "1111" when data_pixel(15 downto 12) /= "0000" else
+                data_pixel(7 downto 4);
+
+    lower_blue <= data_pixel(15 downto 12) when data_pixel(15 downto 12) /= "0000" else 
+            "0000"                         when data_pixel(11 downto 8)  /= "0000" else
+            not data_pixel(7 downto 4)     when data_pixel(7 downto 4)   /= "0000" else
+            data_pixel(3 downto 0);
+
+    blue <= lower_blue when lower_video_on = '1' else
             "0000";
 
+    -- green <= "1111" when upper_video_on = '1' and q(0) = '1' else
+    --         "1111" when lower_video_on = '1' and data_pixel(15 downto 12) /= "0000" else
+    --          data_pixel(11 downto 8) when lower_video_on = '1' else
+    --          "0000";
+
+    lower_green <= "1111" when lower_video_on = '1' and data_pixel(15 downto 12) /= "0000" else
+                    data_pixel(11 downto 8);
+        
     green <= "1111" when upper_video_on = '1' and q(0) = '1' else
-            "1111" when lower_video_on = '1' and data_pixel(15 downto 12) /= "0000" else
-             data_pixel(11 downto 8) when lower_video_on = '1' else
+             lower_green when lower_video_on = '1' else 
              "0000";
 
     lower_video_on <= '1' when video_on = '1' and pixel_y >= UPPER_RECT_Y_LIMIT else '0';
     upper_video_on <= '1' when video_on = '1' and pixel_y < Y_LIMIT else '0' ;
     lower_pixel_y <= pixel_y - UPPER_RECT_Y_LIMIT;
+
+    current_column <= last_column + col_x;
+    tfft_ram_column <= (current_column * N_DIV_2);
+    tfft_ram_addr <= tfft_ram_column + lower_pixel_y_div_2;
     
 
     process(clk)
     variable pixel_addr: unsigned(14 downto 0) := (others => '0'); 
-    variable current_column: integer range 0 to 199 := 0;
-    variable col_x: integer range 0 to 1023  := 0;
     variable row_y : integer := 0;
     variable pixel_counter_x, pixel_counter_y: integer range 0 to 31 := 0;
     begin
         if rising_edge(clk) then
-            if lower_video_on = '1' and lower_pixel_y mod 2 = 0 then
+            -- if lower_video_on = '1' and lower_pixel_y mod 2 = 0 then
                 if pixel_x = 0 then
                     pixel_counter_x := 0;
                 end if;
                 if pixel_counter_x = 0 then
                     pixel_counter_x := pixel_counter_x + 1;
                     if lower_pixel_y < Y_LIMIT and pixel_x < X_LIMIT then
-                        row_y := (current_column * N_DIV_2) + lower_pixel_y_div_2;
-                        pixel_addr := to_unsigned(row_y, addressA'length);
-                        col_x := lower_pixel_x;
-                        current_column := last_column + col_x;
+                        -- row_y := (current_column * N_DIV_2) + lower_pixel_y_div_2;
+                        pixel_addr := to_unsigned(tfft_ram_addr, addressA'length);
+                        col_x <= lower_pixel_x;
+                        
                         addressA <= std_logic_vector(pixel_addr);
-                        pixel_array(col_x) <= qA;
+                        pixel_a <= qA;
                     end if;
                 else
                     if pixel_counter_x = 3 then
@@ -241,11 +264,11 @@ begin
                         pixel_counter_x := pixel_counter_x + 1;
                     end if;
                     if pixel_x < X_LIMIT and lower_pixel_y < Y_LIMIT then
-                        pixel_array(col_x) <= qA;
+                        pixel_a <= qA;
                     else
                     end if;
                 end if;
-            end if;
+            -- end if;
         end if;
     end process;
     
