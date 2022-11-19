@@ -60,7 +60,7 @@ architecture arch of spectrum_analyzer is
 
     plot: entity work.plot_controller
     port map(clk => clk, video_on => video_on, pixel_x => pixel_x, pixel_y => pixel_y, 
-             red => red, green => green, blue => blue, do => data_pixel, last_column => last_column, addressA => addressA, qA => qA);
+             red => red, green => green, blue => blue, last_column => last_column, addressA => addressA, qA => qA);
 
     
     fft: entity work.fft
