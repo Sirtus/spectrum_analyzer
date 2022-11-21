@@ -1,5 +1,5 @@
 Analysis & Synthesis report for spectrum_analyzer
-Sat Nov 19 14:50:30 2022
+Mon Nov 21 13:55:36 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -19,55 +19,49 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
  11. State Machine - |spectrum_analyzer|fft:fft|next_state
  12. State Machine - |spectrum_analyzer|fft:fft|state_m
  13. State Machine - |spectrum_analyzer|fft:fft|butterfly:butterfly|state
- 14. State Machine - |spectrum_analyzer|plot_controller:plot|draw_line:line3|state
- 15. State Machine - |spectrum_analyzer|plot_controller:plot|draw_line:line2|state
- 16. State Machine - |spectrum_analyzer|plot_controller:plot|draw_line:line1|state
- 17. State Machine - |spectrum_analyzer|plot_controller:plot|draw_line:line0|state
- 18. User-Specified and Inferred Latches
- 19. Registers Removed During Synthesis
- 20. General Register Statistics
- 21. Inverted Register Statistics
- 22. Multiplexer Restructuring Statistics (Restructuring Performed)
- 23. Source assignments for shift_reg:reg|altsyncram:altsyncram_component|altsyncram_a0p3:auto_generated
- 24. Source assignments for plot_controller:plot|plot_ram:plt_ram|altsyncram:altsyncram_component|altsyncram_i7o3:auto_generated
- 25. Source assignments for fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated
- 26. Parameter Settings for User Entity Instance: bclk:bclk|altpll:altpll_component
- 27. Parameter Settings for User Entity Instance: shift_reg:reg|altsyncram:altsyncram_component
- 28. Parameter Settings for User Entity Instance: vga_controller:vga
- 29. Parameter Settings for User Entity Instance: plot_controller:plot|plot_ram:plt_ram|altsyncram:altsyncram_component
- 30. Parameter Settings for User Entity Instance: fft:fft|ram_ip:ram|altsyncram:altsyncram_component
- 31. Parameter Settings for User Entity Instance: i2s_receiver:i2s
- 32. Parameter Settings for Inferred Entity Instance: plot_controller:plot|lpm_mult:Mult0
- 33. Parameter Settings for Inferred Entity Instance: plot_controller:plot|lpm_mult:Mult1
- 34. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult1
- 35. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult2
- 36. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Mod1
- 37. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Div2
- 38. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Div0
- 39. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Div3
- 40. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Div1
- 41. Parameter Settings for Inferred Entity Instance: fft:fft|butterfly:butterfly|lpm_mult:Mult0
- 42. Parameter Settings for Inferred Entity Instance: fft:fft|butterfly:butterfly|lpm_mult:Mult1
- 43. Parameter Settings for Inferred Entity Instance: fft:fft|butterfly:butterfly|lpm_mult:Mult3
- 44. Parameter Settings for Inferred Entity Instance: fft:fft|butterfly:butterfly|lpm_mult:Mult2
- 45. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Mod0
- 46. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult0
- 47. altpll Parameter Settings by Entity Instance
- 48. altsyncram Parameter Settings by Entity Instance
- 49. lpm_mult Parameter Settings by Entity Instance
- 50. Port Connectivity Checks: "i2s_receiver:i2s"
- 51. Port Connectivity Checks: "fft:fft|butterfly:butterfly"
- 52. Port Connectivity Checks: "fft:fft"
- 53. Port Connectivity Checks: "plot_controller:plot|draw_line:line3"
- 54. Port Connectivity Checks: "plot_controller:plot|draw_line:line2"
- 55. Port Connectivity Checks: "plot_controller:plot|draw_line:line1"
- 56. Port Connectivity Checks: "plot_controller:plot|draw_line:line0"
- 57. Port Connectivity Checks: "plot_controller:plot|plot_ram:plt_ram"
- 58. Port Connectivity Checks: "plot_controller:plot"
- 59. Port Connectivity Checks: "shift_reg:reg"
- 60. Post-Synthesis Netlist Statistics for Top Partition
- 61. Elapsed Time Per Partition
- 62. Analysis & Synthesis Messages
+ 14. State Machine - |spectrum_analyzer|plot_controller:plot|draw_line:line0|state
+ 15. User-Specified and Inferred Latches
+ 16. Registers Removed During Synthesis
+ 17. General Register Statistics
+ 18. Inverted Register Statistics
+ 19. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 20. Source assignments for shift_reg:reg|altsyncram:altsyncram_component|altsyncram_a0p3:auto_generated
+ 21. Source assignments for plot_controller:plot|plot_ram:plt_ram|altsyncram:altsyncram_component|altsyncram_i7o3:auto_generated
+ 22. Source assignments for fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated
+ 23. Parameter Settings for User Entity Instance: bclk:bclk|altpll:altpll_component
+ 24. Parameter Settings for User Entity Instance: shift_reg:reg|altsyncram:altsyncram_component
+ 25. Parameter Settings for User Entity Instance: vga_controller:vga
+ 26. Parameter Settings for User Entity Instance: plot_controller:plot|plot_ram:plt_ram|altsyncram:altsyncram_component
+ 27. Parameter Settings for User Entity Instance: fft:fft|ram_ip:ram|altsyncram:altsyncram_component
+ 28. Parameter Settings for User Entity Instance: i2s_receiver:i2s
+ 29. Parameter Settings for Inferred Entity Instance: plot_controller:plot|lpm_mult:Mult0
+ 30. Parameter Settings for Inferred Entity Instance: plot_controller:plot|lpm_mult:Mult1
+ 31. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult1
+ 32. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult2
+ 33. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Mod1
+ 34. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Div2
+ 35. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Div0
+ 36. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Div3
+ 37. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Div1
+ 38. Parameter Settings for Inferred Entity Instance: fft:fft|butterfly:butterfly|lpm_mult:Mult0
+ 39. Parameter Settings for Inferred Entity Instance: fft:fft|butterfly:butterfly|lpm_mult:Mult1
+ 40. Parameter Settings for Inferred Entity Instance: fft:fft|butterfly:butterfly|lpm_mult:Mult3
+ 41. Parameter Settings for Inferred Entity Instance: fft:fft|butterfly:butterfly|lpm_mult:Mult2
+ 42. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_divide:Mod0
+ 43. Parameter Settings for Inferred Entity Instance: fft:fft|lpm_mult:Mult0
+ 44. altpll Parameter Settings by Entity Instance
+ 45. altsyncram Parameter Settings by Entity Instance
+ 46. lpm_mult Parameter Settings by Entity Instance
+ 47. Port Connectivity Checks: "i2s_receiver:i2s"
+ 48. Port Connectivity Checks: "fft:fft|butterfly:butterfly"
+ 49. Port Connectivity Checks: "fft:fft"
+ 50. Port Connectivity Checks: "plot_controller:plot|draw_line:line0"
+ 51. Port Connectivity Checks: "plot_controller:plot|plot_ram:plt_ram"
+ 52. Port Connectivity Checks: "plot_controller:plot"
+ 53. Port Connectivity Checks: "shift_reg:reg"
+ 54. Post-Synthesis Netlist Statistics for Top Partition
+ 55. Elapsed Time Per Partition
+ 56. Analysis & Synthesis Messages
 
 
 
@@ -94,15 +88,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Nov 19 14:50:30 2022       ;
+; Analysis & Synthesis Status        ; Successful - Mon Nov 21 13:55:35 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; spectrum_analyzer                           ;
 ; Top-level Entity Name              ; spectrum_analyzer                           ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 9,139                                       ;
-;     Total combinational functions  ; 6,162                                       ;
-;     Dedicated logic registers      ; 4,102                                       ;
-; Total registers                    ; 4102                                        ;
+; Total logic elements               ; 7,546                                       ;
+;     Total combinational functions  ; 4,653                                       ;
+;     Dedicated logic registers      ; 3,586                                       ;
+; Total registers                    ; 3586                                        ;
 ; Total pins                         ; 22                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 802,816                                     ;
@@ -305,20 +299,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 9,139     ;
+; Estimated Total logic elements              ; 7,546     ;
 ;                                             ;           ;
-; Total combinational functions               ; 6162      ;
+; Total combinational functions               ; 4653      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 3339      ;
-;     -- 3 input functions                    ; 1997      ;
-;     -- <=2 input functions                  ; 826       ;
+;     -- 4 input functions                    ; 2775      ;
+;     -- 3 input functions                    ; 1231      ;
+;     -- <=2 input functions                  ; 647       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 4394      ;
-;     -- arithmetic mode                      ; 1768      ;
+;     -- normal mode                          ; 3548      ;
+;     -- arithmetic mode                      ; 1105      ;
 ;                                             ;           ;
-; Total registers                             ; 4102      ;
-;     -- Dedicated logic registers            ; 4102      ;
+; Total registers                             ; 3586      ;
+;     -- Dedicated logic registers            ; 3586      ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 22        ;
@@ -330,9 +324,9 @@ https://fpgasoftware.intel.com/eula.
 ;     -- PLLs                                 ; 1         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 4159      ;
-; Total fan-out                               ; 36507     ;
-; Average fan-out                             ; 3.49      ;
+; Maximum fan-out                             ; 3643      ;
+; Total fan-out                               ; 30169     ;
+; Average fan-out                             ; 3.58      ;
 +---------------------------------------------+-----------+
 
 
@@ -341,12 +335,12 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                        ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                                            ; Entity Name         ; Library Name ;
 +---------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |spectrum_analyzer                                ; 6162 (1)            ; 4102 (0)                  ; 802816      ; 0          ; 13           ; 1       ; 6         ; 22   ; 0            ; 0          ; |spectrum_analyzer                                                                                                                                             ; spectrum_analyzer   ; work         ;
+; |spectrum_analyzer                                ; 4653 (1)            ; 3586 (0)                  ; 802816      ; 0          ; 13           ; 1       ; 6         ; 22   ; 0            ; 0          ; |spectrum_analyzer                                                                                                                                             ; spectrum_analyzer   ; work         ;
 ;    |bclk:bclk|                                    ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|bclk:bclk                                                                                                                                   ; bclk                ; work         ;
 ;       |altpll:altpll_component|                   ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|bclk:bclk|altpll:altpll_component                                                                                                           ; altpll              ; work         ;
 ;          |bclk_altpll:auto_generated|             ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|bclk:bclk|altpll:altpll_component|bclk_altpll:auto_generated                                                                                ; bclk_altpll         ; work         ;
 ;    |fft:fft|                                      ; 3584 (2264)         ; 3248 (3062)               ; 16384       ; 0          ; 13           ; 1       ; 6         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft                                                                                                                                     ; fft                 ; work         ;
-;       |butterfly:butterfly|                       ; 560 (560)           ; 186 (186)                 ; 0           ; 0          ; 8            ; 0       ; 4         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly                                                                                                                 ; butterfly           ; work         ;
+;       |butterfly:butterfly|                       ; 561 (561)           ; 186 (186)                 ; 0           ; 0          ; 8            ; 0       ; 4         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly                                                                                                                 ; butterfly           ; work         ;
 ;          |lpm_mult:Mult0|                         ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult0                                                                                                  ; lpm_mult            ; work         ;
 ;             |mult_ogs:auto_generated|             ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult0|mult_ogs:auto_generated                                                                          ; mult_ogs            ; work         ;
 ;          |lpm_mult:Mult1|                         ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|butterfly:butterfly|lpm_mult:Mult1                                                                                                  ; lpm_mult            ; work         ;
@@ -367,10 +361,10 @@ https://fpgasoftware.intel.com/eula.
 ;                |alt_u_div_gke:divider|            ; 117 (116)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Div1|lpm_divide_pco:auto_generated|abs_divider_ucg:divider|alt_u_div_gke:divider                                         ; alt_u_div_gke       ; work         ;
 ;                   |add_sub_u3c:add_sub_1|         ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Div1|lpm_divide_pco:auto_generated|abs_divider_ucg:divider|alt_u_div_gke:divider|add_sub_u3c:add_sub_1                   ; add_sub_u3c         ; work         ;
 ;                |lpm_abs_5b9:my_abs_num|           ; 22 (22)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Div1|lpm_divide_pco:auto_generated|abs_divider_ucg:divider|lpm_abs_5b9:my_abs_num                                        ; lpm_abs_5b9         ; work         ;
-;       |lpm_divide:Div2|                           ; 96 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Div2                                                                                                                     ; lpm_divide          ; work         ;
-;          |lpm_divide_fsl:auto_generated|          ; 96 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Div2|lpm_divide_fsl:auto_generated                                                                                       ; lpm_divide_fsl      ; work         ;
-;             |sign_div_unsign_hkh:divider|         ; 96 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Div2|lpm_divide_fsl:auto_generated|sign_div_unsign_hkh:divider                                                           ; sign_div_unsign_hkh ; work         ;
-;                |alt_u_div_cfe:divider|            ; 96 (96)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Div2|lpm_divide_fsl:auto_generated|sign_div_unsign_hkh:divider|alt_u_div_cfe:divider                                     ; alt_u_div_cfe       ; work         ;
+;       |lpm_divide:Div2|                           ; 95 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Div2                                                                                                                     ; lpm_divide          ; work         ;
+;          |lpm_divide_fsl:auto_generated|          ; 95 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Div2|lpm_divide_fsl:auto_generated                                                                                       ; lpm_divide_fsl      ; work         ;
+;             |sign_div_unsign_hkh:divider|         ; 95 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Div2|lpm_divide_fsl:auto_generated|sign_div_unsign_hkh:divider                                                           ; sign_div_unsign_hkh ; work         ;
+;                |alt_u_div_cfe:divider|            ; 95 (95)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Div2|lpm_divide_fsl:auto_generated|sign_div_unsign_hkh:divider|alt_u_div_cfe:divider                                     ; alt_u_div_cfe       ; work         ;
 ;       |lpm_divide:Div3|                           ; 138 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Div3                                                                                                                     ; lpm_divide          ; work         ;
 ;          |lpm_divide_pco:auto_generated|          ; 138 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Div3|lpm_divide_pco:auto_generated                                                                                       ; lpm_divide_pco      ; work         ;
 ;             |abs_divider_ucg:divider|             ; 138 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|lpm_divide:Div3|lpm_divide_pco:auto_generated|abs_divider_ucg:divider                                                               ; abs_divider_ucg     ; work         ;
@@ -393,11 +387,8 @@ https://fpgasoftware.intel.com/eula.
 ;          |altsyncram:altsyncram_component|        ; 0 (0)               ; 0 (0)                     ; 16384       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|ram_ip:ram|altsyncram:altsyncram_component                                                                                          ; altsyncram          ; work         ;
 ;             |altsyncram_8mo3:auto_generated|      ; 0 (0)               ; 0 (0)                     ; 16384       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|fft:fft|ram_ip:ram|altsyncram:altsyncram_component|altsyncram_8mo3:auto_generated                                                           ; altsyncram_8mo3     ; work         ;
 ;    |i2s_receiver:i2s|                             ; 71 (71)             ; 72 (72)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|i2s_receiver:i2s                                                                                                                            ; i2s_receiver        ; work         ;
-;    |plot_controller:plot|                         ; 2420 (363)          ; 734 (64)                  ; 262144      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot                                                                                                                        ; plot_controller     ; work         ;
-;       |draw_line:line0|                           ; 470 (470)           ; 165 (165)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot|draw_line:line0                                                                                                        ; draw_line           ; work         ;
-;       |draw_line:line1|                           ; 469 (469)           ; 165 (165)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot|draw_line:line1                                                                                                        ; draw_line           ; work         ;
-;       |draw_line:line2|                           ; 469 (469)           ; 165 (165)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot|draw_line:line2                                                                                                        ; draw_line           ; work         ;
-;       |draw_line:line3|                           ; 544 (544)           ; 165 (165)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot|draw_line:line3                                                                                                        ; draw_line           ; work         ;
+;    |plot_controller:plot|                         ; 911 (268)           ; 218 (44)                  ; 262144      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot                                                                                                                        ; plot_controller     ; work         ;
+;       |draw_line:line0|                           ; 538 (538)           ; 164 (164)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot|draw_line:line0                                                                                                        ; draw_line           ; work         ;
 ;       |lpm_mult:Mult0|                            ; 31 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot|lpm_mult:Mult0                                                                                                         ; lpm_mult            ; work         ;
 ;          |multcore:mult_core|                     ; 31 (12)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot|lpm_mult:Mult0|multcore:mult_core                                                                                      ; multcore            ; work         ;
 ;             |mpar_add:padder|                     ; 19 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |spectrum_analyzer|plot_controller:plot|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder                                                                      ; mpar_add            ; work         ;
@@ -521,45 +512,6 @@ Encoding Type:  One-Hot
 
 Encoding Type:  One-Hot
 +-------------------------------------------------------------------------------+
-; State Machine - |spectrum_analyzer|plot_controller:plot|draw_line:line3|state ;
-+--------------+------------+--------------+--------------+---------------------+
-; Name         ; state.DRAW ; state.INIT_1 ; state.INIT_0 ; state.IDLE          ;
-+--------------+------------+--------------+--------------+---------------------+
-; state.IDLE   ; 0          ; 0            ; 0            ; 0                   ;
-; state.INIT_0 ; 0          ; 0            ; 1            ; 1                   ;
-; state.INIT_1 ; 0          ; 1            ; 0            ; 1                   ;
-; state.DRAW   ; 1          ; 0            ; 0            ; 1                   ;
-+--------------+------------+--------------+--------------+---------------------+
-
-
-Encoding Type:  One-Hot
-+-------------------------------------------------------------------------------+
-; State Machine - |spectrum_analyzer|plot_controller:plot|draw_line:line2|state ;
-+--------------+------------+--------------+--------------+---------------------+
-; Name         ; state.DRAW ; state.INIT_1 ; state.INIT_0 ; state.IDLE          ;
-+--------------+------------+--------------+--------------+---------------------+
-; state.IDLE   ; 0          ; 0            ; 0            ; 0                   ;
-; state.INIT_0 ; 0          ; 0            ; 1            ; 1                   ;
-; state.INIT_1 ; 0          ; 1            ; 0            ; 1                   ;
-; state.DRAW   ; 1          ; 0            ; 0            ; 1                   ;
-+--------------+------------+--------------+--------------+---------------------+
-
-
-Encoding Type:  One-Hot
-+-------------------------------------------------------------------------------+
-; State Machine - |spectrum_analyzer|plot_controller:plot|draw_line:line1|state ;
-+--------------+------------+--------------+--------------+---------------------+
-; Name         ; state.DRAW ; state.INIT_1 ; state.INIT_0 ; state.IDLE          ;
-+--------------+------------+--------------+--------------+---------------------+
-; state.IDLE   ; 0          ; 0            ; 0            ; 0                   ;
-; state.INIT_0 ; 0          ; 0            ; 1            ; 1                   ;
-; state.INIT_1 ; 0          ; 1            ; 0            ; 1                   ;
-; state.DRAW   ; 1          ; 0            ; 0            ; 1                   ;
-+--------------+------------+--------------+--------------+---------------------+
-
-
-Encoding Type:  One-Hot
-+-------------------------------------------------------------------------------+
 ; State Machine - |spectrum_analyzer|plot_controller:plot|draw_line:line0|state ;
 +--------------+------------+--------------+--------------+---------------------+
 ; Name         ; state.DRAW ; state.INIT_1 ; state.INIT_0 ; state.IDLE          ;
@@ -571,79 +523,79 @@ Encoding Type:  One-Hot
 +--------------+------------+--------------+--------------+---------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                         ;
-+-----------------------------------------------------+------------------------------+------------------------+
-; Latch Name                                          ; Latch Enable Signal          ; Free of Timing Hazards ;
-+-----------------------------------------------------+------------------------------+------------------------+
-; plot_controller:plot|x1[9]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x2[9]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|y2[7]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|y1[7]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|y2[6]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|y1[6]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|y2[5]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|y1[5]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|y2[4]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|y1[4]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|y2[3]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|y1[3]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|y2[2]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|y1[2]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|y2[1]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|y1[1]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|y2[0]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|y1[0]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[0]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x2[0]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[1]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x2[1]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[2]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x2[2]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[3]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x2[3]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[4]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x2[4]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[5]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x2[5]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[6]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x2[6]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[7]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x2[7]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[8]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x2[8]                          ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[31]                         ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[30]                         ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[29]                         ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[28]                         ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[27]                         ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[26]                         ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[25]                         ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[24]                         ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[23]                         ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[22]                         ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[21]                         ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[20]                         ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[19]                         ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[18]                         ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[17]                         ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[16]                         ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[15]                         ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[14]                         ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[13]                         ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[12]                         ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[11]                         ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|x1[10]                         ; plot_controller:plot|Equal15 ; yes                    ;
-; plot_controller:plot|new_fft_y[7]                   ; plot_controller:plot|Equal5  ; yes                    ;
-; plot_controller:plot|new_fft_y[6]                   ; plot_controller:plot|Equal5  ; yes                    ;
-; plot_controller:plot|new_fft_y[5]                   ; plot_controller:plot|Equal5  ; yes                    ;
-; plot_controller:plot|new_fft_y[4]                   ; plot_controller:plot|Equal5  ; yes                    ;
-; plot_controller:plot|new_fft_y[3]                   ; plot_controller:plot|Equal5  ; yes                    ;
-; plot_controller:plot|new_fft_y[2]                   ; plot_controller:plot|Equal5  ; yes                    ;
-; plot_controller:plot|new_fft_y[1]                   ; plot_controller:plot|Equal5  ; yes                    ;
-; plot_controller:plot|new_fft_y[0]                   ; plot_controller:plot|Equal5  ; yes                    ;
-; Number of user-specified and inferred latches = 66  ;                              ;                        ;
-+-----------------------------------------------------+------------------------------+------------------------+
++------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                        ;
++-----------------------------------------------------+-----------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal         ; Free of Timing Hazards ;
++-----------------------------------------------------+-----------------------------+------------------------+
+; plot_controller:plot|x1[9]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x2[9]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|y2[7]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|y1[7]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|y2[6]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|y1[6]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|y2[5]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|y1[5]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|y2[4]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|y1[4]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|y2[3]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|y1[3]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|y2[2]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|y1[2]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|y2[1]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|y1[1]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|y2[0]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|y1[0]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[8]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x2[8]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[7]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x2[7]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[6]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x2[6]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[5]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x2[5]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[4]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x2[4]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[3]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x2[3]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[2]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x2[2]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[1]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x2[1]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[0]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x2[0]                          ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|new_fft_y[7]                   ; plot_controller:plot|Equal1 ; yes                    ;
+; plot_controller:plot|new_fft_y[6]                   ; plot_controller:plot|Equal1 ; yes                    ;
+; plot_controller:plot|new_fft_y[5]                   ; plot_controller:plot|Equal1 ; yes                    ;
+; plot_controller:plot|new_fft_y[4]                   ; plot_controller:plot|Equal1 ; yes                    ;
+; plot_controller:plot|new_fft_y[3]                   ; plot_controller:plot|Equal1 ; yes                    ;
+; plot_controller:plot|new_fft_y[2]                   ; plot_controller:plot|Equal1 ; yes                    ;
+; plot_controller:plot|new_fft_y[1]                   ; plot_controller:plot|Equal1 ; yes                    ;
+; plot_controller:plot|new_fft_y[0]                   ; plot_controller:plot|Equal1 ; yes                    ;
+; plot_controller:plot|x1[31]                         ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[30]                         ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[29]                         ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[28]                         ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[27]                         ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[26]                         ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[25]                         ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[24]                         ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[23]                         ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[22]                         ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[21]                         ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[20]                         ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[19]                         ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[18]                         ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[17]                         ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[16]                         ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[15]                         ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[14]                         ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[13]                         ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[12]                         ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[11]                         ; plot_controller:plot|Equal3 ; yes                    ;
+; plot_controller:plot|x1[10]                         ; plot_controller:plot|Equal3 ; yes                    ;
+; Number of user-specified and inferred latches = 66  ;                             ;                        ;
++-----------------------------------------------------+-----------------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
@@ -652,9 +604,6 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------------+------------------------------------------------------------+
 ; Register name                                      ; Reason for Removal                                         ;
 +----------------------------------------------------+------------------------------------------------------------+
-; plot_controller:plot|draw_line:line3|y_end[8..30]  ; Stuck at GND due to stuck port data_in                     ;
-; plot_controller:plot|draw_line:line2|y_end[8..30]  ; Stuck at GND due to stuck port data_in                     ;
-; plot_controller:plot|draw_line:line1|y_end[8..30]  ; Stuck at GND due to stuck port data_in                     ;
 ; plot_controller:plot|draw_line:line0|y_end[8..30]  ; Stuck at GND due to stuck port data_in                     ;
 ; fft:fft|butterfly:butterfly|x_v[1][16]             ; Lost fanout                                                ;
 ; fft:fft|butterfly:butterfly|x_v[1][17]             ; Lost fanout                                                ;
@@ -690,28 +639,6 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; fft:fft|butterfly:butterfly|x_v[0][31]             ; Lost fanout                                                ;
 ; plot_controller:plot|col_x[8,9]                    ; Lost fanout                                                ;
 ; fft:fft|butterfly:butterfly|w_i[10]                ; Merged with fft:fft|butterfly:butterfly|w_i[9]             ;
-; plot_controller:plot|x_wr[11..13,15]               ; Merged with plot_controller:plot|y_wr[10]                  ;
-; plot_controller:plot|y_wr[11]                      ; Merged with plot_controller:plot|y_wr[10]                  ;
-; plot_controller:plot|x_wr[17,19,20]                ; Merged with plot_controller:plot|y_wr[10]                  ;
-; plot_controller:plot|y_wr[13]                      ; Merged with plot_controller:plot|y_wr[10]                  ;
-; plot_controller:plot|x_wr[21,23]                   ; Merged with plot_controller:plot|y_wr[10]                  ;
-; plot_controller:plot|y_wr[15]                      ; Merged with plot_controller:plot|y_wr[10]                  ;
-; plot_controller:plot|x_wr[25,27,28]                ; Merged with plot_controller:plot|y_wr[10]                  ;
-; plot_controller:plot|y_wr[17]                      ; Merged with plot_controller:plot|y_wr[10]                  ;
-; plot_controller:plot|x_wr[29]                      ; Merged with plot_controller:plot|y_wr[10]                  ;
-; plot_controller:plot|y_wr[18]                      ; Merged with plot_controller:plot|y_wr[10]                  ;
-; plot_controller:plot|x_wr[31]                      ; Merged with plot_controller:plot|y_wr[10]                  ;
-; plot_controller:plot|y_wr[19..29]                  ; Merged with plot_controller:plot|y_wr[10]                  ;
-; plot_controller:plot|x_wr[10,14,16,18]             ; Merged with plot_controller:plot|y_wr[10]                  ;
-; plot_controller:plot|y_wr[12,30,31]                ; Merged with plot_controller:plot|y_wr[10]                  ;
-; plot_controller:plot|x_wr[22]                      ; Merged with plot_controller:plot|y_wr[10]                  ;
-; plot_controller:plot|y_wr[14]                      ; Merged with plot_controller:plot|y_wr[10]                  ;
-; plot_controller:plot|x_wr[24,26]                   ; Merged with plot_controller:plot|y_wr[10]                  ;
-; plot_controller:plot|y_wr[16]                      ; Merged with plot_controller:plot|y_wr[10]                  ;
-; plot_controller:plot|x_wr[30]                      ; Merged with plot_controller:plot|y_wr[10]                  ;
-; plot_controller:plot|draw_line:line3|dy[10..30]    ; Merged with plot_controller:plot|draw_line:line3|dy[9]     ;
-; plot_controller:plot|draw_line:line2|dy[10..30]    ; Merged with plot_controller:plot|draw_line:line2|dy[9]     ;
-; plot_controller:plot|draw_line:line1|dy[10..30]    ; Merged with plot_controller:plot|draw_line:line1|dy[9]     ;
 ; plot_controller:plot|draw_line:line0|dy[10..30]    ; Merged with plot_controller:plot|draw_line:line0|dy[9]     ;
 ; fft:fft|dA[1][14]                                  ; Merged with fft:fft|dA[1][13]                              ;
 ; fft:fft|dA[1][15]                                  ; Merged with fft:fft|dA[1][13]                              ;
@@ -749,10 +676,6 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; fft:fft|dA[0][29]                                  ; Merged with fft:fft|dA[0][13]                              ;
 ; fft:fft|dA[0][30]                                  ; Merged with fft:fft|dA[0][13]                              ;
 ; fft:fft|dA[0][31]                                  ; Merged with fft:fft|dA[0][13]                              ;
-; plot_controller:plot|y_wr[10]                      ; Stuck at GND due to stuck port data_in                     ;
-; plot_controller:plot|draw_line:line3|dy[9]         ; Merged with plot_controller:plot|draw_line:line3|dy[8]     ;
-; plot_controller:plot|draw_line:line2|dy[9]         ; Merged with plot_controller:plot|draw_line:line2|dy[8]     ;
-; plot_controller:plot|draw_line:line1|dy[9]         ; Merged with plot_controller:plot|draw_line:line1|dy[8]     ;
 ; plot_controller:plot|draw_line:line0|dy[9]         ; Merged with plot_controller:plot|draw_line:line0|dy[8]     ;
 ; fft:fft|butterfly:butterfly|y_v[1][16]             ; Merged with fft:fft|butterfly:butterfly|y_v[1][15]         ;
 ; fft:fft|butterfly:butterfly|y_v[1][17]             ; Merged with fft:fft|butterfly:butterfly|y_v[1][15]         ;
@@ -791,14 +714,8 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; fft:fft|next_state.wait_for_ram                    ; Merged with fft:fft|next_state.clean                       ;
 ; fft:fft|next_state.clean                           ; Stuck at GND due to stuck port data_in                     ;
 ; plot_controller:plot|draw_line:line0|err[31]       ; Lost fanout                                                ;
-; plot_controller:plot|draw_line:line2|err[31]       ; Lost fanout                                                ;
-; plot_controller:plot|draw_line:line1|err[31]       ; Lost fanout                                                ;
-; plot_controller:plot|draw_line:line3|err[31]       ; Lost fanout                                                ;
-; plot_controller:plot|draw_line:line3|x_end[11..29] ; Merged with plot_controller:plot|draw_line:line3|x_end[30] ;
 ; plot_controller:plot|draw_line:line0|x_end[11..29] ; Merged with plot_controller:plot|draw_line:line0|x_end[30] ;
-; plot_controller:plot|draw_line:line1|x_end[11..29] ; Merged with plot_controller:plot|draw_line:line1|x_end[30] ;
-; plot_controller:plot|draw_line:line2|x_end[11..29] ; Merged with plot_controller:plot|draw_line:line2|x_end[30] ;
-; Total Number of Removed Registers = 411            ;                                                            ;
+; Total Number of Removed Registers = 172            ;                                                            ;
 +----------------------------------------------------+------------------------------------------------------------+
 
 
@@ -807,12 +724,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 4102  ;
+; Total registers                              ; 3586  ;
 ; Number of registers using Synchronous Clear  ; 17    ;
 ; Number of registers using Synchronous Load   ; 112   ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 3866  ;
+; Number of registers using Clock Enable       ; 3445  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -822,32 +739,10 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +------------------------------------------------+---------+
 ; Inverted Register                              ; Fan out ;
 +------------------------------------------------+---------+
-; plot_controller:plot|draw_line:line1|x_i[0]    ; 4       ;
-; plot_controller:plot|draw_line:line1|y_i[0]    ; 5       ;
-; plot_controller:plot|draw_line:line0|x_i[0]    ; 4       ;
-; plot_controller:plot|draw_line:line0|y_i[0]    ; 5       ;
-; plot_controller:plot|draw_line:line2|x_i[0]    ; 4       ;
-; plot_controller:plot|draw_line:line2|y_i[0]    ; 5       ;
-; plot_controller:plot|draw_line:line3|x_i[0]    ; 4       ;
-; plot_controller:plot|draw_line:line3|y_i[0]    ; 5       ;
-; plot_controller:plot|draw_line:line3|dx[31]    ; 1       ;
-; plot_controller:plot|draw_line:line3|err[0]    ; 4       ;
-; plot_controller:plot|draw_line:line3|y_i[31]   ; 3       ;
-; plot_controller:plot|draw_line:line3|y_end[31] ; 1       ;
-; plot_controller:plot|draw_line:line3|x_end[31] ; 1       ;
-; plot_controller:plot|draw_line:line3|x_i[31]   ; 2       ;
-; plot_controller:plot|draw_line:line3|x_end[0]  ; 1       ;
-; plot_controller:plot|draw_line:line3|y_end[0]  ; 1       ;
-; plot_controller:plot|draw_line:line1|y_i[31]   ; 3       ;
-; plot_controller:plot|draw_line:line1|y_end[31] ; 1       ;
-; plot_controller:plot|draw_line:line1|x_end[31] ; 1       ;
-; plot_controller:plot|draw_line:line1|x_i[31]   ; 2       ;
-; plot_controller:plot|draw_line:line1|x_end[0]  ; 1       ;
-; plot_controller:plot|draw_line:line1|y_end[0]  ; 1       ;
-; plot_controller:plot|draw_line:line1|dy[31]    ; 2       ;
-; plot_controller:plot|draw_line:line1|err[0]    ; 4       ;
-; plot_controller:plot|draw_line:line1|dy[0]     ; 3       ;
-; plot_controller:plot|draw_line:line1|dx[31]    ; 1       ;
+; plot_controller:plot|draw_line:line0|y_i[0]    ; 9       ;
+; plot_controller:plot|draw_line:line0|x_i[0]    ; 3       ;
+; plot_controller:plot|draw_line:line0|dx[31]    ; 1       ;
+; plot_controller:plot|draw_line:line0|err[0]    ; 4       ;
 ; plot_controller:plot|draw_line:line0|y_i[31]   ; 3       ;
 ; plot_controller:plot|draw_line:line0|y_end[31] ; 1       ;
 ; plot_controller:plot|draw_line:line0|x_end[31] ; 1       ;
@@ -855,25 +750,8 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; plot_controller:plot|draw_line:line0|x_end[0]  ; 1       ;
 ; plot_controller:plot|draw_line:line0|y_end[0]  ; 1       ;
 ; plot_controller:plot|draw_line:line0|dy[31]    ; 2       ;
-; plot_controller:plot|draw_line:line0|err[0]    ; 4       ;
 ; plot_controller:plot|draw_line:line0|dy[0]     ; 3       ;
-; plot_controller:plot|draw_line:line0|dx[31]    ; 1       ;
-; plot_controller:plot|draw_line:line2|y_i[31]   ; 3       ;
-; plot_controller:plot|draw_line:line2|y_end[31] ; 1       ;
-; plot_controller:plot|draw_line:line2|x_end[31] ; 1       ;
-; plot_controller:plot|draw_line:line2|x_i[31]   ; 2       ;
-; plot_controller:plot|draw_line:line2|x_end[0]  ; 1       ;
-; plot_controller:plot|draw_line:line2|y_end[0]  ; 1       ;
-; plot_controller:plot|draw_line:line2|dy[31]    ; 3       ;
-; plot_controller:plot|draw_line:line2|err[0]    ; 4       ;
-; plot_controller:plot|draw_line:line2|dy[0]     ; 3       ;
-; plot_controller:plot|draw_line:line2|dx[31]    ; 1       ;
-; plot_controller:plot|draw_line:line3|dy[31]    ; 2       ;
-; plot_controller:plot|draw_line:line3|dy[0]     ; 3       ;
-; plot_controller:plot|draw_line:line3|dx[0]     ; 1       ;
-; plot_controller:plot|draw_line:line1|dx[0]     ; 1       ;
 ; plot_controller:plot|draw_line:line0|dx[0]     ; 1       ;
-; plot_controller:plot|draw_line:line2|dx[0]     ; 1       ;
 ; fft:fft|\COLLECT_DATA:queue_s                  ; 1       ;
 ; fft:fft|butterfly:butterfly|Sa[0][0]           ; 1       ;
 ; fft:fft|butterfly:butterfly|Sb[0][0]           ; 1       ;
@@ -882,7 +760,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; fft:fft|butterfly:butterfly|w_i[9]             ; 2       ;
 ; fft:fft|butterfly:butterfly|Sa[1][0]           ; 1       ;
 ; fft:fft|butterfly:butterfly|Sb[1][0]           ; 1       ;
-; Total number of inverted registers = 60        ;         ;
+; Total number of inverted registers = 21        ;         ;
 +------------------------------------------------+---------+
 
 
@@ -891,62 +769,39 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
-; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |spectrum_analyzer|i2s_receiver:i2s|l_data_int[10]                ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |spectrum_analyzer|fft:fft|butterfly:butterfly|x_v[0][15]         ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |spectrum_analyzer|fft:fft|butterfly:butterfly|x_v[1][14]         ;
-; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |spectrum_analyzer|plot_controller:plot|draw_line:line3|x_i[26]   ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |spectrum_analyzer|plot_controller:plot|draw_line:line3|y_i[6]    ;
-; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |spectrum_analyzer|plot_controller:plot|draw_line:line2|x_i[18]   ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |spectrum_analyzer|plot_controller:plot|draw_line:line2|y_i[2]    ;
-; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |spectrum_analyzer|plot_controller:plot|draw_line:line1|x_i[17]   ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |spectrum_analyzer|plot_controller:plot|draw_line:line1|y_i[1]    ;
-; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |spectrum_analyzer|plot_controller:plot|draw_line:line0|x_i[15]   ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |spectrum_analyzer|plot_controller:plot|draw_line:line0|y_i[4]    ;
-; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|plot_controller:plot|x_wr[0]                   ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|dataBi[14]                             ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|dataAi[27]                             ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |spectrum_analyzer|i2s_receiver:i2s|l_data_int[22]                ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |spectrum_analyzer|fft:fft|butterfly:butterfly|x_v[0][11]         ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |spectrum_analyzer|fft:fft|butterfly:butterfly|x_v[1][5]          ;
+; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |spectrum_analyzer|plot_controller:plot|draw_line:line0|x_i[30]   ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|dataAi[12]                             ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|dataBi[19]                             ;
 ; 5:1                ; 9 bits    ; 27 LEs        ; 9 LEs                ; 18 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|counter_m[1]                           ;
 ; 5:1                ; 9 bits    ; 27 LEs        ; 18 LEs               ; 9 LEs                  ; Yes        ; |spectrum_analyzer|fft:fft|addrB[8]                               ;
-; 5:1                ; 15 bits   ; 45 LEs        ; 15 LEs               ; 30 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|general_ram_addr[3]                    ;
-; 6:1                ; 30 bits   ; 120 LEs       ; 30 LEs               ; 90 LEs                 ; Yes        ; |spectrum_analyzer|plot_controller:plot|draw_line:line3|err[3]    ;
-; 6:1                ; 30 bits   ; 120 LEs       ; 30 LEs               ; 90 LEs                 ; Yes        ; |spectrum_analyzer|plot_controller:plot|draw_line:line2|err[24]   ;
-; 6:1                ; 30 bits   ; 120 LEs       ; 30 LEs               ; 90 LEs                 ; Yes        ; |spectrum_analyzer|plot_controller:plot|draw_line:line1|err[15]   ;
-; 6:1                ; 30 bits   ; 120 LEs       ; 30 LEs               ; 90 LEs                 ; Yes        ; |spectrum_analyzer|plot_controller:plot|draw_line:line0|err[14]   ;
-; 8:1                ; 9 bits    ; 45 LEs        ; 9 LEs                ; 36 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|pair_counter[8]                        ;
+; 5:1                ; 15 bits   ; 45 LEs        ; 15 LEs               ; 30 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|general_ram_addr[2]                    ;
+; 6:1                ; 30 bits   ; 120 LEs       ; 30 LEs               ; 90 LEs                 ; Yes        ; |spectrum_analyzer|plot_controller:plot|draw_line:line0|err[30]   ;
+; 8:1                ; 9 bits    ; 45 LEs        ; 9 LEs                ; 36 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|pair_counter[0]                        ;
 ; 8:1                ; 7 bits    ; 35 LEs        ; 14 LEs               ; 21 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|addrA[7]                               ;
-; 14:1               ; 8 bits    ; 72 LEs        ; 16 LEs               ; 56 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|counter_n[5]                           ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; Yes        ; |spectrum_analyzer|fft:fft|butterfly:butterfly|y_v[1][9]          ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; Yes        ; |spectrum_analyzer|fft:fft|butterfly:butterfly|y_v[0][3]          ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |spectrum_analyzer|plot_controller:plot|draw_line:line3|x_i[31]   ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |spectrum_analyzer|plot_controller:plot|draw_line:line2|x_i[31]   ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |spectrum_analyzer|plot_controller:plot|draw_line:line1|x_i[0]    ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |spectrum_analyzer|plot_controller:plot|draw_line:line0|x_i[0]    ;
-; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |spectrum_analyzer|plot_controller:plot|y_wr[1]                   ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|counter_divider[3]                     ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |spectrum_analyzer|plot_controller:plot|draw_line:line3|err[31]   ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |spectrum_analyzer|plot_controller:plot|draw_line:line2|err[0]    ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |spectrum_analyzer|plot_controller:plot|draw_line:line1|err[31]   ;
+; 14:1               ; 8 bits    ; 72 LEs        ; 16 LEs               ; 56 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|counter_n[7]                           ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; Yes        ; |spectrum_analyzer|fft:fft|butterfly:butterfly|y_v[1][13]         ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; Yes        ; |spectrum_analyzer|fft:fft|butterfly:butterfly|y_v[0][0]          ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |spectrum_analyzer|plot_controller:plot|draw_line:line0|x_i[31]   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |spectrum_analyzer|plot_controller:plot|draw_line:line0|y_i[3]    ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |spectrum_analyzer|fft:fft|counter_divider[6]                     ;
 ; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |spectrum_analyzer|plot_controller:plot|draw_line:line0|err[31]   ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |spectrum_analyzer|plot_controller:plot|draw_line:line3|Add3      ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |spectrum_analyzer|plot_controller:plot|draw_line:line2|Add3      ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |spectrum_analyzer|plot_controller:plot|draw_line:line1|Add3      ;
 ; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |spectrum_analyzer|plot_controller:plot|draw_line:line0|Add3      ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |spectrum_analyzer|plot_controller:plot|red[1]                    ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |spectrum_analyzer|plot_controller:plot|red[0]                    ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |spectrum_analyzer|fft:fft|ShiftLeft0                             ;
 ; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; No         ; |spectrum_analyzer|fft:fft|ShiftLeft0                             ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |spectrum_analyzer|plot_controller:plot|green[0]                  ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; No         ; |spectrum_analyzer|fft:fft|block_shift_div2[7]                    ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |spectrum_analyzer|plot_controller:plot|green[1]                  ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; No         ; |spectrum_analyzer|fft:fft|block_shift_div2[6]                    ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; No         ; |spectrum_analyzer|fft:fft|block_shift_div2[3]                    ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |spectrum_analyzer|plot_controller:plot|blue[2]                   ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |spectrum_analyzer|plot_controller:plot|draw_line:line3|Selector4 ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |spectrum_analyzer|plot_controller:plot|draw_line:line2|Selector4 ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |spectrum_analyzer|plot_controller:plot|draw_line:line1|Selector4 ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |spectrum_analyzer|plot_controller:plot|blue[3]                   ;
 ; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |spectrum_analyzer|plot_controller:plot|draw_line:line0|Selector4 ;
-; 128:1              ; 22 bits   ; 1870 LEs      ; 1870 LEs             ; 0 LEs                  ; No         ; |spectrum_analyzer|fft:fft|Mux21                                  ;
-; 8:1                ; 7 bits    ; 35 LEs        ; 21 LEs               ; 14 LEs                 ; No         ; |spectrum_analyzer|fft:fft|Selector129                            ;
+; 128:1              ; 22 bits   ; 1870 LEs      ; 1870 LEs             ; 0 LEs                  ; No         ; |spectrum_analyzer|fft:fft|Mux8                                   ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 21 LEs               ; 14 LEs                 ; No         ; |spectrum_analyzer|fft:fft|Selector137                            ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |spectrum_analyzer|fft:fft|Selector136                            ;
 ; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; No         ; |spectrum_analyzer|fft:fft|Selector2                              ;
-; 9:1                ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |spectrum_analyzer|fft:fft|Selector9                              ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |spectrum_analyzer|fft:fft|Selector4                              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
 
 
@@ -2215,48 +2070,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "plot_controller:plot|draw_line:line3"                                                     ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port       ; Type   ; Severity ; Details                                                                             ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; y1[31..8]  ; Input  ; Info     ; Stuck at GND                                                                        ;
-; x2[31..10] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; y2[31..8]  ; Input  ; Info     ; Stuck at GND                                                                        ;
-; x[31..10]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; y[31..10]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; oe         ; Input  ; Info     ; Stuck at VCC                                                                        ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "plot_controller:plot|draw_line:line2"                                                     ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port       ; Type   ; Severity ; Details                                                                             ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; y1[31..8]  ; Input  ; Info     ; Stuck at GND                                                                        ;
-; x2[31..10] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; y2[31..8]  ; Input  ; Info     ; Stuck at GND                                                                        ;
-; x[31..10]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; y[31..10]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; oe         ; Input  ; Info     ; Stuck at VCC                                                                        ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "plot_controller:plot|draw_line:line1"                                                     ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port       ; Type   ; Severity ; Details                                                                             ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; y1[31..8]  ; Input  ; Info     ; Stuck at GND                                                                        ;
-; x2[31..10] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; y2[31..8]  ; Input  ; Info     ; Stuck at GND                                                                        ;
-; x[31..10]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; y[31..10]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; oe         ; Input  ; Info     ; Stuck at VCC                                                                        ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "plot_controller:plot|draw_line:line0"                                                     ;
 +------------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port       ; Type   ; Severity ; Details                                                                             ;
@@ -2267,6 +2080,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; x[31..10]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; y[31..10]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; oe         ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; done       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -2306,29 +2120,29 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 22                          ;
-; cycloneiii_ff         ; 4102                        ;
-;     ENA               ; 3737                        ;
+; cycloneiii_ff         ; 3586                        ;
+;     ENA               ; 3316                        ;
 ;     ENA SCLR          ; 17                          ;
 ;     ENA SLD           ; 112                         ;
-;     plain             ; 236                         ;
-; cycloneiii_lcell_comb ; 6165                        ;
-;     arith             ; 1768                        ;
+;     plain             ; 141                         ;
+; cycloneiii_lcell_comb ; 4656                        ;
+;     arith             ; 1105                        ;
 ;         1 data inputs ; 2                           ;
-;         2 data inputs ; 441                         ;
-;         3 data inputs ; 1325                        ;
-;     normal            ; 4397                        ;
+;         2 data inputs ; 345                         ;
+;         3 data inputs ; 758                         ;
+;     normal            ; 3551                        ;
 ;         0 data inputs ; 57                          ;
-;         1 data inputs ; 68                          ;
-;         2 data inputs ; 261                         ;
-;         3 data inputs ; 672                         ;
-;         4 data inputs ; 3339                        ;
+;         1 data inputs ; 44                          ;
+;         2 data inputs ; 202                         ;
+;         3 data inputs ; 473                         ;
+;         4 data inputs ; 2775                        ;
 ; cycloneiii_mac_mult   ; 7                           ;
 ; cycloneiii_mac_out    ; 7                           ;
 ; cycloneiii_pll        ; 1                           ;
 ; cycloneiii_ram_block  ; 128                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 49.30                       ;
-; Average LUT depth     ; 20.38                       ;
+; Average LUT depth     ; 23.24                       ;
 +-----------------------+-----------------------------+
 
 
@@ -2337,7 +2151,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:24     ;
+; Top            ; 00:00:21     ;
 +----------------+--------------+
 
 
@@ -2347,7 +2161,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Sat Nov 19 14:49:51 2022
+    Info: Processing started: Mon Nov 21 13:54:58 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off spectrum_analyzer -c spectrum_analyzer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -2543,142 +2357,144 @@ Info (12128): Elaborating entity "mux_b3b" for hierarchy "shift_reg:reg|altsyncr
 Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:vga" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 57
 Info (12128): Elaborating entity "plot_controller" for hierarchy "plot_controller:plot" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 61
 Warning (10540): VHDL Signal Declaration warning at plot_controller.vhd(45): used explicit default value for signal "aclr" because signal was never assigned a value File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 45
-Info (10041): Inferred latch for "new_fft_y[0]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
-Info (10041): Inferred latch for "new_fft_y[1]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
-Info (10041): Inferred latch for "new_fft_y[2]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
-Info (10041): Inferred latch for "new_fft_y[3]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
-Info (10041): Inferred latch for "new_fft_y[4]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
-Info (10041): Inferred latch for "new_fft_y[5]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
-Info (10041): Inferred latch for "new_fft_y[6]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
-Info (10041): Inferred latch for "new_fft_y[7]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
-Info (10041): Inferred latch for "y2[0]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[1]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[2]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[3]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[4]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[5]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[6]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[7]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[8]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[9]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[10]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[11]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[12]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[13]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[14]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[15]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[16]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[17]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[18]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[19]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[20]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[21]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[22]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[23]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[24]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[25]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[26]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[27]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[28]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[29]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[30]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "y2[31]" at plot_controller.vhd(161) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 161
-Info (10041): Inferred latch for "x2[0]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[1]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[2]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[3]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[4]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[5]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[6]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[7]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[8]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[9]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[10]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[11]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[12]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[13]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[14]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[15]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[16]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[17]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[18]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[19]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[20]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[21]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[22]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[23]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[24]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[25]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[26]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[27]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[28]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[29]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[30]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "x2[31]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
-Info (10041): Inferred latch for "y1[0]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[1]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[2]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[3]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[4]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[5]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[6]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[7]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[8]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[9]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[10]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[11]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[12]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[13]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[14]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[15]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[16]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[17]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[18]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[19]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[20]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[21]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[22]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[23]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[24]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[25]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[26]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[27]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[28]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[29]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[30]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "y1[31]" at plot_controller.vhd(158) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 158
-Info (10041): Inferred latch for "x1[0]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[1]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[2]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[3]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[4]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[5]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[6]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[7]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[8]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[9]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[10]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[11]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[12]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[13]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[14]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[15]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[16]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[17]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[18]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[19]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[20]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[21]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[22]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[23]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[24]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[25]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[26]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[27]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[28]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[29]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[30]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-Info (10041): Inferred latch for "x1[31]" at plot_controller.vhd(157) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
+Warning (10036): Verilog HDL or VHDL warning at plot_controller.vhd(54): object "line_select" assigned a value but never read File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 54
+Warning (10036): Verilog HDL or VHDL warning at plot_controller.vhd(59): object "line_select_out" assigned a value but never read File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 59
+Info (10041): Inferred latch for "new_fft_y[0]" at plot_controller.vhd(165) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 165
+Info (10041): Inferred latch for "new_fft_y[1]" at plot_controller.vhd(165) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 165
+Info (10041): Inferred latch for "new_fft_y[2]" at plot_controller.vhd(165) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 165
+Info (10041): Inferred latch for "new_fft_y[3]" at plot_controller.vhd(165) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 165
+Info (10041): Inferred latch for "new_fft_y[4]" at plot_controller.vhd(165) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 165
+Info (10041): Inferred latch for "new_fft_y[5]" at plot_controller.vhd(165) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 165
+Info (10041): Inferred latch for "new_fft_y[6]" at plot_controller.vhd(165) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 165
+Info (10041): Inferred latch for "new_fft_y[7]" at plot_controller.vhd(165) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 165
+Info (10041): Inferred latch for "y2[0]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[1]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[2]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[3]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[4]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[5]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[6]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[7]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[8]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[9]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[10]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[11]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[12]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[13]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[14]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[15]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[16]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[17]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[18]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[19]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[20]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[21]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[22]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[23]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[24]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[25]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[26]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[27]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[28]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[29]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[30]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "y2[31]" at plot_controller.vhd(163) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 163
+Info (10041): Inferred latch for "x2[0]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[1]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[2]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[3]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[4]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[5]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[6]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[7]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[8]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[9]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[10]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[11]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[12]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[13]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[14]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[15]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[16]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[17]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[18]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[19]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[20]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[21]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[22]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[23]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[24]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[25]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[26]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[27]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[28]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[29]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[30]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "x2[31]" at plot_controller.vhd(162) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 162
+Info (10041): Inferred latch for "y1[0]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[1]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[2]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[3]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[4]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[5]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[6]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[7]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[8]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[9]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[10]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[11]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[12]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[13]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[14]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[15]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[16]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[17]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[18]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[19]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[20]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[21]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[22]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[23]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[24]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[25]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[26]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[27]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[28]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[29]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[30]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "y1[31]" at plot_controller.vhd(160) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 160
+Info (10041): Inferred latch for "x1[0]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[1]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[2]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[3]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[4]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[5]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[6]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[7]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[8]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[9]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[10]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[11]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[12]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[13]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[14]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[15]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[16]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[17]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[18]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[19]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[20]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[21]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[22]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[23]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[24]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[25]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[26]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[27]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[28]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[29]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[30]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+Info (10041): Inferred latch for "x1[31]" at plot_controller.vhd(159) File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
 Info (12128): Elaborating entity "plot_ram" for hierarchy "plot_controller:plot|plot_ram:plt_ram" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 73
 Info (12128): Elaborating entity "altsyncram" for hierarchy "plot_controller:plot|plot_ram:plt_ram|altsyncram:altsyncram_component" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_ram.vhd Line: 64
 Info (12130): Elaborated megafunction instantiation "plot_controller:plot|plot_ram:plt_ram|altsyncram:altsyncram_component" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_ram.vhd Line: 64
@@ -2806,8 +2622,8 @@ Info (12128): Elaborating entity "butterfly" for hierarchy "fft:fft|butterfly:bu
 Info (12128): Elaborating entity "vector_inverter" for hierarchy "fft:fft|vector_inverter:inverter" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 87
 Info (12128): Elaborating entity "i2s_receiver" for hierarchy "i2s_receiver:i2s" File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 100
 Info (278001): Inferred 15 megafunctions from design logic
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "plot_controller:plot|Mult0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 166
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "plot_controller:plot|Mult1" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 167
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "plot_controller:plot|Mult0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 168
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "plot_controller:plot|Mult1" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 169
     Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|Mult1" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 245
     Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|Mult2" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 245
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fft:fft|Mod1" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 244
@@ -2821,8 +2637,8 @@ Info (278001): Inferred 15 megafunctions from design logic
     Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|butterfly:butterfly|Mult2" File: /home/tomek/vhdl/spctr/spectrum_analyzer/butterfly.vhd Line: 102
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fft:fft|Mod0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 243
     Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "fft:fft|Mult0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/fft.vhd Line: 243
-Info (12130): Elaborated megafunction instantiation "plot_controller:plot|lpm_mult:Mult0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 166
-Info (12133): Instantiated megafunction "plot_controller:plot|lpm_mult:Mult0" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 166
+Info (12130): Elaborated megafunction instantiation "plot_controller:plot|lpm_mult:Mult0" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 168
+Info (12133): Instantiated megafunction "plot_controller:plot|lpm_mult:Mult0" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 168
     Info (12134): Parameter "LPM_WIDTHA" = "11"
     Info (12134): Parameter "LPM_WIDTHB" = "11"
     Info (12134): Parameter "LPM_WIDTHP" = "22"
@@ -2842,8 +2658,8 @@ Info (12131): Elaborated megafunction instantiation "plot_controller:plot|lpm_mu
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_9vg.tdf
     Info (12023): Found entity 1: add_sub_9vg File: /home/tomek/vhdl/spctr/spectrum_analyzer/db/add_sub_9vg.tdf Line: 23
 Info (12131): Elaborated megafunction instantiation "plot_controller:plot|lpm_mult:Mult0|altshift:external_latency_ffs", which is child of megafunction instantiation "plot_controller:plot|lpm_mult:Mult0" File: /home/tomek/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 352
-Info (12130): Elaborated megafunction instantiation "plot_controller:plot|lpm_mult:Mult1" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 167
-Info (12133): Instantiated megafunction "plot_controller:plot|lpm_mult:Mult1" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 167
+Info (12130): Elaborated megafunction instantiation "plot_controller:plot|lpm_mult:Mult1" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 169
+Info (12133): Instantiated megafunction "plot_controller:plot|lpm_mult:Mult1" with the following parameter: File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 169
     Info (12134): Parameter "LPM_WIDTHA" = "9"
     Info (12134): Parameter "LPM_WIDTHB" = "10"
     Info (12134): Parameter "LPM_WIDTHP" = "19"
@@ -2970,45 +2786,45 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/mult
 Info (13014): Ignored 20 buffer(s)
     Info (13016): Ignored 20 CARRY_SUM buffer(s)
 Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
-    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[11]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[12]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[13]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[14]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[15]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[16]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[17]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[18]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[19]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[20]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[21]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[22]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[23]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[24]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[25]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[26]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[27]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[28]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[29]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
-    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[30]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 157
+    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[11]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[12]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[13]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[14]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[15]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[16]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[17]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[18]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[19]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[20]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[21]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[22]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[23]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[24]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[25]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[26]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[27]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[28]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[29]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
+    Info (13026): Duplicate LATCH primitive "plot_controller:plot|x1[30]" merged with LATCH primitive "plot_controller:plot|x1[31]" File: /home/tomek/vhdl/spctr/spectrum_analyzer/plot_controller.vhd Line: 159
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "mic_vcc" is stuck at VCC File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 14
     Warning (13410): Pin "mic_gnd" is stuck at GND File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 15
     Warning (13410): Pin "sel" is stuck at GND File: /home/tomek/vhdl/spctr/spectrum_analyzer/spectrum_analyzer.vhd Line: 17
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 38 registers lost all their fanouts during netlist optimizations.
+Info (17049): 35 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 9356 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 7752 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 19 output pins
-    Info (21061): Implemented 9192 logic cells
+    Info (21061): Implemented 7588 logic cells
     Info (21064): Implemented 128 RAM segments
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 13 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 12 warnings
-    Info: Peak virtual memory: 532 megabytes
-    Info: Processing ended: Sat Nov 19 14:50:30 2022
-    Info: Elapsed time: 00:00:39
-    Info: Total CPU time (on all processors): 00:00:55
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
+    Info: Peak virtual memory: 521 megabytes
+    Info: Processing ended: Mon Nov 21 13:55:36 2022
+    Info: Elapsed time: 00:00:38
+    Info: Total CPU time (on all processors): 00:00:53
 
 
