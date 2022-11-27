@@ -94,10 +94,7 @@ begin
     process(clk)
 
     variable adA, adB: integer := 0; 
-    -- variable dA, dB: cplx := (others => 0);
-    -- variable counter_n_inversed1, counter_n_inversed2: unsigned(LOG_N downto 0):= (others => '0');
     variable wait_counter: integer range 0 to 7 := 0;
-    -- variable column_counter: integer range 0 to 63 := 0;
     
     begin
         if rising_edge(clk) then
@@ -177,14 +174,7 @@ begin
                     end if;
 
                 when wait_for_ram =>
-
-                    if wait_counter = 6 then
-                        state_m <= next_state;
-                        wait_counter := 0;
-                   else
-                        state_m <= wait_for_ram;
-                        wait_counter := wait_counter + 1;
-                    end if;
+                    state_m <= next_state;
                     
 
                 when butterfly_step =>
@@ -211,7 +201,7 @@ begin
                     if counter_n >= N_DIV_2 then
                         general_ram_wren <= '0';
                         counter_n <= (others => '0');
-                        state_m <= clean;
+                        state_m <= idle;
                         column_counter <= column_counter + 1;
                     else
                         general_ram_wren <= '1';
@@ -219,14 +209,11 @@ begin
                         general_ram_addr <= std_logic_vector(to_unsigned(adA, general_ram_addr'length));
                         addrA <= std_logic_vector(counter_n + 1);
                         dA <= (to_integer(signed(dataAo(DOUBLE_WORD_WIDTH-1 downto WORD_WIDTH+2))), to_integer(signed(dataAo(WORD_WIDTH-1 downto 2))));
-                        state_m <= test;
+                        state_m <= wait_for_ram;
+                        next_state <= transform_end;
+                        counter_n <= counter_n + 1;
                     end if;
-
-                when test =>
-                    general_ram_data <= std_logic_vector(to_unsigned(new_data2, general_ram_data'length));
-                    state_m <= wait_for_ram;
-                    next_state <= transform_end;
-                    counter_n <= counter_n + 1;
+                    
 
                 when clean =>
                     state_m <= idle;
@@ -243,6 +230,8 @@ begin
     alpha <= (pair_counter mod (block_shift_div2)) * counter_divider/2 ;
     do_butterfly_step <= (pair_counter mod (block_shift)) < block_shift_div2;
     new_data2 <= ((dA(0) * dA(0)) + (dA(1) * dA(1)));
+    general_ram_data <= std_logic_vector(to_unsigned(new_data2, general_ram_data'length));
+
 
     triangle_function_0 <= 2*(TRIANGLE_N_DIV_2/(to_integer(counter_n_inversed1 + 1)));
     triangle_function_1 <= 2*(TRIANGLE_N_DIV_2/(N - to_integer(counter_n_inversed2)));
@@ -252,7 +241,6 @@ begin
 
     last_column <= column_counter;
     last_column_addr <= column_counter * N_DIV_2;
-    
 
     COLLECT_DATA: process(clk)
         variable temp: integer range -600 to 600 := 0;
