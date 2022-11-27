@@ -13,7 +13,9 @@ entity fft is
         done: out std_logic;
         -- res: out osignal_t;
         wr_en: in std_logic;
-        data_in: in std_logic_vector(23 downto 0);
+        fifoA_addr, fifoB_addr: out unsigned(LOG_N-1 downto 0);
+        fifoA_q, fifoB_q: in std_logic_vector(11 downto 0);
+        -- data_in: in std_logic_vector(23 downto 0);
         general_ram_addr: out std_logic_vector(14 downto 0);
         general_ram_data: out std_logic_vector(15 downto 0);
         general_ram_wren: out std_logic;
@@ -50,7 +52,7 @@ architecture rtl of fft is
     signal last_column_addr: integer := 0;
     signal fft_counter: integer range 0 to 255 := 0;
 
-    signal counter_n_inversed1, counter_n_inversed2: unsigned(LOG_N downto 0):= (others => '0');
+    signal counter_n_inversed1, counter_n_inversed2: unsigned(LOG_N-1 downto 0):= (others => '0');
     signal block_shift, block_shift_div2: integer range 0 to N := 0;
     signal do_butterfly_step: boolean := false;
     signal dA, dB: cplx := (others => 0);
@@ -58,6 +60,7 @@ architecture rtl of fft is
     signal triangle_function_0, triangle_function_1 : integer range 1 to N*2 := 1;
 
     signal next_fft_ctr: integer := 0;
+    signal fifoA_data, fifoB_data: integer := 0;
     
 begin
 
@@ -126,32 +129,37 @@ begin
                         state_m <= transform;
                     else
                         wr <= '1';
-                        addrA <= std_logic_vector(counter_n);
-                        addrB <= std_logic_vector(counter_n + 1);
-                        adA := to_integer(counter_n_inversed1);
-                        adB := to_integer(counter_n_inversed2);
-                        dataAi <= std_logic_vector(to_signed(data(adA)/triangle_function_0, WORD_WIDTH)) & std_logic_vector(to_unsigned(0, WORD_WIDTH));
-                        dataBi <= std_logic_vector(to_signed(data(adB)/triangle_function_1, WORD_WIDTH)) & std_logic_vector(to_unsigned(0, WORD_WIDTH));
-                        counter_n <= counter_n + 2;
+                        -- addrA <= std_logic_vector(counter_n);
+                        -- addrB <= std_logic_vector(counter_n + 1);
+                        -- adA := to_integer(counter_n_inversed1);
+                        -- adB := to_integer(counter_n_inversed2);
+                        -- dataAi <= std_logic_vector(to_signed(fifoA_data/triangle_function_0, WORD_WIDTH)) & std_logic_vector(to_unsigned(0, WORD_WIDTH));
+                        -- dataBi <= std_logic_vector(to_signed(fifoB_data/triangle_function_1, WORD_WIDTH)) & std_logic_vector(to_unsigned(0, WORD_WIDTH));
+                        -- counter_n <= counter_n + 2;
                         state_m <= wait_for_ram;
-                        next_state <= write_to_ram;
+                        next_state <= test;
                     end if;
+
+                when test =>
+                    wr <= '1';
+                    addrA <= std_logic_vector(counter_n);
+                    addrB <= std_logic_vector(counter_n + 1);
+                    dataAi <= std_logic_vector(to_signed(fifoA_data/triangle_function_0, WORD_WIDTH)) & std_logic_vector(to_unsigned(0, WORD_WIDTH));
+                    dataBi <= std_logic_vector(to_signed(fifoB_data/triangle_function_1, WORD_WIDTH)) & std_logic_vector(to_unsigned(0, WORD_WIDTH));
+                    state_m <= wait_for_ram;
+                    next_state <= write_to_ram;
+                    counter_n <= counter_n + 2;
 
                 when transform =>
                     wr <= '0';
                     if counter_n > isignal_t'high-1 then
                         if counter_m = LOG_N then
-                            if fft_counter = 0 then
-                                fft_counter <= 0;
-                                state_m <= wait_for_ram;
-                                next_state <= transform_end;
-                                addrA <= (others => '0');
-                                general_ram_addr <= (others => '0');
-                                counter_n <= (others => '0');  
-                            else
-                                fft_counter <= fft_counter + 1;
-                                state_m <= idle;
-                            end if;
+                            fft_counter <= 0;
+                            state_m <= wait_for_ram;
+                            next_state <= transform_end;
+                            addrA <= (others => '0');
+                            general_ram_addr <= (others => '0');
+                            counter_n <= (others => '0');  
 
                         else
                             counter_m <= counter_m + 1;
@@ -242,30 +250,35 @@ begin
     last_column <= column_counter;
     last_column_addr <= column_counter * N_DIV_2;
 
-    COLLECT_DATA: process(clk)
-        variable temp: integer range -600 to 600 := 0;
-        type queue_state is (idle, write_to_array);
-        variable queue_s: queue_state := write_to_array;
-    begin
-        if rising_edge(clk) then
-            case queue_s is
-                when idle =>
-                    if wr_en = '0' then
-                        queue_s := write_to_array;
-                    end if;
-                when write_to_array =>
-                    if wr_en = '1' then
-                        temp :=(to_integer(signed(data_in(23 downto 10))) + 427)/4 ;
-                        data <= temp & data(0 to data'high-1);
-                        queue_s := idle;
-                    end if;
+    fifoA_data <= to_integer(signed(fifoA_q));
+    fifoB_data <= to_integer(signed(fifoB_q));
+    fifoA_addr <= counter_n_inversed1;
+    fifoB_addr <= counter_n_inversed2;
+
+    -- COLLECT_DATA: process(clk)
+    --     variable temp: integer range -600 to 600 := 0;
+    --     type queue_state is (idle, write_to_array);
+    --     variable queue_s: queue_state := write_to_array;
+    -- begin
+    --     if rising_edge(clk) then
+    --         case queue_s is
+    --             when idle =>
+    --                 if wr_en = '0' then
+    --                     queue_s := write_to_array;
+    --                 end if;
+    --             when write_to_array =>
+    --                 if wr_en = '1' then
+    --                     temp :=(to_integer(signed(data_in(23 downto 10))) + 427)/4 ;
+    --                     data <= temp & data(0 to data'high-1);
+    --                     queue_s := idle;
+    --                 end if;
             
-                when others =>
+    --             when others =>
                     
             
-            end case;
+    --         end case;
 
-        end if;
-    end process;
+    --     end if;
+    -- end process;
     
 end architecture rtl;

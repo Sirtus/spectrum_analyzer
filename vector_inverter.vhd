@@ -7,7 +7,7 @@ use work.common.all;
 entity vector_inverter is
     port (
         counter_n: in unsigned(WORD_LEN-1 downto 0);
-        counter_n_inversed1, counter_n_inversed2: out unsigned(LOG_N downto 0):= (others => '0')
+        counter_n_inversed1, counter_n_inversed2: out unsigned(LOG_N-1 downto 0):= (others => '0')
     );
 end entity vector_inverter;
 

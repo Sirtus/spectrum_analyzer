@@ -43,7 +43,11 @@ architecture arch of spectrum_analyzer is
     signal wrA, wrB: std_logic;
     
     signal last_column: integer;
-    
+    signal fifoA_addr_a, fifoA_addr_b, fifoB_addr_a, fifoB_addr_b: std_logic_vector(8 downto 0);
+    signal fifoA_q_a, fifoA_q_b, fifoB_q_a, fifoB_q_b: std_logic_vector(11 downto 0);
+    signal fifoA_data_a, fifoA_data_b, fifoB_data_a, fifoB_data_b: std_logic_vector(11 downto 0);
+    signal fifo_last_column: unsigned(LOG_N-1 downto 0) := (others => '0');
+    signal fifoA_calculated_column, fifoB_calculated_column: unsigned(LOG_N-1 downto 0) := (others => '0');
 
     begin 
 
@@ -64,8 +68,69 @@ architecture arch of spectrum_analyzer is
 
     
     fft: entity work.fft
-    port map(clk => clk,  do_fft => switch, done => done_f, wr_en => wr_en, data_in => l_data, last_column => last_column, general_ram_addr => addressB, general_ram_data => dataB, general_ram_wren => wrB);
+    port map(clk => clk,  do_fft => switch, done => done_f, wr_en => wr_en, 
+    last_column => last_column, general_ram_addr => addressB, general_ram_data => dataB, 
+    general_ram_wren => wrB, fifoA_addr => fifoA_calculated_column, fifoB_addr => fifoB_calculated_column,
+    fifoA_q => fifoA_q_b, fifoB_q => fifoB_q_b);
 
+    fifoA: entity work.fifo
+    port map(
+    address_a => fifoA_addr_a,
+    address_b => fifoA_addr_b,
+    clock => clk,
+    data_a => fifoA_data_a,
+    data_b => fifoA_data_b,
+    wren_a => '1',
+    wren_b => '0',
+    q_a => fifoA_q_a,
+    q_b => fifoA_q_b);
+
+    fifoB: entity work.fifo
+    port map(
+    address_a => fifoB_addr_a,
+    address_b => fifoB_addr_b,
+    clock => clk,
+    data_a => fifoB_data_a,
+    data_b => fifoB_data_b,
+    wren_a => '1',
+    wren_b => '0',
+    q_a => fifoB_q_a,
+    q_b => fifoB_q_b);
+
+    fifoB_addr_a <= fifoA_addr_a;
+    fifoB_data_a <= fifoA_data_a;
+    fifoA_addr_b <= '0' & std_logic_vector(fifoA_calculated_column + fifo_last_column);
+    fifoB_addr_b <= '0' & std_logic_vector(fifoB_calculated_column + fifo_last_column);
+
+    COLLECT_DATA: process(clk)
+    variable temp: integer range -600 to 600 := 0;
+    type queue_state is (idle, write_to_array);
+    variable queue_s: queue_state := write_to_array;
+    begin
+        if rising_edge(clk) then
+            case queue_s is
+                when idle =>
+                    if wr_en = '0' then
+                        queue_s := write_to_array;
+                    end if;
+                when write_to_array =>
+                    if wr_en = '1' then
+                        fifo_last_column <= fifo_last_column + 1;
+                        temp :=(to_integer(signed(l_data(23 downto 10))) + 427)/4 ;
+                        fifoA_data_a <= std_logic_vector(to_signed(temp, fifoA_data_a'length));
+                        fifoA_addr_a <= '0' & std_logic_vector(fifo_last_column);
+                        queue_s := idle;
+                    end if;
+            
+                when others =>
+                    
+            
+            end case;
+
+        end if;
+    end process;
+
+    
 
     -- process(clk)
     -- variable pixel_addr: unsigned(13 downto 0) := (others => '0'); 
