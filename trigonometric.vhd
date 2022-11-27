@@ -201,14 +201,5 @@ package body trigonometric is
                         x01  := 157 - x01;
                     end if;
                     return x01;
-                    -- y := x01 - (x01**3)/60000;
-                    -- tmp := x01**3/12000;
-                    -- tmp := (tmp * (x01**2))/1000;
-                    -- y := y + tmp/1000;
-                        
-                    -- if div mod 4 = 2 or div mod 4 = 3 then
-                    --     y := y * (-1);
-                    -- end if;
-                    -- return y;
                 end function;
 end package body;

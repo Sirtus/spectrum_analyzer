@@ -29,7 +29,7 @@ architecture rtl of fft is
     constant TRIANGLE_N: integer := 256;
     constant TRIANGLE_N_DIV_2: integer := TRIANGLE_N/2;
     
-    type state_t is (idle, write_to_ram, transform, clean, save_data, wait_for_ram, butterfly_step, transform_end, test);
+    type state_t is (idle, read_signal, save_signal, transform, clean, save_data, wait_for_ram, butterfly, transform_end, test);
     signal state_m, next_state: state_t := idle;
     signal dataAi, dataBi, dataAo, dataBo: std_logic_vector(DOUBLE_WORD_WIDTH-1 downto 0) := (others => '0');
     signal Sa, Sb: cplx := (others => 0);
@@ -77,7 +77,7 @@ begin
         q_b => dataBo
     );
 
-    butterfly: entity work.butterfly
+    butterfly_struct: entity work.butterfly
     port map(
         clk => clk, 
         transform => do_btfly_step,
@@ -106,7 +106,7 @@ begin
                     done <= '0';
                     if do_fft = '1' then
                         if next_fft_ctr = 100000 then
-                            state_m <= write_to_ram;
+                            state_m <= read_signal;
                             counter_m <= 1;
                             counter_n <= (others => '0');
                             counter_divider <= N;
@@ -120,7 +120,7 @@ begin
                         state_m <= idle;
                     end if;
 
-                when write_to_ram =>
+                when read_signal =>
                     if counter_n > N-1 then
                         counter_n <= (others => '0');
                         wr <= '0';
@@ -129,25 +129,18 @@ begin
                         state_m <= transform;
                     else
                         wr <= '1';
-                        -- addrA <= std_logic_vector(counter_n);
-                        -- addrB <= std_logic_vector(counter_n + 1);
-                        -- adA := to_integer(counter_n_inversed1);
-                        -- adB := to_integer(counter_n_inversed2);
-                        -- dataAi <= std_logic_vector(to_signed(fifoA_data/triangle_function_0, WORD_WIDTH)) & std_logic_vector(to_unsigned(0, WORD_WIDTH));
-                        -- dataBi <= std_logic_vector(to_signed(fifoB_data/triangle_function_1, WORD_WIDTH)) & std_logic_vector(to_unsigned(0, WORD_WIDTH));
-                        -- counter_n <= counter_n + 2;
                         state_m <= wait_for_ram;
-                        next_state <= test;
+                        next_state <= save_signal;
                     end if;
 
-                when test =>
+                when save_signal =>
                     wr <= '1';
                     addrA <= std_logic_vector(counter_n);
                     addrB <= std_logic_vector(counter_n + 1);
                     dataAi <= std_logic_vector(to_signed(fifoA_data/triangle_function_0, WORD_WIDTH)) & std_logic_vector(to_unsigned(0, WORD_WIDTH));
                     dataBi <= std_logic_vector(to_signed(fifoB_data/triangle_function_1, WORD_WIDTH)) & std_logic_vector(to_unsigned(0, WORD_WIDTH));
                     state_m <= wait_for_ram;
-                    next_state <= write_to_ram;
+                    next_state <= read_signal;
                     counter_n <= counter_n + 2;
 
                 when transform =>
@@ -175,7 +168,7 @@ begin
                             addrA <= std_logic_vector(to_unsigned(adA, addrA'length));
                             addrB <= std_logic_vector(to_unsigned(adB, addrB'length)); 
                             state_m <= wait_for_ram;
-                            next_state <= butterfly_step;
+                            next_state <= butterfly;
                         else
                             pair_counter <= pair_counter + 1;
                         end if;
@@ -185,7 +178,7 @@ begin
                     state_m <= next_state;
                     
 
-                when butterfly_step =>
+                when butterfly =>
                     state_m <= save_data;
                     do_btfly_step <= '1';
 
@@ -254,31 +247,5 @@ begin
     fifoB_data <= to_integer(signed(fifoB_q));
     fifoA_addr <= counter_n_inversed1;
     fifoB_addr <= counter_n_inversed2;
-
-    -- COLLECT_DATA: process(clk)
-    --     variable temp: integer range -600 to 600 := 0;
-    --     type queue_state is (idle, write_to_array);
-    --     variable queue_s: queue_state := write_to_array;
-    -- begin
-    --     if rising_edge(clk) then
-    --         case queue_s is
-    --             when idle =>
-    --                 if wr_en = '0' then
-    --                     queue_s := write_to_array;
-    --                 end if;
-    --             when write_to_array =>
-    --                 if wr_en = '1' then
-    --                     temp :=(to_integer(signed(data_in(23 downto 10))) + 427)/4 ;
-    --                     data <= temp & data(0 to data'high-1);
-    --                     queue_s := idle;
-    --                 end if;
-            
-    --             when others =>
-                    
-            
-    --         end case;
-
-    --     end if;
-    -- end process;
     
 end architecture rtl;

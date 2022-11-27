@@ -1,5 +1,4 @@
 library IEEE;
-library work;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 use work.common.all;
@@ -102,65 +101,16 @@ architecture arch of spectrum_analyzer is
     fifoA_addr_b <= '0' & std_logic_vector(fifoA_calculated_column + fifo_last_column);
     fifoB_addr_b <= '0' & std_logic_vector(fifoB_calculated_column + fifo_last_column);
 
-    COLLECT_DATA: process(clk)
-    variable temp: integer range -600 to 600 := 0;
-    type queue_state is (idle, write_to_array);
-    variable queue_s: queue_state := write_to_array;
-    begin
-        if rising_edge(clk) then
-            case queue_s is
-                when idle =>
-                    if wr_en = '0' then
-                        queue_s := write_to_array;
-                    end if;
-                when write_to_array =>
-                    if wr_en = '1' then
-                        fifo_last_column <= fifo_last_column + 1;
-                        temp :=(to_integer(signed(l_data(23 downto 10))) + 427)/4 ;
-                        fifoA_data_a <= std_logic_vector(to_signed(temp, fifoA_data_a'length));
-                        fifoA_addr_a <= '0' & std_logic_vector(fifo_last_column);
-                        queue_s := idle;
-                    end if;
-            
-                when others =>
-                    
-            
-            end case;
+    i2s_queue: entity work.queue 
+    port map (
+        clk => clk,
+        wr_en => wr_en,
+        data_in => l_data,
+        fifoA_addr_a => fifoA_addr_a,
+        fifoA_data_a => fifoA_data_a,
+        fifo_last_column => fifo_last_column
+    );
 
-        end if;
-    end process;
-
-    
-
-    -- process(clk)
-    -- variable pixel_addr: unsigned(13 downto 0) := (others => '0'); 
-    -- variable current_column: integer range 0 to 127 := 0;
-    -- variable col_x, row_y: integer range 0 to 127 := 0;
-    -- begin
-    --     if rising_edge(clk) then
-    --         if pixel_y <= 512 and pixel_x <= 128 then
-    --             if pixel_x = 0 and pixel_y mod 8 = 0 then
-    --                 row_y := row_y + 1;
-    --             end if;
-    --             col_y <= (current_column * N_DIV_2) + row_y;
-    --             pixel_addr := to_unsigned(col_y, addressA'length);
-    --             current_column := (last_column + col_x);
-    --             addressA <= std_logic_vector(pixel_addr);
-    --             data_pixel <= qA;
-    --             if pixel_x mod 4 = 0 then
-    --                 col_x := col_x + 1;
-    --             end if;
-    --         else
-    --             col_x := 0;
-    --             data_pixel <= (others => '0');
-    --             if pixel_y >= 512 then
-    --                 row_y := 0;
-    --             end if;
-    --         end if;
-    --     end if;
-    -- end process;
-
-    -- do_fft <= '1'; --switch;
 
     i2s: entity work.i2s_receiver
     port map(sclk => mclk, ws => ws, d_rx => din, l_data => l_data, r_data => r_data, sel => sel,

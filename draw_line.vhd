@@ -45,8 +45,6 @@ begin
             movy <= '0';
         end if;
         
-        -- movx <= '1' when (2*err >= dy) else '0';
-        -- movy <= '1' when (2*err <= dx) else '0' ; 
     end process;
 
     process(swap, x1, x2, y1, y2)
