@@ -62,7 +62,7 @@ architecture arch of spectrum_analyzer is
     port map( clk => clk, video_on => video_on, pixel_x => pixel_x, pixel_y => pixel_y,
               h_sync => h_sync, v_sync => v_sync);
 
-    plot: entity work.plot_controller
+    chart: entity work.chart_controller
     port map(clk => clk, video_on => video_on, pixel_x => pixel_x, pixel_y => pixel_y, 
              red => red, green => green, blue => blue, last_column => last_column, addressA => addressA, qA => qA);
 
