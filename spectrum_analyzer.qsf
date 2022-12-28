@@ -54,11 +54,6 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_symbol
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_signal_integrity
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
-set_global_assignment -name VHDL_FILE spectrum_analyzer.vhd
-set_global_assignment -name VHDL_FILE common.vhd
-set_global_assignment -name VHDL_FILE fifo_queue.vhd
-set_global_assignment -name VHDL_FILE plot_controller.vhd
-set_global_assignment -name VHDL_FILE vga_controller.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
@@ -105,6 +100,29 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to mic_vcc
 set_location_assignment PIN_AA12 -to mic_vcc
 set_location_assignment PIN_AA11 -to mic_gnd
 set_global_assignment -name PROJECT_IP_REGENERATION_POLICY ALWAYS_REGENERATE_IP
+set_location_assignment PIN_C10 -to switch
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to switch
+set_global_assignment -name VHDL_FILE spectrum_analyzer.vhd
+set_global_assignment -name VHDL_FILE common.vhd
+set_global_assignment -name VHDL_FILE fifo_queue.vhd
+set_global_assignment -name VHDL_FILE plot_controller.vhd
+set_global_assignment -name VHDL_FILE vga_controller.vhd
+set_global_assignment -name VHDL_FILE trig_tb.vhd
+set_global_assignment -name VHDL_FILE trigonometric.vhd
+set_global_assignment -name VHDL_FILE sin_test.vhd
+set_global_assignment -name VHDL_FILE cos_test.vhd
+set_global_assignment -name VHDL_FILE ram.vhd
+set_global_assignment -name VHDL_FILE fft.vhd
+set_global_assignment -name VHDL_FILE butterfly.vhd
 set_global_assignment -name VHDL_FILE i2s_receiver.vhd
+set_global_assignment -name QIP_FILE ram_ip.qip
 set_global_assignment -name QIP_FILE bclk.qip
+set_global_assignment -name VHDL_FILE fft_tb2.vhd
+set_global_assignment -name QIP_FILE shift_reg.qip
+set_global_assignment -name SDC_FILE spectrum_analyzer.sdc
+set_global_assignment -name VHDL_FILE vector_inverter.vhd
+set_global_assignment -name QIP_FILE plot_ram.qip
+set_global_assignment -name VHDL_FILE draw_line.vhd
+set_global_assignment -name QIP_FILE fifo.qip
+set_global_assignment -name VHDL_FILE chart_controller.vhd
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -20,14 +20,14 @@ entity vga_controller is
         clk: in std_logic;
         h_sync, v_sync: out std_logic;
         video_on: out std_logic;
-        pixel_x, pixel_y: out integer
+        pixel_x, pixel_y: out integer range 0 to 2047
     );
 end entity vga_controller;
 
 architecture arch of vga_controller is
 
-    signal h_counter: integer := 0;
-    signal v_counter: integer := 0;
+    signal h_counter: integer range 0 to 2047 := 0;
+    signal v_counter: integer range 0 to 2047 := 0;
 
     
 begin
