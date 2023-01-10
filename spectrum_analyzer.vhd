@@ -27,8 +27,6 @@ architecture arch of spectrum_analyzer is
     signal pixel_x, pixel_y: integer range 0 to 2047 := 0;
     signal mclk: std_logic := '0';
     signal dd, l_data, r_data : std_logic_vector(23 downto 0);
-    signal do, do_i: isignal_t := (others => 0);
-    signal do_cos, do_next: osignal_t := (others => 0);
     signal wr_en, do_fft: std_logic := '1';
     signal do_i_cnt: integer := 0;
     signal data_pixel: std_logic_vector(15 downto 0) := (others => '0');
