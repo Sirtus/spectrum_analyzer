@@ -12,7 +12,7 @@ package trigonometric is
 
     -- 8
     -- constant sin_arr: trig_arr := (
-    --     -- 0, -90, -128, -90
+    --     0, -90, -128, -90
     -- );
 
     -- 512
@@ -74,7 +74,7 @@ package trigonometric is
 
     -- 8
     -- constant cos_arr: trig_arr := (
-    --     -- 128, 90, 0, -90
+    --     128, 90, 0, -90
     -- );
 
     -- 512

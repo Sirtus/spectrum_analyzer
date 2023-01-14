@@ -103,7 +103,7 @@ begin
     y1 <= new_fft_y when pixel_x = SINGLE_FFT_DELAY else y1 ;
 
     x2 <= upper_rect_x when pixel_x = SINGLE_FFT_DELAY else x2;
-    y2 <= to_integer(unsigned(data_pixel(15 downto 8))) when pixel_x = SINGLE_FFT_DELAY else y2;
+    y2 <= to_integer(unsigned(data_pixel(15 downto 4))) when pixel_x = SINGLE_FFT_DELAY else y2;
 
     new_fft_y <= y2 when pixel_x = SINGLE_FFT_DELAY + 50 else new_fft_y;
 

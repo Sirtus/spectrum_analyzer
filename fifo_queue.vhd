@@ -41,7 +41,8 @@ begin
                         last_column <= last_column + 1;
                         temp :=(to_integer(signed(data_in(23 downto 10))) + 427)/4 ;
                         ram_data <= std_logic_vector(to_signed(temp, ram_data'length));
-                        ram_address <= '0' & std_logic_vector(last_column);
+                        -- ram_address <= '0' & "0"  & std_logic_vector(last_column);
+                        ram_address <= '0'  & std_logic_vector(last_column);
                         queue_s := idle;
                     end if;
             

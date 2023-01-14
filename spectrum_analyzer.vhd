@@ -96,6 +96,8 @@ architecture arch of spectrum_analyzer is
 
     fifoB_addr_a <= fifoA_addr_a;
     fifoB_data_a <= fifoA_data_a;
+    -- fifoA_addr_b <= '0' & "0"  & std_logic_vector(fifoA_calculated_column + fifo_last_column);
+    -- fifoB_addr_b <= '0' & "0" & std_logic_vector(fifoB_calculated_column + fifo_last_column);
     fifoA_addr_b <= '0' & std_logic_vector(fifoA_calculated_column + fifo_last_column);
     fifoB_addr_b <= '0' & std_logic_vector(fifoB_calculated_column + fifo_last_column);
 
